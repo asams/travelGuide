@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`countries` (
   `country_map` varchar(50) NOT NULL default 'default_map.jpg'
   `flag` varchar(50) NOT NULL default 'default_flag.jpg',
   `coat_of_arms` varchar(50) NOT NULL default 'default_coa.jpg',
-  `website` varchar(50) NOT NULL default '',
+  `website` varchar(100) NOT NULL default '',
   
   PRIMARY KEY ('country_id')
 );
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`cities` (
   `city_map` varchar(50) NOT NULL default 'default_city_map.jpg',
   `flag` varchar(50) NOT NULL default 'default_city_flag.jpg',
   `coat_of_arms` varchar(50) NOT NULL default 'default_city_coa.jpg',
-  `website` varchar(50) NOT NULL default '',
+  `website` varchar(100) NOT NULL default '',
 
   PRIMARY KEY (`city_id`)
 ); 
@@ -77,10 +77,18 @@ INSERT INTO `traveldb`.`cities` (`name`, `country_id`,  ) VALUES
 
 CREATE TABLE IF NOT EXISTS `traveldb`.`attractions` (
   `attraction_id` smallint(6) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `city_id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL default '',
+  `city_id` smallint(6) NOT NULL default '0',
+  `type` enum('museum', 'monument', 'natural landmark', 'religious building', 'palace or castle', 'garden or park', 'other') NOT NULL default 'other',
+  `description` blob NOT NULL default '',
+  `address` varchar(100) NOT NULL default '',
+  `hours_of_operation` blob NOT NULL default '',
+  `entrance_price` enum('Y', 'N') NOT NULL default 'Y',
+  `website` varchar(100) NOT NULL default '',
+  `picture` varchar(50) NOT NULL default 'default_attraction_pic.jpg',
+  
 
-  PRIMARY KEY (`city_id`)
+  PRIMARY KEY (`attraction_id`)
 ); 
 
 --
