@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`attractions` (
   `attraction_id` smallint(6) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL default '',
   `city_id` smallint(6) NOT NULL default '0',
-  `type` enum('museum', 'monument', 'natural landmark', 'religious building', 'palace or castle', 'garden or park', 'other') NOT NULL default 'other',
+  `attraction_type` enum('museum', 'monument', 'natural landmark', 'religious building', 'palace or castle', 'garden or park', 'other') NOT NULL default 'other',
   `description` blob NOT NULL default '',
   `address` varchar(100) NOT NULL default '',
   `hours_of_operation` blob NOT NULL default '',
