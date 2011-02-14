@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`countries` (
   `currency` varchar(50) NOT NULL default '',
   `population` int(11) NOT NULL default '0',
   `area` int(11) NOT NULL default '0',
-  `language` varchar(50) NOT NULL default '',
+  `official_language` varchar(50) NOT NULL default '',
   `religion` varchar (50) NOT NULL default '',
   `country_map` varchar(50) NOT NULL default 'default_map.jpg'
   `flag` varchar(50) NOT NULL default 'default_flag.jpg',
