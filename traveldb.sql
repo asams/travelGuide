@@ -42,13 +42,19 @@ INSERT INTO `traveldb`.`countries` (`name`, ) VALUES
 
 
 --
--- Table structure for table `Users`
+-- Table structure for table `cities`
 --
 
 CREATE TABLE IF NOT EXISTS `traveldb`.`cities` (
   `city_id` smallint(6) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `country_id` smallint(6) NOT NULL,
+  `name` varchar(50) NOT NULL default '',
+  `country_id` smallint(6) NOT NULL default '0',
+  `region` varchar(50) NOT NULL default '',
+  `population` int(11) NOT NULL default '0',
+  `map` varchar(50) NOT NULL default 'default_city_map.jpg',
+  `flag` varchar(50) NOT NULL default 'default_city_flag.jpg',
+  `coat_of_arms` varchar(50) NOT NULL default 'default_city_coa.jpg',
+  `website` varchar(50) NOT NULL default '',
 
   PRIMARY KEY (`city_id`)
 ); 
