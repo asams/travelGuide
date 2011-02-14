@@ -13,7 +13,18 @@ USE traveldb;
 
 CREATE TABLE IF NOT EXISTS `traveldb`.`countries` (
   `country_id` smallint(6) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL default '',
+  `capital` varchar(50) NOT NULL default '',
+  `government` varchar(50) NOT NULL default '',
+  `currency` varchar(50) NOT NULL default '',
+  `population` int(11) NOT NULL default '0',
+  `area` int(11) NOT NULL default '0',
+  `language` varchar(50) NOT NULL default '',
+  `religion` varchar (50) NOT NULL default '',
+  `country_map` varchar(50) NOT NULL default 'default_map.jpg'
+  `flag` varchar(50) NOT NULL default 'default_flag.jpg',
+  `coat_of_arms` varchar(50) NOT NULL default 'default_coa.jpg',
+  `website` varchar(50) NOT NULL default '',
   
   PRIMARY KEY ('country_id')
 );
