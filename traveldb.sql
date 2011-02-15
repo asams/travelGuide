@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`countries` (
   `flag` varchar(50) NOT NULL default 'default_flag.jpg',
   `coat_of_arms` varchar(50) NOT NULL default 'default_coa.jpg',
   `website` varchar(100) NOT NULL default '',
-  PRIMARY KEY ('country_id')
+  PRIMARY KEY (`country_id`)
 );
 
 --
@@ -33,7 +33,12 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`countries` (
 --
 
 INSERT INTO `traveldb`.`countries` (`name`, `capital`, `government`, `currency`,  `population`, `area`, `official_language`, `religion`, `country_map`, `flag`, `coat_of_arms`, `website`) VALUES
+('England', 'London', 'constitutional monarchy', 'pound sterling',  51446000, 130395, 'English', 'Christianity', 'england_map.jpg', 'england_flag.bmp', 'england_coa.bmp'),
+('Mexico', 'Mexico City', 'constitutional republic', 'peso',  112322757, 1972550, 'Spanish', 'Roman Catholicism', 'mexico_map.bmp', 'mexico_flag.bmp', 'mexico_coa.bmp')
 
+
+
+;
 
 
 
@@ -62,8 +67,9 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`cities` (
 --
 
 INSERT INTO `traveldb`.`cities` (`name`, `country_id`, `region`, `population`, `city_map`, `flag`, `coat_of_arms`,  `website` ) VALUES 
+('London', 1, 'London', 7556900, 'london_map.jpg', NULL, NULL, 'http://www.cityoflondon.gov.uk' )
 
-
+;
 
 -- --------------------------------------------------------
 
@@ -91,6 +97,9 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`attractions` (
 -- Dumping data for table `attractions`
 --
 
-INSERT INTO `traveldb`.`attractions` (`name`, `city_id`,   `attraction_type`, `description`, `address`, `hours_of_operation`, `entrance_price`,   `website`,  `picture`) VALUES 
+INSERT INTO `traveldb`.`attractions` (`name`, `city_id`, `attraction_type`, `description`, `address`, `hours_of_operation`, `entrance_price`, `website`, `picture`) VALUES 
+('London Eye', 1, 'other', 'It is a giant 135-metre (443 ft) tall Ferris wheel situated on the banks of the River Thames in the British capital.  It is the tallest Ferris wheel in Europe and the most popular paid tourist attraction in the United Kingdom.', 'Riverside Building, County Hall, Westminster Bridge Road, London SE1 7PB', 'Winter Oct-May: 10.00am - 8.00pm Daily. Summer: June - September 10.00am - 9.00pm Daily.
+Closed Christmas Day', 'Y', 'http://www.londoneye.com',  'LondonEye1.jpg')
 
+;
 
