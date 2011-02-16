@@ -41,7 +41,7 @@ INSERT INTO `traveldb`.`countries` (`name`, `capital`, `government`, `currency`,
 ;
 
 INSERT INTO `traveldb`.`countries` (`name`, `capital`, `government`, `currency`,  `population`, `area`, `official_language`, `religion`, `country_map`, `flag`, `coat_of_arms`, `website`) VALUES
-('People''s Republic of China',	'Beijing', 'single party-led state', 'Chinese yuan', '1,338,612,968', '9,640,821 km2', 'Putonghua', 'n/a', 'china_map.png', 'china_flag.png', 'china_emblem.png', 'n/a');
+('People''s Republic of China',	'Beijing', 'single party-led state', 'Chinese yuan', 1338612968, 9640821, 'Putonghua', 'Buddhism, Taoism', 'china_map.png', 'china_flag.png', 'china_emblem.png', 'n/a');
 
 
 -- --------------------------------------------------------
@@ -74,7 +74,7 @@ INSERT INTO `traveldb`.`cities` (`name`, `country_id`, `region`, `population`, `
 ;
 
 INSERT INTO `traveldb`.`cities` (`name`, `country_id`, `region`, `population`, `city_map`, `flag`, `coat_of_arms`,  `website` ) VALUES
-('Beijing',	'4', 'northern china', '22,000,000', 'beijing_map.jpg',	'n/a',	'n/a', 'www.beijing.gov.cn');
+('Beijing',	4, 'northern china', 22000000, 'beijing_map.jpg',	'n/a',	'n/a', 'www.beijing.gov.cn');
 
 -- --------------------------------------------------------
 
@@ -109,5 +109,5 @@ Closed Christmas Day', 'Y', 'http://www.londoneye.com',  'LondonEye1.jpg')
 ;
 
 INSERT INTO `traveldb`.`attractions` (`name`, `city_id`, `attraction_type`, `description`, `address`, `hours_of_operation`, `entrance_price`, `website`, `picture`) VALUES 
-('Great Wall of China', '4', 'other', 'The Great Wall of China is a combination of stone and earthen fortifications located in northern China that was originally built to protect the Chinese Empire''s northern borders from invasion.', 'Common tourist sites in Beijing, but it stretches from Shanhaiguan in the east, to Lop Nur in the west', 'varies by wall section', 'varies by wall section,'	'n/a', 'great_wall.jpg');
+('Great Wall of China', 4, 'other', 'The Great Wall of China is a combination of stone and earthen fortifications located in northern China that was originally built to protect the Chinese Empire''s northern borders from invasion.', 'Common tourist sites in Beijing, but it stretches from Shanhaiguan in the east, to Lop Nur in the west', 'varies by wall section', 'varies by wall section,' 'n/a', 'great_wall.jpg');
 
