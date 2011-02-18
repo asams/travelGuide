@@ -1,0 +1,149 @@
+body {
+background-image : url(picks/bg.jpg); 
+//background-repeat : repeat-x; 
+//line-height : 90%; 
+//margin-top : 0; 
+//background-color : #fff; 
+//color : #fff; 
+} 
+.container {
+width : 85%; 
+border : 0 solid gray; 
+margin-top : 10px; 
+margin-left : auto; 
+margin-right : auto; 
+background-color : #ffffff; 
+} 
+#banner {
+width : 100%; 
+height : 325px; 
+background-image : url(picks/1.jpg); 
+} 
+.banner-text {
+width : 335px; 
+height : 20px; 
+margin-top : 2.5em !important; 
+margin-top : 1.9em; 
+margin-left : 0.4em; 
+font-family : Georgia, Times, geneva, arial; 
+letter-spacing : 2px; 
+color : #b8d3ce; 
+font-size : 20px; 
+font-weight : bold; 
+} 
+.logo-1 {
+width : 40px; 
+height : 40px; 
+margin : 0.1em 0 0 0.1em; 
+padding-top : 20px; 
+font-family : Georgia, Times, geneva, arial; 
+color : #d1b38d; 
+font-size : 58px; 
+font-weight : bold; 
+} 
+.logo-2 {
+width : 35px; 
+height : 35px; 
+margin-top : -1.2em !important; 
+margin-top : -1.4em; 
+margin-left : 0.6em; 
+padding-top : 20px; 
+border : 0 solid #000; 
+font-family : Georgia, Times, geneva, arial; 
+color : #000; 
+font-size : 40px; 
+font-weight : bold; 
+} 
+.logo-3 {
+width : 35px; 
+height : 35px; 
+margin-top : -1.6em !important; 
+margin-top : -1.8em; 
+margin-left : 1.6em; 
+padding-top : 20px; 
+font-family : Georgia, Times, geneva, arial; 
+color : #5e5f57; 
+font-size : 30px; 
+font-weight : bold; 
+} 
+.content {
+height : 350px; 
+//background-image : url(picks/corner.jpg); 
+background-repeat : no-repeat; 
+background-position : bottom right; 
+padding : 10px; 
+margin : 9px 0 0 140px; 
+font-family : geneva, arial; 
+color : #000; 
+font-size : 10px; 
+font-weight : bold; 
+letter-spacing : 2px; 
+border : 0 solid #e0dfdd; 
+} 
+img.right {
+float : right; 
+padding : 0; 
+margin-right : 6px; 
+border : 1px solid #547fa9; 
+} 
+#left {
+float : left; 
+width : 147px; 
+margin : 0 1px 0 0; 
+background-color : #fafce4; 
+} 
+.nav-box {
+background: url(picks/globe.png) #fff center;
+float : left; 
+width : 140px; 
+height : 65px; 
+margin : 0.2em 0 0 0.05em; 
+border : 1.5px solid #0000A0; 
+background-color : #ffffff; 
+} 
+.s1 {
+float : left; 
+width : 4px; 
+height : 65px; 
+margin-left : 0.01em; 
+background-color : #b8a07a; 
+} 
+.s2 {
+float : left; 
+width : 4px; 
+height : 65px; 
+margin-left : 0.05em; 
+background-color : #6ca2be; 
+} 
+.nav-box-text {
+width : 100px; 
+height : 35px; 
+margin-top : 1em; 
+margin-left : 1.5em; 
+background-color : #fefdfb; 
+} 
+h1 {
+font-size : 3em; 
+color : #4b5658; 
+margin-top : 5px; 
+padding : 1px; 
+border : 0 outset #95b7d0; 
+font-family : "times", verdana, arial, sans-serif, engravers mt bold; 
+} 
+a:hover {
+color : #6ca2be; 
+text-decoration : none; 
+} 
+a {
+color : #b8a07a; 
+text-decoration : none; 
+} 
+hr {
+margin-top : 2.9em !important; 
+margin-top : 1.8em; 
+width : 500px; 
+} 
+.bottom {
+margin-top : 1.5em; 
+margin-left : 8.5em; 
+}

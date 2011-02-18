@@ -14,7 +14,7 @@
 <link rel="alternate" type="application/atom+xml" title="<?php printf(__('%s Atom Feed', 'kubrick'), get_bloginfo('name')); ?>" href="<?php bloginfo('atom_url'); ?>" /> 
 
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-<?php wp_head(); ?>
+<?php //wp_head(); ?>
 </head>
 <body>
 <div class="PageBackgroundGlare">
