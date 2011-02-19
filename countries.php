@@ -27,7 +27,7 @@
 <div class="s2">
 </div>
 <div class="nav-box-text">
-<span style="font-family:geneva,arial;font-color:#000;font-size:14px;font-weight:bold;padding-left:1px;"><a href="#">ABOUT US</a></span>
+<span style="font-family:geneva,arial;font-color:#000;font-size:14px;font-weight:bold;padding-left:1px;"><a href="aboutUs.html">ABOUT US</a></span>
 <br />
 <span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold; font-style: italic;
  letter-spacing: 2px;
@@ -40,7 +40,7 @@
 <div class="s2">
 </div>
 <div class="nav-box-text">
-<span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="#">COUNTRIES</a></span>
+<span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="countries.php">COUNTRIES</a></span>
 <br />
 <span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  letter-spacing: 2px;
  padding-left:1px;">Total: 10</span>
@@ -52,7 +52,7 @@
 <div class="s2">
 </div>
 <div class="nav-box-text">
-<span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="#">CITIES</a></span>
+<span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="cities.php">CITIES</a></span>
 <br />
 <span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  letter-spacing: 2px;
  padding-left:1px;">Total: 10</span>
@@ -63,7 +63,7 @@
 <div class="s2">
 </div>
 <div class="nav-box-text">
-<span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="#">ATTRACTIONS</a></span>
+<span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="attractions.php">ATTRACTIONS</a></span>
 <span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  letter-spacing: 2px;
  padding-left:1px;">Total: 10</span>
 </div></div>
@@ -96,7 +96,7 @@ while($row = mysqli_fetch_array($result)) {
 
         //echo "<li><i><a href=\"country.php?id=$countryID\"> 
 
-	echo '<a href=country.php?id=' . $countryID . '/>' . $countryName . '<br>';
+	echo '<a href=country.php?id=' . $countryID . '>' . $countryName . '<br>';
 
 }
 						

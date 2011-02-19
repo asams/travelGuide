@@ -1,3 +1,7 @@
+<?php
+   include('db_connect.php');
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -80,13 +84,21 @@
 
 
 <div class="content">
-<h1>Welcome to Travel_Guide_Site.</h1>
-<p>
-<big>L</big>orem ipsum dolor sit amet, consectetuer adipiscing elit. Sed in metus. Maecenas tempus. Cras ut sem id lacus ornare tincidunt. Maecenas eleifend. Ut vel lectus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi rutrum sollicitudin leo. Vivamus tincidunt laoreet nisl.</p> <p><big>C</big>urabitur ut massa. Vivamus in nibh eget quam faucibus condimentum. Aenean velit. Integer pretium accumsan pede. Mauris semper sapien in felis. Phasellus molestie velit a quam. Mauris scelerisque tempus pede. Nam feugiat adipiscing neque. Nulla laoreet purus sit amet magna. Pellentesque auctor tortor ac lectus. Duis eleifend.</p> 
+<h1>Here's a list of cities:</h1>
+<?php
+$query = "SELECT name, city_id FROM cities ORDER BY name"; 
+$result = mysqli_query($db, $query)or die("Error Querying Database");
+while($row = mysqli_fetch_array($result)) {
+	$cityName = $row['name'];
+	$cityID = $row['city_id'];
+					
+        echo '<a href=city.php?id=' . $cityID . '>' . $cityName . '<br>';
 
-<p><big>N</big>ullam tincidunt. Cras gravida, lacus non cursus fermentum, felis odio porta lectus, tristique lacinia nisi augue vel mi. Integer lectus elit, imperdiet quis, gravida a, convallis a, lorem. In et neque in lectus fermentum dictum.</p> 
+}
+						
+?>
 <hr />
-<div class="bottom"><a href="#"> HOME</a> | <a href="index.html">ABOUT </a>| <a href="aboutUs.html">SERVICES</a> | <a href="#">PRODUCTS</a> |<a href="#"> Contact us</a> 
+<div class="bottom"><a href="index.html"> HOME</a> | <a href="aboutUs.html">ABOUT </a>| <a href="contactUs.html"> Contact us</a> 
 </div>
 </div>
 </div>
