@@ -105,7 +105,7 @@ while($row = mysqli_fetch_array($result)) {
 
 
 <hr />
-<div class="bottom"><a href="#"> HOME</a> | <a href="#">ABOUT </a>| <a href="#">SERVICES</a> | <a href="#">PRODUCTS</a> |<a href="#"> Contact us</a> 
+<div class="bottom"><a href="index.html"> HOME</a> | <a href="aboutUs.html">ABOUT </a>| <a href="contactUs.html"> Contact us</a>  
 </div>
 </div>
 </div>
