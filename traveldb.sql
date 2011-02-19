@@ -76,8 +76,13 @@ INSERT INTO `traveldb`.`cities` (`name`, `country_id`, `region`, `population`, `
 ('London', 1, 'London', 7556900, 'london_map.jpg', 'n/a', 'n/a', 'http://www.cityoflondon.gov.uk/' ),
 ('Bath', 1, 'South West', 83992, 'bath_map.jpg', 'n/a', 'n/a', 'http://www.cityofbath.co.uk/' ),
 ('Mexico City', 2, 'Federal District', 8846752, 'mexicoCity_map.bmp', 'mexicoCity_flag.png', 'mexicoCity_coa.png', 'http://www.df.gob.mx/index.jsp' ),
-('Cancun', 2, 'Quintana Roo', 562973, 'cancun2_map.jpg', 'n/a', 'cancun_coa.png', 'http://www.cancun.com/' )
-
+('Cancun', 2, 'Quintana Roo', 562973, 'cancun2_map.jpg', 'n/a', 'cancun_coa.png', 'http://www.cancun.com/' ),
+('Berlin', 5, 'Berlin', 3440441, 'berlin_pic.jpg', 'berlin_flag.jpg', 'berlin_coa.jpg', 'http://www.visitberlin.de/en'),
+('Munich', 5, 'Bavaria', 1330440, 'munich_pic.jpg', 'munich_flag.jpg', 'munich_coa.jpg', 'http://www.muenchen.de/home/60093/Homepage.html'),
+('Madrid', 6, 'Community of Madrid', 3255950, 'madrid_pic.jpg', 'madrid_flag.jpg', 'madrid_coa.jpg', 'http://www.aboutmadrid.com/'),
+('Barcelona', 6, 'Catalonia', 1621537, 'barcelona_pic.jpg', 'barcelona_flag.jpg', 'barcelona_coa.jpg', 'http://www.aboutbarcelona.com/'),
+('Ankara', 7, 'Central Anatolia', 4306105, 'ankara_pic.jpg', 'none', 'ankara_coa.jpg', 'http://ankara.com/'),
+('Istanbul', 7, 'Marmara', 13120596, 'istanbul_pic.jpg', 'none', 'istanbul_coa.jpg', 'http://english.istanbul.com/')
 
 ;
 
@@ -120,7 +125,7 @@ Closed Christmas Day', 'Y', 'http://www.londoneye.com',  'LondonEye1.jpg'),
 ('Teotihuacan', 3, 'other', 'Teotihuacan is an enormous archaeological site in the Basin of Mexico, containing some of the largest pyramidal structures built in the pre-Columbian Americas.  The city was thought to have been established around 200 BCE, lasting until its fall sometime between the 7th and 8th centuries CE.', 'n/a','n/a', 'N', 'n/a', 'teotihuacan.jpg'),
 ('National Anthropological Museum', 3, 'museum', 'The museum contains significant archaeological and anthropological artifacts from the pre-Columbian heritage of Mexico, such as the Piedra del Sol and the 16th-century Aztec statue of Xochipilli.', 'Av. Paseo de la Reforma y calzada Gandhi s/n Col. Chapultepec Polanco, Delegacion Miguel Hidalgo C.P. 11560. Mexico, D.F.', 'From Tuesday to Sunday from 9:00 to 19:00 hrs. Closed Mondays. ', 'Y', 'http://www.gobiernodigital.inah.gob.mx/mener/index.php?id=33', 'anthroMuseum.jpg')
 ('Chichen Itza', 4, 'other', 'Founded in 495 AD, Chichen Itza has columned structures and warrior images, is reminiscent of ancient Rome.', 'n/a', 'n/a', 'N', 'http://allaboutcancun.com/activities/side-trips/chichen-itza/', 'chichenitza.jpg'),
-('Dolphin Discovery', 4, 'other', 'It''s  the best place to swim with dolphins in Cancun.  In Dolphin Discovery, people of all ages and concerned dolphin lovers are provided the opportunity to make their dreams come true.', 'Camino Sac Bajo Lote 26 (antes 96 al 102) Fraccionamiento Paraíso Laguna Mar Isla Mujeres-Quintana Roo. C.P. 77400', 'Open every day from 9:00 am to 5:00 pm', 'Y', 'http://www.dolphindiscovery.com/', 'dolphinDiscovery.jpg')
+('Dolphin Discovery', 4, 'other', 'It''s  the best place to swim with dolphins in Cancun.  In Dolphin Discovery, people of all ages and concerned dolphin lovers are provided the opportunity to make their dreams come true.', 'Camino Sac Bajo Lote 26 (antes 96 al 102) Fraccionamiento Paraï¿½so Laguna Mar Isla Mujeres-Quintana Roo. C.P. 77400', 'Open every day from 9:00 am to 5:00 pm', 'Y', 'http://www.dolphindiscovery.com/', 'dolphinDiscovery.jpg')
 
 
 ;
