@@ -2,6 +2,7 @@
    include('db_connect.php');
 ?>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -81,6 +82,7 @@
 
 </div>
 
+
 <div align="right"><form action="search.php" method="post" class="searchform">
 
 <select name="type">
@@ -93,55 +95,69 @@
 </form>
 </div>
 
-
 <div class="content">
+<h1>Search Results:</h1>
 <?php
-  	$countryID = $_GET['id'];
-	
-	$query = "SELECT * FROM countries WHERE country_id = $countryID";
+	$termSearched = mysqli_real_escape_string($db, trim($_POST['searchedFor']));
+	$type = $_POST['type'];
+	//echo $type;
 
-	$result = mysqli_query($db, $query) or die ("Error Querying Database Here");
+	//echo $termSearched;
+	echo '<center>';
+
+	if ($type == 'country') {
+		$query = "SELECT name, country_id FROM countries WHERE (name LIKE '%$termSearched%') ORDER BY name";
+		$result = mysqli_query($db, $query) or die("Error Querying Database");
+		echo '<u><big>Countries</u></big><br>';
 	
-	while($row = mysqli_fetch_array($result)){
-		$countryName = $row['name'];
-		$countryID = $row['country_id'];
-		$capital = $row['capital'];
-		$government = $row['government'];
-		$currency = $row['currency'];
-		$population = $row['population'];
-		$area = $row['area'];
-		$language = $row['official_language'];
-		$religion = $row['religion'];
-		$map = $row['country_map'];
-		$flag = $row['flag'];
-		$coat_of_arms = $row['coat_of_arms'];
-		$website = $row['website'];
+	
+		while($row = mysqli_fetch_array($result)) {
+			$country = $row['name'];
+			$countryID = $row['country_id'];
+			
+			echo '<a href=country.php?id=' . $countryID . '>' . $country . '</a><br>';
+		}
+	} 
+
+	elseif ($type == 'city') {
+		$query = "SELECT name, city_id FROM cities WHERE (name LIKE '%$termSearched%') ORDER BY name";
+		$result = mysqli_query($db, $query) or die("Error Querying Database");
+	
+		echo '<u><big>Cities</u></big><br>';
+	
+
+		while($row = mysqli_fetch_array($result)) {
+			$city = $row['name'];
+			$cityID = $row['city_id'];
+		
+		
+			echo '<a href=city.php?id=' . $cityID . '>' . $city . '</a><br>';
+							
+		}
+	} 
+
+
+	elseif ($type == 'attraction') {
+		$query = "SELECT name, attraction_id FROM attractions WHERE (name LIKE '%$termSearched%') ORDER BY name";
+		$result = mysqli_query($db, $query) or die("Error Querying Database");
+	
+		echo '<u><big>Attractions</u></big><br>';
+	
+		while($row = mysqli_fetch_array($result)) {
+			$attraction = $row['name'];
+			$attractionID = $row['attraction_id'];
+		
+		
+			echo '<a href=attraction.php?id=' . $attractionID . '>' . $attraction . '</a><br>';
+		}
+							
 	}
 
+	echo '</center>';					
 ?>
-
-
-
-<?php
-	echo "<h1>" . $countryName . "</h1>";
-	echo "<p><H2>Info: </H2></p>";
-	echo "Name: " . $countryName . "<br/><br/>";
-	echo "Capital City: " . $capital . "<br/><br/>";
-	echo "Form of Government: " . $government . "<br/><br/>";
-	echo "Currency: " . $currency . "<br/><br/>";
-	echo "Population: " . $population . " people <br/><br/>";
-	echo "Area: " . $area . " km<sup>2</sup>" . "<br/><br/>";
-	echo "Official or National Language(s): " . $language . "<br/><br/>";
-	echo "Official or Majority Religion(s): " . $religion . "<br/><br/>";
-	echo "Website: <a href = \"" . $website . "\">" . $website . "</a><br/><br/>";
-
-?>
-
-
-
 <hr />
 <div align="center">
-<div class="bottom"><a href="index.html"> HOME</a> | <a href="aboutUs.html">ABOUT </a>| <a href="contactUs.html"> Contact us</a> 
+<div class="bottom"><a href="index.html"> HOME</a> | <a href="aboutUs.html">ABOUT </a>| <a href="contactUs.html"> Contact us</a>  
 </div>
 </div>
 </div>

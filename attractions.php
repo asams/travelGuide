@@ -75,7 +75,7 @@
 <div class="s2">
 </div>
 <div class="nav-box-text">
-<span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="#">CONTACT US</a></span>
+<span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="contactUs.html">CONTACT US</a></span>
 <span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  letter-spacing: 2px;
  padding-left:1px;">Suggestions?</span>
 </div></div>
@@ -84,6 +84,12 @@
 
 
 <div align="right"><form action="search.php" method="post" class="searchform">
+<select name="type">
+	<option class="group" value="attraction">Attraction</option>
+	<option class="group" value="city">City</option>
+	<option class="group" value="country">Country</option>
+</select>
+
 <input type="text" id="searchq" name="searchedFor" />
 <input type="submit" class="formbutton" value="Search" />
 </form>
@@ -98,7 +104,7 @@ while($row = mysqli_fetch_array($result)) {
 	$attractionName = $row['name'];
 	$attractionID = $row['attraction_id'];
 
-	echo '<a href=attraction.php?id=' . $attractionID . '>' . $attractionName . '<br>';
+	echo '<a href=attraction.php?id=' . $attractionID . '>' . $attractionName . '</a><br>';
 
 }
 						

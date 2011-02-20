@@ -136,17 +136,19 @@ font-family : "times", verdana, arial, sans-serif, engravers mt bold;
 /* default forms */
 form {}
 form input, form textarea {
-	border:1.5px solid #000066;
+	background:#000066 repeat-x scroll bottom left;
+	border:1.5px solid #33CCFF;
 	padding:3px;
-	color:#666666;
+	color:#33CCFF;
 	font-family:"times", verdana, arial, sans-serif, engravers mt bold;
 	font-size:1.0em;
+	font-weight:bold, italics;
 }
 form input.formbutton {
 	background:#000066 repeat-x scroll bottom left;
-	color:#00FFFF;
+	color: #33CCFF;
 	font-size:1.2em;
-	border:1px solid #00FFFF;
+	border:1px solid #33CCFF;
 	font-weight:bold;
         margin-right : 0.1em;
 	font-family:"times", verdana, arial, sans-serif, engravers mt bold;
@@ -172,3 +174,17 @@ margin-left : 0em;
 form.searchform {
 padding-top:10px;
 }
+
+select option {    
+line-height: 14px;  
+}   
+select option.group {  
+background:#000066 repeat-x scroll bottom left;
+	color: #33CCFF;
+	font-size:1.0em;
+	border:0.7px solid #33CCFF;
+        margin-right : 0.1em;
+	font-family:"times", verdana, arial, sans-serif, engravers mt bold;  
+	font-weight:bold;      
+	background:#000066;        
+}   

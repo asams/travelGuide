@@ -1,7 +1,3 @@
-<?php
-   include('db_connect.php');
-?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -79,10 +75,10 @@
  padding-left:1px;">Suggestions?</span>
 </div></div>
 
+
 </div>
 
 <div align="right"><form action="search.php" method="post" class="searchform">
-
 <select name="type">
 	<option class="group" value="attraction">Attraction</option>
 	<option class="group" value="city">City</option>
@@ -93,53 +89,13 @@
 </form>
 </div>
 
-
 <div class="content">
-<?php
-  	$countryID = $_GET['id'];
-	
-	$query = "SELECT * FROM countries WHERE country_id = $countryID";
-
-	$result = mysqli_query($db, $query) or die ("Error Querying Database Here");
-	
-	while($row = mysqli_fetch_array($result)){
-		$countryName = $row['name'];
-		$countryID = $row['country_id'];
-		$capital = $row['capital'];
-		$government = $row['government'];
-		$currency = $row['currency'];
-		$population = $row['population'];
-		$area = $row['area'];
-		$language = $row['official_language'];
-		$religion = $row['religion'];
-		$map = $row['country_map'];
-		$flag = $row['flag'];
-		$coat_of_arms = $row['coat_of_arms'];
-		$website = $row['website'];
-	}
-
-?>
+<h1>Submit Suggestions: </h1>
 
 
 
-<?php
-	echo "<h1>" . $countryName . "</h1>";
-	echo "<p><H2>Info: </H2></p>";
-	echo "Name: " . $countryName . "<br/><br/>";
-	echo "Capital City: " . $capital . "<br/><br/>";
-	echo "Form of Government: " . $government . "<br/><br/>";
-	echo "Currency: " . $currency . "<br/><br/>";
-	echo "Population: " . $population . " people <br/><br/>";
-	echo "Area: " . $area . " km<sup>2</sup>" . "<br/><br/>";
-	echo "Official or National Language(s): " . $language . "<br/><br/>";
-	echo "Official or Majority Religion(s): " . $religion . "<br/><br/>";
-	echo "Website: <a href = \"" . $website . "\">" . $website . "</a><br/><br/>";
 
-?>
-
-
-
-<hr />
+<hr>
 <div align="center">
 <div class="bottom"><a href="index.html"> HOME</a> | <a href="aboutUs.html">ABOUT </a>| <a href="contactUs.html"> Contact us</a> 
 </div>
