@@ -53,7 +53,7 @@
 <div class="s2">
 </div>
 <div class="nav-box-text">
-<span style="font-family:geneva,arial;font-color:#000;font-size:14px;font-weight:bold;padding-left:1px;"><a href="aboutUs.html">ABOUT US</a></span>
+<span style="font-family:geneva,arial;font-color:#000;font-size:14px;font-weight:bold;padding-left:1px;"><a href="aboutUs.php">ABOUT US</a></span>
 <br />
 <span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold; font-style: italic;
  letter-spacing: 2px;
@@ -100,7 +100,7 @@
 <div class="s2">
 </div>
 <div class="nav-box-text">
-<span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="contactUs.html">CONTACT US</a></span>
+<span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="contactUs.php">CONTACT US</a></span>
 <span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  letter-spacing: 2px;
  padding-left:1px;">Suggestions?</span>
 </div></div>

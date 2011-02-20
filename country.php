@@ -6,6 +6,8 @@
    include('header_side.php');
 ?>
 
+<html>
+<body>
 
 <div class="content">
 <?php

@@ -22,18 +22,13 @@ concerning countries, cities, and attractions.  With an account, you will eventu
 and save a location as a favorite.  Don't see a country, city, or attraction you want to see here?  As a registered user you will be able to request
 it to be added to our database, and then I'm sure granted no unforeseen circumstances one of us would be happy to oblige you!
 <hr />
-<div align="center">
+</div>
+
 
 <?php
    include('footer.php');
 ?>
 
-<div class="bottom"><a href="index.html"> HOME</a> | <a href="aboutUs.html">ABOUT </a>| <a href="contactUs.html"> Contact us</a>  
-</div>
-</div>
-</div>
-<br />
-<div align="center">
-<span style="font-family:geneva,arial;color:#000;font-size:14px;font-weight:bold;">CPSC 350 - Amy, Erin, Kelsie & Rebecca</span></div>
+
 </body>
 </html>

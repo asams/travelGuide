@@ -185,3 +185,21 @@ Closed Christmas Day', 'Y', 'http://www.londoneye.com',  'LondonEye1.jpg'),
 'N', 'N/A', 'BatuCaves.jpg')
 ;
 
+
+
+-- --------------------------------------------------------
+
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE IF NOT EXISTS comments (
+  `comment_id` int(6) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL default '',
+  `subject` varchar(50) NOT NULL default '',
+  `comment` blob NOT NULL default '',
+  `date_submitted` timestamp NOT NULL default '2011-01-01 00:00:00',
+  
+  PRIMARY KEY (`comment_id`)
+); 

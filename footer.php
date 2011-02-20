@@ -1,6 +1,6 @@
 <div class = "content" >
 <div align="center">
-<div class="bottom"><a href="index.html"> HOME</a> | <a href="aboutUs.html">ABOUT </a>| <a href="contactUs.html"> Contact us</a> 
+<div class="bottom"><a href="index.php"> HOME</a> | <a href="aboutUs.php">ABOUT </a>| <a href="contactUs.php"> Contact us</a> 
 </div>
 </div>
 
