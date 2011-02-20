@@ -132,6 +132,24 @@ margin-top : 5px;
 padding : 1px; 
 border : 0 outset #95b7d0; 
 font-family : "times", verdana, arial, sans-serif, engravers mt bold; 
+}
+/* default forms */
+form {}
+form input, form textarea {
+	border:1.5px solid #000066;
+	padding:3px;
+	color:#666666;
+	font-family:"times", verdana, arial, sans-serif, engravers mt bold;
+	font-size:1.0em;
+}
+form input.formbutton {
+	background:#000066 repeat-x scroll bottom left;
+	color:#00FFFF;
+	font-size:1.2em;
+	border:1px solid #00FFFF;
+	font-weight:bold;
+        margin-right : 0.1em;
+	font-family:"times", verdana, arial, sans-serif, engravers mt bold;
 } 
 a:hover {
 color : #6ca2be; 
@@ -149,4 +167,8 @@ width : 500px;
 .bottom {
 margin-top : 1.5em; 
 margin-left : 0em; 
+}
+/* search form */
+form.searchform {
+padding-top:10px;
 }

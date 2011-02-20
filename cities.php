@@ -81,6 +81,11 @@
 
 </div>
 
+<div align="right"><form action="search.php" method="post" class="searchform">
+<input type="text" id="searchq" name="searchedFor" />
+<input type="submit" class="formbutton" value="Search" />
+</form>
+</div>
 
 
 <div class="content">
