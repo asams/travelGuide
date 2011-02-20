@@ -87,7 +87,7 @@
 <div class="content">
 <h1>Here's a list of attractions:</h1>
 <?php
-$query = "SELECT name, attraction_id FROM attractions"; 
+$query = "SELECT name, attraction_id FROM attractions ORDER BY name"; 
 $result = mysqli_query($db, $query)or die("Error Querying Database");
 while($row = mysqli_fetch_array($result)) {
 	$attractionName = $row['name'];
@@ -99,6 +99,7 @@ while($row = mysqli_fetch_array($result)) {
 						
 ?>
 <hr />
+<div align="center">
 <div class="bottom"><a href="index.html"> HOME</a> | <a href="aboutUs.html">ABOUT </a>| <a href="contactUs.html"> Contact us</a>  
 </div>
 </div>

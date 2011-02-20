@@ -70,7 +70,7 @@ font-size : 30px;
 font-weight : bold; 
 } 
 .content {
-height : 350px; 
+height : 88%; 
 //background-image : url(picks/corner.jpg); 
 background-repeat : no-repeat; 
 background-position : bottom right; 
@@ -148,5 +148,5 @@ width : 500px;
 } 
 .bottom {
 margin-top : 1.5em; 
-margin-left : 8.5em; 
+margin-left : 0em; 
 }

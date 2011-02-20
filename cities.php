@@ -98,6 +98,7 @@ while($row = mysqli_fetch_array($result)) {
 						
 ?>
 <hr />
+<div align="center">
 <div class="bottom"><a href="index.html"> HOME</a> | <a href="aboutUs.html">ABOUT </a>| <a href="contactUs.html"> Contact us</a> 
 </div>
 </div>
