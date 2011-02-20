@@ -23,7 +23,7 @@
 	$subject = mysqli_real_escape_string($db, trim($subjectSubmitted));
 	$comment = mysqli_real_escape_string($db, trim($commentSubmitted));
 	
-	$query = "INSERT INTO comments (name, subject, comment, date_submitted) VALUES ('$name', '$subject', '$comment', '$timestamp')";
+	$query = "INSERT INTO comments (name, subject, comment_body, date_submitted) VALUES ('$name', '$subject', '$comment', '$timestamp')";
 	
 	$result = mysqli_query($db, $query) or die ("Error Querying Database");
 	

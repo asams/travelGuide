@@ -26,7 +26,7 @@
 	while($row = mysqli_fetch_array($result)){
 		$name = $row['name'];
 		$subject = $row['subject'];
-		$comment = $row['comment'];
+		$comment = $row['comment_body'];
 		$date_submitted = $row['date_submitted'];
 		
 		echo "<tr><td><br/>Name: " . $name . "<br/><br/>Subject: " . $subject . "<br/><br/>Comment: " . $comment . "<br/><br/>Date: " . $date_submitted . "<br/><br/></td></tr>";
