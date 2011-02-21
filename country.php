@@ -68,7 +68,7 @@
 	echo "Area: " . $area . " km<sup>2</sup>" . "<br/><br/>";
 	echo "Official or National Language(s): " . $language . "<br/><br/>";
 	echo "Official or Majority Religion(s): " . $religion . "<br/><br/>";
-	echo "Website: <a href = \"" . $website . "\">" . $website . "</a><br/><br/><br/><br/><br/><br/>";
+	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/><br/><br/><br/><br/><br/>";
 	
 	echo "Map:<br/>";
 	echo "<img src = \"" . $map . "\" alt = \"map\" width = \"60%\" align = \"center\" /><br/><br/>";

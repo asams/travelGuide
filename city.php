@@ -59,7 +59,7 @@
 	echo "Region: " . $region . "<br/><br/>";
 	echo "Attractions Featured on TravelGuide: " . $attractionLinks . "<br/>";
 	echo "Population: " . $population . " people <br/><br/>";
-	echo "Website: <a href = \"" . $website . "\">" . $website . "</a><br/><br/><br/><br/><br/><br/><br/><br/><br/>";	
+	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/><br/><br/><br/><br/><br/>";
 	echo "Map:<br/>";
 	echo "<img src = \"" . $cityMap . "\" alt = \"map\" width = \"60%\" align = \"center\" /><br/><br/>";
 
