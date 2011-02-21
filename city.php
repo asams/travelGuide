@@ -18,7 +18,7 @@
 	
 	while($row = mysqli_fetch_array($result)){
 		$cityName = $row['name'];
-		$countryId = $row['country_id'];
+		$countryID = $row['country_id'];
 		$region = $row['region'];
 		$population = $row['population'];
 		$cityMap = $row['city_map'];
@@ -52,7 +52,8 @@
 	
 	echo "<h1>" . $cityName . "</h1>";
 
-	echo ($flag != 'N/A' ? "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>" : "");
+	echo ($flag != 'N/A' ? "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>" : "sfdsfsdf");
+	echo $flag;
 
 	echo "<p><H2>Info: </H2></p>";
 	echo "Country: " . "<a href = \"country.php?id=" . $countryID . "\"> $country_name </a>" . "<br/><br/>";

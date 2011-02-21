@@ -87,7 +87,7 @@ INSERT INTO `traveldb`.`cities` (`name`, `country_id`, `region`, `population`, `
 ('Istanbul', 6, 'Marmara', 13120596, 'istanbul_map.jpg', 'N/A', 'istanbul_coa.jpg', 'http://english.istanbul.com/'),
 ('District of Columbia', 7,	'Washington, D.C.; between Virginia and Maryland', 601723, 'dc_map.jpg', 'dc_flag.png', 'dc_seal.png', 'www.dc.gov'),
 ('New York', 7, 'New York', 8391881, 'ny_map.png', 'ny_flag.png', 'ny_seal.png', 'www.nyc.gov'),
-('Paris', 8, 'Ile-de-France', 2193031, 'paris_map.gif', 'paris_flag.gif', 'paris_coa.png', 'http://www.paris.fr/portail/english/Portal.lut?page_id=8118'),
+('Paris', 8, 'Ile-de-France', 2193031, 'paris_map.gif', 'paris_flag.png', 'paris_coa.png', 'http://www.paris.fr/portail/english/Portal.lut?page_id=8118'),
 ('Marseille', 8, 'Provence-Alpes-Cote d''Azur', 852395, 'marseille_map.gif', 'marseille_flag.png', 'marseille_coa.jpg', 'http://www.marseille.fr'),
 ('Rome', 9, 'Lazio', 2754440, 'rome_map.gif', 'rome_flag.png', 'rome_coa.png', 'http://www.comune.roma.it/was/wps/portal/pcr'),
 ('Milan', 9, 'Lombardy', 1314745, 'milan_map.jpg', 'milan_flag.gif', 'milan_coa.png', 'http://www.comune.milano.it/'),
