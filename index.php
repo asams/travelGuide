@@ -24,7 +24,6 @@ $featured = $row['name'];
 echo $featured;
 
 ?>
-<hr/>
 
 </div>
 
