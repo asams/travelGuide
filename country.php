@@ -60,7 +60,6 @@
 	echo "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>";
 
 	echo "<p><H2>Info: </H2></p>";
-	echo "Name: " . $countryName . "<br/><br/>";
 	echo "Capital City: " . $capital . "<br/><br/>";
 	echo "Cities Featured on TravelGuide: " . $featuredCityLinks . "<br/>";
 	echo "Form of Government: " . $government . "<br/><br/>";

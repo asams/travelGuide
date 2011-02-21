@@ -18,7 +18,7 @@
 	
 	while($row = mysqli_fetch_array($result)){
 		$cityName = $row['name'];
-		$countryId = $row['countryId'];
+		$countryId = $row['country_id'];
 		$region = $row['region'];
 		$population = $row['population'];
 		$cityMap = $row['city_map'];
@@ -44,13 +44,18 @@
 
 ?>
 <?php
+	$query = "SELECT name FROM countries WHERE country_id = $countryID";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database - 3");
+
+	$row = mysqli_fetch_array($result);
+	$country_name = $row['name'];
 	
 	echo "<h1>" . $cityName . "</h1>";
 
 	echo ($flag != 'N/A' ? "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>" : "");
 
 	echo "<p><H2>Info: </H2></p>";
-	echo "Name: " . $cityName . "<br/><br/>";
+	echo "Country: " . "<a href = \"country.php?id=" . $countryID . "\"> $country_name </a>" . "<br/><br/>";
 	echo "Region: " . $region . "<br/><br/>";
 	echo "Attractions Featured on TravelGuide: " . $attractionLinks . "<br/>";
 	echo "Population: " . $population . " people <br/><br/>";
