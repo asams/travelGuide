@@ -60,10 +60,6 @@ Want to see what other people have said?  View all the comments we've received <
 <br/><br/><br/><br/><br/></center>
 </h2>
 
-
-
-<hr>
-
 </div>
 
 <?php

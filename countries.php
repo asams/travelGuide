@@ -29,7 +29,6 @@ while($row = mysqli_fetch_array($result)) {
 						
 ?>
 
-<hr/>
 </div>
 
 <?php
