@@ -60,7 +60,6 @@
 	echo "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>";
 
 	echo "<p><H2>Info: </H2></p>";
-	echo "Name: " . $countryName . "<br/><br/>";
 	echo "Capital City: " . $capital . "<br/><br/>";
 	echo "Cities Featured on TravelGuide: " . $featuredCityLinks . "<br/>";
 	echo "Form of Government: " . $government . "<br/><br/>";
@@ -72,7 +71,7 @@
 	echo "Website: <a href = \"" . $website . "\">" . $website . "</a><br/><br/><br/><br/><br/><br/>";
 	
 	echo "Map:<br/>";
-	echo "<img src = \"" . $map . "\" alt = \"map\" width = \"80%\" align = \"center\" /><br/><br/>";
+	echo "<img src = \"" . $map . "\" alt = \"map\" width = \"60%\" align = \"center\" /><br/><br/>";
 //	echo "<img src = \"" . $coat_of_arms . "\" alt = \"coat of arms\" width = \"20%\" align = \"center\" /><br/><br/>";
 	
 
