@@ -23,11 +23,15 @@
 	$subject = mysqli_real_escape_string($db, trim($subjectSubmitted));
 	$comment = mysqli_real_escape_string($db, trim($commentSubmitted));
 	
-	$query = "INSERT INTO comments (name, subject, comment_body, date_submitted) VALUES ('$name', '$subject', '$comment', '$timestamp')";
+	if (($name!="") AND ($subject!="") AND ($comment!="")){
+
+		$query = "INSERT INTO comments (name, subject, comment_body, date_submitted) VALUES ('$name', '$subject', '$comment', '$timestamp')";
 	
-	$result = mysqli_query($db, $query) or die ("Error Querying Database");
+		$result = mysqli_query($db, $query) or die ("Error Querying Database");
+		mysqli_close($db);
 	
-	mysqli_close($db);
+	
+	
 	
 	
 ?>
@@ -37,13 +41,23 @@
 
 <div class="content">
 
-<h1>Thanks for your comment!</h1>
+<h1><center>Thanks for your comment!</h1>
 
 <h2>We're always glad to hear from you!  We'll review your comment and see what we can do! <br/><br/>
 
+<?php
+	} else {
+?>
+		<div class="content">
+		
+		<h2><center>Your comment was not sent. You did not fill in all of the fields. Please revisit <a href="contactUs.php">this page</a>. <br>
+<?php
+	}
+?>
+
 Want to see what other people have said?  View all the comments we've received <a href = "comments.php">here</a>.
 
-<br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/></center>
 </h2>
 
 

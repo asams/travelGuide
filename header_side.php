@@ -60,16 +60,38 @@
  padding-left:1px;">Who We Are?</span>
 </div></div>
 
-<div class="nav-box">
+<div class="nav-box2">
 <div class="s1">
 </div>
 <div class="s2">
 </div>
-<div class="nav-box-text">
+<div class="nav-box-text2">
 <span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="countries.php">COUNTRIES</a></span>
 <br />
-<span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  letter-spacing: 2px;
- padding-left:1px;">Total: <?php echo $countryCount ?></span>
+<span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  font-style: italic;letter-spacing: 2px;
+ padding-left:1px;">Total: <?php echo $countryCount . '<br>';
+$query = "SELECT name, country_id FROM countries ORDER BY name"; 
+$result = mysqli_query($db, $query)or die("Error Querying Database");
+while($row = mysqli_fetch_array($result)) {
+	$countryName = $row['name'];
+	$countryID = $row['country_id'];
+						
+
+
+        //echo "<li><i><a href=\"country.php?id=$countryID\"> 
+
+	echo '<a href=country.php?id=' . $countryID . '>' . $countryName . '</a><br>';
+
+}
+
+?>
+
+
+
+
+
+
+</span>
 </div></div>
 
 <div class="nav-box">
@@ -80,7 +102,7 @@
 <div class="nav-box-text">
 <span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="cities.php">CITIES</a></span>
 <br />
-<span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  letter-spacing: 2px;
+<span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  font-style: italic; letter-spacing: 2px;
  padding-left:1px;">Total: <?php echo $cityCount ?></span>
 </div></div>
 <div class="nav-box">
@@ -90,7 +112,7 @@
 </div>
 <div class="nav-box-text">
 <span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="attractions.php">ATTRACTIONS</a></span>
-<span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  letter-spacing: 2px;
+<span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  font-style: italic; letter-spacing: 2px;
  padding-left:1px;">Total: <?php echo $attractionCount ?></span>
 </div></div>
 
@@ -101,7 +123,7 @@
 </div>
 <div class="nav-box-text">
 <span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="contactUs.php">CONTACT US</a></span>
-<span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  letter-spacing: 2px;
+<span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  font-style: italic; letter-spacing: 2px;
  padding-left:1px;">Suggestions?</span>
 </div></div>
 

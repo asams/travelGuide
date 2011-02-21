@@ -104,6 +104,15 @@ margin : 0.2em 0 0 0.05em;
 border : 1.5px solid #0000A0; 
 background-color : #ffffff; 
 } 
+.nav-box2 {
+background: url(picks/globe.png) #fff center;
+float : left; 
+width : 140px; 
+height : 220px; 
+margin : 0.2em 0 0 0.05em; 
+border : 1.5px solid #0000A0; 
+background-color : #ffffff; 
+} 
 .s1 {
 float : left; 
 width : 4px; 
@@ -121,6 +130,13 @@ background-color : #6ca2be;
 .nav-box-text {
 width : 100px; 
 height : 35px; 
+margin-top : 1em; 
+margin-left : 1.5em; 
+background-color : #fefdfb; 
+} 
+.nav-box-text2 {
+width : 100px; 
+height : 190px; 
 margin-top : 1em; 
 margin-left : 1.5em; 
 background-color : #fefdfb; 
