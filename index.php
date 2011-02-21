@@ -45,7 +45,7 @@ $featured = $row['name'];
 	
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 	
-	$featuredCityLinks = "<ul>";
+	$attractionLinks = "<ul>";
 	
 	while($row = mysqli_fetch_array($result)){
 		$attractionName = $row['name'];
@@ -61,7 +61,7 @@ $featured = $row['name'];
 <?php
 	
 	echo "<center><h1>Featured City: " . $cityName . "</h1></center>";
-	echo ($cityMap != 'N/A' ? "<img src = \"" . $cityMap . "\" alt = \"flag\" width = \"50%\" align = \"left\" border=\"2\" vspace=\"10\" hspace=\"20\" />" : "");
+	echo ($cityMap != 'N/A' ? "<img src = \"" . $cityMap . "\" alt = \"flag\" width = \"50%\" align = \"left\" border=\"2\" vspace=\"10\" hspace=\"60\" />" : "");
 	echo "<p><H2>Info: </H2></p>";
 	echo "</left><right>Name: " . $cityName . "<br/><br/><br/>";
 	echo "Region: " . $region . "<br/><br/><br/>";
