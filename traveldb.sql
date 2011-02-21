@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS traveldb;
+﻿DROP DATABASE IF EXISTS traveldb;
 
 CREATE DATABASE IF NOT EXISTS traveldb;
 GRANT ALL PRIVILEGES ON traveldb.* to 'traveluser'@'localhost' identified by 'travel';
@@ -85,8 +85,8 @@ INSERT INTO `traveldb`.`cities` (`name`, `country_id`, `region`, `population`, `
 ('Barcelona', 5, 'Catalonia', 1621537, 'barcelona_pic.jpg', 'barcelona_flag.jpg', 'barcelona_coa.jpg', 'http://www.aboutbarcelona.com/'),
 ('Ankara', 6, 'Central Anatolia', 4306105, 'ankara_pic.jpg', 'none', 'ankara_coa.jpg', 'http://ankara.com/'),
 ('Istanbul', 6, 'Marmara', 13120596, 'istanbul_pic.jpg', 'none', 'istanbul_coa.jpg', 'http://english.istanbul.com/'),
-('District of Columbia', 7,	'Washington, D.C.; between Virginia and Maryland', 601723, 'dc_map.jpg', 'dc_flag.svg', 'dc_seal.png', 'www.dc.gov'),
-('New York', 7, 'New York', 8391881, 'ny_map.png', 'ny_flag.svg', 'ny_seal.png', 'www.nyc.gov'),
+('District of Columbia', 7,	'Washington, D.C.; between Virginia and Maryland', 601723, 'dc_map.jpg', 'dc_flag.png', 'dc_seal.png', 'www.dc.gov'),
+('New York', 7, 'New York', 8391881, 'ny_map.png', 'ny_flag.png', 'ny_seal.png', 'www.nyc.gov'),
 ('Paris', 8, 'Ile-de-France', 2193031, 'paris_map.gif', 'paris_flag.gif', 'paris_coa.png', 'http://www.paris.fr/portail/english/Portal.lut?page_id=8118'),
 ('Marseille', 8, 'Provence-Alpes-Cote d''Azur', 852395, 'marseille_map.gif', 'marseille_flag.png', 'marseille_coa.jpg', 'http://www.marseille.fr'),
 ('Rome', 9, 'Lazio', 2754440, 'rome_map.gif', 'rome_flag.png', 'rome_coa.png', 'http://www.comune.roma.it/was/wps/portal/pcr'),
