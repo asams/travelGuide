@@ -10,9 +10,8 @@
 <body>
 
 <div class="content">
-<h1>Welcome to Travel_Guide_Site.</h1>
-<p>
-<big>F</big>eatured <big>C</big>ity of the day: </p> 
+<h1><center>Welcome to Our TravelGuide*!</center></h1>
+
 
 <?php
 
@@ -61,14 +60,16 @@ $featured = $row['name'];
 
 <?php
 	
-	echo "<center><h1>" . $cityName . "</h1></center>";
-	echo ($cityMap != 'N/A' ? "<img src = \"" . $cityMap . "\" alt = \"flag\" width = \"50%\" align = \"left\" border=\"2\" vspace=\"60\" hspace=\"20\" />" : "");
+	echo "<center><h1>Featured City: " . $cityName . "</h1></center>";
+	echo ($cityMap != 'N/A' ? "<img src = \"" . $cityMap . "\" alt = \"flag\" width = \"50%\" align = \"left\" border=\"2\" vspace=\"10\" hspace=\"20\" />" : "");
 	echo "<p><H2>Info: </H2></p>";
 	echo "</left><right>Name: " . $cityName . "<br/><br/><br/>";
 	echo "Region: " . $region . "<br/><br/><br/>";
 	echo "Attractions Featured on TravelGuide: " . $attractionLinks . "<br/><br/>";
 	echo "Population: " . $population . " people <br/><br/><br/>";
-	echo "Website: <a href = \"" . $website . "\">" . $website . "</a><br/><br/><br/><br/><br/><br/></right>";	
+	echo "Website: <a href = \"" . $website . "\">" . $website . "</a><br/><br/><br/><br/><br/><br/></right>";
+	echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
+	echo "<center>*If you have a suggestion for a better name than \"TravelGuide\", let us know on our ContactUs page!</center>";
 
 ?>
 
