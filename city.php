@@ -52,8 +52,7 @@
 	
 	echo "<h1>" . $cityName . "</h1>";
 
-	echo ($flag != 'N/A' ? "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>" : "sfdsfsdf");
-	echo $flag;
+	echo ($flag != 'N/A' ? "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>" : "");
 
 	echo "<p><H2>Info: </H2></p>";
 	echo "Country: " . "<a href = \"country.php?id=" . $countryID . "\"> $country_name </a>" . "<br/><br/>";
