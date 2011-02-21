@@ -18,7 +18,7 @@
 	
 	while($row = mysqli_fetch_array($result)){
 		$attraction_id = $row['attraction_id'];
-		$name = $row['name'];
+		$name = $row['name'];  
 		$city_id = $row['city_id'];
 		$attraction_type = $row['attraction_type'];
 		$description = $row['description'];
@@ -44,8 +44,8 @@
 	
 	echo "<img src = \"" . $picture . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>";
 	echo "<p><H2>Info: </H2></p>";
-	echo "Name: " . $name . "<br/><br/>";
-	echo "City: " . $city_name . "<br/><br/>";
+	echo "Name: " . $name . "<br/><br/>"; 
+	echo "City: " . "<a href = \"city.php?id=" . $city_id . "\"> $city_name </a>" . "<br/><br/>";
 	echo "Attraction Type: " . $attraction_type . "<br/><br/>";
 	echo "Description: " . $description . "<br/></br>";
 	echo "Address: " . $address . "<br/><br/>";
