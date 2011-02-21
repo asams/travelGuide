@@ -14,7 +14,6 @@
 	$cityID = $_GET['id'];
 	
 	$query = "SELECT * FROM cities WHERE city_id = $cityID";
-	echo $query;
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
 	
 	while($row = mysqli_fetch_array($result)){
@@ -60,8 +59,7 @@
 	echo "<img src = \"" . $cityMap . "\" alt = \"map\" width = \"80%\" align = \"center\" /><br/><br/>";
 
 ?>
-	
-<hr />
+
 </div>
 
 <?php

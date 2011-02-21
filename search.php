@@ -69,7 +69,6 @@
 
 	echo '</center>';					
 ?>
-<hr />
 </div>
 
 <?php
