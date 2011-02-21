@@ -47,23 +47,26 @@
 </div>
 
 <div id="left">
+
 <div class="nav-box">
 <div class="s1">
 </div>
 <div class="s2">
 </div>
 <div class="nav-box-text">
-<span style="font-family:geneva,arial;font-color:#000;font-size:14px;font-weight:bold;padding-left:1px;"><a href="aboutUs.php">ABOUT US</a></span>
+<span style="font-family:geneva,arial;font-color:#000;font-size:14px;font-weight:bold;padding-left:1px;"><a href="aboutUs.php">HOME</a></span>
 <br />
 <span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold; font-style: italic;
  letter-spacing: 2px;
- padding-left:1px;">Who We Are?</span>
+ padding-left:1px;">Back to Main</span>
 </div></div>
 
+
+
 <div class="nav-box2">
-<div class="s1">
+<div class="s3">
 </div>
-<div class="s2">
+<div class="s4">
 </div>
 <div class="nav-box-text2">
 <span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="countries.php">COUNTRIES</a></span>
@@ -114,6 +117,19 @@ while($row = mysqli_fetch_array($result)) {
 <span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="attractions.php">ATTRACTIONS</a></span>
 <span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  font-style: italic; letter-spacing: 2px;
  padding-left:1px;">Total: <?php echo $attractionCount ?></span>
+</div></div>
+
+<div class="nav-box">
+<div class="s1">
+</div>
+<div class="s2">
+</div>
+<div class="nav-box-text">
+<span style="font-family:geneva,arial;font-color:#000;font-size:14px;font-weight:bold;padding-left:1px;"><a href="aboutUs.php">ABOUT US</a></span>
+<br />
+<span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold; font-style: italic;
+ letter-spacing: 2px;
+ padding-left:1px;">Who We Are?</span>
 </div></div>
 
 <div class="nav-box">

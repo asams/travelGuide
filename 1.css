@@ -78,7 +78,7 @@ padding : 10px;
 margin : 9px 0 0 140px; 
 font-family : geneva, arial; 
 color : #000; 
-font-size : 10px; 
+font-size : 12px; 
 font-weight : bold; 
 letter-spacing : 2px; 
 border : 0 solid #e0dfdd; 
@@ -124,6 +124,20 @@ background-color : #b8a07a;
 float : left; 
 width : 4px; 
 height : 65px; 
+margin-left : 0.05em; 
+background-color : #6ca2be; 
+} 
+.s3 {
+float : left; 
+width : 4px; 
+height : 220px; 
+margin-left : 0.01em; 
+background-color : #b8a07a; 
+} 
+.s4 {
+float : left; 
+width : 4px; 
+height : 220px; 
 margin-left : 0.05em; 
 background-color : #6ca2be; 
 } 
