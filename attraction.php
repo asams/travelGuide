@@ -40,8 +40,6 @@
 	$row = mysqli_fetch_array($result);
 	$city_name = $row['name'];
 	
-	echo $city_name;
-	
 	echo "<h1>" . $name . "</h1>";
 	
 	echo "<img src = \"" . $picture . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>";
@@ -53,7 +51,7 @@
 	echo "Address: " . $address . "<br/><br/>";
 	echo "Hours of Operation: " . $hours_of_operation . "<br/><br/>";
 	echo "Entrance Price: " . ($entrance_price == 'Y' ? 'Yes' : 'No') . "<br/><br/>";
-	echo "Website: " . ($website != 'n/a' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/><br/><br/><br/><br/><br/>";
+	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/><br/><br/><br/><br/><br/>";
 
 ?>
 
