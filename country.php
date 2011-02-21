@@ -72,7 +72,7 @@
 	echo "Website: <a href = \"" . $website . "\">" . $website . "</a><br/><br/><br/><br/><br/><br/>";
 	
 	echo "Map:<br/>";
-	echo "<img src = \"" . $map . "\" alt = \"map\" width = \"80%\" align = \"center\" /><br/><br/>";
+	echo "<img src = \"" . $map . "\" alt = \"map\" width = \"60%\" align = \"center\" /><br/><br/>";
 //	echo "<img src = \"" . $coat_of_arms . "\" alt = \"coat of arms\" width = \"20%\" align = \"center\" /><br/><br/>";
 	
 

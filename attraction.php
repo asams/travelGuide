@@ -42,7 +42,7 @@
 	
 	echo "<h1>" . $name . "</h1>";
 	
-	echo "<img src = \"" . $picture . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>";
+	echo "<img src = \"" . $picture . "\" alt = \"flag\" width = 500px  align = \"right\"/>";
 	echo "<p><H2>Info: </H2></p>";
 	echo "Name: " . $name . "<br/><br/>"; 
 	echo "City: " . "<a href = \"city.php?id=" . $city_id . "\"> $city_name </a>" . "<br/><br/>";
