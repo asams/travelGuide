@@ -1,4 +1,4 @@
-<div class = "container" >
+<div class = "content" >
 <div align="center">
 <div class="bottom"><hr><a href="index.php"> HOME</a> | <a href="aboutUs.php">ABOUT </a>| <a href="contactUs.php"> CONTACT US</a> 
 </div>

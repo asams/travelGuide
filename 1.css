@@ -127,6 +127,20 @@ height : 65px;
 margin-left : 0.05em; 
 background-color : #6ca2be; 
 } 
+.s3 {
+float : left; 
+width : 4px; 
+height : 220px; 
+margin-left : 0.01em; 
+background-color : #b8a07a; 
+} 
+.s4 {
+float : left; 
+width : 4px; 
+height : 220px; 
+margin-left : 0.05em; 
+background-color : #6ca2be; 
+} 
 .nav-box-text {
 width : 100px; 
 height : 35px; 
