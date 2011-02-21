@@ -62,8 +62,7 @@ $featured = $row['name'];
 <?php
 	
 	echo "<center><h1>" . $cityName . "</h1></center>";
-	echo ($cityMap != 'N/A' ? "<img src = \"" . $cityMap . "\" alt = \"flag\" width = \"50%\" align = \"left\" border=\"2\" hspace=\"20\" />" : "");
-
+	echo ($cityMap != 'N/A' ? "<img src = \"" . $cityMap . "\" alt = \"flag\" width = \"50%\" align = \"left\" border=\"2\" vspace=\"60\" hspace=\"20\" />" : "");
 	echo "<p><H2>Info: </H2></p>";
 	echo "</left><right>Name: " . $cityName . "<br/><br/><br/>";
 	echo "Region: " . $region . "<br/><br/><br/>";
