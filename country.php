@@ -60,7 +60,6 @@
 	echo "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>";
 
 	echo "<p><H2>Info: </H2></p>";
-	echo "Name: " . $countryName . "<br/><br/>";
 	echo "Capital City: " . $capital . "<br/><br/>";
 	echo "Cities Featured on TravelGuide: " . $featuredCityLinks . "<br/>";
 	echo "Form of Government: " . $government . "<br/><br/>";
@@ -69,10 +68,10 @@
 	echo "Area: " . $area . " km<sup>2</sup>" . "<br/><br/>";
 	echo "Official or National Language(s): " . $language . "<br/><br/>";
 	echo "Official or Majority Religion(s): " . $religion . "<br/><br/>";
-	echo "Website: <a href = \"" . $website . "\">" . $website . "</a><br/><br/><br/><br/><br/><br/>";
+	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/><br/><br/><br/><br/><br/>";
 	
 	echo "Map:<br/>";
-	echo "<img src = \"" . $map . "\" alt = \"map\" width = \"80%\" align = \"center\" /><br/><br/>";
+	echo "<img src = \"" . $map . "\" alt = \"map\" width = \"60%\" align = \"center\" /><br/><br/>";
 //	echo "<img src = \"" . $coat_of_arms . "\" alt = \"coat of arms\" width = \"20%\" align = \"center\" /><br/><br/>";
 	
 
