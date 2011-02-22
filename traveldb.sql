@@ -256,3 +256,10 @@ CREATE TABLE IF NOT EXISTS comments (
   
   PRIMARY KEY (`comment_id`)
 ); 
+
+
+INSERT INTO `traveldb`.`comments` (`name`, `subject`, `comment_body`, `date_submitted`) VALUES
+ 
+ ('Kelsie', 'We need a better name!', 'Hey guys, so I was thinking...we need a new  name for our site!  I mean, TravelGuide is cool and all...but not very exciting.  So, what if we did something with out initials?  Or if we want to do something in a foreign language, we could use Los Geht''s, which means Let''s Go in German, so we could use that and other similar phrases from other languages.  Or, we could just wait and see if anybody else has any ideas...', '2011-02-22 10:45:00')
+
+;
