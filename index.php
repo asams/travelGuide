@@ -1,384 +1,86 @@
 <?php
-if(isset($_POST['create']))
-{
-$root = $_POST['root'];
-$pw = $_POST['pw'];
-$db = mysqli_connect('localhost',$root,$pw);
-if(!$db)
-die('Connect Error, did you enter the right information?');
-mysqli_query($db,"DROP DATABASE IF EXISTS traveldb;");
-mysqli_query($db,"CREATE DATABASE IF NOT EXISTS traveldb;");
-
-mysqli_query($db,"CREATE USER 'travel'@'localhost' IDENTIFIED BY 'travelpass'");
-mysqli_query($db,"GRANT ALL PRIVILEGES ON traveldb.* to 'traveluser'@'localhost' identified by 'travel';");
-mysqli_query($db,"USE traveldb;");
-
-//--
-//-- 
-//--
-
-
-//--
-//-- Table structure for table `countries`
-//--
-
-mysqli_query($db, "CREATE TABLE IF NOT EXISTS `traveldb`.`countries` (
-  `country_id` smallint(6) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL default '',
-  `capital` varchar(50) NOT NULL default ' ',
-  `government` varchar(50) NOT NULL default '',
-  `currency` varchar(50) NOT NULL default '',
-  `population` int(11) NOT NULL default '0',
-  `area` int(11) NOT NULL default '0',
-  `official_language` varchar(50) NOT NULL default '',
-  `religion` varchar (50) NOT NULL default '',
-  `country_map` varchar(50) NOT NULL default 'default_map.jpg',
-  `flag` varchar(50) NOT NULL default 'default_flag.jpg',
-  `coat_of_arms` varchar(50) NOT NULL default 'default_coa.jpg',
-  `website` varchar(100) NOT NULL default '',
-  PRIMARY KEY (`country_id`)
-)");
-
-//--
-//-- Dumping data for table `countries`
-//--
-
-mysqli_query($db, "INSERT INTO `traveldb`.`countries` (`name`, `capital`, `government`, `currency`,  `population`, `area`, `official_language`, `religion`, `country_map`, `flag`, `coat_of_arms`, `website`) VALUES
-('England', 'London', 'constitutional monarchy', 'pound sterling',  51446000, 130395, 'English', 'Christianity', 'england_map.jpg', 'england_flag.gif', 'england_coa.bmp', 'http://enjoyengland.com/'),
-('Mexico', 'Mexico City', 'federal presidential constitutional republic', 'peso',  112322757, 1972550, 'Spanish', 'Roman Catholicism', 'mexico_map.bmp', 'mexico_flag.bmp', 'mexico_coa.bmp', 'http://www.visitmexico.com/'),
-('Germany', 'Berlin', 'Federal Parliamentary Republic', 'euro', 81757600, 357021, 'German', 'Christianity', 'germany_map.jpg', 'germany_flag.jpg', 'germany_coa.jpg', 'http://www.germany-tourism.de/'),
-('People''s Republic of China',	'Beijing', 'single party-led state', 'Chinese yuan', 1338612968, 9640821, 'Putonghua', 'Buddhism, Taoism', 'china_map.png', 'china_flag.png', 'china_emblem.png', 'N/A'),
-('Spain', 'Madrid', 'Parliamentary democracy and Constitutional monarchy', 'euro', 46030109, 504030, 'Spanish', 'Catholicism', 'spain_map.jpg', 'spain_flag.jpg', 'spain_coa.jpg', 'http://www.spain.info/'),
-('Turkey', 'Ankara', 'Parliamentary Republic', 'Turkish lira', 73722988, 783562, 'Turkish', 'Islam', 'turkey_map.jpg', 'turkey_flag.jpg', 'No coat of arms', 'http://www.tourismturkey.org/'),
-('United States of America', 'Washington, D.C.', 'federal presidential constitutional republic', 'United States dollar', 308745538, 9826675, 'English',	'Christianity', 'usa_map.png', 'usa_flag.jpg', 'usa_seal.png', 'N/A'),
-('France', 'Paris', 'Unitary Semi-Presidential Republic', 'Euro', 65821885, 674843, 'French', 'Secular', 'france_map.gif', 'france_flag.jpg', 'france_coa.png', 'http://us.franceguide.com/'),
-('Italy', 'Rome', 'Unitary Parliamentary Republic', 'Euro', 60418711, 301338, 'Italian', 'Catholic', 'italy_map.jpg', 'italy_flag.gif', 'italy_coa.jpg', 'http://www.italia.it/en/home.html'),
-('Malaysia', 'Kuala Lumpur', 'Federal Constitutional Elective Monarchy and Federal Parliamentary Democracy', 'Ringgit', 27565821, 329847, 'Bahasa Malaysia', 'Islam', 'malaysia_map.jpg', 'malaysia_flag.png', 'malaysia_coa.jpg', 'http://www.tourism.gov.my/corporate/')
-");
-
-
-
-
-//-- --------------------------------------------------------
-
-
-//--
-//-- Table structure for table `cities`
-//--
-
-mysqli_query($db, "CREATE TABLE IF NOT EXISTS `traveldb`.`cities` (
-  `city_id` smallint(6) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL default '',
-  `country_id` smallint(6) NOT NULL default '0',
-  `region` varchar(50) NOT NULL default '',
-  `population` int(11) NOT NULL default '0',
-  `city_map` varchar(50) NOT NULL default 'default_city_map.jpg',
-  `flag` varchar(50) NOT NULL default 'default_city_flag.jpg',
-  `coat_of_arms` varchar(50) NOT NULL default 'default_city_coa.jpg',
-  `website` varchar(100) NOT NULL default '',
-  PRIMARY KEY (`city_id`)
-)"); 
-
-//--
-//-- Dumping data for table `cities`
-//--
-
-mysqli_query($db, "INSERT INTO `traveldb`.`cities` (`name`, `country_id`, `region`, `population`, `city_map`, `flag`, `coat_of_arms`,  `website` ) VALUES 
-('London', 1, 'London', 7556900, 'london_map.jpg', 'N/A', 'N/A', 'http://www.cityoflondon.gov.uk/' ),
-('Bath', 1, 'South West', 83992, 'bath_map.jpg', 'N/A', 'N/A', 'http://www.cityofbath.co.uk/' ),
-('Mexico City', 2, 'Federal District', 8846752, 'mexicoCity_map.bmp', 'mexicoCity_flag.png', 'mexicoCity_coa.png', 'http://www.df.gob.mx/index.jsp' ),
-('Cancun', 2, 'Quintana Roo', 562973, 'cancun2_map.jpg', 'N/A', 'cancun_coa.png', 'http://www.cancun.com/' ),
-('Berlin', 3, 'Berlin', 3440441, 'berlin_map.jpg', 'berlin_flag.jpg', 'berlin_coa.jpg', 'http://www.visitberlin.de/en'),
-('Munich', 3, 'Bavaria', 1330440, 'munich_map.gif', 'munich_flag.jpg', 'munich_coa.jpg', 'http://www.muenchen.de/home/60093/Homepage.html'),
-('Beijing', 4, 'northern china', 22000000, 'beijing_map.jpg',	'N/A',	'N/A', 'http://www.beijing.gov.cn'),
-('Shanghai', 4, 'eastern China', 19210000, 'shanghai_map.png', 'N/A',	'N/A', 'http://www.shanghai.gov.cn'),
-('Madrid', 5, 'Community of Madrid', 3255950, 'madrid_map.jpg', 'madrid_flag.jpg', 'madrid_coa.jpg', 'http://www.aboutmadrid.com/'),
-('Barcelona', 5, 'Catalonia', 1621537, 'barcelona_map.jpg', 'barcelona_flag.jpg', 'barcelona_coa.jpg', 'http://www.aboutbarcelona.com/'),
-('Ankara', 6, 'Central Anatolia', 4306105, 'ankara_map.jpg', 'N/A', 'ankara_coa.jpg', 'http://ankara.com/'),
-('Istanbul', 6, 'Marmara', 13120596, 'istanbul_map.jpg', 'N/A', 'istanbul_coa.jpg', 'http://english.istanbul.com/'),
-('District of Columbia', 7,	'Washington, D.C.; between Virginia and Maryland', 601723, 'dc_map.jpg', 'dc_flag.png', 'dc_seal.png', 'http://www.dc.gov'),
-('New York', 7, 'New York', 8391881, 'ny_map.png', 'ny_flag.png', 'ny_seal.png', 'http://www.nyc.gov'),
-('Paris', 8, 'Ile-de-France', 2193031, 'paris_map.gif', 'paris_flag.png', 'paris_coa.png', 'http://www.paris.fr/portail/english/Portal.lut?page_id=8118'),
-('Marseille', 8, 'Provence-Alpes-Cote d''Azur', 852395, 'marseille_map.gif', 'marseille_flag.png', 'marseille_coa.jpg', 'http://www.marseille.fr'),
-('Rome', 9, 'Lazio', 2754440, 'rome_map.gif', 'rome_flag.png', 'rome_coa.png', 'http://www.comune.roma.it/was/wps/portal/pcr'),
-('Milan', 9, 'Lombardy', 1314745, 'milan_map.jpg', 'milan_flag.gif', 'milan_coa.png', 'http://www.comune.milano.it/'),
-('Kuala Lumpur', 10, 'Federal Territory', 1627172, 'kuala_lumpur_map.jpg', 'kuala_lumpur_flag.png', 'N/A', 'http://www.dbkl.gov.my/index.php?lang=en'),
-('George Town', 10, 'Penang', 157743, 'george_town_map.jpg', 'N/A', 'george_town_coa.jpg', 'http://www.tourismpenang.net.my/')
-");
-
-//-- --------------------------------------------------------
-
-
-//--
-//-- Table structure for table `attractions`
-//--
-
-
-mysqli_query($db, "CREATE TABLE IF NOT EXISTS `traveldb`.`attractions` (
-  `attraction_id` smallint(6) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL default '',
-  `city_id` smallint(6) NOT NULL default '0',
-  `attraction_type` enum('museum', 'monument', 'natural landmark', 'religious building', 'palace or castle', 'garden or park', 'other') NOT NULL default 'other',
-  `description` blob NOT NULL default '',
-  `address` varchar(100) NOT NULL default '',
-  `hours_of_operation` blob NOT NULL default '',
-  `entrance_price` enum('Y', 'N') NOT NULL default 'Y',
-  `website` varchar(100) NOT NULL default '',
-  `picture` varchar(50) NOT NULL default 'default_attraction_pic.jpg',
-  PRIMARY KEY (`attraction_id`)
-)"); 
-
-//--
-//-- Dumping data for table `attractions`
-//--
-
-mysqli_query($db, "INSERT INTO `traveldb`.`attractions` (`name`, `city_id`, `attraction_type`, `description`, `address`, `hours_of_operation`, `entrance_price`, `website`, `picture`) VALUES 
-('London Eye', 1, 'other', 'It is a giant 135-metre (443 ft) tall Ferris wheel situated on the banks of the River Thames in the British capital.  It is the tallest Ferris wheel in Europe and the most popular paid tourist attraction in the United Kingdom.', 'Riverside Building, County Hall, Westminster Bridge Road, London SE1 7PB', 'Winter Oct-May: 10.00am - 8.00pm Daily. Summer: June - September 10.00am - 9.00pm Daily.
-Closed Christmas Day', 'Y', 'http://www.londoneye.com',  'LondonEye1.jpg'),
-('British Museum',  1, 'museum', 'Founded in 1753 by Act of Parliament, from the collections of Sir Hans Sloane, the British Museum is one of the great museums of the world, showing the works of man from prehistoric to modern times with collections drawn from the whole world. Famous objects include the Rosetta Stone, sculptures from the Parthenon, the Sutton Hoo and Mildenhall treasures and the Portland Vase. There is also a program of special exhibitions and daily gallery tours, talks and guided tours.',  'Great Russel Street, London WC1B 3DG', 'Open daily 10.00 - 17.30. Selected galleries are open late on Thursdays and Fridays until 20.30.', 'N', 'http://www.britishmuseum.org', 'britishMuseum.jpg'),
-('Buckingham Palace', 1, 'palace or castle', 'Buckingham Palace serves as both the office and London residence of Her Majesty The Queen. It is one of the few working royal palaces remaining in the world today. During the summer, visitors can tour the nineteen State Rooms, which form the heart of the Palace. These magnificent rooms are decorated with some of the greatest treasures from the Royal Collection, including paintings by Rembrandt, Rubens and Canaletto and sculpture by Canova.', '13 Buckingham Palace Rd, Westminster, London SW1W 0', 'Summer 2011: 1 August - 25 September 9:45 - 18:30 (Last admission 15:45). Entry is by timed ticket.', 'Y', 'http://www.royalcollection.org.uk', 'buckingham_palace.jpg'),
-('Sea Life London Aquarium', 1, 'other', 'The new SEA LIFE London Aquarium is home to one of Europe''s largest collections of global marine life and the jewel in the crown of the 28 SEA LIFE attractions in the UK and Europe. Situated in the heart of London, the experience takes visitors on an immersive and interactive journey along the Great Oceanic Conveyor. Along the journey, a stunning glass tunnel walkway offers guests an unforgettable experience by strolling underneath a Tropical Ocean. There is plenty of interaction along the way, from feeding the stingrays and watching diving displays to touch pools and discovery zones. Other stars of the show include seahorses, octopus, zebra sharks and the ever popular clown fish.', 'County Hall Riverside Building London SE1 7PB', '7 days a week: 10.00-18.00. Last admission: 17.00. Late summer opening times: 22 Jul-3rd Sept:10.00-19.00. Last admission: 18.00', 'Y', 'http://www.londonaquarium.co.uk/', 'SeaLifeLondonAquarium.jpg'),
-('Wimbledon Lawn Tennis Museum', 1, 'other', 'Wimbledon Lawn Tennis Museum provides a remarkable multi-dimensional tour of the traditions, triumphs, sights and sounds that have made Wimbledon the most coveted title in tennis.  Visitors explore the game''s evolution from a garden party pastime to a multi-million dollar professional sport played world-wide: with interactives, touch screens, and audio guides (available in English, French, German, Spanish, Italian, Russian, Japanese and Mandarin), people of all ages can experience the artistry and athleticism of modern tennis.',  'All England Lawn Tennis & Croquet Club Church Road  London SW19 5AE',  'Open: Throughout the year, daily: 10.30am to 5pm. Last admission is 4.30pm Closed: The middle Sunday of The Championships, the Monday immediately after The Championships, 24th, 25th, 26th December and 1st January.', 'Y', 'http://www.wimbledon.org/museum', 'Wimbledon_Lawn_Tennis_Museum.jpg'), 
-
-('Roman Baths', 2, 'other', 'The Roman Baths complex is a site of historical interest in the English city of Bath. The house is a well-preserved Roman site for public bathing.  The Roman Baths themselves are below the modern street level. There are four main features: the Sacred Spring, the Roman Temple, the Roman Bath House and the Museum holding finds from Roman Bath. ',  'The Roman Baths, Abbey Church Yard Bath, BA1 1LZ' , 'The Roman Baths is open daily apart from 25 and 26 December, at the following times. January - February 0930 - 1630, exit 1730 March - June 0900 - 1700 - exit 1800 July - August 0900 - 2100 - exit 2200 September - October 0900 - 1700 - exit 1800 November - December 0930 - 1630 - exit 1730', 
- 'Y', 'http://www.romanbaths.co.uk/', 'romanBath.jpg'),
-('Jane Austen Centre', 2, 'museum', 'The Jane Austen Centre offers a snapshot of life during Regency times and explores how living in this magnificent city affected Jane Austen''s life and writing. Live Guides, costume, film, superb giftshop and an authentic period atmosphere await you at this premier attraction.', '40 Gay Street',  'April to October: 9:45am - 5.30pm everyday. Late opening July and August - Thursday to Saturday until 7pm November to March: Sun - Fri 11am - 4.30pm Sat 9:45am - 5.30pm Closed Christmas and New Year.', 'Y', 'http://visitbath.co.uk/site/things-to-do/attractions/the-jane-austen-centre-p26121', 'JaneAustenCentre.jpg'),
-('Thermae Bath Spa', 2, 'other', 'Using the warm, mineral-rich waters which the Celts and Romans enjoyed over 2000 years ago, Thermae Bath Spa is Britain''s original and only natural thermal Spa. Thermae is a remarkable combination of ''old and new'' where historic spa buildings blend with the contemporary design of the New Royal Bath. Choose a 2-hour or 4-hour spa session which includes full access to the warm waters and flowing curves of the Minerva Bath, a series of aromatic steam rooms and the open-air rooftop pool with spectacular views across the skyline of Bath.', 'Hetling Pump Room Hot Bath Street BATH BA1 1SJ', 'Closed Christmas Day, Boxing Day 1st to 7th January 2011, re-opening Saturday 8th January 2011. New Royal Bath open from 9.00-22.00. Last entry for a 2-hour spa session is 19.30. Cross Bath at Thermae Bath Spa open from 10.00-20.00. Last entry 18.30. Springs Cafe & Restaurant open from 9.30. Last serving at 20.15.', 'Y', 'http://www.thermaebathspa.com/', 'thermaebath.gif'),  
-('Prior Park Landscape Garden', 2, 'garden or park', 'Beautiful and intimate 18th century landscape garden created by Bath entrepreneur Ralph Allen with advice from poet Alexander Pope and Lancelot ''Capability'' Brown. Sweeping valley with magnificent views over the city of Bath. Walk across the famous Palladian Bridge, one of four in the world. Explore the woodland paths. Discover what wildlife lives in the beautiful haven. Or just relax and admire the view. A wonderful walk and an ideal picnic spot.', 'The National Trust Prior Park Landscape Garden Ralph Allen Drive Bath North East Somerset BA2 5AH', '12 Feb to 30 Oct, every day, 11am to 5.30pm 5 Nov to 31 Jan, Sat & Sun only, 11am to Dusk', 'Y', 'http://www.nationaltrust.org.uk/priorpark/', 'PriorParkLandscapeGarden.jpg'),
-('Theatre Royal Bath', 2, 'other', 'Built in 1805, the Georgian Theatre Royal was beautifully refurbished in 2010. The Main House offers a year-round programme of top-quality drama, including many West End productions, opera, comedy, dance and frequent Sunday concerts. The Theatre Royal also houses the Egg theatre for children, young people and their families and the egg Cafe (open throughout the day); the Ustinov Studio for cutting edge drama, comedy and music in an intimate setting; the Vaults Restaurant (for pre-show dining); and the historic Garricks Head Pub. The Theatre Royal''s many regular events include the Family Theatre Festival, Peter Hall Company Season, Shakespeare Unplugged Festival and a traditional family pantomime at Christmas.', 'Bath Theatre Royal Box Office Theatre Royal Saw Close Bath BA1 1ET', '10am to 6pm Monday-Saturday', 'Y', 'http://www.theatreroyal.org.uk/', 'Theatre_Royal_Bath.jpg'),
-
-('Teotihuacan', 3, 'other', 'Teotihuacan is an enormous archaeological site in the Basin of Mexico, containing some of the largest pyramidal structures built in the pre-Columbian Americas.  The city was thought to have been established around 200 BCE, lasting until its fall sometime between the 7th and 8th centuries CE.', 'N/A','Always open', 'N', 'N/A', 'teotihuacan.jpg'),
-('National Anthropological Museum', 3, 'museum', 'The museum contains significant archaeological and anthropological artifacts from the pre-Columbian heritage of Mexico, such as the Piedra del Sol and the 16th-century Aztec statue of Xochipilli.', 'Av. Paseo de la Reforma y calzada Gandhi s/n Col. Chapultepec Polanco, Delegacion Miguel Hidalgo C.P. 11560. Mexico, D.F.', 'From Tuesday to Sunday from 9:00 to 19:00 hrs. Closed Mondays. ', 'Y', 'http://www.gobiernodigital.inah.gob.mx/mener/index.php?id=33', 'anthroMuseum.jpg'),
-('Xochimilco', 3, 'garden or park', 'The floating gardens of Xochimilco are another of Mexico City''s attractions. The ancient floating gardens have been around for about 700 years and still operate basically the same as they did in Aztec times. Here you can rent brightly painted boats, called trajineras. You cruise the ancient canals at a leisurely pace and once you are out of the dock area you will more than likely be approached by boats with mariachi or marimba bands, photographers and vendors of food, drinks and handicrafts. This is a favorite Mexico City attraction with visitors and locals alike and one you surely will not want to miss.', 'Xochimilco, Mexico City (Federal District)', 'Always open', 'N', 'N/A', 'Xochimilco.jpg'), 
-('Metropolitan Cathedral', 3, 'religious building', 'The Metropolitan Cathedral of the Assumption of Mary of Mexico City is the largest and oldest cathedral in the Americas and seat of the Roman Catholic Archdiocese of Mexico.  It is situated atop the former Aztec sacred precinct near the Major Temple on the northern side of the Constitution Plaza in downtown Mexico City. The cathedral was built in sections from 1573 to 1813 around the original church that was constructed soon after the Spanish conquest of Tenochtitlan, eventually replacing it entirely. Spanish architect Claudio de Arciniega planned the construction, drawing inspiration from Gothic cathedrals in Spain.  The cathedral has four facades which contain portals flanked with columns and statues. The two bell towers contain a total of 25 bells. The tabernacle, adjacent to the cathedral, contains the baptistery and serves to register the parishioners. There are two large, ornate altars, a sacristy, and a choir in the cathedral. Fourteen of the cathedral''s sixteen chapels are open to the public. Each chapel is dedicated to a different saint or saints, and each was sponsored by a religious guild.', 'Plaza de la Constitucion, Colonia Centro, Mexico City 06010, Mexico', 'Daily 7am-7pm', 'N', 'N/A', 'MetroCatedral.jpg'),
-('National Palace', 3, 'other', 'The National Palace was the seat of the federal executive in Mexico. It is located on Mexico City''s main square, the Plaza de la Constitution. This site has been a palace for the ruling class of Mexico since the Aztec empire, and much of the current palace''s building materials are from the original one that belonged to Moctezuma II.  This historic building was once occupied by Hernan Cortes, the Spanish explorer who conquered the Aztecs, and includes a famous panoramic mural of Mexican history by Diego Rivera.', 'Plaza de la Constitucion, Colonia Centro, Mexico City 06010, Mexico', 'Always open', 'N', 'N/A', 'nationalpalace.jpg'),
-
-('Chichen Itza', 4, 'other', 'Founded in 495 AD, Chichen Itza has columned structures and warrior images, is reminiscent of ancient Rome.', 'N/A', 'Always open', 'N', 'http://allaboutcancun.com/activities/side-trips/chichen-itza/', 'chichenitza.jpg'),
-('Dolphin Discovery', 4, 'other', 'It''s  the best place to swim with dolphins in Cancun.  In Dolphin Discovery, people of all ages and concerned dolphin lovers are provided the opportunity to make their dreams come true.', 'Camino Sac Bajo Lote 26 (antes 96 al 102) Fraccionamiento Paraso Laguna Mar Isla Mujeres-Quintana Roo. C.P. 77400', 'Open every day from 9:00 am to 5:00 pm', 'Y', 'http://www.dolphindiscovery.com/', 'dolphinDiscovery.jpg'),
-('Xcaret', 4, 'other', 'Xcaret, 50 miles south of Cancun, is an all day family adventure located around natural grottos, fresh and saltwater pools and underground rivers that run to the sea. A tropical island-like ecological amusement park with snorkeling sites, an exotic tropical rainforest where endangered species are protected, and a few archeological sites thrown in for good measure.  You can walk around on the bottom of a Caribbean lagoon with a dive helmet or glide down a jungle river, both above and below ground. There are turtles, monkeys, dolphin encounters, snack bars and palapa restaurants with roving regional musical groups. A spectacular evening Mexican themed light and sound show starts at dusk with a demonstration of the pre-Hispanic Ball Game.', 'Chetumal-Puerto Juarez Federal Highway, Km. 282. Solidaridad, Quintana Roo, Mexico', 'open all year, from 8:30 AM to 9:30 PM', 'Y', 'http://www.xcaret.com/', 'xcaret.jpg'),  
-('Underwater Museum', 4, 'other', 'Submerge yourself in one of the most beautiful and clear waters of the world; The Mexican Caribbean. In the near future these crystal clear waters will be home to one of the largest underwater museums on the planet, located in Cancun, Quintana Roo, Mexico. Forming this museum will be a series of underwater sculptural installations all sited within the protected National Marine Park, of the Yucatan Peninsula, Mexico. Divers and snorkellers will have the opportunity to admire more than 400 original sculptures in depths ranging from 9 to 20 feet. The artist behind the project Jason deCaires Taylor offers a contemporary and cultural view of how the Mayan people have evolved through out the years in''The Silent Evolution''. This monumental installation consists of more than 400 life size figurative sculptures. Also located in the museum, near the island of Isla Mujeres, a sculpture entitled ''The Dream Collector'' will be submerged, along with many other unique master pieces.', 'Cancun, Quintana Roo, Mexico', 'Always open', 'N', 'http://cancun.travel/en/things-to-do/water-sports/cancuns-underwater-museum/', 'underwater-museum.jpg'),
-('Xel-Ha', 4, 'garden or park', 'At last, the dreams of stepping through the aquarium glass, of drifting into an astonishing world of underwater magic are about to come true.
-Xel-Ha is nature as no one has ever felt it before, a place to share in celebrating the biological parade of the Riviera Maya.
-The Natural Wonder and its open-sea aquarium offer a myriad of land and water activities, ecological attractions, world-class restaurants, and countless more unimaginable experiences.
-Dazzle your senses. Feel the thrills of adventure and caresses of paradise. Xel-Ha...the Natural Wonder awaits.', 'Highway Chetumal-Pto. Juarez, Km. 240 local 1 y 2 modulo B', 'open 365 days a year from 8:30 AM to 6:00 PM', 'Y', 'http://www.xelha.com/', 'xelha.jpg'),
-
-
-('Great Wall of China', 7, 'other', 'The Great Wall of China is a combination of stone and earthen fortifications located in northern China that was originally built to protect the Chinese Empire''s northern borders from invasion.', 'Common tourist sites in Beijing, but it stretches from Shanhaiguan in the east, to Lop Nur in the west', 'varies by wall section', 'Y', 'N/A', 'great_wall.jpg'),
-('Forbidden City', 7, 'palace or castle', 'The Forbidden City was China''s imperial palace from the Ming Dynasty through the Qing Dynasty.  For nearly 500 years, it served as the emperors'' palace.  The city, built from 1402 to 1420, is comprised of 980 buildings and extends over 7, 800, 000 sq ft.  UNESCO lists it as the largest preserved collection of ancient wooden structures in the world.  It is a sub-city of the Imperial City.', 'No. 4, Jingshan Front Street, Dongcheng District', '8:30am to 5pm (April 16-October 15), tickets not available after 16:00; 8:30am to 4:30pm (October 16-Apr.15), tickets not available after 15:30', 'Y', 'http://www.dpm.org.cn/index1024768.html', 'forbidden_city.jpg'),
-('Beijing National Stadium', 7, 'other', 'The National Stadium or Bird''s Nest, as it is colloquially known, was built and designed for the 2008 Summer Olympics and Paralympics.  The building began on December 8, 2003 and opened on June 28, 2008.  There are pipes located under the playing surface which gather heat in the winter to warm the stadium and coldness in the summer to cool the stadium.',	'Building 8, Anhui North Block, Chaoyang District, Beijing 100101, China', '9:00 to 18:00 weekdays; 9:00 to 21:30 on weekends and public holidays',	'Y', 'http://en.beijing2008.cn/cptvenues/venues/nst/n214078095.shtml', 'national_stadium.jpg'),
-('Yonghe Temple', 7, 'religious building', 'The Youghe Temple, also known as Palace of Peace and Harmony Lama Temple or just Lama Temple, is a temple and monastery of the Geluk School of Tibetan Buddhism, one of the most important and largest in the world.', '12 Yonghegong Dajie, Beixinqiao, Dongcheng District, Beijing, China', '9:00 to 17:00', 'Y',	'http://www.beijingtrip.com/attractions/lamatemple.htm', 'yonghe_temple.png'),
-('National Aquatics Center', 7,	'other', 'The National Aquatics Center, also known as the Water Cube, is an aquatic center that was built in the Olympic Green alongside of the National Stadium for the swimming competitions of the 2008 Summer Olympics.  Despite the nickname, the building is not an actual cube, but a rectanuglar box.  Building began on December 24, 2003 and it was completed for use on January 28, 2008.  Half of its interior was turned into a water park after the Olympics, and it re-opened on August 8, 2010.', 'Olympic Park, Beichen Road, Chaoyang District, Beijing, China', '9:00 to 17:00', 'Y', 'http://www.water-cube.com', 'national_aquatics_center.jpg'),
-('National Center for the Performing Arts',	7,	'other', 'The National Center for the Performing Arts, or The Egg, is an opera house, stucturally built as a dome of titanium and glass surrounded by an artificial lake designed by Paul Andreu, a French architect.  Building began in December of 2001 and was completed for the opening concert in December of 2007.   It is comprised of the Opera Hall, Music Hall, and Theater Hall.', 'No.2 West Chang''an Avenue, Xicheng District, Beijing', 'Box office open daily: 9:30 a.m. to 7:30 p.m; show times vary',	'Y', 'http://www.chncpa.org/n16/welcome.html', 'national_center_perf_arts.jpg'),
-
-('The Bund', 8, 'other', 'The Bund is an area comprised of a section of Zhongshan Road that runs along the western bacnk of the Huangpu River.  It contains buildings and wharves and is one of the most famous tourist destinations in Shanghai.', 'The Bund, Shanghai',	'N/A',	'N',	'http://hua.umf.maine.edu/China/images/Bund_Key_to_Buildings/Bund_Key.html', 'the_bund.jpg'),
-('Nanjing Road', 8,	'other', 'Nanjing Road is the main shopping street of Shanghai.  It is also one of the world''s busiest shopping streets, comprised of two sections, Nanjing Road East and Nanjing Road West.',	'Nanjing Road, Shanghai', 'N/A', 'N', 'http://www.asiarooms.com/en/travel-guide/china/shanghai/things-to-do-in-shanghai/shopping-in-shanghai/nanjing-road-shopping-mall-shanghai.html',	'nanjing_road.gif'),
-('Yuyuan Garden', 8, 'garden or park', 'The Yuyuan, or Yu Garden is considered to be one of the most ornate and finest Chinese gardens.  The garden was first established in 1559 by Pan Yunduan as a private garden for his father, a high-ranking official during the Ming Dynasty.  It took him nearly 20 years to build it.', '218, Anren Street, Huangpu District, Shanghai, China', '8:30-17:00',	'Y', 'http://www.meet-in-shanghai.net/landmarks_puxi1.php',	'yuyuan_garden.jpg'),
-('Shanghai Ocean Aquarium',	8, 'other',	'The Ocean Aquarium is home to Bruce, an Oranda goldfish, named after Bruce Lee, measuring 17.129 in.  It is also home to the longest underwater tunnel in the world.', 'No.1388 Lujiazui Ring Road, Pudong New Area, Shanghai China Post Code: 200120', 'Open daily: 9:00 to 18:00;  Hours are adjusted during the summer holidays.',	'Y', 'http://www.sh-soa.com/en/html/index.html', 'ocean_aquarium.jpg'),
-('Xintiandi', 8, 'other', 'Xintiandi is a car-free shopping, eating, and entertainment district of shikumen (stone gate) houses which are now bookstores, cafes, and restaurants, and shopping malls.  Its name means \"New Heaven and Earth.\"',	'26/F., Shui On Plaza, 333 Huai Hai Zhong Road, Shanghai 200021', 'N/A', 'N', 'http://www.xintiandi.com/chinese/landing.asp', 'xintiandi.jpg'),
-
-
-('Frauenkirche', 6, 'religious building', 'The Frauenkirche''s full name is Der Dom zu unserer lieben Frau - the Cathedral of Our Dear Lady.  It serves as the cathedral of the Archdiocese of Munich and Freising and is a symbol of Munich, the Bavarian capital city.  The church towers over surrounding buildings, and visitors may climb the winding stairs of the south tower to view the city of Munich and the nearby Alps.', 'Frauenplatz 1, 80331 Munich', 'No entrance during service', 'N', 'http://www.muenchen.de/Rathaus/tourist_office/sehenswuerdigkeiten/Kirchen/129352/Frauenkirche.html', 'frauenkirche_pic.jpg'),
-('Nymphenburg Palace', 6, 'palace or castle', 'The Nymphenburg Palace (Schloss Nymphenburg) is a baroque palace in Munich, Bavaria.  The palace was the main summer residence of the rulers of Bavaria.', 'Schloss Nyphenburg 1, 80638 Munich', 'April to 15 October: 9am - 6pm, 16 October to March: 10am - 4pm, open daily', 'Y', 'http://www.schloss-nymphenburg.de/englisch/palace/index.htm', 'nymphenburg_pic.jpg'),
-('BMW Museum', 6, 'museum', 'The BMW Tower is a Munich landmark, which serves as the world headquarters for the Bavarian automaker.  The building is shaped like a BMW four-cylinder, and was declared historical in 1999.  The nearby BMW Museum, also near the Munich Olympiapark, showcases the history of BMW.', 'BMW Museum Am Olympiapark 2, 80809 Munich', 'Tuesday to Sunday 10am - 6pm, closed Mondays', 'Y', 'http://www.bmw-museum.com/2/webmill.php', 'bmw_museum_pic.jpg'),
-('Englischer Garten', 6, 'garden or park', 'German for English Garden, the Englisher Garten is a large public park in the center of Munich, created in 1789.  It features wide open parks and lakes, beer gardens, restaurants, and even nude sunbathers...', 'Englischer Garten, 80538 Munich', 'Always open', 'N', 'http://www.muenchen.de/Tourismus/Sightseeing/Attractions/308378/englishgarden.html', 'english_gardens_pic.jpg'),
-('Olympiapark', 6, 'other', 'The Olympiapark in Munich is an Olympic Park constructed for the 1972 Summer Olympics.  The Park serves now as a venue for cultural, social, and religious events, including the 2006 World Cup, which was hosted in Munich, as well as public viewings of the 2010 World Cup.', 'Spiridon-Louis-Ring 21, 80809 Munich', 'Depends on destination within the Olympiapark', 'N', 'http://www.olympiapark.de/en/home/', 'olympiapark_pic.jpg'),
-
-('Brandenburg Gate', 5, 'monument', 'The Brandenburg Gate is a former city gate and one of the main symbols of Berlin and Germany.  It is located west of the city center and is the only remaining gate through which Berlin was once entered.  It is the monumental entry to Unter den Linden, the renowned boulevard of linden trees which formerly led to the city palace of the Prussian monarchs.  The gate suffered considerable damage in World War II and was restored fully from 2000 to 2002.  It is regarded as one of Europe''s most famous landmarks.', 'Brandenburger Tor, Pariser Platz, 10117 Berlin, Germany', 'Always open', 'N', 'http://www.berlin.de/orte/sehenswuerdigkeiten/brandenburger-tor/index.en.php', 'brandenburg_gate_pic.jpg'),
-('East Side Gallery', 5, 'monument', 'The East Side Gallery is an international memorial for freedom.  It is a 1.3 km long section of the Berlin Wall, located near the center of Berlin.  The Gallery consists of about 100 paintings by artists from around the world, painted in 1990 on the east side of the Berlin Wall.  The paintings document the time of change after the fall of the Berlin Wall and express the euphoria and great hopes for a better world and a free future for all the people of the world.', 'Muehlenstrasse, Berlin', 'Always open', 'N', 'http://www.eastsidegallery.com/index.htm', 'east_side_gallery_pic.jpg'),
-('Reichstag Building', 5, 'other', 'The Reichstag Building was originally constructed to hold the parliament of the German Empire in 1894.  It was severely damaged during World War II but was completely reconstructed by 1999.  The dome on top of the building is a large glass dome that provides visitors with a 360-degree view of the surrounding Berlin cityscape.', 'Reichstag, Platz der Republik 1, 10557 Berlin', 'Daily 8am - 12am', 'N', 'http://www.berlin.de/orte/sehenswuerdigkeiten/reichstag/index.en.php', 'reichstag_pic.jpg'),
-('Berlin Zoological Garden', 5, 'park or garden', 'The Berlin Zoo is the oldest and best known zoo in Germany.  Opened in 1844, it is located in Berlin''s Tiergarten (animal park).  The zoo contains the most comprehensive collection of species in the world and is considered the most visited zoo in Europe.  The zoo is home to Knut, the world famous polar bear, born in December 2006.', 'Hardenbergplatz 8, 10787 Berlin', 'April to September daily: 9am - 7pm, October: 9am - 6pm, November to March: 9am - 5pm', 'Y', 'http://www.zoo-berlin.de/', 'berlin_zoo_pic.jpg'),
-('Museum Island', 5, 'museum', 'Museum Island (\"Museumsindel\" in German) is the northern half of an island in the Spree river in the middle of Berlin.  It holds five internationally renowned museums:  the Altes Museum, the Neues Museum, the Alte Nationalgalerie, the Bode Museum, and the Pergamon Museum.', 'Museumsinsel, 10178 Berlin', 'Depends on the museum', 'Y', 'http://www.smb.museum/smb/standorte/index.php?lang=en&p=2&objID=3313&n=2', 'museum_island_pic.jpg'),
-
-('American Museum of Natural History', 13, 'museum', 'This museum located in Manhattan is one of the largest in the world, consisting of twenty-five interconnected buildings with fourty-six permanent exhibition halls, collections containing over 32 million specimens, research laboratories, and its library.', 'American Museum of Natural History, Central Park West at 79th Street, New York, NY 10024-5192', 'daily, 10:00 a.m.—5:45 p.m.; The Museum is closed Thanksgiving and Christmas.', 'Y',	'http://www.amnh.org/', 'amer_muse_of_nat_hist.jpg'),
-('Smithsonian Institution',	13, 'museum', 'The Smithsonian Institution is a research and educational institute and associated museum.  It contains 19 museums, a zoo, and 9 research centers that are located in Washington, D.C. and other sites including New York City, Virginia, and Panama.  It has over 136 million items in its collections.', 'Smithsonian Information PO Box 37012 SI Building, Room 153, MRC 010 Washington, D.C. 20013-7012', 'varies by museum', 'N', 'http://www.si.edu/', 'smithsonian_institution.jpg'),
-('Georgetown', 13, 'other',	'Georgetown is a neighborhood along the Potomac River waterfront.  Many enjoy walking around for its commercial corridors, containing shops, bars, and restaurants, and for its historical landmarks.', 'Georgetown, Washington, D.C.', 'N/A', 'N', 'http://www.georgetowndc.com/', 'george_town_dc.jpg'),
-('Washington Monument', 13, 'monument',	'The Washington Monument is an obelisk built to commemorate the first U.S. president, George Washington.   It is made of marble, granite, and sandstone, and is the world''s tallest stone structure.  Note: If you start really close to it, and then walk backwards looking up, it appears as if it is falling on you.', 'National Mall and Memorial Parks, 1900 Ohio Drive SW, Washington, DC 20024', 'Open daily - Summer Hours: 9 a.m. to 10 p.m. (May 31 -September 6, 2010) with the last tour beginning before 9:45 p.m.; Rest of Year: 9 a.m. - 5 p.m. with the last tour beginning before 4:45 p.m.  Closed July 4 and December 25.',
- 'N', 'http://www.nps.gov/wamo/index.htm', 'washington_monument.jpg'),
-('Lincoln Memorial', 13, 'monument', 'The Lincoln Memorial was built to honor the 16th U.S. president, Abraham Lincoln.   The building contains a large seated statue of Lincoln and inscriptions of two of his speeches, The Gettysburg Address and his Second Inaugural Address.', 'National Mall and Memorial Parks, 1900 Ohio Drive SW, Washington, DC 20024', '24 hours a day; Rangers are on duty to answer questions from 9:30 A.M. to 11:30 P.M. daily', 'N', 'http://www.nps.gov/linc/index.htm', 'lincoln_memorial.jpg'),
-
-('The Statue of Liberty', 14, 'monument', 'The Statue of Liberty is a colossal neoclassical sculpture designed by the French sculptor, Frederic Bartholdi, and was given to the U.S. by the people of France.  It is located on Liberty Island in New York Harbor.  The statue represents Libertas, the Roman goddess of freedom.',	'National Park Service, Statue of Liberty National Monument, Liberty Island, New York, NY 10004-1467', 'First boat departs for Liberty Island at 9:30 am.  The last boat off of Liberty Island is at 5:00 pm.  Closed December 25th.', 'Y', 'http://www.nps.gov/stli/index.htm', 'statue_of_liberty.jpg'),
-('Times Square', 14, 'other', 'Times Square is a major commercial intersection and site of the annual ball drop on New Year''s Eve at One Times Square, The New York Times headquarters.', 'Manhattan, New York City, NY; Junction of Broadway and 7th Avenue to West 42nd and West 47th Streets', 'N/A', 'N', 'http://www.timessquarenyc.org/', 'times_square.jpg'),
-('Central Park', 14, 'garden or park', 'Central Park is a public park in Manhattan that was designated a National Historic Landmark in 1963.   It is the most visited urban park in the U.S., receiving about twenty-five million visitors annually.  Some of it''s places and attractions include the Loeb Boathouse, the Ramble (a wooded section known for bird-watching), carriage horses, rock climbing, ice skating, the carousel, and playgrounds.', 'Central Park S and 7th Avenue, New York, NY 10019', 'N/A', 'N', 'http://www.centralpark.com/', 'central_park.jpg'),
-('Ellis Island', 14, 'other', 'Ellis Island was the gateway to the United States of America for millions of immigrants as the nation''s busiest immigrant inspection station from 1892 to 1954.  Since 1990, it now hosts a museum of immigration.', 'Statue of Liberty National Monument and Ellis Island, Liberty Island, New York, NY 10004-1467', 'The first ferries will leave the mainland for Ellis Island at 9:00 am. The last ferries will depart Ellis Island at 5:15 pm.  Closed Decmeber 25th.', 'Y', 'http://www.nps.gov/elis/index.htm', 'ellis_island.jpg'),
-('Empire State Building', 14, 'other', 'The Empire State Building is a 102-story Art Deco skyscraper that is 1, 250 ft tall.  It is the tallest building in New York City and has been named one of the Seven Wonders of the Modern World by the American Civil Engineers.', 'The Empire State Building, 350 Fifth Avenue, Suite 300, New York, NY 10118',	'Open daily 365 days of the year; 8:00 am to 2:00 am, last elevators go up at 1:15 am.  Note: Holiday hours may vary.',	'Y', 'http://www.esbnyc.com/', 'empire_state_building.jpg'),
-
-
-('Eiffel Tower', 15, 'monument', 'The Eiffel Tower is the tallest building in Paris and the most-visited paid monument in the  world. It was built as the entrance arch to the 1889 World''s Fair. It is 324 meters tall and is the most prominent symbol of both Paris and France.', 
-'Tour Eiffel, Champ de Mars, 75007 Paris, France', 'January 1st to June 14th 9:30a.m.-11:00p.m, June 15th to September 1st 9:00a.m.-12:00a.m., September 2nd to December 31st 9:30a.m.-11:00p.m.', 
-'Y', 'http://www.tour-eiffel.com', 'EiffelTower.jpg'),
-('Notre Dame de Paris', 15, 'religious building', 'Notre Dame de Paris is widely considered one of the finest examples of French Gothic architecture in France and in Europe. It was among the first buildings in the world to use the flying buttress. Its treasury houses a reliquary with the purported Crown of Thorns.', 
-'6 Parvis Notre-Dame, Place Jean-Paul II, 75004 Paris, France', 'Open every day of the year from 8:00a.m. to 6:45p.m. (7:15p.m. on Saturdays and Sundays)', 
-'N', 'http://www.notredamedeparis.fr', 'NotreDameDeParis.jpg'),
-('Arc de Triomphe', 15, 'monument', 'The Arc de Triomph honours those who fought and died for France in the French Revolutionary and Napoleonic Wards. The names of all French victories and generals are inscribed on its inner and outer surfaces. Beneath its vault lies the Tomb of the Unknown Soldier from World War I.', 
-'Arc de Triomphe, Place du Charles-de-Gaulle, 75008 Paris, France', 'April 1 to September 30 from 10a.m.-11p.m. and October 1 to March 31 from 10a.m.-10:30p.m.', 
-'Y', 'N/A', 'ArcDeTriomphe.jpg'),
-('The Louvre', 15, 'museum', 'The Louvre is one of the world''s largest museums and the most visited art museum in the world. The museum contains more than 380,000 objects and displays 35,000 works of art in eight curatorial departments including Egyptian, Near Eastern, Greek, Etruscan and Roman antiquities. Its most popular attraction however, is the Mona Lisa.', 
-'Musee du Louvre, Rue de Rivoli, 75001 Paris, France', 'Open Mondays, Thursdays, Saturdays and Sundays from 9a.m. to 6p.m. Open Wednesdays and Friday from 9a.m. to 10p.m. Closed Tuesdays.', 
-'Y', 'http://www.louvre.fr/llv/commun/home.jsp?bmLocale=en', 'TheLouvre.jpg'),
-('Basilique du Sacre-Coeur', 15, 'religious building', 'The Basilica of the Sacret Heart of Jesus is located at the summit of the butte Montmartre, the highest point in the city. It was built in the decades following the French Revolution. The mosaic its apse, entitled \"Christ in Majesty\" is among the largest in the world. The top of the dome is open to tourists and provides a panoramic view of Paris.', 
-'Parvis du Sacre Coeur, 75018, Paris, France', 'Open daily from 6:00a.m. to 11:00p.m.', 
-'N', 'http://www.sacre-coeur-montmartre.com/', 'BasiliqueDuSacreCoeur.jpg'),
-
-
-('Old Port of Marseille', 16, 'other', 'The Old Port of Marseille (Vieux-Port) has been the natural harbour of Marseille since antiquity. It was once a major landmark comparable to the Eiffel tower in Paris before it was destroyed in the Battle of Marseille. It is home to St. Vivtor''s Abby and was the setting of \"The Count of Monte Cristo\" by Alexandre Dumas.', 
-'Old Port of Marseille, quai du port, 13001 Marseille, France', 'N/A', 
-'N', 'N/A', 'OldPortMarseille.jpg'),
-('Notre-Dame de la Garde', 16, 'religious building', 'Notre-Dame de la Garde is a Neo-Byzantine church that sits on a 532 foot limestone outcrop on the south side of the Old Port. It is the site of a poplular annual pilgimage every Assumption Day (August 15). Its 42 foot belfry supports a 27 foot tall statue of the \"Madonna and Child\" made out of copper gilded with gold leaf.', 
-'Rue Fort-du-Sanctuaire, 13281 Marseille, France', 'Open daily from 7a.m. to 7p.m.', 
-'N', 'N/A', 'NotreDameDeLaGarde.jpg'),
-('Chateau d''If', 16, 'other', 'The Chateau d''If is a small fortress located on the island of If about a mile offshore in the Bay of Marseille. It is famous for being one of the settings of Alexandre Dumas'' \"The Count of Monte Cristo\". It was once an \"escape-proof\" prison similar to Alcatraz in California. Mark Twain visited the Chateau in 1867 and wrote about it in \"The Innocents Abroad\".', 
-'Chateau d''If, Quai de la Fratenite, F-13001 Marseille, France', 'Open daily from 9:30a.m. to 5:30p.m.', 
-'Y', 'N/A', 'ChateauDIf.jpg'),
-('Parc Longchamp', 16, 'park/garden', 'The Parc Longchamp is a municipal park surrounding the Palais Longchamp which houses the city''s museum of fine arts and natural history museum. The park is listed by the French Ministry as one of the Notable Gardens of France. The parck contains a large, ornate fountain and a classic garden a la francaise known as the Jardin du plateau.', 
-'Boulevard Longchamp, Marseille, France 13001', 'N/A', 
-'N', 'N/A', 'ParcLongchamp.jpg'),
-('La Vieille Charite', 16, 'museum', 'La vielle charite is a former almshouse now functioning as a museum and cultural center. It is a small Baroque style building designed by the famous french sculptor, painter and architect Pierre Puget. It contains the Museum of Mediterranean Archeology, the Museum of Art of Africa, a research library specialising in archological documents, a school of advanced studies in the social sciences and offices of the Centre National de la Recherche Scientifique.', 
-'Vieille Charite, 2 rue de la Charite, F-13002 Marseille, France', 'Open from 10:00a.m. to 5:00p.m. from October 1 to May 31 and from 11:00a.m. to 6:00p.m. from June 1 to September 30.', 
-'N', 'http://www.vieille-charite-marseille.org/', 'VieilleCharite.jpg'),
-
-('Colosseum', 17, 'other', 'The collosseum is an ancient elliptical ampitheater inn the center of Rome. It is was capable of seating 50,000spectators and was used for gladiator contests and public spectacles such as executions and dramas based on Classical mythology. It is one of Romes most popular tourist attractions.', 
-'Colosseum, Piazza del Colosseo, l-00186 Rome, Italy', 'March 1 to October 31 from 9a.m. - 6:30p.m., November 1 to February 28 from 9:00a.m. - 3:00p.m.', 
-'Y', 'N/A', 'Colosseum.jpg'),
-('Trevi Fountain', 17, 'monument', 'The Trevi Fountain is one of the most famous fountains in the world. A trditional legend of the fountain is that if a visitor throws a coin into the fountain, they are ensured a return to Rome. Another is that tossing two coins into the fountain will lead to a romance and three will will ensure either a marriege or a devorce. An estimated 3,000 euros are thrown into the fountain each day.', 
-'Piazza di Trevi, 00187 Rome, Italy', 'N/A', 
-'N', 'http://www.trevifountain.net/', 'TreviFountain.jpg'),
-('Pantheon', 17, 'religious building', 'The Pantheon is a building in Rome comissioned by Marcus Agrippa as a temple to all the gods of Ancient Rome. It is one of the best preserved Roman buildings and has been in continuous use throughout history. Since the 7th century it has been used as a Roman Catholic church and contains examples of both ancient roman and roman catholic artistry.', 
-'Pantheon, Piaza della Rontonda, l-00186 Rome, Italy', 'Open every day from 8:30a.m. to 7:30p.m. (6:30p.m. on sundays)', 
-'N', 'N/A', 'Pantheon.jpg'),
-('Piazza del Popolo', 17, 'other', 'Piazza del Popolo was once the beginning of the Via Flaminia of ancient rome, the most important rout to the north. The layout of the piazza was designed in neoclassical style between 1811 and 1822 by Giuseppe Valadier. An Egyptian obelisk of Ramesses II stands in the center of the plazza. The piazza is decorated with fountains and churches displaying a mixture of ancient Roman and Egyptian imagry.', 
-'Piazza del Popolo, Rome, 00186 Italy', 'N/A', 
-'N', 'N/A', 'PiazzaDelPopolo.jpg'),
-('Arch of Constantine', 17, 'other', 'The Arch of Constantine was erected to commemorate Constantine I''s victory over Maxentius at the Battle of Milvian Bridge in 312. The main archway is decorated with reliefs depicting victory figures with trophies and smaller archways show river gods. The column bases and spandrel reliefs are from the times of Constantine. An inscription praises Constantine and dedicates the arch to him.', 
-'Piazza del Colosso, 00184 Rome, 00186 Italy', 'N/A', 
-'N', 'N/A', 'ArchOfConstantine.jpg'),
-
-('Milan Cathedral', 18, 'religious building', 'The Cathedral of Milan is the seat of the Archbishop of Milan. The Gothic cathedral took five centuries to complete and is the largest Gothic cathedral (second largest Catholic cathedral) in the world. The cathedral contains the sarcophogi of several archbishops and a famous statue of the St. Bartholomew by Marco D''Argate.', 
-'Piaza del Duomo, Milan, Italy 20123', 'Open every day from 6:50a.m. to 7:00p.m.', 
-'N', 'N/A', 'MilanCathedral.jpg'),
-('La Scala', 18, 'other', 'La Scala is a world renowned opera house in Milan. Most of Italy''s greatest operatic artists and many of the finest singers from other nations, too, have appeared at La Scala during the past 200 years. It is still one of the leading opera and ballet theaters of the world and is home to the La Scala Theater Chorus, La Scala Theatre Ballet and La Scala Theatre Orchestra.', 
-'Via Filodrammatici, 20121 Milan, Italy', 'Performance times vary.', 
-'Y', 'http://www.teatroallascala.org/en/index.html', 'LaScala.jpg'),
-('Galleria Vittorio Emanuele II', 18, 'other', 'The Galleria Vittorio Emanuele II is a covered double arcade formed of two glass-vaulted arcades at right angles intersection in an octagon. The central space is topped with a glass dome. It was an important step in the evolution of the modern glazed and enclosed shopping mall and inspired the Eiffel Tower in Paris. It conects La Scala and Milan Cathedral and contains a variety of ultra-luxury shops, restaurants and hotels.', 
-'Piaza del Duomo, 20123 Milan, Italy', 'Open 24/7, but shop and hotel opening hours vary.', 
-'N', 'N/A', 'GalleriaVittorioEmanueleII.jpg'),
-('Via Monte Napoleone', 18, 'other', 'Via Monte Napoleone is an elegant an expensive street in Milan, Italy. It is the most important street of the Milan Fashion District where many well-known fashion designers have their high-end boutiques and stores from Italian designers to all the world famous brands. The most exclusive Italian shoemakers maintain boutiques on this street. Via Monte Napoleone is reguarded as the most important \"street of fashion\".', 
-'Via Monte Napoleone, 20121 Milan, Italy', 'Open 24/7, but shop opening hours vary.', 
-'N', 'http://www.viamontenapoleone.org/eng/home.php', 'ViaMonteNapoleone.jpg'),
-('Castello Sforzesco', 18, 'palace/castle', 'Castello Sforzesco is a castle that used to be the seat and residence of the Duchy of Milan and is one of the biggest citadels in Europe. It now houses several of the city''s museums and art art collections. The Pinacoteca del Castello Sforzesco holds an art collection that includdes Michelangelo''s last sculpture, the Rondanini Pieta, Andrea Mantegna''s Trivulzio Madonna and Leonardo da Vinci''s Codex Trivulzianus manuscript.', 
-'Castello Sforzesco, Piazza Castello, 20121 Milan, Italy', 'Open daily from 7:00a.m. to 6:00p.m. in the winter and from 7:00a.m. to 7:00p.m. in the summer', 
-'N', 'http://www.milanocastello.it/ing/home.html', 'CastelloSforzesco.jpg'),
-
-('Kuala Lumpur Tower', 19, 'other', 'Kuala Lumpur Tower (also known as Menara Kuala Lumpur or KL Tower) is a communications tower that is 1,381 feet tall, making it the second tallest freestanding tower in the world. The trunk of the tower contains a stairwell and high-speed elevator that leads to a revolving restaurant at the top, providing visitors a panoramic view of the city. Races are organized yearly where participants race up the stairs to the top.', 
-'Jalan Punchak, Kuala Lumpur, 50250 Malaysia', 'Open daily from 9:00a.m. to 10:00p.m.', 
-'Y', 'http://www.menarakl.com.my/', 'KualaLumpurTower.jpg'),
-('Petronas Towers', 19, 'other', 'The Petronas Towers (also called the Petronas Twin Towers or KLCC) were the tallest buildings in the world before 2004 when they were surpassed by Taipei 101, but remain the tallest twin buildings. Although the towers are used as company office buildings, the buildings also contain an upmarket retail podium, a park, one of the largest shopping malls in Malaysia and the highest two storey bridge in the world whih crosses the two towers.', 
-'Petronas Twin Towers, Kuala Lumpur City Centre, 50088 Kuala Lumpur, Malaysia', 'Open daily from 9:00a.m. to 7:00p.m. (on Mondays it closes for prayer at 1-2:30p.m.)', 
-'N', 'http://www.petronastwintowers.com.my', 'PetronasTowers.jpg'),
-('Batu Caves', 19, 'religious building', 'The Batu Caves is a limestone hill which leads to a series of caves and cave temples. It is one of the most popular Hindu shrines outside of india. In 2006 a 140 foot high statue of Lord Muruga was unveiled at the bottom of the 272 step staircase. The caves are around 400 million years old and were used as shelter by the indigenous Temuan people.', 
-'Batu Caves, Sri Subramaniam Temple, Kuala Lumpur, 68100 Malaysia', 'Open daily from 7:00a.m. to 6:00p.m.', 
-'N', 'N/A', 'BatuCaves.jpg'),
-
-('La Barceloneta', 10, 'natural landmark', 'La Barceloneta is a neighborhood on the Mediterranean Sea in the Ciutat Vella district of Barcelona.  Barceloneta was rated as the best urban beach in the world, and the overall third best beach in the world in the Discovery Channel''s 2005 documentary \"World''s Best Beaches\".  Barceloneta is best known for its sandy beaches, and many restaurants and nightclubs on the boardwalk.', 'La Barceloneta, Barcelona', 'Always open', 'N', 'http://www.aboutbarcelona.com/barcelona/beaches.asp', 'la_barceloneta_pic.jpg'),
-('Picasso Museum', 10, 'museum', 'The Picasso Museum in Barcelona contains one of the most extensive collections of artwork by the 20th century Spanish artist Pablo Picasso.', 'Montcada 15-23, 08003 Barcelona', 'Tuesday to Sunday: 10am - 8pm, Monday: closed', 'Y', 'http://www.museupicasso.bcn.cat/en/', 'picasso_museum_pic.jpg'),
-('Park Guell', 10, 'park or garden', 'Park Guell is a garden complex in Barcelona with architectural elements situated on the hill of el Carmel in the Gracia district of Barcelona.  It was designed by the Catalan architect Antoni Gaudi and built between 1900 and 1914.  It is part of the UNESCO World Heritage Site \"Works of Antoni Gaudi\".', 'Gracia district of Barcelona', 'Daily 10am - 7pm', 'N', 'http://www.barcelona-tourist-guide.com/en/gaudi/park-guell.html', 'park_guell_pic.jpg'),
-('Sagrada Familia', 10, 'religious building', 'The Sagrada Familia is a large Roman Catholic church designed by Catalan architect Antoni Gaudi.  Although incomplete, the church is a UNESCO World Heritage Sight.  The building has been under construction since 1882 and it is estimated that, depending on resources and funding, another 30 to 80 years will be required to complete the church.', 'Calle Mallorca 08034, Barcelona', 'October to March: 9am - 6pm, April to September: 9am - 8pm', 'Y', 'http://www.sagradafamilia.cat/sf-eng/index.php', 'sagrada_familia_pic.jpg'),
-('L''Aquarium de Barcelona', 10, 'museum', 'L''Aquarium de Barcelona is the most important marine leisure and education center in the world concerning the Mediterranean, and contains a series of 35 tanks, 11,000 animals, and 450 different species.', 'Moll d''Espanya del Port Vell, 08039 Barcelona', 'Monday to Friday: 9:30am - 9pm, Weekends: 9:30am - 9:30pm', 'Y', 'http://www.aquariumbcn.com/AQUARIUM/index.php?wlang=en', 'barcelona_aquarium_pic.jpg'),
-
-('Beun Retiro Park', 9, 'park or garden', 'The Buen Retiro Park, which literally means \"Park of the Pleasant Retreat\", is the main park of the city of Madrid.  The park is located in the center of the city, and is filled with beautiful sculptures and monuments.', 'Plaza de la Independencia, Barcelona', 'Always open', 'N', 'http://www.aboutmadrid.com/madrid/parks.asp', 'retiro_park_pic.jpg'),
-('Museo del Prado', 9, 'museum', 'The Museo del Prado is a museum and art gallery in Madrid, featuring one of the world''s finest collections of European art, from the 12th century to the early 19th century.  El Prado is one of the most visited sites in the world and is considered to be among the greatest museums of art.', 'Calle Ruiz de Alarcon 23, 28014 Madrid', 'Tuesday to Sunday: 9am - 8pm, Mondays: closed', 'Y', 'http://www.museodelprado.es/en/', 'prado_museum_pic.jpg'),
-('Teatro Real', 9, 'other', 'The Teatro Real (literally the Royal Theater) is a major opera house in Madrid, Spain, opened in 1850.  Currently, the theatre stages around seventeen opera titles per year, as well as two or three major ballets and several recitals.  The orchestra of the Teatro Real is the Orquesta Sinfonica de Madrid.', 'Plaza Isabel II, Madrid', 'Depends on the show', 'Y', 'http://www.teatro-real.com/en/', 'teatro_real_pic.jpg'),
-('Puerta del Sol', 9, 'other', 'Spanish for \"Gate of the Sun\", the Puerta del Sol is one of the best known and busiest places in Madrid.  It is the center of the radial network of Spanish roads, and also contains the famous clock whose bells mark the traditional eating of the Twelve Grapes and the beginning of a new year.  The New Year''s celebration has been broadcast live on TV from the Puerta del Sol since 31 December 1962.', 'Plaza Puerta Del Sol 14, 28013 Madrid', 'Always open', 'N', 'http://www.gomadrid.com/sights/puerta-del-sol.html', 'puerta_del_sol_pic.jpg'),
-('Palacio Real de Madrid', 9, 'palace or castle', 'The Palacio Real de Madrid (the Royal Palace of Madrid), also known as the Palacio de Oriente (The Orient Palace, or the Far East Palace), is the official residence of the King of Spain in the city of Madrid, but is only used for state ceremonies.  The palace is partially open to the public, except when it is being used for official business.  Several royal collections of great historical importance are kept at the palace, including the Royal Armoury and weapons dating back to the 13th century, as well as collections of tapestry, porcelain, furniture, and other objects of great historical importance.', 'Bailen Street, Madrid', 'October to March: 9:30am - 5pm; April to September 9am - 6pm', 'Y', 'http://www.madrid-tourist-guide.com/en/attractions/royal-palace-madrid.html', 'palacio_real_pic.jpg'),
-
-('Hagia Sophia', 12, 'museum', 'The Hagia Sophia is a former Orthodox patriarchal basilica, later a mosque, and now a museum in Istanbul, Turkey.  From the date of its dedication in 360 until 1453, it served as the cathedral of Constantinople, and was a mosque between 1453 and 1931.  Finally, in 1935, it was opened as a museum.  Famous in particular for its massive dome, it is considered the epitome of Byzantine architecture and is said to have \"changed the history of architecture\".', 'Aya Sofya Sq., Sultanahmet, Istanbul', 'Tuesday to Sunday: 9am - 4:30pm', 'Y', 'http://www.sacred-destinations.com/turkey/istanbul-hagia-sophia', 'hagia_sophia_pic.jpg'),
-('Grand Bazaar', 12, 'other', 'The Grand Bazaar in Istanbul is one of the largest and oldest covered markets in the world, with more than 58 covered streets and over 4,000 shops which attract between 250,000 and a half million visitors daily.  The grand bazaar began construction in 1455 and opened in 1461.  It is well known for its jewelry, pottery, spice, and carpet shops.  Today, the grand bazaar houses two mosques, two hamams, four fountains, and multiple restaurants and cafes.', 'Bayzait Mh., Kalpakcilar Cd, 34000 Istanbul', 'Monday to Saturday: 9am - 7pm, Closed Sundays', 'N', 'http://www.grandbazaaristanbul.org/Grand_Bazaar_Istanbul.html', 'grand_bazaar_pic.jpg'),
-('Topkapi Palace', 12, 'palace or castle', 'The Topkapi Palace in Istanbul was the official and primary residence in the city of the Ottoman Sultans for approximately 400 years (1465-1856) of their 624 year reign.  The palace was a setting for state occasions and royal entertainments and is a major tourist attraction today, containing the most holy relics of the Muslim world such as the Prophet Muhammed''s cloak and sword.', 'Gulhane Park, near Sultanahmet Square', 'Everyday except Tuesdays: 9am - 5pm', 'Y', 'http://www.topkapisarayi.gov.tr/', 'topkapi_palace_pic.jpg'),
-('Sultan Ahmed Mosque (Blue Mosque)', 12, 'religious building', 'The Sultan Ahmen Mosque, a historical mosque in Istanbul, is popularly known as the Blue Mosque for the blue tiles adorning the walls of its interior.  Built between 1609 and 1616 during the rule of Ahmed I, it comprises the mosque, a tomb of its founder, a madrasah, and a hospice.  While still used as a mosque, it has also become a popular tourist attraction.', 'Sultanahmet, Istanbul', 'Daily 9am - 6pm except during prayer times', 'N', 'http://www.sacred-destinations.com/turkey/istanbul-blue-mosque', 'sultan_ahmed_mosque_pic.jpg'),
-('Bosphorus', 12, 'natural landmark', 'This body of water that passes along the shores of Istanbul is 20 miles in length and is the physical divider between the continents of Europe and Asia.  Istanbul itself extends on both the European and the Asian sides of the Bosphorus, and is thereby the only metropolis in the world that is situated on two continents.  Visitors can enjoy a ferry over the waters while taking in the view of the Old City.', 'The Boshporus', 'Always open', 'N', 'http://www.turkeytravelplanner.com/go/Istanbul/Sights/Bosphorus/', 'bosphorus_pic.jpg'),
-
-('Ankara Citadel', 11, 'palace or castle', 'The citadel is an archeological site in Ankara, Turkey.  The foundations of the citadel or castle were laid by the Galatians on a prominent lava outcrop, and the rest was completed by the Romans.  The Byzantines and Seljuks made further restorations and additions.  The area around and inside the citadel, the oldest part of the city of Ankara, contains many fine examples of traditional architecture.  Many traditional houses inside the citadel have found new life as restaurants, serving local cuisine.', 'Ulus, Ankara', 'Always open', 'N', 'http://www.turkeytravelplanner.com/go/CentralAnatolia/Ankara/sights/hisar.html', 'ankara_citadel_pic.jpg'),
-('Ankara Roman Baths', 11, 'other', 'Situated on Cankiri Caddesi, just north of Ulus Meydani, the Roman Baths are an archeological site in Ankara, Turkey.  They date back to the 3rd century AD and are well maintained.  The baths have all the typical features of a classical Roman bath: a frigidarium (cold room), tepidarium (warm room) and caldarium (hot room).', 'Cankiri Avenue, Ulus, Ankara', 'Daily 8:30am - 12pm, 1pm - 3:30pm', 'Y', 'http://www.turkeytravelplanner.com/go/CentralAnatolia/Ankara/sights/roman.html', 'roman_baths_pic.jpg'),
-('Museum of Anatolian Civilizations', 11, 'museum', 'The Museum of Anatolian Civilizations consists of the old Ottoman Mahmut Pasa bazaar storage building.  Within this Ottoman building, the museum has a number of exhibits of Anatolian archeology. They start with the Paleolithic era, and continue chronologically through the Neolithic, Early Bronze, Assyrian trading colonies, Hittite, Phrygian, Urartian, Greek, Hellenistic, Roman, Byzantine, Seljuk and Ottoman periods.', 'Necatibey Mh., 06250 Ankara', 'Daily 9am - 5pm', 'Y', 'http://www.anadolumedeniyetlerimuzesi.gov.tr/ana-sayfa/1-54417/20110221.html', 'museum_anatolian_civilisations.jpg'),
-('Anitkabir, Ataturk''s Mausoleum', 11, 'monument', 'Located on an imposing hill, Anitkabir, a mausoleum of Mustafa Kemal Ataturk (founder of the Rupublic of Turkey), is in the Anittepe quarter of the city.  Completed in 1953, it is an impressive mixture of ancient and modern architectural styles.  An adjacent museum houses a wax statue of Ataturk, his writings, letters and personal items, as well as an exhibition of photographs recording important moments in his life and during the establishment of the Republic.', 'Anittepe, Ankara', 'Tuesday to Sunday: 9am - 5pm', 'N', 'http://www.tsk.tr/eng/Anitkabir/index.html', 'ataturk_mausoleum_pic.jpg'),
-('Kocatepe Mosque', 11, 'religious building', 'The Kocatepe Mosque is the largest mosque in Ankara, the capital city of Turkey.  Built between 1967 and 1987 in the Kocatepe quarter in Kizilay, its size and prominent situation have made it a landmark that can be seen from almost anywhere in central Ankara.', 'Central Ankara', 'Open daily', 'N', 'http://www.lonelyplanet.com/turkey/central-anatolia/ankara/sights/religious-spiritual/kocatepe-camii', 'kocatepe_mosque_pic.jpg')
-
-");
-
-
-
-//-- --------------------------------------------------------
-
-
-//--
-//-- Table structure for table `comments`
-//--
-
-mysqli_query($db, "CREATE TABLE IF NOT EXISTS comments (
-  `comment_id` int(6) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL default '',
-  `subject` varchar(50) NOT NULL default '',
-  `comment_body` blob NOT NULL default '',
-  `date_submitted` timestamp NOT NULL default '2011-01-01 00:00:00',
-  
-  PRIMARY KEY (`comment_id`)
-)"); 
-
-
-mysqli_query($db, "INSERT INTO `traveldb`.`comments` (`name`, `subject`, `comment_body`, `date_submitted`) VALUES
- 
- ('Kelsie', 'This is a test of the auto install...and we need a better name!', 'Hey guys, so I was thinking...we need a new  name for our site!  I mean, TravelGuide is cool and all...but not very exciting.  So, what if we did something with out initials?  Or if we want to do something in a foreign language, we could use Los Geht''s, which means Let''s Go in German, so we could use that and other similar phrases from other languages.  Or, we could just wait and see if anybody else has any ideas...', '2011-02-22 10:45:00'),
- ('Amy', 'Name Suggestion', 'Hey there!! I agree with Kelsie. The name ''TravelGuide'' is pretty boring.  We could say ''Travel with K.A.R.E.'' or something like ''on the go''.  hmmm....I''m out of ideas at the moment.  I''ll try to think of more :) ', '2011-02-22 12:35:08'),
- ('Rebecca', 'Where''s a muse when you need one?', 'Okay, let''s see if a muse hits me on the head: ZABLE''S Home Travel Browser', '2011-02-22 23:06:06 ')
-");
-
-
-
-
-	rename("index.php","fake_index.php");
-	rename("real_index.php", "index.php");
-	header("Location: index.php");
-	exit;
-}
-else
-{
+   include('db_connect.php');
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>~Travel Guide Set Up~</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<link href="1.css" type="text/css" rel="stylesheet" />
+<?php
+   include('header_side.php');
+?>
 
-
-</head>
+<html>
 <body>
-<div class="container">
-<div id="banner"> 
-<div class="logo-1">Travel</div>
-<div class="logo-2">Guide</div>
 
+<div class="content">
+<h1><center>Welcome to Our TravelGuide*!</center></h1>
+
+
+<?php
+
+$int = 0;
+$query = "SELECT name FROM cities ORDER BY RAND() LIMIT 1";
+$result = mysqli_query($db, $query)or die("Error Querying Database");
+$row = mysqli_fetch_array($result);
+$featured = $row['name'];
+
+
+?>
+
+<?php
+	
+	$query = "SELECT * FROM cities WHERE name = '$featured'";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
+	
+	while($row = mysqli_fetch_array($result)){
+		$cityId = $row['city_id'];
+		$cityName = $row['name'];
+		$countryId = $row['country_id'];
+		$region = $row['region'];
+		$population = $row['population'];
+		$cityMap = $row['city_map'];
+		$flag = $row['flag'];
+		$coatOfArms = $row['coat_of_arms'];
+		$website = $row['website'];
+	}
+	
+	$query = "SELECT name FROM countries WHERE country_id = $countryId";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
+	$row = mysqli_fetch_array($result);
+	$countryName = $row['name'];
+	
+	$query = "SELECT name, attraction_id FROM attractions WHERE city_id = $cityId ORDER BY name";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
+	$attractionLinks = "<ul>";
+	
+	while($row = mysqli_fetch_array($result)){
+		$attractionName = $row['name'];
+		$attractionID = $row['attraction_id'];
+		
+		$attractionLinks = $attractionLinks . "<li><a href = \"attraction.php?id=" . $attractionID . "\">" . $attractionName . "</a></li>";
+	}
+	
+	$attractionLinks = $attractionLinks . "</ul>";
+
+?>
+
+<?php
+	
+	echo "<center><h1>Featured City: " . $cityName . ', ' . $countryName . "</h1></center>";
+	echo ($cityMap != 'N/A' ? "<img src = \"" . $cityMap . "\" alt = \"flag\" width = \"50%\" align = \"left\" border=\"2\" vspace=\"10\" hspace=\"60\" />" : "");
+	echo "<p><H2>Info: </H2></p>";
+	echo "</left><right>Name: " . $cityName . "<br/><br/><br/>";
+	echo "Region: " . $region . "<br/><br/><br/>";
+	echo "Attractions Featured on TravelGuide: " . $attractionLinks . "<br/><br/>";
+	echo "Population: " . $population . " people <br/><br/><br/>";
+	echo "Website: <a href = \"" . $website . "\">" . $website . "</a><br/><br/><br/><br/><br/><br/></right>";
+	echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
+	echo "<center>*If you have a suggestion for a better name than \"TravelGuide\", let us know on our ContactUs page!</center>";
+
+?>
 
 </div>
 
+<?php
+   include('footer.php');
+?>
 
-<body>
-<div class = "content">
-<form method="post" action="index.php">
-<center>
-<h1>Set up your TravelGuide Database!</h1>
-<H3>Enter the information for your mysql database server.</H3>
-<br>
-Enter Root Name: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="root">
-<br>
-Enter Root Password:  &nbsp <input type="password" name="pw">
-<br>
-<input type="submit" name="create" value="Create DB">
-</center>
-</form>
-</div>
 </body>
 </html>
-<?php
-}
-?>
