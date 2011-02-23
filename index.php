@@ -46,7 +46,7 @@ $featured = $row['name'];
 	$row = mysqli_fetch_array($result);
 	$countryName = $row['name'];
 	
-	$query = "SELECT name, attraction_id FROM attractions WHERE city_id = $cityId";
+	$query = "SELECT name, attraction_id FROM attractions WHERE city_id = $cityId ORDER BY name";
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 	$attractionLinks = "<ul>";
 	
