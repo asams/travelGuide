@@ -33,7 +33,7 @@
 		$website = $row['website'];
 	}
 	
-	$query = "SELECT name, city_id FROM cities WHERE country_id = $countryID";
+	$query = "SELECT name, city_id FROM cities WHERE country_id = $countryID ORDER BY name";
 	
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 	
