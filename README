@@ -1,0 +1,6 @@
+Hello there.  Thanks for cloning our TravelGuide repository!
+
+You will have to source the traveldb.sql file in your mysql shell, 
+but then you're good to go!
+
+Just visit: http://localhost/travelGuide/index.php
