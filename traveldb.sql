@@ -180,6 +180,10 @@ Dazzle your senses. Feel the thrills of adventure and caresses of paradise. Xel-
 ('The Louvre', 15, 'museum', 'The Louvre is one of the world''s largest museums and the most visited art museum in the world. The museum contains more than 380,000 objects and displays 35,000 works of art in eight curatorial departments including Egyptian, Near Eastern, Greek, Etruscan and Roman antiquities. Its most popular attraction however, is the Mona Lisa.', 
 'Musee du Louvre, Rue de Rivoli, 75001 Paris, France', 'Open Mondays, Thursdays, Saturdays and Sundays from 9a.m. to 6p.m. Open Wednesdays and Friday from 9a.m. to 10p.m. Closed Tuesdays.', 
 'Y', 'http://www.louvre.fr/llv/commun/home.jsp?bmLocale=en', 'TheLouvre.jpg'),
+('Basilique du Sacre-Coeur', 15, 'religious building', 'The Basilica of the Sacret Heart of Jesus is located at the summit of the butte Montmartre, the highest point in the city. It was built in the decades following the French Revolution. The mosaic its apse, entitled "Christ in Majesty" is among the largest in the world. The top of the dome is open to tourists and provides a panoramic view of Paris.', 
+'Parvis du Sacre Coeur, 75018, Paris, France', 'Open daily from 6:00a.m. to 11:00p.m.', 
+'N', 'http://www.sacre-coeur-montmartre.com/', 'BasiliqueDuSacreCoeur.jpg'),
+
 
 ('Old Port of Marseille', 16, 'other', 'The Old Port of Marseille (Vieux-Port) has been the natural harbour of Marseille since antiquity. It was once a major landmark comparable to the Eiffel tower in Paris before it was destroyed in the Battle of Marseille. It is home to St. Vivtor''s Abby and was the setting of "The Count of Monte Cristo" by Alexandre Dumas.', 
 'Old Port of Marseille, quai du port, 13001 Marseille, France', 'N/A', 
