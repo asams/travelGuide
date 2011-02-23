@@ -41,10 +41,13 @@ $featured = $row['name'];
 		$website = $row['website'];
 	}
 	
-	$query = "SELECT name, attraction_id FROM attractions WHERE city_id = $cityId";
-	
+	$query = "SELECT name FROM countries WHERE country_id = $countryId";
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
+	$row = mysqli_fetch_array($result);
+	$countryName = $row['name'];
 	
+	$query = "SELECT name, attraction_id FROM attractions WHERE city_id = $cityId";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 	$attractionLinks = "<ul>";
 	
 	while($row = mysqli_fetch_array($result)){
@@ -60,7 +63,7 @@ $featured = $row['name'];
 
 <?php
 	
-	echo "<center><h1>Featured City: " . $cityName . "</h1></center>";
+	echo "<center><h1>Featured City: " . $cityName . ', ' . $countryName . "</h1></center>";
 	echo ($cityMap != 'N/A' ? "<img src = \"" . $cityMap . "\" alt = \"flag\" width = \"50%\" align = \"left\" border=\"2\" vspace=\"10\" hspace=\"60\" />" : "");
 	echo "<p><H2>Info: </H2></p>";
 	echo "</left><right>Name: " . $cityName . "<br/><br/><br/>";
