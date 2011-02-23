@@ -27,7 +27,7 @@
 		$website = $row['website'];
 	}
 	
-	$query = "SELECT name, attraction_id FROM attractions WHERE city_id = $cityID";
+	$query = "SELECT name, attraction_id FROM attractions WHERE city_id = $cityID ORDER BY name";
 	
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 	

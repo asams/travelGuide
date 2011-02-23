@@ -216,6 +216,9 @@ Dazzle your senses. Feel the thrills of adventure and caresses of paradise. Xel-
 ('Pantheon', 17, 'religious building', 'The Pantheon is a building in Rome comissioned by Marcus Agrippa as a temple to all the gods of Ancient Rome. It is one of the best preserved Roman buildings and has been in continuous use throughout history. Since the 7th century it has been used as a Roman Catholic church and contains examples of both ancient roman and roman catholic artistry.', 
 'Pantheon, Piaza della Rontonda, l-00186 Rome, Italy', 'Open every day from 8:30a.m. to 7:30p.m. (6:30p.m. on sundays)', 
 'N', 'N/A', 'Pantheon.jpg'),
+('Piazza del Popolo', 17, 'other', 'Piazza del Popolo was once the beginning of the Via Flaminia of ancient rome, the most important rout to the north. The layout of the piazza was designed in neoclassical style between 1811 and 1822 by Giuseppe Valadier. An Egyptian obelisk of Ramesses II stands in the center of the plazza. The piazza is decorated with fountains and churches displaying a mixture of ancient Roman and Egyptian imagry.', 
+'Piazza del Popolo, Rome, 00186 Italy', 'N/A', 
+'N', 'N/A', 'PiazzaDelPopolo.jpg'),
 
 ('Milan Cathedral', 18, 'religious building', 'The Cathedral of Milan is the seat of the Archbishop of Milan. The Gothic cathedral took five centuries to complete and is the largest Gothic cathedral (second largest Catholic cathedral) in the world. The cathedral contains the sarcophogi of several archbishops and a famous statue of the St. Bartholomew by Marco D''Argate.', 
 'Piaza del Duomo, Milan, Italy 20123', 'Open every day from 6:50a.m. to 7:00p.m.', 
