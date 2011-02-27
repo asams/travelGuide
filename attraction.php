@@ -18,15 +18,15 @@
 	
 	while($row = mysqli_fetch_array($result)){
 		$attraction_id = $row['attraction_id'];
-		$name = $row['name'];  
+		$name = $row['attraction_name'];  
 		$city_id = $row['city_id'];
 		$attraction_type = $row['attraction_type'];
-		$description = $row['description'];
-		$address = $row['address'];
-		$hours_of_operation = $row['hours_of_operation'];
-		$entrance_price = $row['entrance_price'];
-		$picture = $row['picture'];
-		$website = $row['website'];
+		$description = $row['attraction_description'];
+		$address = $row['attraction_address'];
+		$hours_of_operation = $row['attraction_hours_of_operation'];
+		$entrance_price = $row['attraction_entrance_price'];
+		$picture = $row['attraction_picture'];
+		$website = $row['attraction_website'];
 	}
 	
 ?>
@@ -34,11 +34,11 @@
 
 <?php
 	
-	$query = "SELECT name FROM cities WHERE city_id = $city_id";
-	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
+	$query = "SELECT city_name FROM cities WHERE city_id = $city_id";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 
 	$row = mysqli_fetch_array($result);
-	$city_name = $row['name'];
+	$city_name = $row['city_name'];
 	
 	echo "<h1>" . $name . "</h1>";
 	

@@ -18,29 +18,29 @@
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
 	
 	while($row = mysqli_fetch_array($result)){
-		$countryName = $row['name'];
+		$countryName = $row['country_name'];
 		$countryID = $row['country_id'];
-		$capital = $row['capital'];
-		$government = $row['government'];
-		$currency = $row['currency'];
-		$population = $row['population'];
-		$area = $row['area'];
-		$language = $row['official_language'];
-		$religion = $row['religion'];
+		$capital = $row['country_capital'];
+		$government = $row['country_government'];
+		$currency = $row['country_currency'];
+		$population = $row['country_population'];
+		$area = $row['country_area'];
+		$language = $row['country_official_language'];
+		$religion = $row['country_religion'];
 		$map = $row['country_map'];
-		$flag = $row['flag'];
-		$coat_of_arms = $row['coat_of_arms'];
-		$website = $row['website'];
+		$flag = $row['country_flag'];
+		$coat_of_arms = $row['country_coat_of_arms'];
+		$website = $row['country_website'];
 	}
 	
-	$query = "SELECT name, city_id FROM cities WHERE country_id = $countryID ORDER BY name";
+	$query = "SELECT city_name, city_id FROM cities WHERE country_id = $countryID ORDER BY city_name";
 	
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 	
 	$featuredCityLinks = "<ul>";
 	
 	while($row = mysqli_fetch_array($result)){
-		$cityName = $row['name'];
+		$cityName = $row['city_name'];
 		$cityID = $row['city_id'];
 		
 		$featuredCityLinks = $featuredCityLinks . "<li><a href = \"city.php?id=" . $cityID . "\">" . $cityName . "</a></li>";

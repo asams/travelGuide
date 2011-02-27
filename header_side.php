@@ -73,10 +73,10 @@
 <br />
 <span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  font-style: italic;letter-spacing: 2px;
  padding-left:1px;">Total: <?php echo $countryCount . '<br>';
-$query = "SELECT name, country_id FROM countries ORDER BY name"; 
+$query = "SELECT country_name, country_id FROM countries ORDER BY country_name"; 
 $result = mysqli_query($db, $query)or die("Error Querying Database");
 while($row = mysqli_fetch_array($result)) {
-	$countryName = $row['name'];
+	$countryName = $row['country_name'];
 	$countryID = $row['country_id'];
 						
 

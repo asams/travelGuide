@@ -17,24 +17,24 @@
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
 	
 	while($row = mysqli_fetch_array($result)){
-		$cityName = $row['name'];
+		$cityName = $row['city_name'];
 		$countryID = $row['country_id'];
-		$region = $row['region'];
-		$population = $row['population'];
+		$region = $row['city_region'];
+		$population = $row['city_population'];
 		$cityMap = $row['city_map'];
-		$flag = $row['flag'];
-		$coatOfArms = $row['coat_of_arms'];
-		$website = $row['website'];
+		$flag = $row['city_flag'];
+		$coatOfArms = $row['city_coat_of_arms'];
+		$website = $row['city_website'];
 	}
 	
-	$query = "SELECT name, attraction_id FROM attractions WHERE city_id = $cityID ORDER BY name";
+	$query = "SELECT attraction_name, attraction_id FROM attractions WHERE city_id = $cityID ORDER BY attraction_name";
 	
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 	
 	$attractionLinks = "<ul>";
 	
 	while($row = mysqli_fetch_array($result)){
-		$attractionName = $row['name'];
+		$attractionName = $row['attraction_name'];
 		$attractionID = $row['attraction_id'];
 		
 		$attractionLinks = $attractionLinks . "<li><a href = \"attraction.php?id=" . $attractionID . "\">" . $attractionName . "</a></li>";
@@ -44,11 +44,11 @@
 
 ?>
 <?php
-	$query = "SELECT name FROM countries WHERE country_id = $countryID";
+	$query = "SELECT country_name FROM countries WHERE country_id = $countryID";
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 3");
 
 	$row = mysqli_fetch_array($result);
-	$country_name = $row['name'];
+	$country_name = $row['country_name'];
 	
 	echo "<h1>" . $cityName . "</h1>";
 

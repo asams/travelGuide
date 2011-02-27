@@ -25,7 +25,7 @@
 	
 	if (($name!="") AND ($subject!="") AND ($comment!="")){
 
-		$query = "INSERT INTO comments (name, subject, comment_body, date_submitted) VALUES ('$name', '$subject', '$comment', '$timestamp')";
+		$query = "INSERT INTO comments (comment_name, comment_subject, comment_body, comment_date_submitted) VALUES ('$name', '$subject', '$comment', '$timestamp')";
 	
 		$result = mysqli_query($db, $query) or die ("Error Querying Database");
 		mysqli_close($db);

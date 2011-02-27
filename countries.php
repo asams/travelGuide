@@ -13,10 +13,10 @@
 <div class="content">
 <h1>Here's a list of countries:</h1>
 <?php
-$query = "SELECT name, country_id FROM countries ORDER BY name"; 
+$query = "SELECT country_name, country_id FROM countries ORDER BY country_name"; 
 $result = mysqli_query($db, $query)or die("Error Querying Database");
 while($row = mysqli_fetch_array($result)) {
-	$countryName = $row['name'];
+	$countryName = $row['country_name'];
 	$countryID = $row['country_id'];
 						
 
