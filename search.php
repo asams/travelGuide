@@ -81,6 +81,47 @@
 							
 	}
 
+	elseif ($type == 'type') {
+		$query = "SELECT attractions.attraction_name, attractions.attraction_id, attractions.attraction_type, cities.city_name, countries.country_name FROM attractions INNER JOIN cities ON cities.city_id=attractions.city_id INNER JOIN countries ON cities.country_id=countries.country_id  WHERE (attractions.attraction_type LIKE '%$termSearched%') ORDER BY cities.city_name, attractions.attraction_type, attractions.attraction_name";
+		
+		
+		$result = mysqli_query($db, $query) or die("Error Querying Database");
+	
+		echo '<u><big>Attractions</u></big><br>';
+		
+		$headerCity = 'test';
+		$headerType = 'test';
+	
+		while($row = mysqli_fetch_array($result)) {
+			$attraction = $row['attraction_name'];
+			$attractionID = $row['attraction_id'];
+			$countryName = $row['country_name'];
+			//$attractionType = $row['attraction_type'];
+			
+			if ($headerCity <> $row['city_name']) {
+				$headerCity = $row['city_name'];
+				$cityName = $row['city_name'];
+				echo '<br><b><u>' . $headerCity . ', ' . $countryName . '</b></u><br>';
+
+				if ($headerType == $row['attraction_type']) {
+					echo '<br><b><i>' . $headerType . '</b></i><br>';
+				}
+			} else {
+				$cityName = $headerCity;
+			}
+			if ($headerType <> $row['attraction_type']) {
+				$headerType = $row['attraction_type'];
+				$attractionType = $row['attraction_type'];
+				echo '<br><b><i>' . $headerType . '</b></i><br>';
+			} else {
+				$attractionType = $headerType;
+			}
+
+			echo '<a href=attraction.php?id=' . $attractionID . '>' . $attraction . '</a><br>';
+		}
+							
+	}
+
 	echo '</center>';					
 ?>
 </div>

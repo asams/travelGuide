@@ -108,7 +108,7 @@ background-color : #ffffff;
 background: url(picks/globe.png) #fff center;
 float : left; 
 width : 140px; 
-height : 220px; 
+height : 240px; 
 margin : 0.2em 0 0 0.05em; 
 border : 1.5px solid #0000A0; 
 background-color : #ffffff; 
@@ -130,14 +130,14 @@ background-color : #6ca2be;
 .s3 {
 float : left; 
 width : 4px; 
-height : 220px; 
+height : 240px; 
 margin-left : 0.01em; 
 background-color : #b8a07a; 
 } 
 .s4 {
 float : left; 
 width : 4px; 
-height : 220px; 
+height : 240px; 
 margin-left : 0.05em; 
 background-color : #6ca2be; 
 } 
@@ -150,7 +150,7 @@ background-color : #fefdfb;
 } 
 .nav-box-text2 {
 width : 100px; 
-height : 190px; 
+height : 210px; 
 margin-top : 1em; 
 margin-left : 1.5em; 
 background-color : #fefdfb; 
@@ -165,7 +165,7 @@ font-family : "times", verdana, arial, sans-serif, engravers mt bold;
 }
 /* default forms */
 form {}
-form input, form textarea {
+input{
 	background:#000066 repeat-x scroll bottom left;
 	border:1.5px solid #33CCFF;
 	padding:3px;
@@ -174,10 +174,10 @@ form input, form textarea {
 	font-size:1.0em;
 	font-weight:bold, italics;
 }
-form input.formbutton {
+input.formbutton {
 	background:#000066 repeat-x scroll bottom left;
 	color: #33CCFF;
-	font-size:1.2em;
+	font-size:18px;
 	border:1px solid #33CCFF;
 	font-weight:bold;
         margin-right : 0.1em;

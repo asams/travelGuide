@@ -151,6 +151,7 @@ while($row = mysqli_fetch_array($result)) {
 	<option class="group" value="attraction">Attraction</option>
 	<option class="group" value="city">City</option>
 	<option class="group" value="country">Country</option>
+	<option class="group" value="type">Type</option>
 </select>
 <input type="text" id="searchq" name="searchedFor" />
 <input type="submit" class="formbutton" value="Search" />
