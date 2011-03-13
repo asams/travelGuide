@@ -37,10 +37,10 @@ width : 40px;
 height : 40px; 
 margin : 0.1em 0 0 0.1em; 
 margin-left : 60%;
-padding-top : 20px; 
+padding-top : 60px; 
 font-family : Georgia, Times, geneva, arial; 
 color : #000; 
-font-size : 58px; 
+font-size : 65px; 
 font-weight : bold; 
 } 
 .logo-2 {
@@ -49,24 +49,24 @@ height : 35px;
 margin-top : -1.2em !important; 
 margin-top : -1.4em; 
 //margin-left : 0.7em; 
-margin-left : 65%; 
-padding-top : 45px; 
+margin-left : 63%; 
+padding-top : 62px; 
 border : 0 solid #000; 
 font-family : Georgia, Times, geneva, arial; 
 color : #00FFFF; 
-font-size : 45px; 
+font-size : 54px; 
 font-weight : bold; 
 } 
 .logo-3 {
-width : 35px; 
-height : 35px; 
+width : 105px; 
+height : 55px; 
 margin-top : -1.6em !important; 
 margin-top : -1.8em; 
-margin-left : 1.6em; 
-padding-top : 20px; 
+margin-left : 60%; 
+padding-top : 10px; 
 font-family : Georgia, Times, geneva, arial; 
 color : #5e5f57; 
-font-size : 30px; 
+font-size : 20px; 
 font-weight : bold; 
 } 
 .content {

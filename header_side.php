@@ -40,8 +40,22 @@
 <body>
 <div class="container">
 <div id="banner"> 
+<div align="right"><form action="search.php" method="post" class="searchform">
+
+<select name="type">
+	<option class="group" value="attraction">Attraction</option>
+	<option class="group" value="city">City</option>
+	<option class="group" value="country">Country</option>
+	<option class="group" value="type">Type</option>
+</select>
+<input type="text" id="searchq" name="searchedFor" />
+<input type="submit" class="formbutton" value="Search" />
+</form>
+</div>
 <div class="logo-1">Travel</div>
 <div class="logo-2">Guide</div>
+
+
 
 
 </div>
@@ -145,15 +159,3 @@ while($row = mysqli_fetch_array($result)) {
 
 </div>
 
-<div align="right"><form action="search.php" method="post" class="searchform">
-
-<select name="type">
-	<option class="group" value="attraction">Attraction</option>
-	<option class="group" value="city">City</option>
-	<option class="group" value="country">Country</option>
-	<option class="group" value="type">Type</option>
-</select>
-<input type="text" id="searchq" name="searchedFor" />
-<input type="submit" class="formbutton" value="Search" />
-</form>
-</div>
