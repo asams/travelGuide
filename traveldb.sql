@@ -89,7 +89,7 @@ INSERT INTO `traveldb`.`cities` (`city_name`, `country_id`, `city_region`, `city
 ('Ankara', 6, 'Central Anatolia', 4306105, 'ankara_map.jpg', 'N/A', 'ankara_coa.jpg', 'ankara_pic.jpg', 'http://ankara.com/'),
 ('Istanbul', 6, 'Marmara', 13120596, 'istanbul_map.jpg', 'N/A', 'istanbul_coa.jpg', 'istanbul_pic.jpg', 'http://english.istanbul.com/'),
 ('District of Columbia', 7,	'Washington, D.C.; between Virginia and Maryland', 601723, 'dc_map.jpg', 'dc_flag.png', 'dc_seal.png', 'dc_pic.jpg', 'http://www.dc.gov'),
-('New York', 7, 'New York', 8391881, 'ny_map.png', 'ny_flag.png', 'ny_seal.png', 'new_york_pic.jpg', 'http://www.nyc.gov'),
+('New York', 7, 'New York', 8391881, 'ny_map.png', 'ny_flag.png', 'ny_seal.png', 'new_york_city_pic.jpg', 'http://www.nyc.gov'),
 ('Paris', 8, 'Ile-de-France', 2193031, 'paris_map.gif', 'paris_flag.png', 'paris_coa.png', 'paris_pic.jpg', 'http://www.paris.fr/portail/english/Portal.lut?page_id=8118'),
 ('Marseille', 8, 'Provence-Alpes-Cote d''Azur', 852395, 'marseille_map.gif', 'marseille_flag.png', 'marseille_coa.jpg', 'marseille_pic.jpg', 'http://www.marseille.fr'),
 ('Rome', 9, 'Lazio', 2754440, 'rome_map.gif', 'rome_flag.png', 'rome_coa.png', 'rome_pic.jpg', 'http://www.comune.roma.it/was/wps/portal/pcr'),
