@@ -38,6 +38,7 @@ $featured = $row['city_name'];
 		$cityMap = $row['city_map'];
 		$flag = $row['city_flag'];
 		$coatOfArms = $row['city_coat_of_arms'];
+		$cityPicture = $row['city_pic'];
 		$website = $row['city_website'];
 	}
 	
@@ -64,7 +65,7 @@ $featured = $row['city_name'];
 <?php
 	
 	echo "<center><h1>Featured City: " . $cityName . ', ' . $countryName . "</h1></center>";
-	echo ($cityMap != 'N/A' ? "<img src = \"" . $cityMap . "\" alt = \"flag\" width = \"50%\" align = \"left\" border=\"2\" vspace=\"10\" hspace=\"60\" />" : "");
+	echo ($cityMap != 'N/A' ? "<img src = \"" . $cityPicture . "\" alt = \"flag\" width = \"50%\" align = \"left\" border=\"2\" vspace=\"10\" hspace=\"60\" />" : "");
 	echo "<p><H2>Info: </H2></p>";
 	echo "</left><right>Name: " . $cityName . "<br/><br/><br/>";
 	echo "Region: " . $region . "<br/><br/><br/>";

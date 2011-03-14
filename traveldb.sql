@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`cities` (
   `city_map` varchar(50) NOT NULL default 'default_city_map.jpg',
   `city_flag` varchar(50) NOT NULL default 'default_city_flag.jpg',
   `city_coat_of_arms` varchar(50) NOT NULL default 'default_city_coa.jpg',
+  `city_pic` varchar(50) NOT NULL default 'default_city_pic.jpg',
   `city_website` varchar(100) NOT NULL default '',
   FOREIGN KEY (`country_id`)
   REFERENCES countries (`country_id`)
@@ -74,31 +75,31 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`cities` (
 -- Dumping data for table `cities`
 --
 
-INSERT INTO `traveldb`.`cities` (`city_name`, `country_id`, `city_region`, `city_population`, `city_map`, `city_flag`, `city_coat_of_arms`,  `city_website` ) VALUES 
-('London', 1, 'London', 7556900, 'london_map.jpg', 'N/A', 'N/A', 'http://www.cityoflondon.gov.uk/' ),
-('Bath', 1, 'South West', 83992, 'bath_map.jpg', 'N/A', 'N/A', 'http://www.cityofbath.co.uk/' ),
-('Mexico City', 2, 'Federal District', 8846752, 'mexicoCity_map.bmp', 'mexicoCity_flag.png', 'mexicoCity_coa.png', 'http://www.df.gob.mx/index.jsp' ),
-('Cancun', 2, 'Quintana Roo', 562973, 'cancun2_map.jpg', 'N/A', 'cancun_coa.png', 'http://www.cancun.com/' ),
-('Berlin', 3, 'Berlin', 3440441, 'berlin_map.jpg', 'berlin_flag.jpg', 'berlin_coa.jpg', 'http://www.visitberlin.de/en'),
-('Munich', 3, 'Bavaria', 1330440, 'munich_map.gif', 'munich_flag.jpg', 'munich_coa.jpg', 'http://www.muenchen.de/home/60093/Homepage.html'),
-('Beijing', 4, 'northern china', 22000000, 'beijing_map.jpg',	'N/A',	'N/A', 'http://www.beijing.gov.cn'),
-('Shanghai', 4, 'eastern China', 19210000, 'shanghai_map.png', 'N/A',	'N/A', 'http://www.shanghai.gov.cn'),
-('Madrid', 5, 'Community of Madrid', 3255950, 'madrid_map.jpg', 'madrid_flag.jpg', 'madrid_coa.jpg', 'http://www.aboutmadrid.com/'),
-('Barcelona', 5, 'Catalonia', 1621537, 'barcelona_map.jpg', 'barcelona_flag.jpg', 'barcelona_coa.jpg', 'http://www.aboutbarcelona.com/'),
-('Ankara', 6, 'Central Anatolia', 4306105, 'ankara_map.jpg', 'N/A', 'ankara_coa.jpg', 'http://ankara.com/'),
-('Istanbul', 6, 'Marmara', 13120596, 'istanbul_map.jpg', 'N/A', 'istanbul_coa.jpg', 'http://english.istanbul.com/'),
-('District of Columbia', 7,	'Washington, D.C.; between Virginia and Maryland', 601723, 'dc_map.jpg', 'dc_flag.png', 'dc_seal.png', 'http://www.dc.gov'),
-('New York', 7, 'New York', 8391881, 'ny_map.png', 'ny_flag.png', 'ny_seal.png', 'http://www.nyc.gov'),
-('Paris', 8, 'Ile-de-France', 2193031, 'paris_map.gif', 'paris_flag.png', 'paris_coa.png', 'http://www.paris.fr/portail/english/Portal.lut?page_id=8118'),
-('Marseille', 8, 'Provence-Alpes-Cote d''Azur', 852395, 'marseille_map.gif', 'marseille_flag.png', 'marseille_coa.jpg', 'http://www.marseille.fr'),
-('Rome', 9, 'Lazio', 2754440, 'rome_map.gif', 'rome_flag.png', 'rome_coa.png', 'http://www.comune.roma.it/was/wps/portal/pcr'),
-('Milan', 9, 'Lombardy', 1314745, 'milan_map.jpg', 'milan_flag.gif', 'milan_coa.png', 'http://www.comune.milano.it/'),
-('Kuala Lumpur', 10, 'Federal Territory', 1627172, 'kuala_lumpur_map.jpg', 'kuala_lumpur_flag.png', 'N/A', 'http://www.dbkl.gov.my/index.php?lang=en'),
-('George Town', 10, 'Penang', 157743, 'george_town_map.jpg', 'N/A', 'george_town_coa.jpg', 'http://www.tourismpenang.net.my/'),
-('Sydney', 11, 'Cumberland', 4504469, 'sydney_map.jpg', 'N/A', 'sydney_coa.gif', 'http://www.cityofsydney.nsw.gov.au/'),
-('Brisbane', 11, 'Queensland', 2004262, 'brisbane_map.jpg', 'brisbane_flag.png', 'brisbane_coa.png', 'N/A'),
-('Tokyo', 12, 'Kanto', 13010279, 'tokyo_map.gif', 'tokyo_flag.gif', 'tokyo_coa.png', 'http://www.metro.tokyo.jp/ENGLISH/'),
-('Kyoto', 12, 'Kansai', 1465917, 'kyoto_map.jpg', 'kyoto_flag.png', 'kyoto_coa.png', 'http://www.kyoto.travel/')
+INSERT INTO `traveldb`.`cities` (`city_name`, `country_id`, `city_region`, `city_population`, `city_map`, `city_flag`, `city_coat_of_arms`, `city_pic`,  `city_website` ) VALUES 
+('London', 1, 'London', 7556900, 'london_map.jpg', 'N/A', 'N/A', 'london_pic.jpg', 'http://www.cityoflondon.gov.uk/' ),
+('Bath', 1, 'South West', 83992, 'bath_map.jpg', 'N/A', 'N/A', 'bath_pic.jpg', 'http://www.cityofbath.co.uk/' ),
+('Mexico City', 2, 'Federal District', 8846752, 'mexicoCity_map.bmp', 'mexicoCity_flag.png', 'mexicoCity_coa.png', 'mexico_city_pic.jpg', 'http://www.df.gob.mx/index.jsp' ),
+('Cancun', 2, 'Quintana Roo', 562973, 'cancun2_map.jpg', 'N/A', 'cancun_coa.png', 'cancun_pic.jpg', 'http://www.cancun.com/' ),
+('Berlin', 3, 'Berlin', 3440441, 'berlin_map.jpg', 'berlin_flag.jpg', 'berlin_coa.jpg', 'berlin_pic.jpg', 'http://www.visitberlin.de/en'),
+('Munich', 3, 'Bavaria', 1330440, 'munich_map.gif', 'munich_flag.jpg', 'munich_coa.jpg', 'munich_pic.jpg', 'http://www.muenchen.de/home/60093/Homepage.html'),
+('Beijing', 4, 'northern china', 22000000, 'beijing_map.jpg',	'N/A',	'N/A', 'beijing_pic.jpg', 'http://www.beijing.gov.cn'),
+('Shanghai', 4, 'eastern China', 19210000, 'shanghai_map.png', 'N/A',	'N/A', 'shanghai_pic.jpg', 'http://www.shanghai.gov.cn'),
+('Madrid', 5, 'Community of Madrid', 3255950, 'madrid_map.jpg', 'madrid_flag.jpg', 'madrid_coa.jpg', 'madrid_pic.jpg', 'http://www.aboutmadrid.com/'),
+('Barcelona', 5, 'Catalonia', 1621537, 'barcelona_map.jpg', 'barcelona_flag.jpg', 'barcelona_coa.jpg', 'barcelona_pic.jpg', 'http://www.aboutbarcelona.com/'),
+('Ankara', 6, 'Central Anatolia', 4306105, 'ankara_map.jpg', 'N/A', 'ankara_coa.jpg', 'ankara_pic.jpg', 'http://ankara.com/'),
+('Istanbul', 6, 'Marmara', 13120596, 'istanbul_map.jpg', 'N/A', 'istanbul_coa.jpg', 'istanbul_pic.jpg', 'http://english.istanbul.com/'),
+('District of Columbia', 7,	'Washington, D.C.; between Virginia and Maryland', 601723, 'dc_map.jpg', 'dc_flag.png', 'dc_seal.png', 'dc_pic.jpg', 'http://www.dc.gov'),
+('New York', 7, 'New York', 8391881, 'ny_map.png', 'ny_flag.png', 'ny_seal.png', 'new_york_pic.jpg', 'http://www.nyc.gov'),
+('Paris', 8, 'Ile-de-France', 2193031, 'paris_map.gif', 'paris_flag.png', 'paris_coa.png', 'paris_pic.jpg', 'http://www.paris.fr/portail/english/Portal.lut?page_id=8118'),
+('Marseille', 8, 'Provence-Alpes-Cote d''Azur', 852395, 'marseille_map.gif', 'marseille_flag.png', 'marseille_coa.jpg', 'marseille_pic.jpg', 'http://www.marseille.fr'),
+('Rome', 9, 'Lazio', 2754440, 'rome_map.gif', 'rome_flag.png', 'rome_coa.png', 'rome_pic.jpg', 'http://www.comune.roma.it/was/wps/portal/pcr'),
+('Milan', 9, 'Lombardy', 1314745, 'milan_map.jpg', 'milan_flag.gif', 'milan_coa.png', 'milan_pic.jpg', 'http://www.comune.milano.it/'),
+('Kuala Lumpur', 10, 'Federal Territory', 1627172, 'kuala_lumpur_map.jpg', 'kuala_lumpur_flag.png', 'N/A', 'kuala_lumpur_pic.jpg', 'http://www.dbkl.gov.my/index.php?lang=en'),
+('George Town', 10, 'Penang', 157743, 'george_town_map.jpg', 'N/A', 'george_town_coa.jpg', 'george_town_pic.jpg', 'http://www.tourismpenang.net.my/'),
+('Sydney', 11, 'Cumberland', 4504469, 'sydney_map.jpg', 'N/A', 'sydney_coa.gif', 'sydney_pic.jpg', 'http://www.cityofsydney.nsw.gov.au/'),
+('Brisbane', 11, 'Queensland', 2004262, 'brisbane_map.jpg', 'brisbane_flag.png', 'brisbane_coa.png', 'brisbane_pic.jpg', 'N/A'),
+('Tokyo', 12, 'Kanto', 13010279, 'tokyo_map.gif', 'tokyo_flag.gif', 'tokyo_coa.png', 'tokyo_pic.jpg', 'http://www.metro.tokyo.jp/ENGLISH/'),
+('Kyoto', 12, 'Kansai', 1465917, 'kyoto_map.jpg', 'kyoto_flag.png', 'kyoto_coa.png', 'kyoto_pic.jpg', 'http://www.kyoto.travel/')
 ;
 
 -- --------------------------------------------------------
