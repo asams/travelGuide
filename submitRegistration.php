@@ -1,5 +1,5 @@
 <?php
-	//include('db_connect.php');
+	include('db_connect.php');
 
 	$userFirstName = trim($_POST['firstName']);
 	$userLastName = trim($_POST['lastName']);
@@ -11,16 +11,16 @@
 	$userOrigin = trim($_POST['origin']);
 	$userHomeCity = trim($_POST['homeCity']);
 
-	//$username = mysqli_real_escape_string($db,  $userUserName);
-	//$query = "SELECT * FROM users WHERE (username = '$username')";
+	$username = mysqli_real_escape_string($db,  $userUserName);
+	$query = "SELECT * FROM users WHERE (username = '$username')";
 	//echo $query;
-	//$result = mysqli_query($db, $query) or die("Error Querying Database");
+	$result = mysqli_query($db, $query) or die("Error Querying Database");
 
 	if (empty($userFirstName)|| empty($userLastName) || empty($userUserName) 
 		|| empty($userPassword) || empty($userPasswordAgain) || empty($userEmail))  {
 			header('Location: register.php?error=empty');
-	//} else if ($row = mysqli_fetch_array($result)) {
-	//	header('Location: register.php?error=username');
+	} else if ($row = mysqli_fetch_array($result)) {
+		header('Location: register.php?error=username');
  
 	} else  if ($userPassword != $userPasswordAgain){
 		header('Location: register.php?error=pwd');
@@ -30,7 +30,7 @@
 ?> 
 
 <?php
-   include('db_connect.php');
+   //include('db_connect.php');
    include('header_side.php');
 
    $userFirstName = mysqli_real_escape_string($db, $userFirstName);

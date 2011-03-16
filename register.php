@@ -27,6 +27,10 @@
 ?>
        <left><b><h3><medium><font color="#FF0000">You must enter an accurate email address!</font></medium></h3></b></left>
 <?php
+   } else if ($error=="username") {
+?>
+       <left><b><h3><medium><font color="#FF0000">There is already a user with that username!  Please try again!</font></medium></h3></b></left>
+<?php
    }
 ?>
 
