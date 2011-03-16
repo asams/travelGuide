@@ -14,7 +14,7 @@
   	$attractionID = $_GET['id'];
 	$query = "SELECT a.*, ci.city_name FROM attractions a NATURAL JOIN cities ci WHERE a.attraction_id = $attractionID";	
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
-	echo $query;
+	
 	
 	while($row = mysqli_fetch_array($result)){
 		$attraction_id = $row['attraction_id'];
