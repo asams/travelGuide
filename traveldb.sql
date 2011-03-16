@@ -44,7 +44,7 @@ INSERT INTO `traveldb`.`countries` (`country_name`, `country_capital`, `country_
 ('Malaysia', 'Kuala Lumpur', 'Federal Constitutional Elective Monarchy and Federal Parliamentary Democracy', 'Ringgit', 27565821, 329847, 'Bahasa Malaysia', 'Islam', 'malaysia_map.jpg', 'malaysia_flag.png', 'malaysia_coa.jpg', 'http://www.tourism.gov.my/corporate/'),
 ('Australia', 'Canberra', 'Federal parliamentary democracy and constitutional monarchy', 'Australian dollar', 22572995, 7617930, 'none', 'Christianity', 'australia_map.jpg', 'australia_flag.png', 'australia_coa.png', 'http://www.australia.com'),
 ('Japan', 'Tokyo', 'Unitary parliamentary democracy and constitutional monarchy', 'Yen', 127360000, 377944, 'Japanese', 'Buddhism, Shintoism', 'japan_map.gif', 'japan_flag.gif', 'japan_coa.jpg', 'http://www.jnto.go.jp/eng/'),
-('New Zealand', 'Wellington', 'Parliamentary democracy and Constitutional monarchy', 'New Zealand dollar (NZD)', 4393500, 268021, 'English', 'Christianity', 'new_zealand_map.png',	'new_zealand_flag.png',	'new_zealand_coat_of_arms.png',	'http://newzealand.govt.nz/')
+('New Zealand', 'Wellington', 'Parliamentary democracy and Constitutional monarchy', 'New Zealand dollar (NZD)', 4393500, 268021, 'English', 'Christianity', 'new_zealand_map.jpg',	'new_zealand_flag.png',	'new_zealand_coat_of_arms.png',	'http://newzealand.govt.nz/')
 ;
 
 
