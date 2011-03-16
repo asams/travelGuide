@@ -13,9 +13,11 @@
 <?php
   	$countryID = $_GET['id'];
 	
-	$query = "SELECT * FROM countries WHERE country_id = $countryID";
+	//$query = "SELECT * FROM countries WHERE country_id = $countryID";
+	$query = "SELECT co.*, ci.city_name, ci.city_id FROM countries co NATURAL JOIN cities ci WHERE co.country_id = $countryID";
 
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
+	$featuredCityLinks = "<ul>";
 	
 	while($row = mysqli_fetch_array($result)){
 		$countryName = $row['country_name'];
@@ -31,21 +33,22 @@
 		$flag = $row['country_flag'];
 		$coat_of_arms = $row['country_coat_of_arms'];
 		$website = $row['country_website'];
-	}
-	
-	$query = "SELECT city_name, city_id FROM cities WHERE country_id = $countryID ORDER BY city_name";
-	//$query = "SELECT city_name, city_id FROM countries NATURAL JOIN cities ORDER BY city_name WHERE ";
-	
-	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
-	
-	$featuredCityLinks = "<ul>";
-	
-	while($row = mysqli_fetch_array($result)){
+		
 		$cityName = $row['city_name'];
 		$cityID = $row['city_id'];
 		
 		$featuredCityLinks = $featuredCityLinks . "<li><a href = \"city.php?id=" . $cityID . "\">" . $cityName . "</a></li>";
 	}
+	
+	//$query = "SELECT city_name, city_id FROM cities WHERE country_id = $countryID ORDER BY city_name";
+	//$query = "SELECT city_name, city_id FROM countries NATURAL JOIN cities ORDER BY city_name WHERE ";
+	
+	//$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
+	
+	
+	//while($row = mysqli_fetch_array($result)){
+
+	//}
 	
 	$featuredCityLinks = $featuredCityLinks . "</ul>";
 	
