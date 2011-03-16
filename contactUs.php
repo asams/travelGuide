@@ -34,7 +34,7 @@ Just let us know!
 </center>
 </form>
 
-<br/><br/>Want to see what other people have said?  View all the comments we've received <a href = "comments.php">here</a>.
+<br/><br/>Want to see what other people have said?  View the comments we've received <a href = "comments.php">here</a>.
 
 </h2>
 

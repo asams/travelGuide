@@ -1,5 +1,5 @@
 <?php
-	
+	//include('db_connect.php');
 
 	$userFirstName = trim($_POST['firstName']);
 	$userLastName = trim($_POST['lastName']);
@@ -76,9 +76,10 @@
 
 
 <div class="content">
-<h2>Your account has been created!  Thanks for joining TravelGuide.  Please, log in on the left. </h2>
-
-
+<center><h1>Thanks for joining TravelGuide!</h1>
+<h2>Your account has been created!  Please, log in on the left. </h2></center>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 </div>
 

@@ -23,6 +23,7 @@ and save a location as a favorite.  Don't see a country, city, or attraction you
 it to be added to our database, and then I'm sure granted no unforeseen circumstances one of us would be happy to oblige you!  <br/><br/>
 Most of our data was collected through common knowledge, wikipedia.org, and miscellaneous travel sites.  Thank you to all of our unknown contributors.
 
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
 
 

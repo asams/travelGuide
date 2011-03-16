@@ -25,6 +25,7 @@ while($row = mysqli_fetch_array($result)) {
 }
 						
 ?>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
 
 <?php

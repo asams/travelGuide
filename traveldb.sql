@@ -394,4 +394,37 @@ CREATE TABLE IF NOT EXISTS users (
 
 ); 
 
+INSERT INTO `traveldb`.`users` (`first_name`, `last_name`, `username`, `password`, `email`, `travelHistory`, `origin`, `homeCity`) VALUES
+ 
+('Kelsie', 'Snyder', 'kelsie', '6cf37614036ededd1018fc3db8e809c3c1932850', 'kelsie.snyder@gmail.com', 'Germany', 'United States of America', 'Springfield, VA') 
+;
 
+
+-- --------------------------------------------------------
+
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE IF NOT EXISTS country_comments (
+  `comment_id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `country_id` int(6) NOT NULL default '0',
+  `user_id` int(6) NOT NULL default '0',
+  `comment_subject` varchar(50) NOT NULL default '',
+  `comment_body` blob NOT NULL default '',
+  `comment_date_submitted` timestamp NOT NULL default '2011-01-01 00:00:00',
+  CONSTRAINT country_comments_country_id_fk
+  FOREIGN KEY(country_id) REFERENCES countries(country_id),
+  CONSTRAINT country_comments_user_id_fk
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+); 
+
+
+INSERT INTO `traveldb`.`country_comments` (`country_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
+ 
+(3, 1, 'I LOVE GERMANY!', 'GERMANY IS THE BEST PLACE EVER!  I WANT TO GO BACK!', '2011-03-14 21:46:24') 
+;
+
+
+-- --------------------------------------------------------
