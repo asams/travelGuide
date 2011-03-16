@@ -1,5 +1,5 @@
 <?php
-	
+	//include('db_connect.php');
 
 	$userFirstName = trim($_POST['firstName']);
 	$userLastName = trim($_POST['lastName']);
