@@ -217,4 +217,10 @@ background:#000066 repeat-x scroll bottom left;
 	font-family:"times", verdana, arial, sans-serif, engravers mt bold;  
 	font-weight:bold;      
 	background:#000066;        
-}   
+}  
+
+img{
+	border-style:solid;
+	border-color: black;
+	border-width:2px;
+}
