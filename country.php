@@ -14,7 +14,7 @@
   	$countryID = $_GET['id'];
 	
 	//$query = "SELECT * FROM countries WHERE country_id = $countryID";
-	$query = "SELECT co.*, ci.city_name, ci.city_id, cocom.* FROM countries co NATURAL JOIN cities ci NATURAL JOIN country_comments cocom WHERE co.country_id = $countryID";
+	$query = "SELECT co.*, ci.city_name, ci.city_id FROM countries co NATURAL JOIN cities ci WHERE co.country_id = $countryID";
 
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
 	$featuredCityLinks = "<ul>";
