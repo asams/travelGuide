@@ -43,7 +43,8 @@ INSERT INTO `traveldb`.`countries` (`country_name`, `country_capital`, `country_
 ('Italy', 'Rome', 'Unitary Parliamentary Republic', 'Euro', 60418711, 301338, 'Italian', 'Catholic', 'italy_map.jpg', 'italy_flag.gif', 'italy_coa.jpg', 'http://www.italia.it/en/home.html'),
 ('Malaysia', 'Kuala Lumpur', 'Federal Constitutional Elective Monarchy and Federal Parliamentary Democracy', 'Ringgit', 27565821, 329847, 'Bahasa Malaysia', 'Islam', 'malaysia_map.jpg', 'malaysia_flag.png', 'malaysia_coa.jpg', 'http://www.tourism.gov.my/corporate/'),
 ('Australia', 'Canberra', 'Federal parliamentary democracy and constitutional monarchy', 'Australian dollar', 22572995, 7617930, 'none', 'Christianity', 'australia_map.jpg', 'australia_flag.png', 'australia_coa.png', 'http://www.australia.com'),
-('Japan', 'Tokyo', 'Unitary parliamentary democracy and constitutional monarchy', 'Yen', 127360000, 377944, 'Japanese', 'Buddhism, Shintoism', 'japan_map.gif', 'japan_flag.gif', 'japan_coa.jpg', 'http://www.jnto.go.jp/eng/') 
+('Japan', 'Tokyo', 'Unitary parliamentary democracy and constitutional monarchy', 'Yen', 127360000, 377944, 'Japanese', 'Buddhism, Shintoism', 'japan_map.gif', 'japan_flag.gif', 'japan_coa.jpg', 'http://www.jnto.go.jp/eng/'),
+('New Zealand', 'Wellington', 'Parliamentary democracy and Constitutional monarchy', 'New Zealand dollar (NZD)', 4393500, 268021, 'English', 'Christianity', 'new_zealand_map.png',	'new_zealand_flag.png',	'new_zealand_coat_of_arms.png',	'http://newzealand.govt.nz/')
 ;
 
 
@@ -393,4 +394,37 @@ CREATE TABLE IF NOT EXISTS users (
 
 ); 
 
+INSERT INTO `traveldb`.`users` (`first_name`, `last_name`, `username`, `password`, `email`, `travelHistory`, `origin`, `homeCity`) VALUES
+ 
+('Kelsie', 'Snyder', 'kelsie', '6cf37614036ededd1018fc3db8e809c3c1932850', 'kelsie.snyder@gmail.com', 'Germany', 'United States of America', 'Springfield, VA') 
+;
 
+
+-- --------------------------------------------------------
+
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE IF NOT EXISTS country_comments (
+  `comment_id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `country_id` int(6) NOT NULL default '0',
+  `user_id` int(6) NOT NULL default '0',
+  `comment_subject` varchar(50) NOT NULL default '',
+  `comment_body` blob NOT NULL default '',
+  `comment_date_submitted` timestamp NOT NULL default '2011-01-01 00:00:00',
+  CONSTRAINT country_comments_country_id_fk
+  FOREIGN KEY(country_id) REFERENCES countries(country_id),
+  CONSTRAINT country_comments_user_id_fk
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+); 
+
+
+INSERT INTO `traveldb`.`country_comments` (`country_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
+ 
+(3, 1, 'I LOVE GERMANY!', 'GERMANY IS THE BEST PLACE EVER!  I WANT TO GO BACK!', '2011-03-14 21:46:24') 
+;
+
+
+-- --------------------------------------------------------

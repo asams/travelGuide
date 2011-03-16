@@ -34,6 +34,7 @@
 	}
 	
 	$query = "SELECT city_name, city_id FROM cities WHERE country_id = $countryID ORDER BY city_name";
+	//$query = "SELECT city_name, city_id FROM countries NATURAL JOIN cities ORDER BY city_name WHERE ";
 	
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 	
