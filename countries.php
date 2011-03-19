@@ -26,7 +26,7 @@ while($row = mysqli_fetch_array($result)) {
 	$countryFlag = $row['country_flag'];
 						
 	if($count % 5 == 1){
-		echo "<tr>";
+		echo "<tr valign = top>";
 	}
 	echo "<td align = center><a href=country.php?id=" . $countryID . "><img src = \"" . $countryFlag . "\" alt = \"flag\" width = \"100\" /></a>   ";
 	echo "<br/><a href=country.php?id=" . $countryID . ">" . $countryName . "</a><br/><br/></td>";

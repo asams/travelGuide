@@ -26,7 +26,7 @@ while($row = mysqli_fetch_array($result)) {
 	$cityPic = $row['city_pic'];
 
 	if($count % 5 == 1){
-		echo "<tr>";
+		echo "<tr valign = top>";
 	}
 	echo "<td align = center><a href=city.php?id=" . $cityID . "><img src = \"" . $cityPic . "\" alt = \"pic\" width = \"100\" /></a>   ";
     echo '<br/><a href=city.php?id=' . $cityID . '>' . $cityName . ', <br/>' . $countryName . '</a><br>';
