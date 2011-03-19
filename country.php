@@ -14,7 +14,7 @@
   	$countryID = $_GET['id'];
 	
 	//$query = "SELECT * FROM countries WHERE country_id = $countryID";
-	$query = "SELECT co.*, ci.city_name, ci.city_id FROM countries co NATURAL JOIN cities ci WHERE co.country_id = $countryID";
+	$query = "SELECT co.*, ci.city_name, ci.city_id FROM countries co NATURAL JOIN cities ci WHERE co.country_id = $countryID ORDER BY ci.city_name";
 
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
 	$featuredCityLinks = "<ul>";
@@ -40,17 +40,29 @@
 		$featuredCityLinks = $featuredCityLinks . "<li><a href = \"city.php?id=" . $cityID . "\">" . $cityName . "</a></li>";
 	}
 	
+	$featuredCityLinks = $featuredCityLinks . "</ul>";
+	
 	//$query = "SELECT city_name, city_id FROM cities WHERE country_id = $countryID ORDER BY city_name";
 	//$query = "SELECT city_name, city_id FROM countries NATURAL JOIN cities ORDER BY city_name WHERE ";
 	
-	//$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
+	$query = "SELECT cc.*, co.country_name, u.first_name, u.last_name FROM countries co NATURAL JOIN country_comments cc NATURAL JOIN users u WHERE co.country_id = $countryID";
 	
-	
-	//while($row = mysqli_fetch_array($result)){
+	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 
-	//}
+	$comments_table = "<table rules = rows>";
+	while($row = mysqli_fetch_array($result)){
+		$countryName = $row['country_name'];
+		$first_name = $row['first_name'];
+		$last_name = $row['last_name'];
+		$comment_subject = $row['comment_subject'];
+		$comment_body = $row['comment_body'];
+		$comment_date = $row['comment_date_submitted'];
+		
+		$comments_table = $comments_table . "<tr><td><br/>Name: " . $first_name . " " . $last_name . "<br/><br/>Subject: " . $comment_subject . "<br/><br/>Comment: " . $comment_body . "<br/><br/>Date: " . $comment_date . "<br/><br/></td></tr>";
+	}
+	$comments_table = $comments_table . "</table>";
 	
-	$featuredCityLinks = $featuredCityLinks . "</ul>";
+	
 	
 
 ?>
@@ -76,6 +88,8 @@
 	
 	echo "Map:<br/>";
 	echo "<img src = \"" . $map . "\" alt = \"map\" width = \"60%\" align = \"center\" /><br/><br/>";
+	echo "<H2>Comments from users:</H2>";
+	echo $comments_table;
 //	echo "<img src = \"" . $coat_of_arms . "\" alt = \"coat of arms\" width = \"20%\" align = \"center\" /><br/><br/>";
 	
 

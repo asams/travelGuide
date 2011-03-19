@@ -104,8 +104,8 @@ INSERT INTO `traveldb`.`cities` (`city_name`, `country_id`, `city_region`, `city
 ('Brisbane', 11, 'Queensland', 2004262, 'brisbane_map.jpg', 'brisbane_flag.png', 'brisbane_coa.png', 'brisbane_pic.jpg', 'N/A'),
 ('Tokyo', 12, 'Kanto', 13010279, 'tokyo_map.gif', 'tokyo_flag.gif', 'tokyo_coa.png', 'tokyo_pic.jpg', 'http://www.metro.tokyo.jp/ENGLISH/'),
 ('Kyoto', 12, 'Kansai', 1465917, 'kyoto_map.jpg', 'kyoto_flag.png', 'kyoto_coa.png', 'kyoto_pic.jpg', 'http://www.kyoto.travel/'),
-('Edinburgh', 13, 'City of Edinburgh', 477660, 'edinburgh_map.jpg', 'edinburgh_flag.jpg', 'edinburgh_coa.jpg', 'edinburgh_pic.jpg', 'http://www.edinburgh.org/'),
-('Glasgow', 13, 'Glasgow', 580690, 'glasgow_map.jpg', 'glasgow_flag.jpg', 'glasgow_coa.jpg', 'glasgow_pic.jpg', 'http://www.seeglasgow.com/')
+('Edinburgh', 13, 'City of Edinburgh', 477660, 'edinburgh_map.jpg', 'N/A', 'N/A', 'edinburgh_pic.jpg', 'http://www.edinburgh.org/'),
+('Glasgow', 13, 'Glasgow', 580690, 'glasgow_map.jpg', 'N/A', 'N/A', 'glasgow_pic.jpg', 'http://www.seeglasgow.com/')
 ;
 
 -- --------------------------------------------------------
