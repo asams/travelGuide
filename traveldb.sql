@@ -351,7 +351,7 @@ Dazzle your senses. Feel the thrills of adventure and caresses of paradise. Xel-
 ('Kinkakuji', 24, 'religious building', 'Kinkaku-ji is a Zen Buddhist temple in Kyoto, Japan. The garden complex is an excellent example of Muromachi period garden design. It is designated as a National Special Historic Site and a National Special Landscape, and it is one of 17 World Cultural Heritage sites in Kyoto. It is also one of the most popular buildings in Japan, attracting a large number of visitors annually. The top two stories of the pavilion are covered with pure gold leaf. The pavilion functions as a shariden, housing relics of the Buddha (Buddha''s Ashes).', '1 Kinkaku-ji-cho Kita-ku, Kyoto, Kyoto Prefecture 603-8361, Japan', 'Open daily from 9:00am to 4:00pm', 'Y', 'http://www.shokoku-ji.or.jp/english/e_kinkakuji/index.html', 'kinkakuji_pic.jpg'),  
 ('Fushimi Inari Taisha', 24, 'religious building', 'Fushimi Inari Taisha is the head shrine of Inari, located in Fushimi-ku, Kyoto, Japan. The shrine sits at the base of a mountain also named Inari, and includes trails up the mountain to many smaller shrines. Since in early Japan Inari was seen as the patron of business, each of the Torii is donated by a Japanese business. First and foremost though, Inari is the god of rice. Merchants and manufacturers worship Inari for wealth. Donated torii lining footpaths are part of the scenic view. Unlike most Shinto shrines, Fushimi Inari Taisha, in keeping with typical Inari shrines, has an open view of the main idol object (a mirror).', '68 Fukakusa Yabu-no-uchi-cho, Kyoto, Japan', 'Always open.', 'N', 'http://inari.jp/', 'fushimi_inari_taisha_pic.jpg'),
 
-('Kelvingrove Art Museum', 25, 'museum', 'Kelvingrove has 22 themed, state-of-the-art galleries displaying an astonishing 8000 objects.  The collections are extensive, wide-ranging and internationally-significant. They include:  natural history, arms and armour, art from many art movements and periods of history, and much more. We even have a real Spitfire!  Kelvingrove welcomes families with children, and its displays have been designed with children in mind. There are lots of interactives throughout the museum that will appeal to younger audiences.  Visitors to Kelvingrove can enjoy its cafes and shops, and make use of its Study Centre and Library to find out more about Glasgow Museums'' collections and carry out research online.', 'Argyle Street, Glasgow G3 8AG', 'Monday to Thursday and Saturday 10am–5pm,Friday and Sunday 11am–5pm', 'N', 'http://www.glasgowlife.org.uk/museums/our-museums/kelvingrove/about-Kelvingrove/Pages/home.aspx', 'Kelvingrove_Art_Museum.png'),
+('Kelvingrove Art Museum', 25, 'museum', 'Kelvingrove has 22 themed, state-of-the-art galleries displaying an astonishing 8000 objects.  The collections are extensive, wide-ranging and internationally-significant. They include:  natural history, arms and armour, art from many art movements and periods of history, and much more. We even have a real Spitfire!  Kelvingrove welcomes families with children, and its displays have been designed with children in mind. There are lots of interactives throughout the museum that will appeal to younger audiences.  Visitors to Kelvingrove can enjoy its cafes and shops, and make use of its Study Centre and Library to find out more about Glasgow Museums'' collections and carry out research online.', 'Argyle Street, Glasgow G3 8AG', 'Monday to Thursday and Saturday 10am to 5pm,Friday and Sunday 11am to 5pm', 'N', 'http://www.glasgowlife.org.uk/museums/our-museums/kelvingrove/about-Kelvingrove/Pages/home.aspx', 'Kelvingrove_Art_Museum.png'),
 ('Lighthouse', 25, 'other', 'The Lighthouse is: the national centre for architecture and design, an architecture and design centre with a difference, a hub for Scotland''s creative industries.  The Lighthouse, Scotland''s first, dedicated, national centre for architecture and design, was opened by HM Queen Elizabeth in July 1999. The centre''s vision is to develop the links between art, design and architecture, seeing these as interconnected social, educational, economic and cultural issues of concern to everyone. There is also a conference centre, shop and two cafes.', '11 Mitchell Lane  Glasgow G1 3LX', 'Monday, Wednesday, Thursday, Friday & Saturday 10:30 am - 5:00pm Tuesday 11:00 am - 5:00pm Sunday 12:00 pm - 5:00pm', 'N', 'http://www.glasgow.gov.uk/en/Visitors/TheLighthouse/', 'lighthouse.jpg'),
 ('Glasgow Science Centre', 25, 'museum', 'Glasgow Science Centre is one of Scotland''s must-see visitor attractions - presenting concepts of science and technology in unique and inspiring ways. Glasgow Science Centre is an independent Scottish Charity the aims of which are: to create interactive experiences that inspire, challenge and engage to increase awareness of science for all in Scotland, to enhance the quality of science and technology learning, to communicate the role of leading edge science and technology in shaping Scotland''s future, to build partnerships to develop our national role in science communication and education, and to promote Scotland''s science, education and innovation capability.', '50 Pacific Quay Glasgow G51 1EA', 'From Monday 1st of November 2010 the Science Mall''s opening hours are:Monday & Tuesday - closed, Wednesday to Friday - 10am until 3pm, Saturday & Sunday - 10am until 5pm From the 1st of April, the Science Mall''s opening hours are: Monday to Sunday- 10am until 5pm.', 'Y'	, 'http://www.gsc.org.uk/ ', 'glasgow_science_centre.jpg'),
 ('City Chambers', 25, 'government building', 'In the very heart of Glasgow stands one of the city''s most important and prestigious buildings – the City Chambers.  A grand and imposing edifice overlooking George Square, the City Chambers is an impressive symbol of Glasgow''s political strength and historical wealth. Completed in 1888, the City Chambers has for over a hundred years been the headquarters of successive councils serving the City of Glasgow.', '80 George Square Glasgow G2 1DU Scotland', 'Public tours are conducted twice per day at 10.30am and 2.30pm. Closed on public holidays and weekends.', 'N', 'http://www.glasgow.gov.uk/en/YourCouncil/CityChambers/', 'glasgow_city_chambers.jpg'),
@@ -411,15 +411,15 @@ CREATE TABLE IF NOT EXISTS users (
   `username` varchar(50) NOT NULL default '',
   `password` varchar(50) NOT NULL default '',
   `email` varchar(50) NOT NULL default '',
-  `travelHistory` BLOB NOT NULL,
+  
   `origin` varchar(50) NOT NULL default 'N/A',
   `homeCity` varchar(50) NOT NULL default 'N/A'
 
 ); 
 
-INSERT INTO `traveldb`.`users` (`first_name`, `last_name`, `username`, `password`, `email`, `travelHistory`, `origin`, `homeCity`) VALUES
+INSERT INTO `traveldb`.`users` (`first_name`, `last_name`, `username`, `password`, `email`, `origin`, `homeCity`) VALUES
  
-('Kelsie', 'Snyder', 'kelsie', '6cf37614036ededd1018fc3db8e809c3c1932850', 'kelsie.snyder@gmail.com', 'Germany', 'United States of America', 'Springfield, VA') 
+('Kelsie', 'Snyder', 'kelsie', '6cf37614036ededd1018fc3db8e809c3c1932850', 'kelsie.snyder@gmail.com', 'United States of America', 'Springfield, VA') 
 ;
 
 
@@ -439,7 +439,10 @@ CREATE TABLE IF NOT EXISTS userCountries (
 
 ); 
 
-
+INSERT INTO `traveldb`.`userCountries` (`user_id`, `country_id`) VALUES
+ 
+(1, 3) 
+;
 -- --------------------------------------------------------
 
 

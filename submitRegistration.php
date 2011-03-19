@@ -40,12 +40,6 @@
    $userEmail = mysqli_real_escape_string($db, $userEmail);
 
 
-   if (!empty($userTravel)){ 
-      $userTravel = mysqli_real_escape_string($db, $userTravel);
-   } else {
-      $userTravel = "N/A";
-   }
-
    if (!empty($userOrigin)) {
       $userOrigin = mysqli_real_escape_string($db, $userOrigin);
    } else {
@@ -59,16 +53,38 @@
    }
       
       
-      	
-
       
-   $query = "INSERT INTO users (first_name, last_name, username, password, email, travelHistory, origin, homeCity) VALUES ('$userFirstName', '$userLastName', '$userUserName', SHA('$userPassword'), '$userEmail', '$userTravel', '$userOrigin', '$userHomeCity')";
+      
+   $query = "INSERT INTO users (first_name, last_name, username, password, email, origin, homeCity) VALUES ('$userFirstName', '$userLastName', '$userUserName', SHA('$userPassword'), '$userEmail', '$userOrigin', '$userHomeCity')";
    //echo $query;    
 
    $result = mysqli_query($db, $query) or die ("Error Querying Database");
-   mysqli_close($db);
-
    
+   $query = "SELECT user_id FROM users WHERE username='$userUserName'";
+   echo $query;    
+
+   $result = mysqli_query($db, $query) or die ("Error Querying Database");
+   $row = mysqli_fetch_array($result);
+   $id = $row['user_id'];
+  
+
+   if (!empty($_POST['visited'])){ 
+      $listvals=$_POST['visited'];
+      $n=count($listvals);
+      echo "User chose $n items from the list.<br>\n";
+      for($i=0;$i<$n;$i++) {
+          $countryId = $listvals[$i];
+	  echo $countryId;
+	  $query = "INSERT INTO userCountries (user_id, country_id) VALUES ('$id', '$countryId')";
+
+          echo $query; 
+	  $result = mysqli_query($db, $query) or die ("Error Querying Database");
+      }
+   } 
+  
+
+
+ 
 ?>
 
 <html>
@@ -86,6 +102,7 @@
 
 <?php
    }
+   mysqli_close($db);
    include('footer.php');
 ?>
 
