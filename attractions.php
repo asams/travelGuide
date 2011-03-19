@@ -18,7 +18,7 @@ $result = mysqli_query($db, $query)or die("Error Querying Database");
 
 $headerCity = 'test';
 
-echo "<table>";
+echo "<table cellpadding = 15>";
 while($row = mysqli_fetch_array($result)) {
 	$attractionName = $row['attraction_name'];
 	$attractionID = $row['attraction_id'];
@@ -30,8 +30,9 @@ while($row = mysqli_fetch_array($result)) {
 		$cityName = $row['city_name'];
 		$cityID = $row['city_id'];
 		$cityPic = $row['city_pic'];
-		echo "<tr><td align = center><a href=city.php?id=" . $cityID . "><img src = \"" . $cityPic . "\" alt = \"pic\" width = \"100\" /></a>   ";
-		echo "<br/><a href=city.php?id=" . $cityID . ">" . $headerCity . ',<br/> ' . $countryName . "</a><br/><br/></td><td>";
+		echo "<tr valign = top><td align = center><a href=city.php?id=" . $cityID . "><img src = \"" . $cityPic . "\" alt = \"pic\" width = \"200\" /></a>   ";
+		echo "</td><td>";
+		//echo "<br/><a href=city.php?id=" . $cityID . ">" . $headerCity . ',<br/> ' . $countryName . "</a><br/><br/></td><td>";
 		echo "<u>" . $headerCity . ', ' . $countryName . "</u><br/><br/>";
 	} else {
 		$cityName = $headerCity;
