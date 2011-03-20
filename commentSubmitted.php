@@ -1,10 +1,8 @@
 <?php
+   include('header_side.php');
    include('db_connect.php');
 ?>
 
-<?php
-   include('header_side.php');
-?>
 
 <html>
 <body>
@@ -57,7 +55,7 @@
 
 Want to see what other people have said?  View all the comments we've received <a href = "comments.php">here</a>.
 
-<br/><br/><br/><br/><br/></center>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></center>
 </h2>
 
 </div>

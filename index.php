@@ -1,9 +1,24 @@
 <?php
-   include('db_connect.php');
+//	session_start();
+//	$user_id = $_SESSION['user_id'];
+ 
+//if( isset($_COOKIE['user_id'])){
+//	$user_id = $_COOKIE['user_id'];
+//}
+//else{
+//	setcookie('user_id', $_SESSION['user_id'], time()+60*60*24);
+//}
+	include('header_side.php');
+	include('db_connect.php');
+?>
+
+
+<?php
+//   include('db_connect.php');
 ?>
 
 <?php
-   include('header_side.php');
+//   include('header_side.php');
 ?>
 
 <html>
@@ -76,6 +91,7 @@ $featured = $row['city_name'];
 	echo "</table>";
 	echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
 	echo "<center>*If you have a suggestion for a better name than \"TravelGuide\", let us know on our ContactUs page!</center>";
+//	echo "Session: " . $_SESSION['user_id'] . "   Cookie: " . $_COOKIE['user_id'];
 
 ?>
 

@@ -1,9 +1,6 @@
 <?php
-   include('db_connect.php');
-?>
-
-<?php
    include('header_side.php');
+    include('db_connect.php');
 ?>
 
 <html>

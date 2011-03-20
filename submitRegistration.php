@@ -1,6 +1,8 @@
 <?php
+   include('header_side.php');
 	include('db_connect.php');
 
+   
 	$userFirstName = trim($_POST['firstName']);
 	$userLastName = trim($_POST['lastName']);
 	$userUserName = trim($_POST['userName']);
@@ -31,7 +33,7 @@
 
 <?php
    //include('db_connect.php');
-   include('header_side.php');
+
 
    $userFirstName = mysqli_real_escape_string($db, $userFirstName);
    $userLastName = mysqli_real_escape_string($db, $userLastName);
@@ -61,7 +63,7 @@
    $result = mysqli_query($db, $query) or die ("Error Querying Database");
    
    $query = "SELECT user_id FROM users WHERE username='$userUserName'";
-   echo $query;    
+   //echo $query;    
 
    $result = mysqli_query($db, $query) or die ("Error Querying Database");
    $row = mysqli_fetch_array($result);
@@ -71,13 +73,13 @@
    if (!empty($_POST['visited'])){ 
       $listvals=$_POST['visited'];
       $n=count($listvals);
-      echo "User chose $n items from the list.<br>\n";
+//      echo "User chose $n items from the list.<br>\n";
       for($i=0;$i<$n;$i++) {
           $countryId = $listvals[$i];
-	  echo $countryId;
+	  //echo $countryId;
 	  $query = "INSERT INTO userCountries (user_id, country_id) VALUES ('$id', '$countryId')";
 
-          echo $query; 
+        //  echo $query; 
 	  $result = mysqli_query($db, $query) or die ("Error Querying Database");
       }
    } 

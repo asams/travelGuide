@@ -1,5 +1,9 @@
 <?php
+   header('Location: loginComplete.php');
+   include('header_side.php');
 	
+	session_start();
+
 	$userUserName = $_POST['userName'];
 	$userPassword = $_POST['password'];
 
@@ -25,7 +29,7 @@
 
 <?php
    include('db_connect.php');
-   include('header_side.php');
+//   include('header_side.php');
 ?>
 
 <div class="content">
@@ -44,16 +48,19 @@
    
    if ($row = mysqli_fetch_array($result))
    {
-   		$_SESSION['username'] = $row['username'];
-		$_COOKIE['username'] = $row['username'];
+   		//$_SESSION['username'] = $row['username'];
+		//$_COOKIE['username'] = $row['username'];
 		
 		$first_name = $row['first_name'];
 		$last_name = $row['last_name'];
 		$user_id = $row['user_id'];
 		
-		$_SESSION ['user_id'] = $user_id;
+		$_SESSION['user_id'] = $user_id;
+//		$_COOKIE['user_id'] = $user_id;
+
 		
    		echo "<center><h2>Thanks for logging in, $first_name!</h2>\n";
+		echo $_SESSION['user_id'];
    		echo "<h3>Click <a href= \"index.php\">here</a> to continue, or use the menu on the left.</h3></center>";
 		echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
    }
