@@ -45,7 +45,7 @@
 	//$query = "SELECT city_name, city_id FROM cities WHERE country_id = $countryID ORDER BY city_name";
 	//$query = "SELECT city_name, city_id FROM countries NATURAL JOIN cities ORDER BY city_name WHERE ";
 	
-	$query = "SELECT cc.*, co.country_name, u.first_name, u.last_name FROM countries co NATURAL JOIN country_comments cc NATURAL JOIN users u WHERE co.country_id = $countryID";
+	$query = "SELECT cc.*, co.country_name, u.first_name, u.last_name FROM countries co NATURAL JOIN country_comments cc NATURAL JOIN users u WHERE co.country_id = $countryID ORDER BY cc.comment_date_submitted DESC";
 	
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 
@@ -62,15 +62,7 @@
 	}
 	$comments_table = $comments_table . "</table>";
 	
-	
-	
 
-?>
-
-
-
-<?php
-	
 	echo "<h1>" . $countryName . "</h1>";
 
 	echo "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>";
@@ -94,6 +86,20 @@
 	
 
 ?>
+
+<H2>Share your thoughts about <?php echo $countryName ?>:</H2>
+<form action="countryCommentSubmitted.php" method="post" class="form">
+<center>
+<table>
+
+<tr><th>Name (user_id):</th><td><input type="text" id="user_id" name="user_id" size = 75 /></td></tr>
+<tr><th>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
+<tr><th>Comment:</th><td><textarea name="comment" id="comment" rows = "4" cols = "60"></textarea>
+<input type="hidden" name="country_id" value=<?php echo $countryID ?>></td></tr>
+
+<tr><td colspan = 2><center><input type="submit" class="formbutton" value="Submit" /></center></td></tr>
+
+</table>
 
 </div>
 

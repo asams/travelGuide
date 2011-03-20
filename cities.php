@@ -37,7 +37,7 @@ while($row = mysqli_fetch_array($result)) {
 echo "</table></center>";					
 
 ?>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
 
 <?php

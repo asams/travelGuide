@@ -105,7 +105,9 @@ INSERT INTO `traveldb`.`cities` (`city_name`, `country_id`, `city_region`, `city
 ('Tokyo', 12, 'Kanto', 13010279, 'tokyo_map.gif', 'tokyo_flag.gif', 'tokyo_coa.png', 'tokyo_pic.jpg', 'http://www.metro.tokyo.jp/ENGLISH/'),
 ('Kyoto', 12, 'Kansai', 1465917, 'kyoto_map.jpg', 'kyoto_flag.png', 'kyoto_coa.png', 'kyoto_pic.jpg', 'http://www.kyoto.travel/'),
 ('Edinburgh', 13, 'City of Edinburgh', 477660, 'edinburgh_map.jpg', 'N/A', 'N/A', 'edinburgh_pic.jpg', 'http://www.edinburgh.org/'),
-('Glasgow', 13, 'Glasgow', 580690, 'glasgow_map.jpg', 'N/A', 'N/A', 'glasgow_pic.jpg', 'http://www.seeglasgow.com/')
+('Glasgow', 13, 'Glasgow', 580690, 'glasgow_map.jpg', 'N/A', 'N/A', 'glasgow_pic.jpg', 'http://www.seeglasgow.com/'),
+('City in New Zealand 1', 14, '', 1, '', '', '', '', ''),
+('City in New Zealand 2', 14, '', 1, '', '', '', '', '')
 ;
 
 -- --------------------------------------------------------
@@ -467,7 +469,8 @@ CREATE TABLE IF NOT EXISTS country_comments (
 
 INSERT INTO `traveldb`.`country_comments` (`country_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
  
-(3, 1, 'I LOVE GERMANY!', 'GERMANY IS THE BEST PLACE EVER!  I WANT TO GO BACK!', '2011-03-14 21:46:24') 
+(3, 1, 'I LOVE GERMANY!', 'GERMANY IS THE BEST PLACE EVER!  I WANT TO GO BACK!', '2011-03-14 21:46:24'), 
+(3, 1, 'I LOVE GERMANY TOO!', 'LOVE IT LOVE IT LOVE IT', '2011-03-19 22:01:36') 
 ;
 
 
