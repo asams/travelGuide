@@ -17,7 +17,7 @@ $query = "SELECT countries.country_name, cities.city_name, cities.city_id, citie
 $result = mysqli_query($db, $query)or die("Error Querying Database");
 
 $count = 0;
-echo "<center><table width = \"70%\" cellpadding = 15>";
+echo "<center><table width = \"90%\" cellpadding = 15>";
 while($row = mysqli_fetch_array($result)) {
 	$count ++;
 	$cityName = $row['city_name'];
@@ -28,7 +28,7 @@ while($row = mysqli_fetch_array($result)) {
 	if($count % 5 == 1){
 		echo "<tr valign = top>";
 	}
-	echo "<td align = center><a href=city.php?id=" . $cityID . "><img src = \"" . $cityPic . "\" alt = \"pic\" width = \"100\" /></a>   ";
+	echo "<td width = \"20%\" align = center><a href=city.php?id=" . $cityID . "><img src = \"" . $cityPic . "\" alt = \"pic\" width = \"100%\" /></a>   ";
     echo '<br/><a href=city.php?id=' . $cityID . '>' . $cityName . ', <br/>' . $countryName . '</a><br>';
 	if ($count % 5 == 0){
 		echo "</tr>";
