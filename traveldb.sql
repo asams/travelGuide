@@ -499,8 +499,8 @@ CREATE TABLE IF NOT EXISTS city_comments (
 
 INSERT INTO `traveldb`.`city_comments` (`city_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
  
-(1, 1, 'Something', 'Some comment about london', '2011-03-14 21:46:24'), 
-(1, 1, 'Something else', 'Something else about london', '2011-03-19 22:01:36') 
+(1, 1, 'London', 'I can''t wait to visit London and see the changing of the guard!  That, or just try to make one of them laugh.', '2011-03-14 21:46:24'), 
+(3, 1, 'Hola!', 'Como se dice "Let''s party!?!" en espanol?  Fiesta?', '2011-03-19 22:01:36') 
 ;
 -- --------------------------------------------------------
 
