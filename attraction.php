@@ -72,14 +72,14 @@
 if( isset($_COOKIE['user_id'])){
 ?>
 
-<H2>Share your thoughts about <?php echo $countryName ?>:</H2>
-<form action="countryCommentSubmitted.php" method="post" class="form">
+<H2>Share your thoughts about <?php echo $attraction_name ?>:</H2>
+<form action="attractionCommentSubmitted.php" method="post" class="form">
 <center>
 <table>
 
 <tr><th>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
 <tr><th>Comment:</th><td><textarea name="comment" id="comment" rows = "4" cols = "60"></textarea>
-<input type="hidden" name="country_id" value=<?php echo $countryID ?>></td></tr>
+<input type="hidden" name="attraction_id" value=<?php echo $attractionID ?>></td></tr>
 
 <tr><td colspan = 2><center><input type="submit" class="formbutton" value="Submit" /></center></td></tr>
 
@@ -89,7 +89,7 @@ if( isset($_COOKIE['user_id'])){
 }
 else{
 ?>
-<H2>Want to share your thoughts about <?php echo $countryName ?>?</H2>
+<H2>Want to share your thoughts about <?php echo $attraction_name ?>?</H2>
 <H3>Create a personal account on TravelGuide in order to comment on countries, cities, and attractions, and enjoy all the other perks of being a TravelGuide member!  
 <br/><br/>If you already have an account, just log in!
 <br/>
