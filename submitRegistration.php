@@ -1,8 +1,6 @@
 <?php
-   include('header_side.php');
 	include('db_connect.php');
 
-   
 	$userFirstName = trim($_POST['firstName']);
 	$userLastName = trim($_POST['lastName']);
 	$userUserName = trim($_POST['userName']);
@@ -18,22 +16,23 @@
 	//echo $query;
 	$result = mysqli_query($db, $query) or die("Error Querying Database");
 
+	$error = "none";
 	if (empty($userFirstName)|| empty($userLastName) || empty($userUserName) 
 		|| empty($userPassword) || empty($userPasswordAgain) || empty($userEmail))  {
-			header('Location: register.php?error=empty');
+			$error = "empty";
 	} else if ($row = mysqli_fetch_array($result)) {
-		header('Location: register.php?error=username');
- 
-	} else  if ($userPassword != $userPasswordAgain){
-		header('Location: register.php?error=pwd');
+		$error = "username";
+ 	} else  if ($userPassword != $userPasswordAgain){
+		$error = "pwd";
 	} else if (strpos($userEmail, '@') == false) {
-		header('Location: register.php?error=email');
-	} else {
-?> 
+		$error = "email";
+	}
 
-<?php
    //include('db_connect.php');
+ 	header('Location: register.php?error=' . $error);
 
+	if($error == "none"){
+   include('header_side.php');
 
    $userFirstName = mysqli_real_escape_string($db, $userFirstName);
    $userLastName = mysqli_real_escape_string($db, $userLastName);
@@ -63,7 +62,7 @@
    $result = mysqli_query($db, $query) or die ("Error Querying Database");
    
    $query = "SELECT user_id FROM users WHERE username='$userUserName'";
-   //echo $query;    
+   echo $query;    
 
    $result = mysqli_query($db, $query) or die ("Error Querying Database");
    $row = mysqli_fetch_array($result);
@@ -73,17 +72,18 @@
    if (!empty($_POST['visited'])){ 
       $listvals=$_POST['visited'];
       $n=count($listvals);
-//      echo "User chose $n items from the list.<br>\n";
+      echo "User chose $n items from the list.<br>\n";
       for($i=0;$i<$n;$i++) {
           $countryId = $listvals[$i];
-	  //echo $countryId;
+	  echo $countryId;
 	  $query = "INSERT INTO userCountries (user_id, country_id) VALUES ('$id', '$countryId')";
 
-        //  echo $query; 
+          echo $query; 
 	  $result = mysqli_query($db, $query) or die ("Error Querying Database");
       }
    } 
   
+  		$_SESSION['user_id'] = $id;
 
 
  

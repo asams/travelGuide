@@ -9,7 +9,7 @@
 
    $query = "SELECT * FROM users WHERE user_id = " . $_COOKIE['user_id'];
 
-   $result = mysqli_query($db, $query) or die ("Error Querying Database");
+   $result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
    
    if ($row = mysqli_fetch_array($result))
    {
@@ -19,9 +19,9 @@
 		
 		$_SESSION['user_id'] = $user_id;
 		
-   		echo "<center><h2>Thanks for logging in, $first_name!</h2>\n";
+   		echo "<center><h2>Thanks for registering, $first_name!</h2>\n";
 		//echo $_SESSION['user_id'];
-   		echo "<h3>Click <a href= \"index.php\">here</a> to continue, or use the menu on the left.</h3></center>";
+   		echo "<h3>You have automatically been logged in! <br/><br/> Click <a href= \"index.php\">here</a> to continue, or use the menu on the left.</h3></center>";
 		echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
    }
 

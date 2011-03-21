@@ -1,4 +1,7 @@
 <?php
+	if($_GET['error'] == "none"){
+		header('Location: loginComplete.php');
+	}
    include('header_side.php');
    include('db_connect.php');
 
@@ -26,8 +29,14 @@
 ?>
        <left><b><h3><medium><font color="#FF0000">The username you entered does not exist!  Try again!</font></medium></h3></b></left>
 <?php
+   } else if ($error=="incorrect") {
+?>
+       <left><b><h3><medium><font color="#FF0000">Incorrect username or password! Try again!</font></medium></h3></b></left>
+<?php
    }
 ?>
+
+
 
 <center>
 <form action=submitLogin.php method="POST" >

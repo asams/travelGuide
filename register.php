@@ -1,8 +1,14 @@
 <?php
+   $error=$_GET['error'];
+   if($error == "none"){
+		header('Location: registrationComplete.php');
+
+   }
+
    include('header_side.php');
    include('db_connect.php');
 
-   $error=$_GET['error'];
+
 ?>
 
 <html>
@@ -12,7 +18,8 @@
 <div class="content">
 <h2><center>Register for an account!</center></h2>
 <table width=55% >
-<?php  
+<?php
+  
    if ($error=="empty") {
 ?>
 <left><b><h3><medium><font color="#FF0000">All required fields <u>MUST</u> be completed!</font></medium></h3></b></left>

@@ -1,5 +1,36 @@
 <?php
-   header('Location: loginComplete.php');
+	$userUserName = $_POST['userName'];
+	$userPassword = $_POST['password'];
+      include('db_connect.php');
+	$userUserName = mysqli_real_escape_string($db, $userUserName);
+   $userPassword = mysqli_real_escape_string($db, $userPassword);
+
+
+   
+   $query = "SELECT * FROM users WHERE username = '$userUserName' AND password = SHA('$userPassword')";
+
+//   echo $query;    
+
+   $result = mysqli_query($db, $query) or die ("Error Querying Database");
+   
+	if (empty($_POST['userName']) || empty($_POST['password']))  {
+		$error = "empty";
+	}
+
+   else if ($row = mysqli_fetch_array($result)){
+		$error = "none";
+   }
+   else{
+		$error = "incorrect";
+   }
+
+
+	
+	//else{
+//		$error = "none";
+//	}
+
+	header('Location: login.php?error=' . $error);
    include('header_side.php');
 	
 	session_start();
@@ -14,7 +45,8 @@
 	//$result = mysqli_query($db, $query) or die("Error Querying Database");
 
 	if (empty($userUserName) || empty($userPassword))  {
-			header('Location: login.php?error=empty');
+		$error = "empty";
+	//		header('Location: login.php?error=empty');
 	//} else if ($row = mysqli_fetch_array($result)) {
 	//	header('Location: register.php?error=username');
  
@@ -23,6 +55,9 @@
 	//} else if (strpos($userEmail, '@') == false) {
 //		header('Location: login.php?error=email');
 	} else {
+		$error = "none";
+//	   header('Location: loginComplete.php');
+
 ?> 
 
 
