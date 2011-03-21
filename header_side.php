@@ -1,4 +1,13 @@
 <?php
+	session_start();
+	$user_id = $_SESSION['user_id'];
+ 
+if( isset($_COOKIE['user_id'])){
+	$user_id = $_COOKIE['user_id'];
+}
+else{
+	setcookie(user_id, $_SESSION['user_id'], time()+60*60*24);
+}
    include('db_connect.php');
 ?>
 
@@ -84,7 +93,17 @@
 <div class="s2">
 </div>
 <div class="nav-box-text">
-<span style="font-family:geneva,arial;font-color:#000;font-size:14px;font-weight:bold;padding-left:1px;"><a href="login.php">LOGIN</a></span>
+<span style="font-family:geneva,arial;font-color:#000;font-size:14px;font-weight:bold;padding-left:1px;">
+<?php
+if( isset($_COOKIE['user_id'])){
+?>
+<a href="logout.php">LOGOUT</a>
+<?php
+}else{ ?>
+<a href="login.php">LOGIN</a>
+<?php
+} ?>
+</span>
 <br />
 <span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold; font-style: italic;
  letter-spacing: 2px;

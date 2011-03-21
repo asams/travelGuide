@@ -1,18 +1,12 @@
 <?php
- session_start();
- $user_id = $_SESSION['user_id'];
+// session_start();
+ //$user_id = $_SESSION['user_id'];
  
- if(isset($_COOKIE['user_id'])){
-    $user_id = $_COOKIE['user_id'];
- }
-?>
-
-<?php
-   include('db_connect.php');
-?>
-
-<?php
+// if(isset($_COOKIE['user_id'])){
+//    $user_id = $_COOKIE['user_id'];
+ //}
    include('header_side.php');
+   include('db_connect.php');
 ?>
 
 <html>

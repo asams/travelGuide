@@ -1,5 +1,40 @@
 <?php
+	$userUserName = $_POST['userName'];
+	$userPassword = $_POST['password'];
+      include('db_connect.php');
+	$userUserName = mysqli_real_escape_string($db, $userUserName);
+   $userPassword = mysqli_real_escape_string($db, $userPassword);
+
+
+   
+   $query = "SELECT * FROM users WHERE username = '$userUserName' AND password = SHA('$userPassword')";
+
+//   echo $query;    
+
+   $result = mysqli_query($db, $query) or die ("Error Querying Database");
+   
+	if (empty($_POST['userName']) || empty($_POST['password']))  {
+		$error = "empty";
+	}
+
+   else if ($row = mysqli_fetch_array($result)){
+		$error = "none";
+   }
+   else{
+		$error = "incorrect";
+   }
+
+
 	
+	//else{
+//		$error = "none";
+//	}
+
+	header('Location: login.php?error=' . $error);
+   include('header_side.php');
+	
+	session_start();
+
 	$userUserName = $_POST['userName'];
 	$userPassword = $_POST['password'];
 
@@ -10,7 +45,8 @@
 	//$result = mysqli_query($db, $query) or die("Error Querying Database");
 
 	if (empty($userUserName) || empty($userPassword))  {
-			header('Location: login.php?error=empty');
+		$error = "empty";
+	//		header('Location: login.php?error=empty');
 	//} else if ($row = mysqli_fetch_array($result)) {
 	//	header('Location: register.php?error=username');
  
@@ -19,13 +55,16 @@
 	//} else if (strpos($userEmail, '@') == false) {
 //		header('Location: login.php?error=email');
 	} else {
+		$error = "none";
+//	   header('Location: loginComplete.php');
+
 ?> 
 
 
 
 <?php
    include('db_connect.php');
-   include('header_side.php');
+//   include('header_side.php');
 ?>
 
 <div class="content">
@@ -44,16 +83,19 @@
    
    if ($row = mysqli_fetch_array($result))
    {
-   		$_SESSION['username'] = $row['username'];
-		$_COOKIE['username'] = $row['username'];
+   		//$_SESSION['username'] = $row['username'];
+		//$_COOKIE['username'] = $row['username'];
 		
 		$first_name = $row['first_name'];
 		$last_name = $row['last_name'];
 		$user_id = $row['user_id'];
 		
-		$_SESSION ['user_id'] = $user_id;
+		$_SESSION['user_id'] = $user_id;
+//		$_COOKIE['user_id'] = $user_id;
+
 		
    		echo "<center><h2>Thanks for logging in, $first_name!</h2>\n";
+		echo $_SESSION['user_id'];
    		echo "<h3>Click <a href= \"index.php\">here</a> to continue, or use the menu on the left.</h3></center>";
 		echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
    }

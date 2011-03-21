@@ -1,10 +1,14 @@
 <?php
-   include('db_connect.php');
-?>
-
-<?php
-   include('header_side.php');
    $error=$_GET['error'];
+   if($error == "none"){
+		header('Location: registrationComplete.php');
+
+   }
+
+   include('header_side.php');
+   include('db_connect.php');
+
+
 ?>
 
 <html>
@@ -13,8 +17,9 @@
 
 <div class="content">
 <h2><center>Register for an account!</center></h2>
-<table width=50% >
-<?php  
+<table width=55% >
+<?php
+  
    if ($error=="empty") {
 ?>
 <left><b><h3><medium><font color="#FF0000">All required fields <u>MUST</u> be completed!</font></medium></h3></b></left>
@@ -27,6 +32,10 @@
 ?>
        <left><b><h3><medium><font color="#FF0000">You must enter an accurate email address!</font></medium></h3></b></left>
 <?php
+   } else if ($error=="username") {
+?>
+       <left><b><h3><medium><font color="#FF0000">There is already a user with that username!  Please try again!</font></medium></h3></b></left>
+<?php
    }
 ?>
 
@@ -37,7 +46,23 @@
 <tr><td>Password: </td><td><input type="password" name="password1"  />*</td></tr>
 <tr><td>Password Again: </td><td><input type="password" name="password2" />*</td></tr>
 <tr><td>Email Address: </td><td><input type="text" name="email" />*</td></tr>
-<tr><td>Where have you travelled before?</td><td><input type="text" name="travel" height=120 /></td></tr>
+<tr><td>Where have you travelled before?</td>
+
+<td>
+<?php
+	$query = "SELECT country_name, country_id FROM countries ORDER BY country_name"; 
+	$result = mysqli_query($db, $query)or die("Error Querying Database");
+	while($row = mysqli_fetch_array($result)) {
+		$countryName = $row['country_name'];
+		$countryID = $row['country_id'];
+						
+		echo '<input type="checkbox" name="visited[]" value='. $countryID . ' > ' . $countryName . '<br>';
+	}
+
+?>
+
+
+</td></tr>
 <tr><td>Home Country: </td><td><input type="text" name="origin" /></td></tr>
 <tr><td>Home City: </td><td><input type="text" name="homeCity" /></td></tr>
 </table>

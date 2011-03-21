@@ -1,9 +1,24 @@
 <?php
-   include('db_connect.php');
+//	session_start();
+//	$user_id = $_SESSION['user_id'];
+ 
+//if( isset($_COOKIE['user_id'])){
+//	$user_id = $_COOKIE['user_id'];
+//}
+//else{
+//	setcookie('user_id', $_SESSION['user_id'], time()+60*60*24);
+//}
+	include('header_side.php');
+	include('db_connect.php');
+?>
+
+
+<?php
+//   include('db_connect.php');
 ?>
 
 <?php
-   include('header_side.php');
+//   include('header_side.php');
 ?>
 
 <html>
@@ -65,15 +80,18 @@ $featured = $row['city_name'];
 <?php
 	
 	echo "<center><h1>Featured City: " . $cityName . ', ' . $countryName . "</h1></center>";
-	echo ($cityMap != 'N/A' ? "<img src = \"" . $cityPicture . "\" alt = \"flag\" width = \"50%\" align = \"left\" border=\"2\" vspace=\"10\" hspace=\"60\" />" : "");
-	echo "<p><H2>Info: </H2></p>";
-	echo "</left><right>Name: " . $cityName . "<br/><br/><br/>";
+	echo "<table cellpadding = 15 valign = top><tr><td width = \"50%\">";
+	echo ($cityPicture != 'N/A' ? "<img src = \"" . $cityPicture . "\" alt = \"flag\" width = \"100%\"  border=\"2\" />" : "");
+	echo "</td><td><p><H2>Info: </H2></p>";
+	echo "Name: " . $cityName . "<br/><br/><br/>";
 	echo "Region: " . $region . "<br/><br/><br/>";
 	echo "Attractions Featured on TravelGuide: " . $attractionLinks . "<br/><br/>";
 	echo "Population: " . $population . " people <br/><br/><br/>";
-	echo "Website: <a href = \"" . $website . "\">" . $website . "</a><br/><br/><br/><br/><br/><br/></right>";
+	echo "Website: <a href = \"" . $website . "\">" . $website . "</a><br/><br/><br/><br/><br/><br/></right></td></tr>";
+	echo "</table>";
 	echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
 	echo "<center>*If you have a suggestion for a better name than \"TravelGuide\", let us know on our ContactUs page!</center>";
+//	echo "Session: " . $_SESSION['user_id'] . "   Cookie: " . $_COOKIE['user_id'];
 
 ?>
 

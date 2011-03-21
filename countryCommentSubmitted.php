@@ -1,29 +1,30 @@
 <?php
-   include('header_side.php');
-   include('db_connect.php');
-?>
+	header('Location: country.php?id=' . $_POST['country_id']);
+	include('header_side.php');
+	include('db_connect.php');
 
 
-<html>
-<body>
 
-<?php
-	$nameSubmitted = $_POST['name'];
+	//$userIDSubmitted = $_POST['user_id'];
 	$subjectSubmitted = $_POST['subject'];
 	$commentSubmitted = $_POST['comment'];
 	$date = getdate();
+	$commentCountry = $_POST['country_id'];
 	
 	$timestamp = $date[year] . "-" . $date[mon] . "-" . $date[mday] 
 					. " " . $date[hours] . ":" . $date[minutes] . ":" . $date[seconds];
 
 					
-	$name = mysqli_real_escape_string($db, trim($nameSubmitted));
+	//$userID = mysqli_real_escape_string($db, trim($userIDSubmitted));
+	
+	$userID = $_COOKIE['user_id'];
 	$subject = mysqli_real_escape_string($db, trim($subjectSubmitted));
 	$comment = mysqli_real_escape_string($db, trim($commentSubmitted));
 	
-	if (($name!="") AND ($subject!="") AND ($comment!="")){
+	if (($userID != "") AND ($subject != "") AND ($comment != "")){
 
-		$query = "INSERT INTO comments (comment_name, comment_subject, comment_body, comment_date_submitted) VALUES ('$name', '$subject', '$comment', '$timestamp')";
+		$query = "INSERT INTO country_comments (`country_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) 
+					VALUES ('$commentCountry', '$userID', '$subject', '$comment', '$timestamp')";
 	
 		$result = mysqli_query($db, $query) or die ("Error Querying Database");
 		mysqli_close($db);
@@ -31,11 +32,11 @@
 	
 	
 	
-	
 ?>
 
 
-
+<html>
+<body>
 
 <div class="content">
 
@@ -48,14 +49,14 @@
 ?>
 		<div class="content">
 		
-		<h2><center>Your comment was not sent. You did not fill in all of the fields. Please revisit <a href="contactUs.php">this page</a>. <br>
+		<h2><center>Your comment was not sent. You did not fill in all of the fields. Please revisit <a href="country.php?id=<?php echo $countryID ?>">this page</a>. <br>
 <?php
 	}
 ?>
 
 Want to see what other people have said?  View all the comments we've received <a href = "comments.php">here</a>.
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></center>
+<br/><br/><br/><br/><br/></center>
 </h2>
 
 </div>
