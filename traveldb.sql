@@ -106,7 +106,7 @@ INSERT INTO `traveldb`.`cities` (`city_name`, `country_id`, `city_region`, `city
 ('Kyoto', 12, 'Kansai', 1465917, 'kyoto_map.jpg', 'kyoto_flag.png', 'kyoto_coa.png', 'kyoto_pic.jpg', 'http://www.kyoto.travel/'),
 ('Edinburgh', 13, 'City of Edinburgh', 477660, 'edinburgh_map.jpg', 'N/A', 'N/A', 'edinburgh_pic.jpg', 'http://www.edinburgh.org/'),
 ('Glasgow', 13, 'Glasgow', 580690, 'glasgow_map.jpg', 'N/A', 'N/A', 'glasgow_pic.jpg', 'http://www.seeglasgow.com/'),
-('Queenstown', 14, 'Otago', 22956, 'queenstown_map.jpg', 'N/A', 'N/A', 'queenstown_pic', 'http://www.queenstown-nz.co.nz/')
+('Queenstown', 14, 'Otago', 22956, 'queenstown_map.jpg', 'N/A', 'N/A', 'queenstown_pic.jpg', 'http://www.queenstown-nz.co.nz/')
 
 ;
 
