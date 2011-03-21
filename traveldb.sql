@@ -464,6 +464,12 @@ CREATE TABLE IF NOT EXISTS country_comments (
   FOREIGN KEY(user_id) REFERENCES users(user_id)
 ); 
 
+INSERT INTO `traveldb`.`country_comments` (`country_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
+ 
+(3, 1, 'I LOVE GERMANY!', 'GERMANY IS THE BEST PLACE EVER!  I WANT TO GO BACK!', '2011-03-14 21:46:24'), 
+(3, 1, 'I LOVE GERMANY TOO!', 'LOVE IT LOVE IT LOVE IT', '2011-03-19 22:01:36') 
+;
+
 -- --------------------------------------------------------
 
 
@@ -492,4 +498,3 @@ INSERT INTO `traveldb`.`city_comments` (`city_id`, `user_id`, `comment_subject`,
 (3, 1, 'Something else', 'Something else about london', '2011-03-19 22:01:36') 
 ;
 
--- --------------------------------------------------------
