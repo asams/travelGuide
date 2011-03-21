@@ -16,6 +16,7 @@
 	$attractionLinks = "<ul>";
 	
 	while($row = mysqli_fetch_array($result)){
+		$cityID = $row['city_id'];
 		$cityName = $row['city_name'];
 		$countryID = $row['country_id'];
 		$region = $row['city_region'];
@@ -31,42 +32,70 @@
 		$attractionLinks = $attractionLinks . "<li><a href = \"attraction.php?id=" . $attractionID . "\">" . $attractionName . "</a></li>";
 	}
 	
-	/*$query = "SELECT attraction_name, attraction_id FROM attractions WHERE city_id = $cityID ORDER BY attraction_name";
+	$attractionLinks = $attractionLinks . "</ul>";
+	$query = "SELECT cic.*, ci.city_name, u.first_name, u.last_name FROM cities ci NATURAL JOIN city_comments cic NATURAL JOIN users u WHERE ci.city_id = $cityID ORDER BY cic.comment_date_submitted DESC";
 	
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
-	
-	$attractionLinks = "<ul>";
-	
+
+	$comments_table = "<table rules = rows width = \"90%\">";
 	while($row = mysqli_fetch_array($result)){
-		$attractionName = $row['attraction_name'];
-		$attractionID = $row['attraction_id'];
+		$cityName = $row['city_name'];
+		$first_name = $row['first_name'];
+		$last_name = $row['last_name'];
+		$comment_subject = $row['comment_subject'];
+		$comment_body = $row['comment_body'];
+		$comment_date = $row['comment_date_submitted'];
 		
-		$attractionLinks = $attractionLinks . "<li><a href = \"attraction.php?id=" . $attractionID . "\">" . $attractionName . "</a></li>";
+		$comments_table = $comments_table . "<tr><td><br/>Name: " . $first_name . " " . $last_name . "<br/><br/>Subject: " . $comment_subject . "<br/><br/>Comment: " . $comment_body . "<br/><br/>Date: " . $comment_date . "<br/><br/></td></tr>";
 	}
-	*/
-	$attractionLinks = $attractionLinks . "</ul>";
-
-?>
-<?php
-	/*$query = "SELECT country_name FROM countries WHERE country_id = $countryID";
-	$result = mysqli_query($db, $query) or die ("Error Querying Database - 3");
-
-	$row = mysqli_fetch_array($result);
-	$country_name = $row['country_name'];*/
+	$comments_table = $comments_table . "</table>";
 	
 	echo "<h1>" . $cityName . "</h1>";
-
 	echo ($flag != 'N/A' ? "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>" : "");
-
 	echo "<p><H2>Info: </H2></p>";
-	echo "Country: " . "<a href = \"country.php?id=" . $countryID . "\"> $country_name </a>" . "<br/><br/>";
+	echo "City: " . "<a href = \"city.php?id=" . $cityID . "\"> $city_name </a>" . "<br/><br/>";
 	echo "Region: " . $region . "<br/><br/>";
 	echo "Attractions Featured on TravelGuide: " . $attractionLinks . "<br/>";
 	echo "Population: " . $population . " people <br/><br/>";
 	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/><br/><br/><br/><br/><br/>";
 	echo "Map:<br/>";
 	echo "<img src = \"" . $cityMap . "\" alt = \"map\" width = \"60%\" align = \"center\" /><br/><br/>";
+    if ($comments_table <> "<table rules = rows width = \"90%\"></table>"){
+		echo "<H2>Comments from users:</H2>";
+		echo $comments_table;
+	}
+	
+	if( isset($_COOKIE['user_id'])){
+?>
 
+
+<H2>Share your thoughts about <?php echo $cityName ?>:</H2>
+<form action="cityCommentSubmitted.php" method="post" class="form">
+<center>
+<table>
+
+<tr><th>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
+<tr><th>Comment:</th><td><textarea name="comment" id="comment" rows = "4" cols = "60"></textarea>
+<input type="hidden" name="city_id" value=<?php echo $cityID ?>></td></tr>
+
+<tr><td colspan = 2><center><input type="submit" class="formbutton" value="Submit" /></center></td></tr>
+
+</table>
+
+<?php
+}
+else{
+?>
+<H2>Want to share your thoughts about <?php echo $cityName ?>?</H2>
+<H3>Create a personal account on TravelGuide in order to comment on countries, cities, and attractions, and enjoy all the other perks of being a TravelGuide member!  
+<br/><br/>If you already have an account, just log in!
+<br/>
+<br/>
+Click <a href = "login.php">here</a> to login, or <a href = "register.php">here</a> to create an account!</H3>
+
+
+<?php
+}
 ?>
 
 </div>

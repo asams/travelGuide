@@ -16,7 +16,6 @@
 
 <?php   
    $query = "SELECT * FROM users WHERE user_id = '$user_id'";
-   echo $query;
    $result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
    while($row = mysqli_fetch_array($result)){
         $username = $row['username'];

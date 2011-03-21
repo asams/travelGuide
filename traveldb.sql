@@ -448,7 +448,7 @@ INSERT INTO `traveldb`.`userCountries` (`user_id`, `country_id`) VALUES
 
 
 --
--- Table structure for table `comments`
+-- Table structure for table `country_comments`
 --
 
 CREATE TABLE IF NOT EXISTS country_comments (
@@ -464,11 +464,32 @@ CREATE TABLE IF NOT EXISTS country_comments (
   FOREIGN KEY(user_id) REFERENCES users(user_id)
 ); 
 
+-- --------------------------------------------------------
 
-INSERT INTO `traveldb`.`country_comments` (`country_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
+
+
+--
+-- Table structure for table `city_comments`
+--
+
+CREATE TABLE IF NOT EXISTS city_comments (
+  `comment_id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `city_id` int(6) NOT NULL default '0',
+  `user_id` int(6) NOT NULL default '0',
+  `comment_subject` varchar(50) NOT NULL default '',
+  `comment_body` blob NOT NULL default '',
+  `comment_date_submitted` timestamp NOT NULL default '2011-01-01 00:00:00',
+  CONSTRAINT city_comments_country_id_fk
+  FOREIGN KEY(city_id) REFERENCES cities(city_id),
+  CONSTRAINT city_comments_user_id_fk
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+); 
+
+
+INSERT INTO `traveldb`.`city_comments` (`city_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
  
-(3, 1, 'I LOVE GERMANY!', 'GERMANY IS THE BEST PLACE EVER!  I WANT TO GO BACK!', '2011-03-14 21:46:24'), 
-(3, 1, 'I LOVE GERMANY TOO!', 'LOVE IT LOVE IT LOVE IT', '2011-03-19 22:01:36') 
+(3, 1, 'Something', 'Some comment about london', '2011-03-14 21:46:24'), 
+(3, 1, 'Something else', 'Something else about london', '2011-03-19 22:01:36') 
 ;
 
 -- --------------------------------------------------------
