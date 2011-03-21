@@ -527,7 +527,7 @@ CREATE TABLE IF NOT EXISTS attraction_comments (
 
 INSERT INTO `traveldb`.`attraction_comments` (`attraction_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
  
-(28, 1, 'Nanjing Road picture', 'Nice alternating picture!', '2011-03-21 15:28:13'),
+(28, 2, 'Nanjing Road picture', 'Nice alternating picture!', '2011-03-21 15:28:13'),
 (7, 1, 'Jane Austen', 'Love the novels!  I want to go there sometime.', '2011-03-21 16:28:13')
 ;
 -- --------------------------------------------------------
