@@ -419,7 +419,8 @@ CREATE TABLE IF NOT EXISTS users (
 
 INSERT INTO `traveldb`.`users` (`first_name`, `last_name`, `username`, `password`, `email`, `origin`, `homeCity`) VALUES
  
-('Kelsie', 'Snyder', 'kelsie', '6cf37614036ededd1018fc3db8e809c3c1932850', 'kelsie.snyder@gmail.com', 'United States of America', 'Springfield, VA') 
+('Kelsie', 'Snyder', 'kelsie', '6cf37614036ededd1018fc3db8e809c3c1932850', 'kelsie.snyder@gmail.com', 'United States of America', 'Springfield, VA'),
+('Rebecca', 'Zeitz', 'raz', SHA('raz'), 'rebecca.zeitz@gmail.com', 'United States of America', 'Fredericksburg, VA')
 ;
 
 
@@ -446,7 +447,8 @@ INSERT INTO `traveldb`.`userCountries` (`user_id`, `country_id`) VALUES
 (1, 1),
 (1, 7),
 (1, 8),
-(1, 10)
+(1, 10),
+(2, 7)
 ;
 -- --------------------------------------------------------
 
@@ -499,8 +501,8 @@ CREATE TABLE IF NOT EXISTS city_comments (
 
 INSERT INTO `traveldb`.`city_comments` (`city_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
  
-(1, 1, 'London', 'I can''t wait to visit London and see the changing of the guard!  That, or just try to make one of them laugh.', '2011-03-14 21:46:24'), 
-(3, 1, 'Hola!', 'Como se dice "Let''s party!?!" en espanol?  Fiesta?', '2011-03-19 22:01:36') 
+(1, 2, 'London', 'I can''t wait to visit London and see the changing of the guard!  That, or just try to make one of them laugh.', '2011-03-14 21:46:24'), 
+(3, 2, 'Hola!', 'Como se dice "Let''s party!?!" en espanol?  Fiesta?', '2011-03-19 22:01:36') 
 ;
 -- --------------------------------------------------------
 
