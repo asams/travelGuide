@@ -494,7 +494,32 @@ CREATE TABLE IF NOT EXISTS city_comments (
 
 INSERT INTO `traveldb`.`city_comments` (`city_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
  
-(3, 1, 'Something', 'Some comment about london', '2011-03-14 21:46:24'), 
-(3, 1, 'Something else', 'Something else about london', '2011-03-19 22:01:36') 
+(1, 1, 'Something', 'Some comment about london', '2011-03-14 21:46:24'), 
+(1, 1, 'Something else', 'Something else about london', '2011-03-19 22:01:36') 
 ;
+-- --------------------------------------------------------
 
+
+
+--
+-- Table structure for table `country_comments`
+--
+
+CREATE TABLE IF NOT EXISTS attraction_comments (
+  `comment_id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `attraction_id` int(6) NOT NULL default '0',
+  `user_id` int(6) NOT NULL default '0',
+  `comment_subject` varchar(50) NOT NULL default '',
+  `comment_body` blob NOT NULL default '',
+  `comment_date_submitted` timestamp NOT NULL default '2011-01-01 00:00:00',
+  CONSTRAINT attraction_comments_attraction_id_fk
+  FOREIGN KEY(attraction_id) REFERENCES attractions(attraction_id),
+  CONSTRAINT attraction_comments_user_id_fk
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+); 
+
+INSERT INTO `traveldb`.`attraction_comments` (`attraction_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
+ 
+(28, 1, 'Nanjing Road picture', 'Nice alternating picture!', '2011-03-21 15:28:13')
+;
+-- --------------------------------------------------------
