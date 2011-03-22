@@ -72,7 +72,7 @@
 if( isset($_COOKIE['user_id'])){
 ?>
 
-<H2>Share your thoughts about <?php echo $attraction_name ?>:</H2>
+<H2>Share your thoughts about <?php echo $name ?>:</H2>
 <form action="attractionCommentSubmitted.php" method="post" class="form">
 <center>
 <table>
@@ -89,7 +89,7 @@ if( isset($_COOKIE['user_id'])){
 }
 else{
 ?>
-<H2>Want to share your thoughts about <?php echo $attraction_name ?>?</H2>
+<H2>Want to share your thoughts about <?php echo $name ?>?</H2>
 <H3>Create a personal account on TravelGuide in order to comment on countries, cities, and attractions, and enjoy all the other perks of being a TravelGuide member!  
 <br/><br/>If you already have an account, just log in!
 <br/>
