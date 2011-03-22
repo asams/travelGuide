@@ -514,7 +514,8 @@ else
 <form method="post" action="index.php">
 <center>
 <h1>Set up your TravelGuide Database!</h1>
-<H3>Enter the information for your mysql database server.</H3>
+<H3>Enter the information for your mysql database server.
+<br/><br/>This information will not be stored or used for anything other than setting up the TravelGuide Database</H3>
 <br>
 Enter Root Name: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="root">
 <br>
