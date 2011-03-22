@@ -53,7 +53,11 @@ mysqli_query($db, "INSERT INTO `traveldb`.`countries` (`name`, `capital`, `gover
 ('United States of America', 'Washington, D.C.', 'federal presidential constitutional republic', 'United States dollar', 308745538, 9826675, 'English',	'Christianity', 'usa_map.png', 'usa_flag.jpg', 'usa_seal.png', 'N/A'),
 ('France', 'Paris', 'Unitary Semi-Presidential Republic', 'Euro', 65821885, 674843, 'French', 'Secular', 'france_map.gif', 'france_flag.jpg', 'france_coa.png', 'http://us.franceguide.com/'),
 ('Italy', 'Rome', 'Unitary Parliamentary Republic', 'Euro', 60418711, 301338, 'Italian', 'Catholic', 'italy_map.jpg', 'italy_flag.gif', 'italy_coa.jpg', 'http://www.italia.it/en/home.html'),
-('Malaysia', 'Kuala Lumpur', 'Federal Constitutional Elective Monarchy and Federal Parliamentary Democracy', 'Ringgit', 27565821, 329847, 'Bahasa Malaysia', 'Islam', 'malaysia_map.jpg', 'malaysia_flag.png', 'malaysia_coa.jpg', 'http://www.tourism.gov.my/corporate/')
+('Malaysia', 'Kuala Lumpur', 'Federal Constitutional Elective Monarchy and Federal Parliamentary Democracy', 'Ringgit', 27565821, 329847, 'Bahasa Malaysia', 'Islam', 'malaysia_map.jpg', 'malaysia_flag.png', 'malaysia_coa.jpg', 'http://www.tourism.gov.my/corporate/'),
+('Australia', 'Canberra', 'Federal parliamentary democracy and constitutional monarchy', 'Australian dollar', 22572995, 7617930, 'none', 'Christianity', 'australia_map.jpg', 'australia_flag.png', 'australia_coa.png', 'http://www.australia.com'),
+('Japan', 'Tokyo', 'Unitary parliamentary democracy and constitutional monarchy', 'Yen', 127360000, 377944, 'Japanese', 'Buddhism, Shintoism', 'japan_map.gif', 'japan_flag.gif', 'japan_coa.jpg', 'http://www.jnto.go.jp/eng/'),
+('Scotland', 'Edinburgh', 'Devolved Government within a Constitutional monarchy', 'Pound sterling', 5194000, 78772, 'English', 'Christianity', 'scotland_map.jpg', 'scotland_flag.jpg', 'scotland_coa.jpg', 'http://www.visitscotland.com/'),
+('New Zealand', 'Wellington', 'Parliamentary democracy and Constitutional monarchy', 'New Zealand dollar (NZD)', 4393500, 268021, 'English', 'Christianity', 'new_zealand_map.jpg',	'new_zealand_flag.png',	'new_zealand_coat_of_arms.png',	'http://newzealand.govt.nz/')
 ");
 
 
@@ -103,7 +107,14 @@ mysqli_query($db, "INSERT INTO `traveldb`.`cities` (`name`, `country_id`, `regio
 ('Rome', 9, 'Lazio', 2754440, 'rome_map.gif', 'rome_flag.png', 'rome_coa.png', 'http://www.comune.roma.it/was/wps/portal/pcr'),
 ('Milan', 9, 'Lombardy', 1314745, 'milan_map.jpg', 'milan_flag.gif', 'milan_coa.png', 'http://www.comune.milano.it/'),
 ('Kuala Lumpur', 10, 'Federal Territory', 1627172, 'kuala_lumpur_map.jpg', 'kuala_lumpur_flag.png', 'N/A', 'http://www.dbkl.gov.my/index.php?lang=en'),
-('George Town', 10, 'Penang', 157743, 'george_town_map.jpg', 'N/A', 'george_town_coa.jpg', 'http://www.tourismpenang.net.my/')
+('George Town', 10, 'Penang', 157743, 'george_town_map.jpg', 'N/A', 'george_town_coa.jpg', 'http://www.tourismpenang.net.my/'),
+('Sydney', 11, 'Cumberland', 4504469, 'sydney_map.jpg', 'N/A', 'sydney_coa.gif', 'sydney_pic.jpg', 'http://www.cityofsydney.nsw.gov.au/'),
+('Brisbane', 11, 'Queensland', 2004262, 'brisbane_map.jpg', 'brisbane_flag.png', 'brisbane_coa.png', 'brisbane_pic.jpg', 'N/A'),
+('Tokyo', 12, 'Kanto', 13010279, 'tokyo_map.gif', 'tokyo_flag.gif', 'tokyo_coa.png', 'tokyo_pic.jpg', 'http://www.metro.tokyo.jp/ENGLISH/'),
+('Kyoto', 12, 'Kansai', 1465917, 'kyoto_map.jpg', 'kyoto_flag.png', 'kyoto_coa.png', 'kyoto_pic.jpg', 'http://www.kyoto.travel/'),
+('Edinburgh', 13, 'City of Edinburgh', 477660, 'edinburgh_map.jpg', 'N/A', 'N/A', 'edinburgh_pic.jpg', 'http://www.edinburgh.org/'),
+('Glasgow', 13, 'Glasgow', 580690, 'glasgow_map.jpg', 'N/A', 'N/A', 'glasgow_pic.jpg', 'http://www.seeglasgow.com/'),
+('Queenstown', 14, 'Otago', 22956, 'queenstown_map.jpg', 'N/A', 'N/A', 'queenstown_pic.jpg', 'http://www.queenstown-nz.co.nz/')
 ");
 
 //-- --------------------------------------------------------
@@ -259,7 +270,47 @@ Closed Christmas Day', 'Y', 'http://www.londoneye.com',  'LondonEye1.jpg'),
 ('Ankara Roman Baths', 11, 'other', 'Situated on Cankiri Caddesi, just north of Ulus Meydani, the Roman Baths are an archeological site in Ankara, Turkey.  They date back to the 3rd century AD and are well maintained.  The baths have all the typical features of a classical Roman bath: a frigidarium (cold room), tepidarium (warm room) and caldarium (hot room).', 'Cankiri Avenue, Ulus, Ankara', 'Daily 8:30am - 12pm, 1pm - 3:30pm', 'Y', 'http://www.turkeytravelplanner.com/go/CentralAnatolia/Ankara/sights/roman.html', 'roman_baths_pic.jpg'),
 ('Museum of Anatolian Civilizations', 11, 'museum', 'The Museum of Anatolian Civilizations consists of the old Ottoman Mahmut Pasa bazaar storage building.  Within this Ottoman building, the museum has a number of exhibits of Anatolian archeology. They start with the Paleolithic era, and continue chronologically through the Neolithic, Early Bronze, Assyrian trading colonies, Hittite, Phrygian, Urartian, Greek, Hellenistic, Roman, Byzantine, Seljuk and Ottoman periods.', 'Necatibey Mh., 06250 Ankara', 'Daily 9am - 5pm', 'Y', 'http://www.anadolumedeniyetlerimuzesi.gov.tr/ana-sayfa/1-54417/20110221.html', 'museum_anatolian_civilisations.jpg'),
 ('Anitkabir, Ataturk''s Mausoleum', 11, 'monument', 'Located on an imposing hill, Anitkabir, a mausoleum of Mustafa Kemal Ataturk (founder of the Rupublic of Turkey), is in the Anittepe quarter of the city.  Completed in 1953, it is an impressive mixture of ancient and modern architectural styles.  An adjacent museum houses a wax statue of Ataturk, his writings, letters and personal items, as well as an exhibition of photographs recording important moments in his life and during the establishment of the Republic.', 'Anittepe, Ankara', 'Tuesday to Sunday: 9am - 5pm', 'N', 'http://www.tsk.tr/eng/Anitkabir/index.html', 'ataturk_mausoleum_pic.jpg'),
-('Kocatepe Mosque', 11, 'religious building', 'The Kocatepe Mosque is the largest mosque in Ankara, the capital city of Turkey.  Built between 1967 and 1987 in the Kocatepe quarter in Kizilay, its size and prominent situation have made it a landmark that can be seen from almost anywhere in central Ankara.', 'Central Ankara', 'Open daily', 'N', 'http://www.lonelyplanet.com/turkey/central-anatolia/ankara/sights/religious-spiritual/kocatepe-camii', 'kocatepe_mosque_pic.jpg')
+('Kocatepe Mosque', 11, 'religious building', 'The Kocatepe Mosque is the largest mosque in Ankara, the capital city of Turkey.  Built between 1967 and 1987 in the Kocatepe quarter in Kizilay, its size and prominent situation have made it a landmark that can be seen from almost anywhere in central Ankara.', 'Central Ankara', 'Open daily', 'N', 'http://www.lonelyplanet.com/turkey/central-anatolia/ankara/sights/religious-spiritual/kocatepe-camii', 'kocatepe_mosque_pic.jpg'),
+
+('Sydney Opera House', 21, 'theatre', 'Contrary to its name, the building houses multiple performance venues. As one of the busiest performing arts centres in the world, hosting over 1,500 performances each year attended by some 1.2 million people, the Sydney Opera House provides a venue for many performing arts companies including the four key resident companies Opera Australia, The Australian Ballet, the Sydney Theatre Company and the Sydney Symphony Orchestra, and presents a wide range of productions on its own account. It is also one of the most popular visitor attractions in Australia, with more than seven million people visiting the site each year, 300,000 of whom take a guided tour.', 'Sydney Harbour Tunnel Dawes Point 2000, Australia', 'The Main Box Office is open Monday to Saturday from 9am to 8.30pm, on Sunday it is open 2 hours prior to performances.  Closed Christmas Day and Good Friday.', 'Y', 'http://www.sydneyoperahouse.com/',  'sydneyoperahouse.jpg'),
+('Royal Botanic Gardens', 21, 'garden or park', 'The Royal Botanic Gardens is a place of natural beauty, where people come for peace, relaxation, education, and to learn more about plants and horticulture. The surrounding parkland of the Domain is a place for sport, entertainment and recreation. The National Herbarium of NSW - centre for plant conservation & research - is located within the Royal Botanic Gardens.  The Royal Botanic Gardens are also home to a colony of over 22,000 Grey-headed Flying Foxes, a large species of fruitbat.', 'Mrs Macquaries Road, Sydney, NSW 2000, Australia', 'Open Monday to Sunday daylight hours', 'N', 'http://www.rbgsyd.nsw.gov.au/welcome_to_bgt/royal_botanic_garden', 'royalBotanicGardens.jpg' ),
+('Chinese Garden of Friendship', 21, 'garden or park', 'The Chinese Garden of Friendship was designed by Sydney''s Chinese sister city, Guangzhou in China. Sydney''s Chinatown complements the area''s already rich Chinese heritage and culture. The gardens were officially opened in 1988 as part of Sydney''s bicentennial celebrations and they were named the Garden of Friendship symbolizing the bond established between China and Australia.  The whole garden cannot be seen from any point within the garden. The garden has a number of features including the Dragon Wall sybolizing the bond between New South Wales and Guangzhou, the Water Pavilion of Lotus Fragrance, the Twin Pavilion and The Tea House that offers traditional Chinese tea and other refreshments.', 'Southern end of Darling Harbour, near the Sydney Entertainment Centre and adjacent to Chinatown', 'Open daily from 9.30am to 5.30pm excluding Good Friday and Christmas Day', 'Y', 'http://www.chinesegarden.com.au', 'chineseFriendshipGarden.jpg' ),
+('Sydney Harbour Bridge', 21, 'bridge', 'The Sydney Harbour Bridge is a steel through arch bridge across Sydney Harbour that carries rail, vehicular, bicycle and pedestrian traffic between the Sydney central business district (CBD) and the North Shore. The bridge is locally nicknamed The Coat Hanger because of its arch-based design.  Under the directions of Dr J.J.C. Bradfield of the NSW Department of Public Works, the bridge was designed and built by English firm Dorman Long and Co Ltd of Middlesbrough, and opened in 1932.   According to the Guinness World Records, it is the world''s widest long-span bridge.  It is also the fifth longest spanning-arch bridge in the world, and it is the tallest steel arch bridge, measuring 134 metres (440 ft) from top to water level.   The Sydney Harbour Bridge has become a major adventure with the opening in 1998 of Bridge Climb Sydney, a company which conducts tours over the arch. Clad in overalls and clipped to a safety line, you can walk and climb 1500 metres over the arch.  A challenge for the faint-hearted, the traverse attracted thousands of people in its first year. The climb is open to anyone over 12 who is fit enough to handle some steep climbs on metal ladders and can cope with heights.', 'Port Jackson, Sydney, Australia', 'Always open', 'N',  'http://www.cityofsydney.nsw.gov.au/aboutsydney/historyandarchives/sydneyhistory/historicbuildings/sydneyharbourbridge.asp', 'sydneyharbourbridge.png'),
+('Sydney Tower', 21, 'tower', 'Sydney Tower (also known as the AMP Tower, AMP Centrepoint Tower, Centrepoint Tower or just Centrepoint) is Sydney''s tallest free-standing structure, and the second tallest in Australia. It is also the second tallest observation tower in the Southern Hemisphere.  The Sydney Tower is a member of the World Federation of Great Towers.  The golden turret has a capacity of 960 persons and contains two levels of restaurants, a coffee lounge, an Observation Deck, two telecommunication transmission levels and three plant levels.  Sydney Tower is the first to see the Sydney dawn, and the last to see its final dusk.  Ranked as one of the safest buildings in the world, the design has made the tower capable of withstanding earthquakes and extreme wind conditions.', '100 Market Street, Sydney, Australia', 'Open 7 days a week 364 days a year from 9:00am to 10:30pm. Closed on Christmas Day.', 'Y', 'http://sydneytower.myfun.com.au/', 'sydneyTower.jpg'),
+
+('Lone Pine Koala Sanctuary', 22, 'other', 'Founded in 1927, it is the world''s oldest and largest Koala Sanctuary.  Rated one of the ''Top 10 Zoos in the World'' by AOL, Lone Pine Koala Sanctuary in Brisbane, Australia, is the world''s first and largest koala sanctuary, with over 130 koalas. Cuddle a koala anytime, handfeed kangaroos and encounter a large variety of Aussie wildlife, all in beautiful, natural settings. Don''t forget to feed the lorikeets and meet our platypus too.', '708 Jesmond Road, Fig Tree Pocket, Queensland', 'Open daily from 8:30am to 5:00pm everyday except 1:30pm to 5:00pm Anzac Day, (April 25) and 8:30am to 4:00pm Christmas Day', 'Y', 'http://www.koala.net/index.php', 'lonepinekoala.png'),
+('Great Barrier Reef', 22, 'natural landmark', 'The Great Barrier Reef is the world''s largest reef system composed of over 2,900 individual reefs and 900 islands stretching for over 1,600 mi. over an area of approximately 133,000 sq mi.   The Great Barrier Reef can be seen from outer space and is the world''s biggest single structure made by living organisms.  This reef structure is composed of and built by billions of tiny organisms, known as coral polyps. This reef supports a wide diversity of life, and was selected as a World Heritage Site in 1981.   CNN labeled it one of the seven natural wonders of the world.  A large part of the reef is protected by the Great Barrier Reef Marine Park, which helps to limit the impact of human use, such as fishing and tourism. A variety of boat tours and cruises are offered, from single day trips, to longer voyages. Boat sizes range from dinghies to superyachts.   Glass-bottomed boats and underwater observatories are also popular, as are helicopter flights.   By far, the most popular tourist activities on the Great Barrier Reef are snorkelling and diving, for which pontoons are often used, and the area is often enclosed by nets. The outer part of the Great Barrier Reef is favoured for such activities, due to water quality.', 'Off the coast of Queensland, Australia', 'Always open', 'N', 'http://www.greatbarrierreef.org/', 'Great_Barrier_Reef.jpg'),
+('Roma Street Parkland', 22, 'garden or park', 'Roma Street Parkland is a popular gathering place for the people of Brisbane, and has established its self as a highlight destination for interstate and overseas visitors to Brisbane.  Roma Street Parkland is an oasis in the heart of Brisbane''s CBD offering spectacular surrounds for leisure, recreation and events. The Parkland is set over 16 hectares of green space and is the largest urban subtropical garden in the world.  Explore the Parkland''s changing landscapes set in five individually designed precincts.  The Queensland Government''s Department of Public Works manages and operates the Parkland.  Its vision is to establish the Parkland as ''a unique public open space which is a preferred destination for the leisure and recreation of all people. It will feature significant horticultural displays, events and activities.''', '1 Parkland Blvd Brisbane Qld 400', 'Always open', 'N', 'http://www.romastreetparkland.com', 'RomaStreetParkland.jpg'),
+('Queensland Art Gallery', 22, 'other', 'The Gallery''s philosophy is to connect art and people. It is a symbol of the State''s artistic and cultural development and has human qualities and unique attractions which encourage people to visit the collections.  The primary orientation element of the Gallery''s design is the Watermall that separates the tranquil environment of the exhibition galleries from the proactive environments of the administration, education and library areas.  As well as having a permanent display of fine paintings and sculptures, the Queensland Art Gallery also holds many art exhibitions, by both international and national artists.', 'Stanley Place, South Bank, Queensland, Australia', 'Open Monday to Friday 10.00am - 5.00pm, Saturday and Sunday 9.00am - 5.00pm, Closed Christmas Day and Good Friday, Open Anzac Day 12 noon - 5.00pm, All other public holidays 9.00am - 5.00pm', 'N', 'http://qag.qld.gov.au/', 'Queensland_Art_Gallery.jpg'),  
+('Sciencentre', 22, 'museum', 'The Sciencentre aims to reveal the science and technology behind our everyday lives.  The Sciencentre is good for those who prefer to prod and dismantle exhibits rather than peer at them through a protective glass case. It''s great for children, with favourites including the ''perception tunnel'', which gives the impression of rotating although you remain stock still, and the ''Thongophone'', a set of giant pan pipes played by whacking the top with a flip-flop – all good rainy-day material.', 'Corner of Grey & Melbourne Streets, South Bank, South Brisbane', 'Open 9:30am to 5:00pm daily, Anzac Day from 1:30pm - 5:00pm, Closed Christmas Day, Boxing Day, Good Friday', 'Y', 'http://www.southbank.qm.qld.gov.au/sciencentre/', 'Sciencentre.jpg'),
+
+('Senso-ji', 23, 'religious building', 'Senso-ji is an ancient Buddhist temple located in Asakusa, Taito, Tokyo. It is Tokyo''s oldest temple and one of its most significant. It sits adjacent to the Asakusa Shinto Shrine. The temple is dedicatd to the bodhisattva Kannon, also known as Guan Yin or the Goddess of Mercy. This temple is the focus of Tokyo''s largest and most popular Shinto festivals, Sanja Matsuri, which takes place over 3-4 days in late spring. The Kaminarimon or "Thunder Gate" dominates the entrance to the temple.', '2-3-1 Asakusa, Taitou-ku, Tokyo 111-0032', 'Open daily from 6:00am to 5:00pm.', 'N', 'http://www.senso-ji.jp/', 'sensoji_pic.jpg'),
+('Tokyo Tower', 23, 'monument', 'Tokyo Tower is a communications and observation tower that stands 332.5 meters, making it the second tallest artificial structure in Japan. It is an Eiffel Tower-inspired lattice tower that is painted white and international orange to comply with air safety regulations. Over 150 million people have visited the tower since its opening. FootTown, a 4-story building located directly under the tower, houses museums, restaurants and shops. Guests can visit two observation decks. The 2-story Main Observatory is located at 492ft while the smaller Special Observatory reaches a height of 820ft. The 166 floodlights that illuminate the tower change color seasonally and occasionally for special events. Since 2000, the tower has been illuminated pink on October 1 in order to highlight the beginning of National Breast Cancer Awareness Month.', '4-2-8 Shiba-koen Minato, Tokyo Prefecture 105-0011', 'Open daily from 9:00am to 10:00pm.', 'Y', 'http://www.tokyotower.co.jp/english/', 'tokyo_tower_pic.jpg'),
+('Tokyo National Museum', 23, 'museum', 'Established 1872, the Tokyo National Museum is the oldest and largest museum in Japan. The museum collects, houses, and preserves a comprehensive collection of art works and archaeological objects of Asia, focusing on Japan. The museum holds over 110,000 objects, which includes 87 Japanese National Treasure holdings and 610 Important Cultural Property holdings. The museum also conducts research and organizes educational events related to its collection. The museum''s collections focus on ancient Japanese art and Asian art along the Silk Road. There is also a large collection of Greco-Buddhist art.', '13-9 Ueno Park, Taito-ku, Tokyo, Kanto 110-8712', 'Open from 9:30am to 5:00pm. Closed on Mondays and year-end holidays (December 28 - January 1).', 'Y', 'http://www.tnm.go.jp/en/', 'tokyo_national_museum_pic.jpg'),
+('Tokyo Imperial Palace', 23, 'palace or castle', 'Tokyo Imperial Palace is the main residence of the Emperor of Japan. It is a large park-like area and contains several buildings including the main palace, the private residences of the imperial family, an archives, museum and administrative offices. It is built on the site of the old Edo castle. The total area including the gardens is 7.41 square kilometres (2.86 sq mi). Located on the grounds of the Imperial Palace is a music hall, the Ninomaru Garden, a teahouse and Kitanomaru Park.', '1-1 Chiyoda, Chiyoda-ku, Tokyo, Japan 100-8111', 'Open Tuesday through Thursday from 9:00am to 4:00pm', 'N', 'http://www.kunaicho.go.jp/eindex.html', 'tokyo_imperial_palace_pic.jpg'),  
+('Rainbow Bridge', '23', 'bridge', 'The Rainbow Bridge is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan. The bridge is 798 metres (2,618 ft) long with a main span of 580 metres (1,903 ft). The towers supporting the bridge are white in color, designed to harmonize with the skyline of central Tokyo seen from Odaiba. There are lamps placed on the wires supporting the bridge, which are illuminated into three different colors, red, white and green every night using solar energy obtained during the day. The bridge has two separate walkways on the north and south sides of the lower deck; the north side offers views of the inner Tokyo harbour and Tokyo Tower, while the south side offers views of Tokyo Bay and occasionally Mount Fuji.', 'Tokyo Bay, 3-33 Kaigan, Minato, Tokyo Prefecture Japan', 'The walkways are open from 9:00am to 9:00pm in the summer and from 10:00am to 6:00pm in the winter.', 'N', 'N/A', 'rainbow_bridge_pic.jpg'),
+
+('Iwatayama Monkey Park', 24, 'garden or park', 'Iwatayama Monkey Park is a commercial park located in Arashiyama in Kyoto, Japan.  It is inhabited by a troop of over 170 Japanese macaque monkeys. The animals are wild but can be fed food purchased at the site. Once you reach the park on Mt Arashiyama, the attendants show you into a hut with wire fence covering the windows, here you can buy drinks for yourself, and food to give to the monkeys.', '8 Genrokuyama-cho, Arashiyama, Nishikyo-ku, Kyoto', 'Open daily from 9:00am to 5:00pm, unless there is heavy rain or snow.', 'Y', 'http://www.kmpi.co.jp/English/english.htm', 'iwatayama_monkey_park_pic.jpg'),
+('Gion', 24, 'other', 'Gion is a district of Kyoto, Japan, originally developed in the Middle Ages, in front of Yasaka Shrine. The district was built to accommodate the needs of travelers and visitors to the shrine. It eventually evolved to become one of the most exclusive and well-known geisha districts in all of Japan. Gion remains dotted with old-style Japanese houses called machiya, which roughly translated means "townhouse", some of which are ochaya or "tea houses". These are traditional establishments where the patrons of Gion—from the samurai of old to modern-day businessmen—have been entertained by geiko and geisha in an exclusive manner for centuries. To this day, geiko and maiko (geisha in training) in full regalia can still be seen in the evenings as they move about through the streets of Gion to and from their various engagements at the ochaya. They dance and sing and they entertain for everyone.', 'Gionmachi, Higashiyama-ku Kyoto, Kyoto Prefecture, 605-0001 Japan', 'At the Gion Corner, from March to November, there are two shows daily at 7:00pm and 8:00pm. From December to February, there is one show at 7:00pm on selected days only', 'Y', 'N/A', 'gion_pic.jpg'),
+('Nijo Castle', 24, 'palace or castle', 'Nijo Castle is a flatland castle located in Kyoto, Japan. The castle consists of two concentric rings of fortifications, the Ninomaru Palace, the ruins of the Honmaru Palace, various support buildings and several gardens. The decoration of the castle includes lavish quantities of gold leaf and elaborate wood carvings, intended to impress visitors with the power and wealth of the shoguns. The sliding doors and walls of each room are decorated with wall paintings by artists of the Kano school.', '541 Nijojo-cho, Nijo-dori Horikawa Nishi-iru, Nakagyo-ku, Kyoto City 604-8301', 'Open from 8:45am to 5:00pm. Closed on Tuesdays in January, July, Augest and September. Closed from December 26 to January 4.', 'Y', 'N/A', 'nijo_castle_pic.jpg'),
+('Kinkakuji', 24, 'religious building', 'Kinkaku-ji is a Zen Buddhist temple in Kyoto, Japan. The garden complex is an excellent example of Muromachi period garden design. It is designated as a National Special Historic Site and a National Special Landscape, and it is one of 17 World Cultural Heritage sites in Kyoto. It is also one of the most popular buildings in Japan, attracting a large number of visitors annually. The top two stories of the pavilion are covered with pure gold leaf. The pavilion functions as a shariden, housing relics of the Buddha (Buddha''s Ashes).', '1 Kinkaku-ji-cho Kita-ku, Kyoto, Kyoto Prefecture 603-8361, Japan', 'Open daily from 9:00am to 4:00pm', 'Y', 'http://www.shokoku-ji.or.jp/english/e_kinkakuji/index.html', 'kinkakuji_pic.jpg'),  
+('Fushimi Inari Taisha', 24, 'religious building', 'Fushimi Inari Taisha is the head shrine of Inari, located in Fushimi-ku, Kyoto, Japan. The shrine sits at the base of a mountain also named Inari, and includes trails up the mountain to many smaller shrines. Since in early Japan Inari was seen as the patron of business, each of the Torii is donated by a Japanese business. First and foremost though, Inari is the god of rice. Merchants and manufacturers worship Inari for wealth. Donated torii lining footpaths are part of the scenic view. Unlike most Shinto shrines, Fushimi Inari Taisha, in keeping with typical Inari shrines, has an open view of the main idol object (a mirror).', '68 Fukakusa Yabu-no-uchi-cho, Kyoto, Japan', 'Always open.', 'N', 'http://inari.jp/', 'fushimi_inari_taisha_pic.jpg'),
+
+('Kelvingrove Art Museum', 25, 'museum', 'Kelvingrove has 22 themed, state-of-the-art galleries displaying an astonishing 8000 objects.  The collections are extensive, wide-ranging and internationally-significant. They include:  natural history, arms and armour, art from many art movements and periods of history, and much more. We even have a real Spitfire!  Kelvingrove welcomes families with children, and its displays have been designed with children in mind. There are lots of interactives throughout the museum that will appeal to younger audiences.  Visitors to Kelvingrove can enjoy its cafes and shops, and make use of its Study Centre and Library to find out more about Glasgow Museums'' collections and carry out research online.', 'Argyle Street, Glasgow G3 8AG', 'Monday to Thursday and Saturday 10am to 5pm,Friday and Sunday 11am to 5pm', 'N', 'http://www.glasgowlife.org.uk/museums/our-museums/kelvingrove/about-Kelvingrove/Pages/home.aspx', 'Kelvingrove_Art_Museum.png'),
+('Lighthouse', 25, 'other', 'The Lighthouse is: the national centre for architecture and design, an architecture and design centre with a difference, a hub for Scotland''s creative industries.  The Lighthouse, Scotland''s first, dedicated, national centre for architecture and design, was opened by HM Queen Elizabeth in July 1999. The centre''s vision is to develop the links between art, design and architecture, seeing these as interconnected social, educational, economic and cultural issues of concern to everyone. There is also a conference centre, shop and two cafes.', '11 Mitchell Lane  Glasgow G1 3LX', 'Monday, Wednesday, Thursday, Friday & Saturday 10:30 am - 5:00pm Tuesday 11:00 am - 5:00pm Sunday 12:00 pm - 5:00pm', 'N', 'http://www.glasgow.gov.uk/en/Visitors/TheLighthouse/', 'lighthouse.jpg'),
+('Glasgow Science Centre', 25, 'museum', 'Glasgow Science Centre is one of Scotland''s must-see visitor attractions - presenting concepts of science and technology in unique and inspiring ways. Glasgow Science Centre is an independent Scottish Charity the aims of which are: to create interactive experiences that inspire, challenge and engage to increase awareness of science for all in Scotland, to enhance the quality of science and technology learning, to communicate the role of leading edge science and technology in shaping Scotland''s future, to build partnerships to develop our national role in science communication and education, and to promote Scotland''s science, education and innovation capability.', '50 Pacific Quay Glasgow G51 1EA', 'From Monday 1st of November 2010 the Science Mall''s opening hours are:Monday & Tuesday - closed, Wednesday to Friday - 10am until 3pm, Saturday & Sunday - 10am until 5pm From the 1st of April, the Science Mall''s opening hours are: Monday to Sunday- 10am until 5pm.', 'Y'	, 'http://www.gsc.org.uk/ ', 'glasgow_science_centre.jpg'),
+('City Chambers', 25, 'government building', 'In the very heart of Glasgow stands one of the city''s most important and prestigious buildings – the City Chambers.  A grand and imposing edifice overlooking George Square, the City Chambers is an impressive symbol of Glasgow''s political strength and historical wealth. Completed in 1888, the City Chambers has for over a hundred years been the headquarters of successive councils serving the City of Glasgow.', '80 George Square Glasgow G2 1DU Scotland', 'Public tours are conducted twice per day at 10.30am and 2.30pm. Closed on public holidays and weekends.', 'N', 'http://www.glasgow.gov.uk/en/YourCouncil/CityChambers/', 'glasgow_city_chambers.jpg'),
+('Glengoyne Distillery', 25, 'other', 'Within easy reach from Glasgow, Loch Lomond and Edinburgh, Glengoyne scotch whisky distillery is open all year round offering the most in-depth range of visits in the industry.  Glengoyne is proud to offer entertaining and in-depth distillery visits including the Master Blender tour where guests create their very own blended whisky. Please see below for our full programme of tours. The Glengoyne, Wee Tasting and Tasting tours run on the hour and no prior booking is required for groups of 10 or less.', 'Glengoyne Distillery, Dumgoyne, Near Killearn, Glasgow G63 9LB', 'March - November  First Tour: 10am - Last Tour: 4pm  Shop: 10am - 5pm December - February First Tour: 10am - Last Tour: 3pm  Shop: 10am - 4.30pm  Open 7 days. Tours run on the hour.', 'Y', 'http://www.glengoyne.com/scotch_whisky_distillery/', 'Glengoyne-Distillery.jpg'),
+
+('Edinburgh Castle', 26, 'palace or castle', 'Edinburgh Castle is a castle fortress which dominates the skyline of the city of Edinburgh, Scotland, from its position atop the volcanic Castle Rock. Human habitation of the site is dated back as far as the 9th century BC, although the nature of early settlement is unclear. There has been a royal castle here since at least the reign of David I in the 12th century, and the site continued to be a royal residence until the Union of the Crowns in 1603. As one of the most important fortresses in the Kingdom of Scotland, Edinburgh Castle has been involved in many historical conflicts, from the Wars of Scottish Independence in the 14th century, up to the Jacobite Rising of 1745, and has been besieged, both successfully and unsuccessfully, on several occasions. From the later 17th century, the castle became a military base, with a large garrison. Its importance as a historic monument was recognised from the 19th century, and various restoration programmes have been carried out since.', 'Castlehill, Edinburgh, Midlothian', '1 Apr - 30 Sep: 9:30am - 6pm, 1 Oct - 31 Mar: 9:30am - 5pm  Closed 25 and 26 December. On 1st January, the castle is open from 11am to 5pm.', 'Y', 'http://www.edinburghcastle.gov.uk', 'Edinburgh_Castle.jpg'),
+('Edinburgh Dungeon', 26, 'other', '500 years of Edinburgh''s darkest and most gory history, 11 actor led shows and 2 scary rides make the Edinburgh Dungeon an educationally chilling experience and a great day out for the whole family.', '31 Market Street Edinburgh EH1 1QB', 'The Edinburgh Dungeon is open 7 days a week, excluding Christmas day. Generally, on weekdays and weekends, it is open from 10:00am to 5:00pm.  See the site for more details (http://www.the-dungeons.co.uk/edinburgh/en/plan-your-visit/opening-times.htm).', 'Y', 'http://www.the-dungeons.co.uk/edinburgh/en/index.htm', 'edinburgh-dungeon.jpg'),
+('Camera Obscura and World of Illusions', 26, 'other', 'The Camera Obscura show is a fascinating and highly amusing way to see the city and learn about its history. This unique experience has delighted and intrigued people for over 150 years. It is a ''must'' on any visit to Edinburgh.  From inside this mysterious Victorian rooftop chamber, you see live moving images of Edinburgh projected onto a viewing table through a giant periscope. Pick people up on your hands, squash them to a pulp and even make the traffic climb over paper bridges.  Our friendly guide will entertain you while telling stories of Edinburgh, past and present, in an engaging and informative way. Our visitors are truly amazed at how, in this age of high technology, a simple array of mirror, lenses and daylight can produce this incredible panorama. Experiencing the Camera Obscura is like stepping back in time!', 'Castlehill  The Royal Mile  Edinburgh  EH1 2ND', 'July & August: Every day 09:30 - 19:30,   September & October: Every day 09:30 - 18:00, November - March:  Every day 10:00 - 17:00 Except Christmas Day, April - June: Every day 09:30 - 18:00', 'Y', 'http://www.camera-obscura.co.uk/index.asp', 'camera-obscura.jpg'),
+('St. Giles Cathedral', 26, 'religious building', 'There is record of a parish church in Edinburgh by the year 854, served by a vicar from a monastic house, probably in England. It is possible that the first church, a modest affair, was in use for several centuries before it was formally dedicated by the bishop of St Andrews on 6 October 1243. The parish church of Edinburgh was subsequently reconsecrated and named in honour of the patron saint of the town, St Giles, whose feast day is celebrated on 1 September. That St Giles, a 7th century hermit (and, later, abbot) who lived in France, became the patron of both town and church was probably due to the ancient ties between Scotland and France.  According to legend, Giles was accidentally wounded by a huntsman in pursuit of a hind and, after his death in the early 8th century, there were dedicated to him hospitals and safe houses for cripples, beggars and lepers were established throughout England and Scotland within easy reach of the impoverished and the infirm. St Giles is usually depicted protecting a hind from an arrow, which had pierced his own body, a fine relief of which rests in the tympanum over the west (main) doors of the Cathedral.', 'Royal Mile Edinburgh EH1 1RE Scotland', 'Open to visitors all year except 25th after 11.30am service and 26th December and 1st and 2nd January.  Our opening hours are:  Summer (May-September):  Monday - Friday 09.00-19.00, Saturday 09.00-17.00, Sunday 13.00-17.00 and for services, Winter (October-April): Monday - Saturday 09.00-17.00, Sunday 13.00-17.00 and for services', 'N', 'http://www.stgilescathedral.org.uk/', 'StGilesCathedral.jpg'),
+('Royal Yacht Britannia', 26, 'other', 'Now in Edinburgh you are welcome on board to discover the heart and soul of this most special of royal residences.    The Royal Yacht Britannia is one of the world''s most famous ships. Launched at John Brown''s Shipyard in Clydebank in 1953, the Royal Yacht proudly served Queen and country for 44 years. During that time Britannia carried The Queen and the Royal Family on 968 official voyages, from the remotest regions of the South Seas to the deepest divides of Antarctica.  As 83rd in a long line of Royal Yachts that stretches back to 1660 and the reign of Charles II, Britannia holds a proud place in British maritime history. On 16 April 1953, Her Majesty''s Yacht Britannia rolled down the slipway at John Brown''s Clydebank Shipyard, on the start of her long and illustrious career. Commissioned for service in January 1954, Britannia sailed the oceans for 43 years and 334 days. She travelled a total of 1,087,623 nautical miles, calling at over 600 ports in 135 countries.  In June 1994, the Government announced that Her Majesty''s Yacht Britannia would be taken out of service. At the beginning of January 1997, Britannia set sail from Portsmouth to Hong Kong on her last and longest voyage. On 11 December 1997 Britannia was decommissioned at Portsmouth Naval Base in the presence of The Queen, The Duke of Edinburgh and 12 senior members of the Royal Family. Some 2,200 Royal Yacht Officers and Yachtsmen, together with their families, came to witness the ceremony.', 'Ocean Terminal Leith Edinburgh EH6 6JJ Scotland', 'Britannia is open every day, except Christmas Day and New Year''s Day.  January, February, March, November, December: 10:00am to 3:30pm; April, May, June, October: 10:00am to 4:00pm; July, August, September: 9:30am to 4:30pm', 'Y', 'http://www.royalyachtbritannia.co.uk/', 'royalYachtBrittannia.jpg'),
+
+('Franz Josef Glacier', 27, 'natural landmark',	'Franz Josef Glacier is a 12 km long glacier in Westland National Park, on the West Coast of the South Island of New Zealand.  The glacier was named after the Emperor Franz Joseph I of Austria by the German explorer, Julius von Haast in 1865.  It is one of the most accessible glaciers in the world.', '13 State Highway 6, Franz Josef Glacier 7856', 'N/A', 'N/A', 'http://www.glaciercountry.co.nz/pages/6/franz-about-glacier-country.htm', 'franz_josef_glacier.jpg'),
+('Fox Glacier', 27, 'natural landmark', 'Fox Glacier is a 13 km long glacier in Westland National Park, on the West Coast of the South Island of New Zealand.  In 1872 it was named after the Prime Minister of New Zealand, Sir William Fox.  It is one of the most accessible glaciers in the world.', '13 State Highway 6, Fox Glacier 7856', 'N/A', 'N/A', 'http://www.glaciercountry.co.nz/pages/6/fox-about-glacier-country.htm', 'fox_glacier.jpg')
+
 
 ");
 
@@ -291,6 +342,142 @@ mysqli_query($db, "INSERT INTO `traveldb`.`comments` (`name`, `subject`, `commen
  ('Erin', 'Name stuff', 'I don''t really see what''s wrong with TravelGuide, but I guess I am kind of a boring person. How about something like Travellog 350 for our course name or CompuTour :P', '2011-02-23 21:22:04')
 ");
 
+
+-- --------------------------------------------------------
+
+
+--
+-- Table structure for table `users`
+--
+
+mysqli_query($db, "CREATE TABLE IF NOT EXISTS users (
+  `user_id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `first_name` varchar(50) NOT NULL default '',
+  `last_name` varchar(50) NOT NULL default '',
+  `username` varchar(50) NOT NULL default '',
+  `password` varchar(50) NOT NULL default '',
+  `email` varchar(50) NOT NULL default '',
+  
+  `origin` varchar(50) NOT NULL default 'N/A',
+  `homeCity` varchar(50) NOT NULL default 'N/A'
+
+)");
+
+
+mysqli_query($db, "INSERT INTO `traveldb`.`users` (`first_name`, `last_name`, `username`, `password`, `email`, `origin`, `homeCity`) VALUES
+ 
+('Kelsie', 'Snyder', 'kelsie', '6cf37614036ededd1018fc3db8e809c3c1932850', 'kelsie.snyder@gmail.com', 'United States of America', 'Springfield, VA'),
+('Rebecca', 'Zeitz', 'raz', SHA('raz'), 'rebecca.zeitz@gmail.com', 'United States of America', 'Fredericksburg, VA')
+");
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userCountries`
+--
+
+mysqli_query($db, "CREATE TABLE IF NOT EXISTS userCountries (
+  `user_id` int(6) NOT NULL ,
+  `country_id` int(6) NOT NULL ,
+  FOREIGN KEY (`country_id`)
+  REFERENCES countries (country_id),
+  FOREIGN KEY (`user_id`)
+  REFERENCES users (user_id)
+
+)");
+
+
+mysqli_query($db, "INSERT INTO `traveldb`.`userCountries` (`user_id`, `country_id`) VALUES
+ 
+(1, 3),
+(1, 5),
+(1, 1),
+(1, 7),
+(1, 8),
+(1, 10),
+(2, 7)
+");
+
+-- --------------------------------------------------------
+
+
+
+--
+-- Table structure for table `country_comments`
+--
+
+mysqli_query($db, "CREATE TABLE IF NOT EXISTS country_comments (
+  `comment_id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `country_id` int(6) NOT NULL default '0',
+  `user_id` int(6) NOT NULL default '0',
+  `comment_subject` varchar(50) NOT NULL default '',
+  `comment_body` blob NOT NULL default '',
+  `comment_date_submitted` timestamp NOT NULL default '2011-01-01 00:00:00',
+  CONSTRAINT country_comments_country_id_fk
+  FOREIGN KEY(country_id) REFERENCES countries(country_id),
+  CONSTRAINT country_comments_user_id_fk
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+)");
+
+mysqli_query($db, "INSERT INTO `traveldb`.`country_comments` (`country_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
+(3, 1, 'I LOVE GERMANY!', 'GERMANY IS THE BEST PLACE EVER!  I WANT TO GO BACK!', '2011-03-14 21:46:24'), 
+(3, 1, 'I LOVE GERMANY TOO!', 'LOVE IT LOVE IT LOVE IT', '2011-03-19 22:01:36') 
+");
+
+
+-- --------------------------------------------------------
+
+
+
+--
+-- Table structure for table `city_comments`
+--
+mysqli_query($db, "CREATE TABLE IF NOT EXISTS city_comments (
+  `comment_id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `city_id` int(6) NOT NULL default '0',
+  `user_id` int(6) NOT NULL default '0',
+  `comment_subject` varchar(50) NOT NULL default '',
+  `comment_body` blob NOT NULL default '',
+  `comment_date_submitted` timestamp NOT NULL default '2011-01-01 00:00:00',
+  CONSTRAINT city_comments_country_id_fk
+  FOREIGN KEY(city_id) REFERENCES cities(city_id),
+  CONSTRAINT city_comments_user_id_fk
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+)");
+
+mysqli_query($db, "INSERT INTO `traveldb`.`city_comments` (`city_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
+ 
+(1, 2, 'London', 'I can''t wait to visit London and see the changing of the guard!  That, or just try to make one of them laugh.', '2011-03-14 21:46:24'), 
+(3, 2, 'Hola!', 'Como se dice "Let''s party!?!" en espanol?  Fiesta?', '2011-03-19 22:01:36') 
+");
+
+
+
+-- --------------------------------------------------------
+
+
+--
+-- Table structure for table `country_comments`
+--
+
+mysqli_query($db, "CREATE TABLE IF NOT EXISTS attraction_comments (
+  `comment_id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `attraction_id` int(6) NOT NULL default '0',
+  `user_id` int(6) NOT NULL default '0',
+  `comment_subject` varchar(50) NOT NULL default '',
+  `comment_body` blob NOT NULL default '',
+  `comment_date_submitted` timestamp NOT NULL default '2011-01-01 00:00:00',
+  CONSTRAINT attraction_comments_attraction_id_fk
+  FOREIGN KEY(attraction_id) REFERENCES attractions(attraction_id),
+  CONSTRAINT attraction_comments_user_id_fk
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+)");
+
+mysqli_query($db, "INSERT INTO `traveldb`.`attraction_comments` (`attraction_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
+(28, 2, 'Nanjing Road picture', 'Nice alternating picture!', '2011-03-21 15:28:13'),
+(7, 1, 'Jane Austen', 'Love the novels!  I want to go there sometime.', '2011-03-21 16:28:13')
+");
 
 
 
