@@ -97,17 +97,18 @@ else{
 <?php
 if( isset($_COOKIE['user_id'])){
 ?>
-<a href="logout.php">LOGOUT</a>
+<a href="logout.php">LOGOUT</a><span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold; font-style: italic;
+ letter-spacing: 2px;
+ padding-left:1px;"><br/><a href="accountOverview.php">Your Account</a></span>
 <?php
 }else{ ?>
-<a href="login.php">LOGIN</a>
-<?php
-} ?>
-</span>
-<br />
+<a href="login.php">LOGIN</a><br />
 <span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold; font-style: italic;
  letter-spacing: 2px;
  padding-left:1px;">Your Account</span>
+<?php
+} ?>
+</span>
  
 </div></div>
 

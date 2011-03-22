@@ -106,7 +106,7 @@ INSERT INTO `traveldb`.`cities` (`city_name`, `country_id`, `city_region`, `city
 ('Kyoto', 12, 'Kansai', 1465917, 'kyoto_map.jpg', 'kyoto_flag.png', 'kyoto_coa.png', 'kyoto_pic.jpg', 'http://www.kyoto.travel/'),
 ('Edinburgh', 13, 'City of Edinburgh', 477660, 'edinburgh_map.jpg', 'N/A', 'N/A', 'edinburgh_pic.jpg', 'http://www.edinburgh.org/'),
 ('Glasgow', 13, 'Glasgow', 580690, 'glasgow_map.jpg', 'N/A', 'N/A', 'glasgow_pic.jpg', 'http://www.seeglasgow.com/'),
-('Queenstown', 14, 'Otago', 22956, 'queenstown_map.jpg', 'N/A', 'N/A', 'queenstown_pic', 'http://www.queenstown-nz.co.nz/')
+('Queenstown', 14, 'Otago', 22956, 'queenstown_map.jpg', 'N/A', 'N/A', 'queenstown_pic.jpg', 'http://www.queenstown-nz.co.nz/')
 
 ;
 
@@ -417,7 +417,8 @@ CREATE TABLE IF NOT EXISTS users (
 
 INSERT INTO `traveldb`.`users` (`first_name`, `last_name`, `username`, `password`, `email`, `origin`, `homeCity`) VALUES
  
-('Kelsie', 'Snyder', 'kelsie', '6cf37614036ededd1018fc3db8e809c3c1932850', 'kelsie.snyder@gmail.com', 'United States of America', 'Springfield, VA') 
+('Kelsie', 'Snyder', 'kelsie', '6cf37614036ededd1018fc3db8e809c3c1932850', 'kelsie.snyder@gmail.com', 'United States of America', 'Springfield, VA'),
+('Rebecca', 'Zeitz', 'raz', SHA('raz'), 'rebecca.zeitz@gmail.com', 'United States of America', 'Fredericksburg, VA')
 ;
 
 
@@ -439,7 +440,13 @@ CREATE TABLE IF NOT EXISTS userCountries (
 
 INSERT INTO `traveldb`.`userCountries` (`user_id`, `country_id`) VALUES
  
-(1, 3) 
+(1, 3),
+(1, 5),
+(1, 1),
+(1, 7),
+(1, 8),
+(1, 10),
+(2, 7)
 ;
 -- --------------------------------------------------------
 
@@ -461,6 +468,12 @@ CREATE TABLE IF NOT EXISTS country_comments (
   CONSTRAINT country_comments_user_id_fk
   FOREIGN KEY(user_id) REFERENCES users(user_id)
 ); 
+
+INSERT INTO `traveldb`.`country_comments` (`country_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
+ 
+(3, 1, 'I LOVE GERMANY!', 'GERMANY IS THE BEST PLACE EVER!  I WANT TO GO BACK!', '2011-03-14 21:46:24'), 
+(3, 1, 'I LOVE GERMANY TOO!', 'LOVE IT LOVE IT LOVE IT', '2011-03-19 22:01:36') 
+;
 
 -- --------------------------------------------------------
 
@@ -486,8 +499,33 @@ CREATE TABLE IF NOT EXISTS city_comments (
 
 INSERT INTO `traveldb`.`city_comments` (`city_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
  
-(3, 1, 'Something', 'Some comment about london', '2011-03-14 21:46:24'), 
-(3, 1, 'Something else', 'Something else about london', '2011-03-19 22:01:36') 
+(1, 2, 'London', 'I can''t wait to visit London and see the changing of the guard!  That, or just try to make one of them laugh.', '2011-03-14 21:46:24'), 
+(3, 2, 'Hola!', 'Como se dice "Let''s party!?!" en espanol?  Fiesta?', '2011-03-19 22:01:36') 
 ;
+-- --------------------------------------------------------
 
+
+
+--
+-- Table structure for table `country_comments`
+--
+
+CREATE TABLE IF NOT EXISTS attraction_comments (
+  `comment_id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `attraction_id` int(6) NOT NULL default '0',
+  `user_id` int(6) NOT NULL default '0',
+  `comment_subject` varchar(50) NOT NULL default '',
+  `comment_body` blob NOT NULL default '',
+  `comment_date_submitted` timestamp NOT NULL default '2011-01-01 00:00:00',
+  CONSTRAINT attraction_comments_attraction_id_fk
+  FOREIGN KEY(attraction_id) REFERENCES attractions(attraction_id),
+  CONSTRAINT attraction_comments_user_id_fk
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+); 
+
+INSERT INTO `traveldb`.`attraction_comments` (`attraction_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
+ 
+(28, 2, 'Nanjing Road picture', 'Nice alternating picture!', '2011-03-21 15:28:13'),
+(7, 1, 'Jane Austen', 'Love the novels!  I want to go there sometime.', '2011-03-21 16:28:13')
+;
 -- --------------------------------------------------------
