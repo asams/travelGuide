@@ -1,4 +1,9 @@
 <?php
+if(is_file("sourceDB.php")) {
+	include("sourceDB.php");
+	exit;
+}
+
 //	session_start();
 //	$user_id = $_SESSION['user_id'];
  
