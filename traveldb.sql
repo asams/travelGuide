@@ -240,7 +240,7 @@ Dazzle your senses. Feel the thrills of adventure and caresses of paradise. Xel-
 'N', 'http://www.vieille-charite-marseille.org/', 'VieilleCharite.jpg'),
 
 ('Colosseum', 17, 'theatre', 'The collosseum is an ancient elliptical ampitheater inn the center of Rome. It is was capable of seating 50,000spectators and was used for gladiator contests and public spectacles such as executions and dramas based on Classical mythology. It is one of Romes most popular tourist attractions.', 
-'Colosseum, Piazza del Colosseo, l-00186 Rome, Italy', 'March 1 to October 31 from 9a.m. - 6:30p.m., November 1 to February 28 from 9:00a.m. - 3:00p.m.', 
+'Colosseum, 00184 Rome, Italy', 'March 1 to October 31 from 9a.m. - 6:30p.m., November 1 to February 28 from 9:00a.m. - 3:00p.m.', 
 'Y', 'N/A', 'Colosseum.jpg'),
 ('Trevi Fountain', 17, 'monument', 'The Trevi Fountain is one of the most famous fountains in the world. A trditional legend of the fountain is that if a visitor throws a coin into the fountain, they are ensured a return to Rome. Another is that tossing two coins into the fountain will lead to a romance and three will will ensure either a marriege or a devorce. An estimated 3,000 euros are thrown into the fountain each day.', 
 'Piazza di Trevi, 00187 Rome, Italy', 'N/A', 
@@ -252,7 +252,7 @@ Dazzle your senses. Feel the thrills of adventure and caresses of paradise. Xel-
 'Piazza del Popolo, Rome, 00186 Italy', 'N/A', 
 'N', 'N/A', 'PiazzaDelPopolo.jpg'),
 ('Arch of Constantine', 17, 'other', 'The Arch of Constantine was erected to commemorate Constantine I''s victory over Maxentius at the Battle of Milvian Bridge in 312. The main archway is decorated with reliefs depicting victory figures with trophies and smaller archways show river gods. The column bases and spandrel reliefs are from the times of Constantine. An inscription praises Constantine and dedicates the arch to him.', 
-'Piazza del Colosso, 00184 Rome, 00186 Italy', 'N/A', 
+'Arch of Constantine, Via di San Gregorio, Rome, Italy', 'N/A', 
 'N', 'N/A', 'ArchOfConstantine.jpg'),
 
 ('Milan Cathedral', 18, 'religious building', 'The Cathedral of Milan is the seat of the Archbishop of Milan. The Gothic cathedral took five centuries to complete and is the largest Gothic cathedral (second largest Catholic cathedral) in the world. The cathedral contains the sarcophogi of several archbishops and a famous statue of the St. Bartholomew by Marco D''Argate.', 
