@@ -578,7 +578,8 @@ else
 <center>
 <h1>Set up your TravelGuide Database!</h1>
 <H3>Enter the information for your mysql database server.
-<br/><br/>This information will not be stored or used for anything <br/>other than setting up the TravelGuide Database</H3>
+<br/><br/>This information will not be stored or used for anything <br/>other than setting up the TravelGuide Database
+<br/><br/>You may need to change the permissions in the file where this is stored so that filenames can be changed.</H3>
 <br>
 Enter Root Name: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="root">
 <br>
