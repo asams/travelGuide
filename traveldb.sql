@@ -544,3 +544,37 @@ INSERT INTO `traveldb`.`attraction_comments` (`attraction_id`, `user_id`, `comme
 (7, 1, 'Jane Austen', 'Love the novels!  I want to go there sometime.', '2011-03-21 16:28:13')
 ;
 -- --------------------------------------------------------
+
+
+
+--
+-- Table structure for table `attractionRatings`
+--
+
+CREATE TABLE IF NOT EXISTS `traveldb`.`attractionRatings` (
+  `user_id` int(6) NOT NULL,
+  `attraction_id` int(6) NOT NULL,
+  `rating` INT NOT NULL
+);
+
+--
+-- Table structure for table `cityRatings`
+--
+
+CREATE TABLE IF NOT EXISTS `traveldb`.`cityRatings` (
+  `user_id` int(6) NOT NULL,
+  `city_id` int(6) NOT NULL,
+  `rating` INT NOT NULL
+);
+
+--
+-- Table structure for table `countryRatings`
+--
+
+CREATE TABLE IF NOT EXISTS `traveldb`.`countryRatings` (
+  `user_id` int(6) NOT NULL,
+  `country_id` int(6) NOT NULL,
+  `rating` INT NOT NULL
+);
+
+

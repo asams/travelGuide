@@ -67,12 +67,18 @@
 		
 		$comments_table = $comments_table . "<tr><td><br/>Name: " . $first_name . " " . $last_name . "<br/><br/>Subject: " . $comment_subject . "<br/><br/>Comment: " . $comment_body . "<br/><br/>Date: " . $comment_date . "<br/><br/></td></tr>";
 	}
-	$comments_table = $comments_table . "</table>";
 	
+	$comments_table = $comments_table . "</table>";
 
 	echo "<h1>" . $countryName . "</h1>";
 
+
 	echo "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>";
+	
+
+	
+	
+	
 
 	echo "<p><H2>Info: </H2></p>";
 	echo "Capital City: " . $capital . "<br/><br/>";
@@ -83,10 +89,34 @@
 	echo "Area: " . $area . " km<sup>2</sup>" . "<br/><br/>";
 	echo "Official or National Language(s): " . $language . "<br/><br/>";
 	echo "Official or Majority Religion(s): " . $religion . "<br/><br/>";
-	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/><br/><br/><br/><br/><br/>";
+	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/><br/>";
 	
-	echo "Map:<br/>";
-	echo "<img src = \"" . $map . "\" alt = \"map\" width = \"60%\" align = \"center\" /><br/><br/>";
+	if (isset($_SESSION['user_id'])) {
+		$_SESSION['country_id'] = $countryID;
+		include("starCountryCode.php");
+		echo "<br><br>";
+	} else {
+
+  		$qur1 = "select avg(rating) as xx from countryRatings where country_id='".$countryID."' group by country_id";
+  		$result1 = mysqli_query($db,$qur1);
+  		if($res1 = mysqli_fetch_array($result1))
+  		{
+			$rating = $res1['xx'];
+	  	}
+
+		$rating = round($rating, 1);
+		if ($rating <= 0) {
+			$rating = "No Ratings Yet";
+		}
+
+		echo "<br/><br>";
+		echo "<b><i>Average User Rating: $rating </b></i><br/><br/><br/><br/>";
+
+	}
+
+	//echo "<center>Map:<br/>";
+	echo "<center>";
+	echo "<img src = \"" . $map . "\" alt = \"map\" width = \"55%\" align = \"center\" /><br/><br/></center>";
 	
 	if ($comments_table <> "<table rules = rows width = \"90%\"></table>"){
 		echo "<H2>Comments from users:</H2>";
@@ -125,7 +155,14 @@ Click <a href = "login.php">here</a> to login, or <a href = "register.php">here<
 
 <?php
 }
+
+if ($countryID == 7) {
+		echo "<center><br><br><a href=\"https://github.com/rroyste2/themeparkdb\"<img src=\"advertisement.png\" style=\"border:0px\" align = \"center\"/></a></center>";
+	}
+
 ?>
+
+
 
 </div>
 

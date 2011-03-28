@@ -33,6 +33,9 @@
 	}
 	
 	$attractionLinks = $attractionLinks . "</ul>";
+
+	
+
 	$query = "SELECT cic.*, ci.city_name, u.first_name, u.last_name FROM cities ci NATURAL JOIN city_comments cic NATURAL JOIN users u WHERE ci.city_id = $cityID ORDER BY cic.comment_date_submitted DESC";
 	
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
@@ -53,13 +56,38 @@
 	echo "<h1>" . $cityName . "</h1>";
 	echo ($flag != 'N/A' ? "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>" : "");
 	echo "<p><H2>Info: </H2></p>";
-	echo "City: " . "<a href = \"city.php?id=" . $cityID . "\"> $city_name </a>" . "<br/><br/>";
+	echo "Country: " . "<a href = \"country.php?id=" . $countryID . "\"> $country_name </a>" . "<br/><br/>";
 	echo "Region: " . $region . "<br/><br/>";
 	echo "Attractions Featured on TravelGuide: " . $attractionLinks . "<br/>";
 	echo "Population: " . $population . " people <br/><br/>";
-	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/><br/><br/><br/><br/><br/>";
-	echo "Map:<br/>";
-	echo "<img src = \"" . $cityMap . "\" alt = \"map\" width = \"60%\" align = \"center\" /><br/><br/>";
+	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/>";
+
+
+	if (isset($_SESSION['user_id'])) {
+		$_SESSION['city_id'] = $cityID;
+		include("starCityCode.php");
+	} else {
+
+  		$qur1 = "select avg(rating) as xx from cityRatings where city_id='".$cityID."' group by city_id";
+  		$result1 = mysqli_query($db,$qur1);
+  		if($res1 = mysqli_fetch_array($result1))
+  		{
+			$rating = $res1['xx'];
+	  	}
+
+		$rating = round($rating, 1);
+		if ($rating <= 0) {
+			$rating = "No Ratings Yet";
+		}
+
+		echo "<br/><br>";
+		echo "<b><i>Average User Rating: $rating </b></i><br/><br/><br/><br/>";
+
+	}
+
+	//echo "<center>Map:<br/>";
+	echo "<center><br/>";
+	echo "<img src = \"" . $cityMap . "\" alt = \"map\" width = \"55%\" align = \"center\" /><br/><br/></center>";
     if ($comments_table <> "<table rules = rows width = \"90%\"></table>"){
 		echo "<H2>Comments from users:</H2>";
 		echo $comments_table;
