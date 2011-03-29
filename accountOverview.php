@@ -52,6 +52,10 @@
 	echo "Home City: " . $homeCity . "<br/><br/>";
 	echo "Travel History: " . $travelHistory;
 ?>
+<br/><br/>
+<form action=editAccount.php method="POST" >
+   <center><input type="submit" value="Edit Account Information!" class="formbutton"/></center>
+</form>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
 
