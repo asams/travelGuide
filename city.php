@@ -11,7 +11,7 @@
 <?php
 	$cityID = $_GET['id'];
 	
-	$query = "SELECT ci.*, co.country_name, a.attraction_name, a.attraction_id FROM cities ci NATURAL JOIN countries co NATURAL JOIN attractions a WHERE city_id = $cityID";
+	$query = "SELECT ci.*, co.country_name, a.attraction_name, a.attraction_id FROM cities ci NATURAL JOIN countries co NATURAL JOIN attractions a WHERE city_id = $cityID ORDER BY a.attraction_name";
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
 	$attractionLinks = "<ul>";
 	
