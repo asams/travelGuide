@@ -28,7 +28,34 @@
 		$city_name = $row['city_name'];
 	}
 	
-	echo "<h1>" . $name . "</h1>";
+	$nextLink = "<td align=\"right\" width=\"15%\" >  </td>";
+	$backLink = "<td align=\"left\" width=\"15%\" >  </td>";
+	
+	$query = "SELECT attraction_id, city_id FROM attractions a WHERE attraction_id = $attractionID+1 AND city_id=$city_id";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
+
+
+	$row=mysqli_fetch_array($result);
+	$nextAttractionID = $row['attraction_id'];
+	if (!empty($nextAttractionID)) {
+		$nextLink = "<td align=\"right\" width=\"15%\" valign=\"top\" ><a href=\"attraction.php?id=" .  $nextAttractionID . "\"><h3><img src=\"next.png\" style=\"border:0px\"></h3></a></td>"; 
+	}
+	
+
+	$query = "SELECT attraction_id, city_id FROM attractions a WHERE attraction_id = $attractionID-1 AND city_id=$city_id";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
+	$row=mysqli_fetch_array($result);
+	$backAttractionID = $row['attraction_id'];
+	if (!empty($backAttractionID)) {
+		$backLink = "<td align=\"left\" width=\"15%\" ><a href=\"attraction.php?id=" .  $backAttractionID . "\"><h3> <img src=\"back.png\" style=\"border:0px\"></h3></a></td>"; 
+	}
+	
+
+
+
+	
+	echo "<table width=\"100%\" ><tr>". $backLink . "<td align=\"center\" width=\"70%\" ><h1>" . $name . 
+		"</td>" . $nextLink . "</h1></tr></table>";
 	
 	echo "<img src = \"" . $picture . "\" alt = \"flag\" width = \"50%\"  align = \"right\"/>";
 	echo "<p><H2>Info: </H2></p>";
@@ -38,7 +65,33 @@
 	echo "Address: " . $address . "<br/><br/>";
 	echo "Hours of Operation: " . $hours_of_operation . "<br/><br/>";
 	echo "Entrance Price: " . ($entrance_price == 'Y' ? 'Yes' : 'No') . "<br/><br/>";
-	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/><br/><br/><br/><br/><br/>";
+	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/><br/><br/>";
+
+	if (isset($_SESSION['user_id'])) {
+		$_SESSION['attraction_id'] = $attraction_id;
+		include("starAttractionCode.php");
+	} else {
+
+  		$qur1 = "select avg(rating) as xx from attractionRatings where attraction_id='".$attraction_id."' group by attraction_id";
+  		$result1 = mysqli_query($db,$qur1);
+  		if($res1 = mysqli_fetch_array($result1))
+  		{
+			$rating = $res1['xx'];
+	  	}
+
+		$rating = round($rating, 1);
+		if ($rating <= 0) {
+			$rating = "No Ratings Yet";
+		}
+
+		echo "<br/><br>";
+		echo "<b><i>Average User Rating: $rating </b></i><br/><br/>";
+
+	}
+
+
+
+
 
         $URLaddress = urlencode($address);
 	echo '<br><br><br><center><iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=' . $URLaddress . '&amp;aq=&amp;sspn=0.002535,0.010568&amp;ie=UTF8&amp;hq=&amp;hnear=' . $URLaddress . '&amp;spn=0.001267,0.005284&amp;t=h&amp;z=14&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=' . $URLaddress . ';aq=&amp;sspn=0.002535,0.010568&amp;ie=UTF8&amp;hq=&amp;hnear=' . $URLaddress . '&amp;spn=0.001267,0.005284&amp;t=h&amp;z=14" style="color:#0000FF;text-align:left">View Larger Map</a></small>' ;
