@@ -79,10 +79,43 @@
 <input type="hidden" name="city_id" value=<?php echo $cityID ?>></td></tr>
 
 <tr><td colspan = 2><center><input type="submit" class="formbutton" value="Submit" /></center></td></tr>
-
+</form>
 </table>
 
+</center>
+</br></br>
+<H2>Share your pictures of <?php echo $cityName ?>: </H2>
+<center>
+<table>
+<form enctype="multipart/form-data" action="cityPhotoSubmitted.php" method="POST">
+<tr><th align=left>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
+<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+<input type="hidden" name="city_id" value=<?php echo $cityID ?>/>
+<tr><th>Choose a file to upload: </th><td><input name="photo" type="file" /><br/></td></tr>
+<tr><th align=center colspan = 2><input type="submit" value="Upload File" /></tr>
+</form> 
+</table>
 <?php
+include ('photo.php');
+
+$count = 0;
+echo "<center><table width = \"90%\" cellpadding = 15>";
+
+while($row = mysqli_fetch_array($result)) {
+
+						
+	if($count % 5 == 1){
+		echo "<tr valign = top>";
+	}
+	//What to echo in each cell
+	echo "<td width = \"20%\" align = center><a href=country.php?id=" . $countryID . "><img src = \"" . $countryFlag . "\" alt = \"flag\" width = \"100%\" /></a>   ";
+	echo "<br/><a href=country.php?id=" . $countryID . ">" . $countryName . "</a><br/><br/></td>";
+	if ($count % 5 == 0){
+		echo "</tr>";
+	}
+
+}
+
 }
 else{
 ?>

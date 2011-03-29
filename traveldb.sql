@@ -528,4 +528,22 @@ INSERT INTO `traveldb`.`attraction_comments` (`attraction_id`, `user_id`, `comme
 (28, 2, 'Nanjing Road picture', 'Nice alternating picture!', '2011-03-21 15:28:13'),
 (7, 1, 'Jane Austen', 'Love the novels!  I want to go there sometime.', '2011-03-21 16:28:13')
 ;
+
+CREATE TABLE IF NOT EXISTS city_photos (
+  `photo_id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `city_id` int(6) NOT NULL default '0',
+  `user_id` int(6) NOT NULL default '0',
+  `subject` varchar(50) NOT NULL default '',
+  `photo` blob NOT NULL default '',
+  `photo_date_submitted` timestamp NOT NULL default '2011-01-01 00:00:00',
+  CONSTRAINT city_photos_city_id_fk
+  FOREIGN KEY(city_id) REFERENCES cities(city_id),
+  CONSTRAINT city_photos_user_id_fk
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+); 
+
+INSERT INTO `traveldb`.`city_photos` (`city_id`, `user_id`, `subject`, `photo`, `photo_date_submitted`) VALUES
+
+(13, 2, 'DC Metro', 'uploads/dcmetro.jpg', '2011-03-29 11:11:11')
+;
 -- --------------------------------------------------------
