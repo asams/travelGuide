@@ -41,6 +41,7 @@ else{
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>~Travel Guide~</title>
+<link rel="shortcut icon" href="images/globe-fav.gif" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <link href="1.css" type="text/css" rel="stylesheet" />
 
@@ -56,13 +57,15 @@ else{
 	<option class="group" value="city">City</option>
 	<option class="group" value="country">Country</option>
 	<option class="group" value="type">Type</option>
+	<option class="group" value="user">User</option>
 </select>
 <input type="text" id="searchq" name="searchedFor" />
 <input type="submit" class="formbutton" value="Search" />
 </form>
 </div>
-<div class="logo-1">Travel</div>
-<div class="logo-2">Guide</div>
+<div class="logo-2"><i>TG</i></div>
+<div class="logo-1"><img src="images/logo.png"  style="border:0px" width=125%></div>
+
 
 
 

@@ -118,6 +118,22 @@
 			echo '<a href=attraction.php?id=' . $attractionID . '>' . $attraction . '</a><br>';
 		}
 							
+	} elseif ($type == 'user') {
+		$query = "SELECT * from users  WHERE (username LIKE '%$termSearched%' OR CONCAT(first_name, ' ', last_name) LIKE '%$termSearched%') ORDER BY username";
+		$result = mysqli_query($db, $query) or die("Error Querying Database");
+	
+		echo '<u><big>Users</u></big><br><br>';
+
+		while($row = mysqli_fetch_array($result)) {
+			$username = $row['username'];
+			$firstName= $row['first_name'];
+			$lastName = $row['last_name'];
+
+			echo "<b>Username: </b>" . $username . "<br>";
+			echo "<b>Name: </b>" . $firstName . " " . $lastName . "<br><br>";
+
+		}
+
 	}
 
 	echo '</center>';					
@@ -125,6 +141,9 @@
 </div>
 
 <?php
+   
+   echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+
    include('footer.php');
 ?>
 

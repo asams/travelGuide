@@ -30,7 +30,7 @@ if(is_file("sourceDB.php")) {
 <body>
 
 <div class="content">
-<h1><center>Welcome to Our TravelGuide*!</center></h1>
+<h1><center>Welcome to Our TravelGuide!</center></h1>
 
 
 <?php
@@ -95,7 +95,7 @@ $featured = $row['city_name'];
 	echo "Website: <a href = \"" . $website . "\">" . $website . "</a><br/><br/><br/><br/><br/><br/></right></td></tr>";
 	echo "</table>";
 	echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
-	echo "<center>*If you have a suggestion for a better name than \"TravelGuide\", let us know on our ContactUs page!</center>";
+//	echo "<center>*If you have a suggestion for a better name than \"TravelGuide\", let us know on our ContactUs page!</center>";
 //	echo "Session: " . $_SESSION['user_id'] . "   Cookie: " . $_COOKIE['user_id'];
 
 ?>

@@ -86,33 +86,7 @@ if($sss >= 1)
            ?>
      </td>
    </tr>
-     <style>
-       .star{cursor:pointer; }
-
-     </style>
-     <Script language=javascript>
-      function selstar(val)
-      {
-	for(var x=1;x<=val;x++)
-	{
-		document['i'+x].src="star2.gif";
-	}
-	
-      }
-      function remstar(val)
-      {
-	for(var x=1;x<=val;x++)
-	{
-		document['i'+x].src="star1.gif";
-	}
-      }
-
-      function setrate(val)
-      {
-	document.rate.rating.value=val;
-	document.rate.submit();
-      }
-     </script>
+     
 
    <tr>
       <td align=left>
