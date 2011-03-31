@@ -1,6 +1,11 @@
 <?php
+   $stillNeed = $_GET['stillNeed'];
+	if($stillNeed == "cities"){
+		header('Location: registerCities.php');
+	}
+
    include('header_side.php');
-	session_start();
+//	session_start();
    include('db_connect.php');
 ?>
 

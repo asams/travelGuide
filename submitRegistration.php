@@ -1,6 +1,8 @@
 <?php
 	include('db_connect.php');
 
+	$error = "none";
+		
 	$userFirstName = trim($_POST['firstName']);
 	$userLastName = trim($_POST['lastName']);
 	$userUserName = trim($_POST['userName']);
@@ -10,13 +12,17 @@
 	$userTravel = trim($_POST['travel']);
 	$userOrigin = trim($_POST['origin']);
 	$userHomeCity = trim($_POST['homeCity']);
+	if (!empty($_POST['visited'])){
+		$userCountriesVisited = $_POST['visited'];
+		$error = "pickCities";
+	}
 
 	$username = mysqli_real_escape_string($db,  $userUserName);
 	$query = "SELECT * FROM users WHERE (username = '$username')";
 	//echo $query;
 	$result = mysqli_query($db, $query) or die("Error Querying Database");
 
-	$error = "none";
+
 	if (empty($userFirstName)|| empty($userLastName) || empty($userUserName) 
 		|| empty($userPassword) || empty($userPasswordAgain) || empty($userEmail))  {
 			$error = "empty";
@@ -31,7 +37,7 @@
    //include('db_connect.php');
  	header('Location: register.php?error=' . $error);
 
-	if($error == "none"){
+	if(($error == "none") || ($error == "pickCities")){
    include('header_side.php');
 
    $userFirstName = mysqli_real_escape_string($db, $userFirstName);
@@ -84,6 +90,7 @@
    } 
   
   		$_SESSION['user_id'] = $id;
+		$_SESSION['temp_id'] = $id;
 
 
  

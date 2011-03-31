@@ -472,6 +472,27 @@ INSERT INTO `traveldb`.`userCountries` (`user_id`, `country_id`) VALUES
 ;
 -- --------------------------------------------------------
 
+--
+-- Table structure for table `userCities`
+--
+
+CREATE TABLE IF NOT EXISTS userCities (
+  `user_id` int(6) NOT NULL ,
+  `city_id` int(6) NOT NULL ,
+  FOREIGN KEY (`city_id`)
+  REFERENCES cities (city_id),
+  FOREIGN KEY (`user_id`)
+  REFERENCES users (user_id)
+
+); 
+
+INSERT INTO `traveldb`.`userCities` (`user_id`, `city_id`) VALUES
+ 
+(1, 5),
+(1, 6)
+;
+-- --------------------------------------------------------
+
 
 
 --
