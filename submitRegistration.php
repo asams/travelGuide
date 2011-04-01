@@ -74,6 +74,9 @@
    $row = mysqli_fetch_array($result);
    $id = $row['user_id'];
   
+	$query = "INSERT INTO profilePictures (user_id, photo) VALUES ('$id', 'profilePictures/defaultProfilePicture.jpg')";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database");
+  
 
    if (!empty($_POST['visited'])){ 
       $listvals=$_POST['visited'];
