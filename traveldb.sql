@@ -83,7 +83,7 @@ INSERT INTO `traveldb`.`cities` (`city_name`, `country_id`, `city_region`, `city
 ('Bath', 1, 'South West', 83992, 'bath_map.jpg', 'N/A', 'N/A', 'bath_pic.jpg', 'http://www.cityofbath.co.uk/' ),
 ('Mexico City', 2, 'Federal District', 8846752, 'mexicoCity_map.bmp', 'mexicoCity_flag.png', 'mexicoCity_coa.png', 'mexico_city_pic.jpg', 'http://www.df.gob.mx/index.jsp' ),
 ('Cancun', 2, 'Quintana Roo', 562973, 'cancun2_map.jpg', 'N/A', 'cancun_coa.png', 'cancun_pic.jpg', 'http://www.cancun.com/' ),
-('Berlin', 3, 'Berlin', 3440441, 'berlin_map.jpg', 'berlin_flag.jpg', 'berlin_coa.jpg', 'berlin_pic.jpg', 'http://www.visitberlin.de/en'),
+('Berlin', 3, 'Berlin', 3440441, 'berlin_map.jpg', 'berlin_flag.jpg', 'berlin_coa.jpg', 'germanyImages/berlin_pic.jpg', 'http://www.visitberlin.de/en'),
 ('Munich', 3, 'Bavaria', 1330440, 'munich_map.gif', 'munich_flag.jpg', 'munich_coa.jpg', 'munich_pic.jpg', 'http://www.muenchen.de/home/60093/Homepage.html'),
 ('Beijing', 4, 'northern china', 22000000, 'beijing_map.jpg',	'N/A',	'N/A', 'beijing_pic.jpg', 'http://www.beijing.gov.cn'),
 ('Shanghai', 4, 'eastern China', 19210000, 'shanghai_map.png', 'N/A',	'N/A', 'shanghai_pic.jpg', 'http://www.shanghai.gov.cn'),
@@ -494,6 +494,75 @@ INSERT INTO `traveldb`.`userCities` (`user_id`, `city_id`) VALUES
 -- --------------------------------------------------------
 
 
+--
+-- Table structure for table `favoriteCountries`
+--
+
+CREATE TABLE IF NOT EXISTS favoriteCountries (
+  `user_id` int(6) NOT NULL ,
+  `country_id` int(6) NOT NULL ,
+  FOREIGN KEY (`country_id`)
+  REFERENCES countries (country_id),
+  FOREIGN KEY (`user_id`)
+  REFERENCES users (user_id)
+
+); 
+
+INSERT INTO `traveldb`.`favoriteCountries` (`user_id`, `country_id`) VALUES
+ 
+(1, 3),
+(1, 15)
+;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `favoriteCities`
+--
+
+CREATE TABLE IF NOT EXISTS favoriteCities (
+  `user_id` int(6) NOT NULL ,
+  `city_id` int(6) NOT NULL ,
+  FOREIGN KEY (`city_id`)
+  REFERENCES cities (city_id),
+  FOREIGN KEY (`user_id`)
+  REFERENCES users (user_id)
+
+); 
+
+INSERT INTO `traveldb`.`favoriteCities` (`user_id`, `city_id`) VALUES
+ 
+(1, 5),
+(1, 6)
+;
+-- --------------------------------------------------------
+
+
+
+--
+-- Table structure for table `favoriteAttractions`
+--
+
+CREATE TABLE IF NOT EXISTS favoriteAttractions (
+  `user_id` int(6) NOT NULL ,
+  `attraction_id` int(6) NOT NULL ,
+  FOREIGN KEY (`attraction_id`)
+  REFERENCES attractions (attraction_id),
+  FOREIGN KEY (`user_id`)
+  REFERENCES users (user_id)
+
+); 
+
+INSERT INTO `traveldb`.`favoriteAttractions` (`user_id`, `attraction_id`) VALUES
+ 
+(1, 33),
+(1, 34),
+(1, 35),
+(1, 38),
+(1, 39),
+(1, 41)
+;
+-- --------------------------------------------------------
+
 
 --
 -- Table structure for table `country_comments`
@@ -624,3 +693,13 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`countryRatings` (
 );
 
 
+--
+-- Table structure for table `profilePictures`
+--
+
+CREATE TABLE IF NOT EXISTS `traveldb`.`profilePictures` (
+  `user_id` int(6) NOT NULL,
+  `photo` blob NOT NULL default '',
+  CONSTRAINT prof_pic_user_id_fk
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+);

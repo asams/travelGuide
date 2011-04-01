@@ -70,6 +70,18 @@
 	if (isset($_SESSION['user_id'])) {
 		$_SESSION['attraction_id'] = $attraction_id;
 		include("starAttractionCode.php");
+		
+		$query = "SELECT * FROM favoriteAttractions WHERE user_id = " . $user_id . " AND attraction_id = " . $attractionID;
+		$result = mysqli_query($db, $query) or die ("Error Querying Database - 3");
+		
+		if($row = mysqli_fetch_array($result)){
+			echo "You've already added " . $name . " to your favorites!";
+		}
+		
+		else{
+			echo "Add to favorites: <a href=addFavAttraction.php?id=" . $attractionID . "><img style = \"border:0px\"  src = \"addToFavStar.jpg\" alt = \"star\" width = \"50px\" /></a>";
+		}
+		
 	} else {
 
   		$qur1 = "select avg(rating) as xx from attractionRatings where attraction_id='".$attraction_id."' group by attraction_id";

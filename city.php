@@ -66,6 +66,19 @@
 	if (isset($_SESSION['user_id'])) {
 		$_SESSION['city_id'] = $cityID;
 		include("starCityCode.php");
+		
+		$query = "SELECT * FROM favoriteCities WHERE user_id = " . $user_id . " AND city_id = " . $cityID;
+		$result = mysqli_query($db, $query) or die ("Error Querying Database - 3");
+		
+		if($row = mysqli_fetch_array($result)){
+			echo "You've already added " . $cityName . " to your favorites!";
+		}
+		
+		else{
+			echo "Add to favorites: <a href=addFavCity.php?id=" . $cityID . "><img style = \"border:0px\"  src = \"addToFavStar.jpg\" alt = \"star\" width = \"50px\" /></a>";
+		}
+		
+	
 	} else {
 
   		$qur1 = "select avg(rating) as xx from cityRatings where city_id='".$cityID."' group by city_id";

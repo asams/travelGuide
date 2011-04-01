@@ -94,6 +94,18 @@
 	if (isset($_SESSION['user_id'])) {
 		$_SESSION['country_id'] = $countryID;
 		include("starCountryCode.php");
+		
+		$query = "SELECT * FROM favoriteCountries WHERE user_id = " . $user_id . " AND country_id = " . $countryID;
+		$result = mysqli_query($db, $query) or die ("Error Querying Database - 3");
+		
+		if($row = mysqli_fetch_array($result)){
+			echo "You've already added " . $countryName . " to your favorites!";
+		}
+		
+		else{
+			echo "Add to favorites: <a href=addFavCountry.php?id=" . $countryID . "><img style = \"border:0px\"  src = \"addToFavStar.jpg\" alt = \"star\" width = \"50px\" /></a>";
+		}
+		
 		echo "<br><br>";
 	} else {
 
