@@ -130,8 +130,8 @@
 <table>
 <form enctype="multipart/form-data" action="cityPhotoSubmitted.php" method="POST">
 <tr><th align=left>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
-<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
-<input type="hidden" name="city_id" value=<?php echo $cityID ?>/>
+<input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
+<input type="hidden" name="city_id" value=<?php echo $cityID ?> >
 <tr><th>Choose a file to upload: </th><td><input name="photo" type="file" /><br/></td></tr>
 <tr><th align=center colspan = 2><input type="submit" value="Upload File" /></tr>
 </form> 
