@@ -47,17 +47,29 @@
 
 <td>
 <?php
-	$query = "SELECT country_name, country_id FROM countries ORDER BY country_name"; 
+	$query = "SELECT country_name, country_id FROM countries ORDER BY country_name";
+	$query2 = "SELECT country_id FROM userCountries WHERE user_id = '$user_id'";
 	$result = mysqli_query($db, $query)or die("Error Querying Database");
+	$result2 = mysqli_query($db, $query2)or die("Error Querying Database2");
+	
+	$i = 0;
+	while($row2 = mysqli_fetch_array($result2)) {
+		$countryID = $row2['country_id'];
+		$array[$i] = $countryID;
+		$i = $i + 1;
+	}
 	while($row = mysqli_fetch_array($result)) {
 		$countryName = $row['country_name'];
 		$countryID = $row['country_id'];
-						
-		echo '<input type="checkbox" name="visited[]" value='. $countryID . ' > ' . $countryName . '<br>';
+		if(in_array($countryID, $array)) {
+			echo '<input type="checkbox" name="visited[]" value='. $countryID . ' checked disabled> ' . $countryName . '<br>';
+		} else {
+			echo '<input type="checkbox" name="visited[]" value='. $countryID . ' > ' . $countryName . '<br>';
+		}
 	}
-
 ?>
-
+</br>
+</tr><tr><td> <a href = "registerCities.php"> What cities have you visited? </a></td><td>
 
 </td></tr>
 <tr><td>Home Country: </td><td><input type="text" name="origin" value="<?php echo $origin;?>"/></td></tr>
