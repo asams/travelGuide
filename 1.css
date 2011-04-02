@@ -33,7 +33,7 @@ font-size : 25px;
 font-weight : bold; 
 } 
 .logo-1 {
-width : 22%; 
+width : 18%; 
 //height : 40px; 
 margin : 0.1em 0 0 0.1em; 
 margin-left : 75%;
@@ -183,6 +183,8 @@ input.formbutton {
         margin-right : 0.1em;
 	font-family:"times", verdana, arial, sans-serif, engravers mt bold;
 } 
+
+
 a:hover {
 color : #6ca2be; 
 text-decoration : none; 
@@ -203,6 +205,10 @@ margin-left : 0em;
 /* search form */
 form.searchform {
 padding-top:10px;
+}
+
+#userSearch table {
+	margin-left: -220px;
 }
 
 select option {    
