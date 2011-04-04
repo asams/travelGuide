@@ -24,7 +24,8 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`countries` (
   `country_map` varchar(50) NOT NULL default 'default_map.jpg',
   `country_flag` varchar(50) NOT NULL default 'default_flag.jpg',
   `country_coat_of_arms` varchar(50) NOT NULL default 'default_coa.jpg',
-  `country_website` varchar(100) NOT NULL default ''
+  `country_website` varchar(100) NOT NULL default '',
+  INDEX( `country_name`)
 );
 
 --
@@ -70,6 +71,7 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`cities` (
   `city_coat_of_arms` varchar(50) NOT NULL default 'default_city_coa.jpg',
   `city_pic` varchar(50) NOT NULL default 'default_city_pic.jpg',
   `city_website` varchar(100) NOT NULL default '',
+  INDEX( `city_name`),
   FOREIGN KEY (`country_id`)
   REFERENCES countries (`country_id`)
 ); 
@@ -144,6 +146,7 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`attractions` (
   `attraction_entrance_price` enum('Y', 'N') NOT NULL default 'Y',
   `attraction_website` varchar(100) NOT NULL default '',
   `attraction_picture` varchar(50) NOT NULL default 'default_attraction_pic.jpg',
+  INDEX( `attraction_name`),
   FOREIGN KEY (`city_id`)
   REFERENCES cities (city_id)
 ); 
