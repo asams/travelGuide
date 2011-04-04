@@ -565,12 +565,12 @@ CREATE TABLE IF NOT EXISTS favoriteAttractions (
 
 INSERT INTO `traveldb`.`favoriteAttractions` (`user_id`, `attraction_id`) VALUES
  
-(1, 33),
-(1, 34),
-(1, 35),
-(1, 38),
-(1, 39),
-(1, 41)
+(1, 27),
+(1, 28),
+(1, 29),
+(1, 22),
+(1, 23),
+(1, 25)
 ;
 -- --------------------------------------------------------
 
