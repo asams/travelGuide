@@ -16,7 +16,9 @@
 <table rules = rows>
 
 <?php
-	
+
+
+	//get the general comments that we've received from users	
 	$query = "SELECT * FROM comments ORDER BY comment_date_submitted DESC";
 
 	$result = mysqli_query($db, $query) or die ("Error Querying Database");
@@ -27,6 +29,7 @@
 		$comment = $row['comment_body'];
 		$date_submitted = $row['comment_date_submitted'];
 		
+		//display the comment
 		echo "<tr><td><br/>Name: " . $name . "<br/><br/>Subject: " . $subject . "<br/><br/>Comment: " . $comment . "<br/><br/>Date: " . $date_submitted . "<br/><br/></td></tr>";
 	}
 	

@@ -16,11 +16,14 @@
 	$timestamp = $date[year] . "-" . $date[mon] . "-" . $date[mday] 
 					. " " . $date[hours] . ":" . $date[minutes] . ":" . $date[seconds];
 
-					
+	
+	//get the submitted values				
 	$name = mysqli_real_escape_string($db, trim($nameSubmitted));
 	$subject = mysqli_real_escape_string($db, trim($subjectSubmitted));
 	$comment = mysqli_real_escape_string($db, trim($commentSubmitted));
 	
+
+	//if all fields are completed, then insert the comment into the table
 	if (($name!="") AND ($subject!="") AND ($comment!="")){
 
 		$query = "INSERT INTO comments (comment_name, comment_subject, comment_body, comment_date_submitted) VALUES ('$name', '$subject', '$comment', '$timestamp')";
@@ -44,6 +47,7 @@
 <h2>We're always glad to hear from you!  We'll review your comment and see what we can do! <br/><br/>
 
 <?php
+	//one of the fields must have been empty, therefore, an error message is displayed
 	} else {
 ?>
 		<div class="content">
