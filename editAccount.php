@@ -8,6 +8,7 @@
 <div class="content">
 
 <?php   
+	//get user info, and country info for the countries the user has travelled to
    $query = "SELECT u.*, uc.*, co.country_name, co.country_flag FROM users u NATURAL JOIN userCountries uc NATURAL JOIN countries co WHERE user_id = '$user_id' ORDER BY co.country_name";
    $result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
    $count = 0;
@@ -23,6 +24,7 @@
 ?>
 <table width=55% >
 <?php
+	//display errors or confirmation messages for when the user edits their info
    $error=$_GET['error'];
    if($error == "none"){
 		echo 'Account information has been updated!';
@@ -38,8 +40,16 @@
    }
 ?>
 
+
+<?php
+	//edit account form:
+?>
 <h2><center>Edit Account Information</center></h2>
 <br/>
+
+<?php
+	//button to change profile picture
+?>
 <form action=setProfilePicture.php method="POST" >
    <center><input type="submit" value="Set Profile Picture!" class="formbutton"/></center>
 </form>
@@ -55,6 +65,7 @@
 
 <td>
 <?php
+	//display options with previously selected countries already selected
 	$query = "SELECT country_name, country_id FROM countries ORDER BY country_name";
 	$query2 = "SELECT country_id FROM userCountries WHERE user_id = '$user_id'";
 	$result = mysqli_query($db, $query)or die("Error Querying Database");
@@ -77,12 +88,19 @@
 	}
 ?>
 </br>
+
+<?php
+	//button to edit which cities you have visited
+?>
 </tr><tr><td> <a href = "registerCities.php"> What cities have you visited? </a></td><td>
 
 </td></tr>
 
 </table>
 <table>
+<?php
+	//end of edit account form:
+?>
 <tr><td><small>*These fields are <b><u>required</b></u>!</small></td></tr>
 <tr><td><br></td></tr>
 <tr><td><input type="submit" value="Submit" class="formbutton"></td></tr>

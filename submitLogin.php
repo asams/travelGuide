@@ -1,4 +1,5 @@
 <?php
+	//get user input from post and escape mysql injection
 	$userUserName = $_POST['userName'];
 	$userPassword = $_POST['password'];
       include('db_connect.php');
@@ -6,13 +7,14 @@
    $userPassword = mysqli_real_escape_string($db, $userPassword);
 
 
-   
+   //select user from db with the given username and password
    $query = "SELECT * FROM users WHERE username = '$userUserName' AND password = SHA('$userPassword')";
 
 //   echo $query;    
 
    $result = mysqli_query($db, $query) or die ("Error Querying Database");
    
+   //send error messages to login.php
 	if (empty($_POST['userName']) || empty($_POST['password']))  {
 		$error = "empty";
 	}
@@ -25,11 +27,7 @@
    }
 
 
-	
-	//else{
-//		$error = "none";
-//	}
-
+   //redirect to login.php
 	header('Location: login.php?error=' . $error);
    include('header_side.php');
 	
@@ -39,24 +37,11 @@
 	$userPassword = $_POST['password'];
 
 
-	//$username = mysqli_real_escape_string($db,  $userUserName);
-	//$query = "SELECT * FROM users WHERE (username = '$username')";
-	//echo $query;
-	//$result = mysqli_query($db, $query) or die("Error Querying Database");
-
 	if (empty($userUserName) || empty($userPassword))  {
 		$error = "empty";
-	//		header('Location: login.php?error=empty');
-	//} else if ($row = mysqli_fetch_array($result)) {
-	//	header('Location: register.php?error=username');
- 
-//	} else  if ($userPassword != $userPasswordAgain){
-	//	header('Location: login.php?error=pwd');
-	//} else if (strpos($userEmail, '@') == false) {
-//		header('Location: login.php?error=email');
+	
 	} else {
 		$error = "none";
-//	   header('Location: loginComplete.php');
 
 ?> 
 
@@ -64,34 +49,30 @@
 
 <?php
    include('db_connect.php');
-//   include('header_side.php');
 ?>
 
 <div class="content">
 <?php
 
 
-
+	//get user info from table using username and password
    $userUserName = mysqli_real_escape_string($db, $userUserName);
    $userPassword = mysqli_real_escape_string($db, $userPassword);
    
    $query = "SELECT * FROM users WHERE username = '$userUserName' AND password = SHA('$userPassword')";
 
-//   echo $query;    
-
    $result = mysqli_query($db, $query) or die ("Error Querying Database");
    
    if ($row = mysqli_fetch_array($result))
    {
-   		//$_SESSION['username'] = $row['username'];
-		//$_COOKIE['username'] = $row['username'];
 		
 		$first_name = $row['first_name'];
 		$last_name = $row['last_name'];
 		$user_id = $row['user_id'];
-		
+
+		//set user_id in session to log the user in
 		$_SESSION['user_id'] = $user_id;
-//		$_COOKIE['user_id'] = $user_id;
+
 
 		
    		echo "<center><h2>Thanks for logging in, $first_name!</h2>\n";

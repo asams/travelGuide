@@ -7,13 +7,13 @@
 		$userCountriesVisited = $_POST['visited'];
 	}
 
-   //include('db_connect.php');
+   //redirect to register.php when cities have been added
  	header('Location: register.php?error=' . $error);
 
 	if(($error == "none")){
    include('header_side.php');
 
-
+	//add user's selected cities to the db
    if (!empty($_POST['visited'])){ 
 
       $listvals=$_POST['visited'];

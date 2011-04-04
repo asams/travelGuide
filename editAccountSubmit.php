@@ -1,6 +1,7 @@
 <?php
 	include('db_connect.php');
 
+	//get user submitted info from post, check for sql injection, and check for any errors
 	$userFirstName = trim($_POST['firstName']);
 	$userLastName = trim($_POST['lastName']);
 	$userEmail = trim($_POST['email']);
@@ -42,6 +43,7 @@
       $userHomeCity = "N/A";
    }
        
+	//edit user info in db
    $query = "UPDATE users SET first_name = '$userFirstName', last_name = '$userLastName', email = '$userEmail', origin = '$userOrigin', homeCity = '$userHomeCity' WHERE user_id = '$user_id'";
    echo $query;    
 

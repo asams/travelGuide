@@ -14,6 +14,7 @@
 <?php
 $user_id = $_COOKIE['user_id'];
 
+//get profile picture for logged in user
 $query = "SELECT * FROM profilePictures WHERE user_id = '$user_id';"; 
 $result = mysqli_query($db, $query)or die("Error Querying Database");
 
@@ -26,7 +27,7 @@ while($row = mysqli_fetch_array($result)) {
 	if($count % 5 == 1){
 		echo "<tr valign = top>";
 	}
-	//What to echo in each cell
+	//What to echo in each cell - display profile picture
 	echo "<td width = \"20%\" align = center><img src = \"" . $photo . "\" alt = \"pic\" width = \"100%\" />   ";
 		if ($count % 5 == 0){
 		echo "</tr>";

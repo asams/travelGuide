@@ -38,7 +38,7 @@ echo "The file ". basename( $_FILES['photo']['name']).
 echo "There was an error uploading the file, please try again!";
 echo "Please revisit" ?> <a href="setProfilePicture.php">this page</a>. <br>
 <?php
-//echo "Want to see what other people have uploaded? View all the photos we've received" ?><a href = "photo.php">here</a>.
+//echo "Want to see what other people have uploaded? View all the photos we've received" ?><a href = "viewProfilePicture.php">here</a>.
 <?php
 }
 ?>

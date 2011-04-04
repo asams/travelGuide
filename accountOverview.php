@@ -177,7 +177,7 @@
 
 	echo "<H2>Info: </H2>";
 	
-	echo "<table cellpadding = 8 ><tr><td width = \"20%\">";
+	echo "<table cellpadding = 8 ><tr><td width = \"40%\">";
 	echo "<img src=" . $photo .  " align=left width=100% >";
 	echo "</td><td>Name: " . $firstName . " " . $lastName . "<br/><br/>";
 	echo "Email: " . $email . "<br/><br/>";

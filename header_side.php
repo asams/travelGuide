@@ -1,4 +1,5 @@
 <?php
+	//get logged-in user id from cookie/session
 	session_start();
 	$user_id = $_SESSION['user_id'];
  
@@ -12,6 +13,7 @@ else{
 ?>
 
 <?php
+	//get count for countries, cities, and attractions from db
 	$query = "SELECT COUNT(DISTINCT country_id) FROM countries";
 
 	$result = mysqli_query($db, $query) or die ("Error Querying Database");
@@ -48,6 +50,10 @@ else{
 
 </head>
 <body>
+
+<?php
+//search bar:
+?>
 <div class="container">
 <div id="banner"> 
 <div align="right"><form action="search.php" method="post" class="searchform">
@@ -72,9 +78,15 @@ else{
 
 </div>
 
-
+<?php
+//left navigation bar:
+?>
 <div id="left">
 
+
+<?php
+//link to home:
+?>
 <div class="nav-box">
 <div class="s1">
 </div>
@@ -89,7 +101,9 @@ else{
 </div></div>
 
 
-
+<?php
+//login/logout:
+?>
 <div class="nav-box">
 <div class="s1">
 </div>
@@ -116,6 +130,9 @@ if( isset($_COOKIE['user_id'])){
 </div></div>
 
 
+<?php
+//country count and link:
+?>
 <div class="nav-box2">
 <div class="s3">
 </div>
@@ -150,6 +167,10 @@ while($row = mysqli_fetch_array($result)) {
 </span>
 </div></div>
 
+
+<?php
+//cities link and city count:
+?>
 <div class="nav-box">
 <div class="s1">
 </div>
@@ -166,12 +187,20 @@ while($row = mysqli_fetch_array($result)) {
 </div>
 <div class="s2">
 </div>
+
+<?php
+//attractions link and attraction count:
+?>
 <div class="nav-box-text">
 <span style="font-family:geneva,arial;color:#153E7E;font-size:14px;font-weight:bold;padding-left:1px;"><a href="attractions.php">ATTRACTIONS</a></span>
 <span style="font-family:geneva,arial;color:#6CA2BE;font-size:10px;font-weight:bold;  font-style: italic; letter-spacing: 2px;
  padding-left:1px;">Total: <?php echo $attractionCount ?></span>
 </div></div>
 
+
+<?php
+//about us link:
+?>
 <div class="nav-box">
 <div class="s1">
 </div>
@@ -185,6 +214,10 @@ while($row = mysqli_fetch_array($result)) {
  padding-left:1px;">Who We Are?</span>
 </div></div>
 
+
+<?php
+//contact us link:
+?>
 <div class="nav-box">
 <div class="s1">
 </div>
