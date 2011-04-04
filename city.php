@@ -55,7 +55,7 @@
 	$comments_table = $comments_table . "</table>";
 	
 
-	//display the comments
+	//display the city info
 	echo "<h1>" . $cityName . "</h1>";
 	echo ($flag != 'N/A' ? "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>" : "");
 	echo "<p><H2>Info: </H2></p>";

@@ -15,12 +15,11 @@
 	$userID = $_COOKIE['user_id'];
 	$subject = mysqli_real_escape_string($db, trim($subjectSubmitted));
 	$comment = mysqli_real_escape_string($db, trim($commentSubmitted));
-	
 
 	//if all the fields are completed, then insert the new comment into the cities' comments table
 	if (($userID != "") AND ($subject != "") AND ($comment != "")){
 
-		$query = "INSERT INTO cityPhotp_comments (`photo_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) 
+		$query = "INSERT INTO city_photo_comments (`photo_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) 
 					VALUES ('$commentCityPhoto', '$userID', '$subject', '$comment', '$timestamp')";
 	
 		$result = mysqli_query($db, $query) or die ("Error Querying Database");

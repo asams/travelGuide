@@ -676,6 +676,27 @@ INSERT INTO `traveldb`.`city_photos` (`city_id`, `user_id`, `subject`, `photo`, 
 -- --------------------------------------------------------
 
 
+--
+-- Table structure for table `city_photo_comments`
+--
+
+CREATE TABLE IF NOT EXISTS city_photo_comments (
+  `comment_id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `photo_id` int(6) NOT NULL default '0',
+  `user_id` int(6) NOT NULL default '0',
+  `comment_subject` varchar(50) NOT NULL default '',
+  `comment_body` blob NOT NULL default '',
+  `comment_date_submitted` timestamp NOT NULL default '2011-01-01 00:00:00',
+  CONSTRAINT city_photo_comments_photo_id_fk
+  FOREIGN KEY(photo_id) REFERENCES city_photos(photo_id),
+  CONSTRAINT city_photo_comments_user_id_fk
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+); 
+
+INSERT INTO `traveldb`.`city_photo_comments` (`photo_id`, `user_id`, `comment_subject`, `comment_body`, `comment_date_submitted`) VALUES
+
+(2, 2, 'That''s a lot of stairs', 'I would love to climb all of these!', '2011-04-04 16:55:01')
+;
 
 --
 -- Table structure for table `attractionRatings`
