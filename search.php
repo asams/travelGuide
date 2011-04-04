@@ -119,24 +119,43 @@
 		}
 							
 	} elseif ($type == 'user') {
+		
+		echo "<div id=userSearch>";
+
 		$query = "SELECT * from users  WHERE (username LIKE '%$termSearched%' OR CONCAT(first_name, ' ', last_name) LIKE '%$termSearched%') ORDER BY username";
 		$result = mysqli_query($db, $query) or die("Error Querying Database");
 	
-		echo '<u><big>Users</u></big><br><br>';
+		echo '<u><big>Users</u></big>';
+
+		echo "<br><br><br><br><table>";
 
 		while($row = mysqli_fetch_array($result)) {
 			$username = $row['username'];
+			$userID = $row['user_id'];
 			$firstName= $row['first_name'];
 			$lastName = $row['last_name'];
 
-			echo "<b>Username: </b>" . $username . "<br>";
-			echo "<b>Name: </b>" . $firstName . " " . $lastName . "<br><br>";
+
+			$query2 = "SELECT photo FROM profilePictures WHERE user_id = '$userID'";
+   			$result2 = mysqli_query($db, $query2) or die ("Error Querying Database - 1");
+
+	   		if($row2 = mysqli_fetch_array($result2)) {
+				$photo = $row2['photo'];
+   			} else {
+				$photo = "profilePictures/defaultProfilePicture.jpg";
+			}
+
+			echo "<tr><td><a href=accountOverview.php?id=" . $userID . " ><img src=" . $photo .  " align=right width=25% ></a></td>";
+			echo "<td><b>Username: </b>" . $username . "<br>";
+			echo "<b>Name: </b>" . $firstName . " " . $lastName . "<br></td></tr>";
 
 		}
+		
+		echo "</table></div>";
 
 	}
 
-	echo '</center>';					
+						
 ?>
 </div>
 

@@ -1,6 +1,5 @@
 <?php
 	include('db_connect.php');
-	//include('header_side.php');
 
 	$userFirstName = trim($_POST['firstName']);
 	$userLastName = trim($_POST['lastName']);
@@ -47,13 +46,6 @@
    echo $query;    
 
    $result = mysqli_query($db, $query) or die ("Error Querying Database");
-   
-   /*$query = "SELECT user_id FROM users WHERE username='$userUserName'";
-   echo $query;    
-
-   $result = mysqli_query($db, $query) or die ("Error Querying Database");
-   $row = mysqli_fetch_array($result);
-   $id = $row['user_id'];
   
 
    if (!empty($_POST['visited'])){ 
@@ -63,15 +55,13 @@
       for($i=0;$i<$n;$i++) {
           $countryId = $listvals[$i];
 	  echo $countryId;
-	  $query = "INSERT INTO userCountries (user_id, country_id) VALUES ('$id', '$countryId')";
-
-          echo $query; 
+	  $query = "INSERT INTO userCountries VALUES ('$user_id', '$countryId')";
+	  
 	  $result = mysqli_query($db, $query) or die ("Error Querying Database");
       }
    } 
   
   		$_SESSION['user_id'] = $id;
-*/
 
  
 ?>

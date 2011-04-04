@@ -9,8 +9,10 @@
 <div class="content">
 
 <?php
+	//get city ID from URL
 	$cityID = $_GET['id'];
 	
+	//get city information from the cities table
 	$query = "SELECT ci.*, co.country_name, a.attraction_name, a.attraction_id FROM cities ci NATURAL JOIN countries co NATURAL JOIN attractions a WHERE city_id = $cityID ORDER BY a.attraction_name";
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
 	$attractionLinks = "<ul>";
@@ -35,9 +37,8 @@
 	$attractionLinks = $attractionLinks . "</ul>";
 
 	
-
+	//get the city comments
 	$query = "SELECT cic.*, ci.city_name, u.first_name, u.last_name FROM cities ci NATURAL JOIN city_comments cic NATURAL JOIN users u WHERE ci.city_id = $cityID ORDER BY cic.comment_date_submitted DESC";
-	
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 
 	$comments_table = "<table rules = rows width = \"90%\">";
@@ -53,6 +54,8 @@
 	}
 	$comments_table = $comments_table . "</table>";
 	
+
+	//display the comments
 	echo "<h1>" . $cityName . "</h1>";
 	echo ($flag != 'N/A' ? "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>" : "");
 	echo "<p><H2>Info: </H2></p>";
@@ -63,6 +66,7 @@
 	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/>";
 
 
+	//if a user is logged in, then display the "add to favorites" and rating portion
 	if (isset($_SESSION['user_id'])) {
 		$_SESSION['city_id'] = $cityID;
 		include("starCityCode.php");
@@ -78,7 +82,7 @@
 			echo "Add to favorites: <a href=addFavCity.php?id=" . $cityID . "><img style = \"border:0px\"  src = \"addToFavStar.jpg\" alt = \"star\" width = \"50px\" /></a>";
 		}
 		
-	
+	//otherwise, display the average user rating for this attraction
 	} else {
 
   		$qur1 = "select avg(rating) as xx from cityRatings where city_id='".$cityID."' group by city_id";
@@ -98,17 +102,18 @@
 
 	}
 
-	//echo "<center>Map:<br/>";
+	
 	echo "<center><br/>";
 	echo "<img src = \"" . $cityMap . "\" alt = \"map\" width = \"55%\" align = \"center\" /><br/><br/></center>";
-    if ($comments_table <> "<table rules = rows width = \"90%\"></table>"){
+    	if ($comments_table <> "<table rules = rows width = \"90%\"></table>"){
 		echo "<H2>Comments from users:</H2>";
 		echo $comments_table;
 	}
 	
+
+	//if a user is logged in, then allow them to comment on the city
 	if( isset($_COOKIE['user_id'])){
 ?>
-
 
 <H2>Share your thoughts about <?php echo $cityName ?>:</H2>
 <form action="cityCommentSubmitted.php" method="post" class="form">
@@ -139,18 +144,25 @@
 
 </center>
 <br/><br/></br></br>
-<H2>Photographs we've received from our viewers:</H2>
+
+<!--<H2>Photographs we've received from our viewers:</H2> -->
 
 <?php
 //table of uploaded photos
 
-//$query = "SELECT cp.photo_date_submitted, cp.photo, cp.subject, cp.photo_id FROM city_photos cp NATURAL JOIN city ci WHERE city_photos.city_id = city.city_id ORDER BY photo_id"; 
-$query = "SELECT * FROM city_photos";
+$query = "SELECT cp.* FROM city_photos cp NATURAL JOIN cities ci WHERE cp.city_id = '$cityID' ORDER BY cp.photo_date_submitted"; 
 $result = mysqli_query($db, $query)or die("Error Querying Database");
 
 $count = 0;
-echo "<center><table width = \"90%\" cellpadding = 15>";
+
 while($row = mysqli_fetch_array($result)) {
+	if($count == 0){
+	?>
+	<H2>Photographs we've received from our viewers:</H2>
+	<?php
+	echo "<center><table width = \"90%\" cellpadding = 15>";
+	}
+
 	$count ++;
 	$subject = $row['subject'];
 	$photo = $row['photo'];
@@ -170,16 +182,33 @@ while($row = mysqli_fetch_array($result)) {
 }
 echo "</table></center>";		
 
+		$count = 0;
+		echo "<center><table width = \"90%\" cellpadding = 15>";
+	
+		while($row = mysqli_fetch_array($result)) {
 
-}
-else{
+						
+			if($count % 5 == 1){
+				echo "<tr valign = top>";
+			}
+			//What to echo in each cell
+			echo "<td width = \"20%\" align = center><a href=country.php?id=" . $countryID . "><img src = \"" . $countryFlag . "\" alt = \"flag\" width = \"100%\" /></a>   ";
+			echo "<br/><a href=country.php?id=" . $countryID . ">" . $countryName . "</a><br/><br/></td>";
+			if ($count % 5 == 0){
+				echo "</tr>";
+			}
+
+		}
+
+//otherwise, direct them to log in
+} else {
 ?>
-<H2>Want to share your thoughts about <?php echo $cityName ?>?</H2>
-<H3>Create a personal account on TravelGuide in order to comment on countries, cities, and attractions, and enjoy all the other perks of being a TravelGuide member!  
-<br/><br/>If you already have an account, just log in!
-<br/>
-<br/>
-Click <a href = "login.php">here</a> to login, or <a href = "register.php">here</a> to create an account!</H3>
+	<H2>Want to share your thoughts about <?php echo $cityName ?>?</H2>
+	<H3>Create a personal account on TravelGuide in order to comment on countries, cities, and attractions, and enjoy all the other perks of being a TravelGuide member!  
+	<br/><br/>If you already have an account, just log in!	
+	<br/>
+	<br/>
+	Click <a href = "login.php">here</a> to login, or <a href = "register.php">here</a> to create an account!</H3>
 
 <?php
 }

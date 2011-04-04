@@ -17,6 +17,7 @@
 <h3><center>Don't have an account yet?  Click <a href = "register.php">here</a> to register!</center></h3><br/>
 <table width=50% >
 <?php  
+//print errors if something is wrong with the user's input username and password:
    if ($error=="empty") {
 ?>
 <left><b><h3><medium><font color="#FF0000">Both your username and password must be entered!</font></medium></h3></b></left>
@@ -37,7 +38,9 @@
 ?>
 
 
-
+<?php
+//login form:
+?>
 <center>
 <form action=submitLogin.php method="POST" >
 <tr><td>Username: </td><td><input type="text" name="userName" />*</td></tr>

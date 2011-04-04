@@ -1,4 +1,5 @@
 <?php
+	//get the id of the country from the URL
 	if(isset($_GET['id'])){
 		$countryId=$_GET['id'];
 		header('Location: country.php?id=' . $countryId);
@@ -22,6 +23,7 @@
 		$user_id = $_COOKIE['user_id'];
 	}
 
+	//insert record into favorite cities table
 	$query = "INSERT INTO favoriteCountries (user_id, country_id) VALUES ('$user_id', '$countryId')";
 
 	$result = mysqli_query($db, $query)or die("Error Querying Database");
