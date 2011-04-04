@@ -1,15 +1,12 @@
 <?php
    $error=$_GET['error'];
    if($error == "none"){
+		//$error == "none" means the registration was successful and the cities that the user has visited have been added to the db
 		header('Location: registrationComplete.php');
 
    }
-//   else if($error == "pickCities"){
-//		header('Location: registerCities.php');
-//   }
 
    include('header_side.php');
-//   session_start();
    include('db_connect.php');
 
 
@@ -30,12 +27,10 @@
 	if( isset($_COOKIE['user_id'])){
 		$user_id = $_COOKIE['user_id'];
 	}
-//	echo 'user id: ' . $user_id; 
+
+	//get user info, city names, city ids, and city pics
 	$query = "SELECT u.first_name, u.last_name, uc.*, co.country_name, ci.city_id, ci.city_name, ci.city_pic FROM users u NATURAL JOIN userCountries uc NATURAL JOIN countries co NATURAL JOIN cities ci WHERE user_id = '$user_id' ORDER BY co.country_name, ci.city_name";
 
-
-
-//	$query = "SELECT country_name, country_id, country_flag FROM countries ORDER BY country_name"; 
 	$result = mysqli_query($db, $query)or die("Error Querying Database");
 	$possibleCities = "<table width = \"100%\" cellpadding = 15>";
 	$countryName = "test";
@@ -50,6 +45,8 @@
 		$cityName = $row['city_name'];
 		$cityPic = $row['city_pic'];
 		
+		
+		//output city names and pics as checkbox options for which cities the user has visited
 		if ($countryName <> $row['country_name']) {
 			$countryName = $row['country_name'];
 			$possibleCities = $possibleCities . "<tr><th colspan = 2><br/><br/><h3><u><b>" . $countryName . "</h3></b></u></th></td></tr><tr>";
@@ -73,6 +70,9 @@
 ?>
 
 
+<?php
+//end of city registration form:
+?>
 <table align = center>
 <tr><td><br></td></tr>
 <tr><td><input type="submit" value="Submit" class="formbutton"></td></tr>
