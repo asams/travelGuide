@@ -1,4 +1,10 @@
 <?php
+	session_start();
+	$user_id = $_SESSION['user_id'];
+	if(!isset($user_id)){
+		header('Location: needAnAccount.php');
+	}
+
    include('header_side.php');
    include('db_connect.php');
 

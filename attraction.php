@@ -123,7 +123,7 @@
 	
 
 	//get the attraction comments
-	$query = "SELECT ac.*, a.attraction_name, u.first_name, u.last_name FROM attractions a NATURAL JOIN attraction_comments ac NATURAL JOIN users u WHERE a.attraction_id = $attractionID ORDER BY ac.comment_date_submitted DESC";
+	$query = "SELECT ac.*, a.attraction_name, u.user_id, u.first_name, u.last_name FROM attractions a NATURAL JOIN attraction_comments ac NATURAL JOIN users u WHERE a.attraction_id = $attractionID ORDER BY ac.comment_date_submitted DESC";
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
 	
 	//comments table
@@ -131,13 +131,14 @@
 	
 	while($row = mysqli_fetch_array($result)){
 		$attraction_name = $row['attraction_name'];
+		$author_user_id = $row['user_id'];
 		$first_name = $row['first_name'];
 		$last_name = $row['last_name'];
 		$comment_subject = $row['comment_subject'];
 		$comment_body = $row['comment_body'];
 		$comment_date = $row['comment_date_submitted'];
 		
-		$comments_table = $comments_table . "<tr><td><br/>Name: " . $first_name . " " . $last_name . "<br/><br/>Subject: " . $comment_subject . "<br/><br/>Comment: " . $comment_body . "<br/><br/>Date: " . $comment_date . "<br/><br/></td></tr>";
+		$comments_table = $comments_table . "<tr><td><br/>Name: <a href = \"accountOverview.php?id=" . $author_user_id . "\">" . $first_name . " " . $last_name . "</a><br/><br/>Subject: " . $comment_subject . "<br/><br/>Comment: " . $comment_body . "<br/><br/>Date: " . $comment_date . "<br/><br/></td></tr>";
 	}
 	
 	$comments_table = $comments_table . "</table>";
