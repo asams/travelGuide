@@ -9,8 +9,10 @@
 <div class="content">
 
 <?php
+	//get city ID from URL
 	$cityID = $_GET['id'];
 	
+	//get city information from the cities table
 	$query = "SELECT ci.*, co.country_name, a.attraction_name, a.attraction_id FROM cities ci NATURAL JOIN countries co NATURAL JOIN attractions a WHERE city_id = $cityID ORDER BY a.attraction_name";
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
 	$attractionLinks = "<ul>";
@@ -35,9 +37,8 @@
 	$attractionLinks = $attractionLinks . "</ul>";
 
 	
-
+	//get the city comments
 	$query = "SELECT cic.*, ci.city_name, u.first_name, u.last_name FROM cities ci NATURAL JOIN city_comments cic NATURAL JOIN users u WHERE ci.city_id = $cityID ORDER BY cic.comment_date_submitted DESC";
-	
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 
 	$comments_table = "<table rules = rows width = \"90%\">";
@@ -53,6 +54,8 @@
 	}
 	$comments_table = $comments_table . "</table>";
 	
+
+	//display the comments
 	echo "<h1>" . $cityName . "</h1>";
 	echo ($flag != 'N/A' ? "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>" : "");
 	echo "<p><H2>Info: </H2></p>";
@@ -63,6 +66,7 @@
 	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/>";
 
 
+	//if a user is logged in, then display the "add to favorites" and rating portion
 	if (isset($_SESSION['user_id'])) {
 		$_SESSION['city_id'] = $cityID;
 		include("starCityCode.php");
@@ -78,7 +82,7 @@
 			echo "Add to favorites: <a href=addFavCity.php?id=" . $cityID . "><img style = \"border:0px\"  src = \"addToFavStar.jpg\" alt = \"star\" width = \"50px\" /></a>";
 		}
 		
-	
+	//otherwise, display the average user rating for this attraction
 	} else {
 
   		$qur1 = "select avg(rating) as xx from cityRatings where city_id='".$cityID."' group by city_id";
@@ -98,74 +102,76 @@
 
 	}
 
-	//echo "<center>Map:<br/>";
+	
 	echo "<center><br/>";
 	echo "<img src = \"" . $cityMap . "\" alt = \"map\" width = \"55%\" align = \"center\" /><br/><br/></center>";
-    if ($comments_table <> "<table rules = rows width = \"90%\"></table>"){
+    	if ($comments_table <> "<table rules = rows width = \"90%\"></table>"){
 		echo "<H2>Comments from users:</H2>";
 		echo $comments_table;
 	}
 	
+
+	//if a user is logged in, then allow them to comment on the city
 	if( isset($_COOKIE['user_id'])){
 ?>
 
 
-<H2>Share your thoughts about <?php echo $cityName ?>:</H2>
-<form action="cityCommentSubmitted.php" method="post" class="form">
-<center>
-<table>
+		<H2>Share your thoughts about <?php echo $cityName ?>:</H2>
+		<form action="cityCommentSubmitted.php" method="post" class="form">
+		<center>
+		<table>
 
-<tr><th>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
-<tr><th>Comment:</th><td><textarea name="comment" id="comment" rows = "4" cols = "60"></textarea>
-<input type="hidden" name="city_id" value=<?php echo $cityID ?>></td></tr>
+			<tr><th>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
+			<tr><th>Comment:</th><td><textarea name="comment" id="comment" rows = "4" cols = "60"></textarea>
+			<input type="hidden" name="city_id" value=<?php echo $cityID ?>></td></tr>
 
-<tr><td colspan = 2><center><input type="submit" class="formbutton" value="Submit" /></center></td></tr>
-</form>
-</table>
+			<tr><td colspan = 2><center><input type="submit" class="formbutton" value="Submit" /></center></td></tr>
+		</form>
+		</table>
 
-</center>
-</br></br>
-<H2>Share your pictures of <?php echo $cityName ?>: </H2>
-<center>
-<table>
-<form enctype="multipart/form-data" action="cityPhotoSubmitted.php" method="POST">
-<tr><th align=left>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
-<input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
-<input type="hidden" name="city_id" value=<?php echo $cityID ?> >
-<tr><th>Choose a file to upload: </th><td><input name="photo" type="file" /><br/></td></tr>
-<tr><th align=center colspan = 2><input type="submit" value="Upload File" /></tr>
-</form> 
-</table>
+		</center>
+		</br></br>
+		<H2>Share your pictures of <?php echo $cityName ?>: </H2>
+		<center>
+		<table>
+		<form enctype="multipart/form-data" action="cityPhotoSubmitted.php" method="POST">
+			<tr><th align=left>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
+			<input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
+			<input type="hidden" name="city_id" value=<?php echo $cityID ?> >
+			<tr><th>Choose a file to upload: </th><td><input name="photo" type="file" /><br/></td></tr>
+			<tr><th align=center colspan = 2><input type="submit" value="Upload File" /></tr>
+		</form> 
+		</table>
 <?php
-include ('photo.php');
+		include ('photo.php');
 
-$count = 0;
-echo "<center><table width = \"90%\" cellpadding = 15>";
-
-while($row = mysqli_fetch_array($result)) {
+		$count = 0;
+		echo "<center><table width = \"90%\" cellpadding = 15>";
+	
+		while($row = mysqli_fetch_array($result)) {
 
 						
-	if($count % 5 == 1){
-		echo "<tr valign = top>";
-	}
-	//What to echo in each cell
-	echo "<td width = \"20%\" align = center><a href=country.php?id=" . $countryID . "><img src = \"" . $countryFlag . "\" alt = \"flag\" width = \"100%\" /></a>   ";
-	echo "<br/><a href=country.php?id=" . $countryID . ">" . $countryName . "</a><br/><br/></td>";
-	if ($count % 5 == 0){
-		echo "</tr>";
-	}
+			if($count % 5 == 1){
+				echo "<tr valign = top>";
+			}
+			//What to echo in each cell
+			echo "<td width = \"20%\" align = center><a href=country.php?id=" . $countryID . "><img src = \"" . $countryFlag . "\" alt = \"flag\" width = \"100%\" /></a>   ";
+			echo "<br/><a href=country.php?id=" . $countryID . ">" . $countryName . "</a><br/><br/></td>";
+			if ($count % 5 == 0){
+				echo "</tr>";
+			}
 
-}
+		}
 
-}
-else{
+//otherwise, direct them to log in
+} else {
 ?>
-<H2>Want to share your thoughts about <?php echo $cityName ?>?</H2>
-<H3>Create a personal account on TravelGuide in order to comment on countries, cities, and attractions, and enjoy all the other perks of being a TravelGuide member!  
-<br/><br/>If you already have an account, just log in!
-<br/>
-<br/>
-Click <a href = "login.php">here</a> to login, or <a href = "register.php">here</a> to create an account!</H3>
+	<H2>Want to share your thoughts about <?php echo $cityName ?>?</H2>
+	<H3>Create a personal account on TravelGuide in order to comment on countries, cities, and attractions, and enjoy all the other perks of being a TravelGuide member!  
+	<br/><br/>If you already have an account, just log in!	
+	<br/>
+	<br/>
+	Click <a href = "login.php">here</a> to login, or <a href = "register.php">here</a> to create an account!</H3>
 
 
 <?php

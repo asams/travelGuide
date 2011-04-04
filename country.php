@@ -18,9 +18,12 @@
 
 <div class="content">
 <?php
+	//get country id from URL 
   	$countryID = $_GET['id'];
 	
 	//$query = "SELECT * FROM countries WHERE country_id = $countryID";
+
+	//get the country's information from the country table
 	$query = "SELECT co.*, ci.city_name, ci.city_id FROM countries co NATURAL JOIN cities ci WHERE co.country_id = $countryID ORDER BY ci.city_name";
 
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
@@ -52,6 +55,8 @@
 	//$query = "SELECT city_name, city_id FROM cities WHERE country_id = $countryID ORDER BY city_name";
 	//$query = "SELECT city_name, city_id FROM countries NATURAL JOIN cities ORDER BY city_name WHERE ";
 	
+
+	//get the comments for this country
 	$query = "SELECT cc.*, co.country_name, u.first_name, u.last_name FROM countries co NATURAL JOIN country_comments cc NATURAL JOIN users u WHERE co.country_id = $countryID ORDER BY cc.comment_date_submitted DESC";
 	
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
@@ -73,13 +78,11 @@
 	echo "<h1>" . $countryName . "</h1>";
 
 
+	
+	//display the flag
 	echo "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>";
 	
-
-	
-	
-	
-
+	//display the information
 	echo "<p><H2>Info: </H2></p>";
 	echo "Capital City: " . $capital . "<br/><br/>";
 	echo "Cities Featured on TravelGuide: " . $featuredCityLinks . "<br/>";
@@ -91,6 +94,8 @@
 	echo "Official or Majority Religion(s): " . $religion . "<br/><br/>";
 	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/><br/>";
 	
+
+	//if a user is logged in, then display the "add to favorites" and rating portion
 	if (isset($_SESSION['user_id'])) {
 		$_SESSION['country_id'] = $countryID;
 		include("starCountryCode.php");
@@ -107,6 +112,8 @@
 		}
 		
 		echo "<br><br>";
+
+	//otherwise, display the average user rating for this attraction
 	} else {
 
   		$qur1 = "select avg(rating) as xx from countryRatings where country_id='".$countryID."' group by country_id";
@@ -130,45 +137,50 @@
 	echo "<center>";
 	echo "<img src = \"" . $map . "\" alt = \"map\" width = \"55%\" align = \"center\" /><br/><br/></center>";
 	
+
+	//display the comments
 	if ($comments_table <> "<table rules = rows width = \"90%\"></table>"){
 		echo "<H2>Comments from users:</H2>";
 		echo $comments_table;
 	}
 //	echo "<img src = \"" . $coat_of_arms . "\" alt = \"coat of arms\" width = \"20%\" align = \"center\" /><br/><br/>";
-	
-if( isset($_COOKIE['user_id'])){
+
+
+	//if a user is logged in, then allow them to comment on the country
+	if( isset($_COOKIE['user_id'])){
 ?>
 
 
-<H2>Share your thoughts about <?php echo $countryName ?>:</H2>
-<form action="countryCommentSubmitted.php" method="post" class="form">
-<center>
-<table>
+		<H2>Share your thoughts about <?php echo $countryName ?>:</H2>
+		<form action="countryCommentSubmitted.php" method="post" class="form">
+		<center>
+		<table>
 
-<tr><th>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
-<tr><th>Comment:</th><td><textarea name="comment" id="comment" rows = "4" cols = "60"></textarea>
-<input type="hidden" name="country_id" value=<?php echo $countryID ?>></td></tr>
+		<tr><th>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
+		<tr><th>Comment:</th><td><textarea name="comment" id="comment" rows = "4" cols = "60"></textarea>
+		<input type="hidden" name="country_id" value=<?php echo $countryID ?>></td></tr>
 
-<tr><td colspan = 2><center><input type="submit" class="formbutton" value="Submit" /></center></td></tr>
+		<tr><td colspan = 2><center><input type="submit" class="formbutton" value="Submit" /></center></td></tr>
 
-</table>
+		</table>
 
 <?php
-}
-else{
+	//otherwise, direct them to log in
+	} else {
 ?>
-<H2>Want to share your thoughts about <?php echo $countryName ?>?</H2>
-<H3>Create a personal account on TravelGuide in order to comment on countries, cities, and attractions, and enjoy all the other perks of being a TravelGuide member!  
-<br/><br/>If you already have an account, just log in!
-<br/>
-<br/>
-Click <a href = "login.php">here</a> to login, or <a href = "register.php">here</a> to create an account!</H3>
+		<H2>Want to share your thoughts about <?php echo $countryName ?>?</H2>
+		<H3>Create a personal account on TravelGuide in order to comment on countries, cities, and attractions, and enjoy all the other perks of being a TravelGuide member!  
+		<br/><br/>If you already have an account, just log in!
+		<br/>
+		<br/>
+		Click <a href = "login.php">here</a> to login, or <a href = "register.php">here</a> to create an account!</H3>
 
 
 <?php
-}
+	}
 
-if ($countryID == 7) {
+	//if the country is USA, then display the ThemeParks advertisement
+	if ($countryID == 7) {
 		echo "<center><br><br><a href=\"https://github.com/rroyste2/themeparkdb\"<img src=\"advertisement.png\" style=\"border:0px\" align = \"center\"/></a></center>";
 	}
 
