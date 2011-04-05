@@ -19,8 +19,8 @@
 	
 	//get the submitted values				
 	$name = mysqli_real_escape_string($db, trim($nameSubmitted));
-	$subject = mysqli_real_escape_string($db, trim($subjectSubmitted));
-	$comment = mysqli_real_escape_string($db, trim($commentSubmitted));
+	$subject = mysqli_real_escape_string($db, strip_tags(trim($subjectSubmitted)));
+	$comment = mysqli_real_escape_string($db, strip_tags(trim($commentSubmitted)));
 	
 
 	//if all fields are completed, then insert the comment into the table

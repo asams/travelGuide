@@ -1,7 +1,7 @@
 <?php
 	//get user input from post and escape mysql injection
-	$userUserName = $_POST['userName'];
-	$userPassword = $_POST['password'];
+	$userUserName = strip_tags(trim($_POST['userName']));
+	$userPassword = strip_tags(trim($_POST['password']));
       include('db_connect.php');
 	$userUserName = mysqli_real_escape_string($db, $userUserName);
    $userPassword = mysqli_real_escape_string($db, $userPassword);

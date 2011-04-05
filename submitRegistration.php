@@ -4,15 +4,15 @@
 	$error = "none";
 	
 	//get user input from post
-	$userFirstName = trim($_POST['firstName']);
-	$userLastName = trim($_POST['lastName']);
-	$userUserName = trim($_POST['userName']);
-	$userPassword = trim($_POST['password1']);
-	$userPasswordAgain = trim($_POST['password2']);
-	$userEmail = trim($_POST['email']);
+	$userFirstName = strip_tags(trim($_POST['firstName']));
+	$userLastName = strip_tags(trim($_POST['lastName']));
+	$userUserName = strip_tags(trim($_POST['userName']));
+	$userPassword = strip_tags(trim($_POST['password1']));
+	$userPasswordAgain = strip_tags(trim($_POST['password2']));
+	$userEmail = strip_tags(trim($_POST['email']));
 	$userTravel = trim($_POST['travel']);
-	$userOrigin = trim($_POST['origin']);
-	$userHomeCity = trim($_POST['homeCity']);
+	$userOrigin = strip_tags(trim($_POST['origin']));
+	$userHomeCity = strip_tags(trim($_POST['homeCity']));
 	if (!empty($_POST['visited'])){
 		$userCountriesVisited = $_POST['visited'];
 		$error = "pickCities";

@@ -12,7 +12,7 @@
 <?php
 
 	//get the term that the user entered
-	$termSearched = mysqli_real_escape_string($db, trim($_POST['searchedFor']));
+	$termSearched = mysqli_real_escape_string($db, strip_tags(trim(trim($_POST['searchedFor']))));
 	$type = $_POST['type'];
 	//echo $type;
 

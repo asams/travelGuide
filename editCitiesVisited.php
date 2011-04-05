@@ -63,10 +63,14 @@
 			$possibleCities = $possibleCities . "<tr><th colspan = 2><br/><br/><h3><u><b>" . $countryName . "</h3></b></u></th></td></tr><tr>";
 		}
 	
-		if(in_array($cityID, $array)){
-			$possibleCities = $possibleCities . "<td width = \"50%\" align = center valign = bottom><img src = \"" . $cityPic . "\" alt = \"pic\" width = \"90%\" /><br/><input type=\"checkbox\" name=\"visited[]\" value=" . $cityID . " checked disabled> ". $cityName . "<br></td>";
-		}
-		else{
+		if(!empty($array)){
+			if(in_array($cityID, $array)){
+				$possibleCities = $possibleCities . "<td width = \"50%\" align = center valign = bottom><img src = \"" . $cityPic . "\" alt = \"pic\" width = \"90%\" /><br/><input type=\"checkbox\" name=\"visited[]\" value=" . $cityID . " checked disabled> ". $cityName . "<br></td>";
+			}
+			else{
+				$possibleCities = $possibleCities . "<td width = \"50%\" align = center valign = bottom><img src = \"" . $cityPic . "\" alt = \"pic\" width = \"90%\" /><br/><input type=\"checkbox\" name=\"visited[]\" value=" . $cityID . " > ". $cityName . "<br></td>";
+			}
+		} else {
 			$possibleCities = $possibleCities . "<td width = \"50%\" align = center valign = bottom><img src = \"" . $cityPic . "\" alt = \"pic\" width = \"90%\" /><br/><input type=\"checkbox\" name=\"visited[]\" value=" . $cityID . " > ". $cityName . "<br></td>";
 		}
 	

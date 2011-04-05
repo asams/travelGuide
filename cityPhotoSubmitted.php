@@ -11,7 +11,7 @@
 	//Result is "uploads/filename.extension"
 	$target_path = $target_path . basename($_FILES['photo']['name']);
 
-	$subjectSubmitted = mysqli_real_escape_string($db, trim($_POST['subject']));
+	$subjectSubmitted = mysqli_real_escape_string($db, strip_tags(trim($_POST['subject'])));
 	$photoSubmitted = mysqli_real_escape_string($db, trim($_POST['photo']));
 	$date = getdate();
 	$photoCity = $_POST['city_id'];

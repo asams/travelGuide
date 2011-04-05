@@ -2,12 +2,12 @@
 	include('db_connect.php');
 
 	//get user submitted info from post, check for sql injection, and check for any errors
-	$userFirstName = trim($_POST['firstName']);
-	$userLastName = trim($_POST['lastName']);
-	$userEmail = trim($_POST['email']);
+	$userFirstName = strip_tags(trim($_POST['firstName']));
+	$userLastName = strip_tags(trim($_POST['lastName']));
+	$userEmail = strip_tags(trim($_POST['email']));
 	$userTravel = trim($_POST['travel']);
-	$userOrigin = trim($_POST['origin']);
-	$userHomeCity = trim($_POST['homeCity']);
+	$userOrigin = strip_tags(trim($_POST['origin']));
+	$userHomeCity = strip_tags(trim($_POST['homeCity']));
 	$user_id = $_cookie['user_id'];
 
 	$username = mysqli_real_escape_string($db,  $userUserName);

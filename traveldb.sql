@@ -680,7 +680,8 @@ INSERT INTO `traveldb`.`city_photos` (`city_id`, `user_id`, `subject`, `photo`, 
 (1, 3, 'Big Ben At Dusk', 'uploads/big_ben_at_dusk_london_england2.jpg', '2011-04-04 23:28:42'),
 (1, 3, 'Over Tower Bridge', 'uploads/crossing-over-tower-bridge_london_england.jpg', '2011-04-04 23:31:22'),
 (1, 3, 'Fireworks Over Tower Bridge', 'uploads/tower_bridge_fireworks.jpg', '2011-04-04 23:34:28'),
-(21, 3, 'Sydney Harbor',  'uploads/Australia_Sydney_Harbor.jpg', '2011-04-04 23:40:18')
+(21, 3, 'Sydney Harbor',  'uploads/Australia_Sydney_Harbor.jpg', '2011-04-04 23:40:18'),
+(15, 3, 'Fireworks Over the Eiffel Tower',  'uploads/eiffel-tower.jpg', '2011-04-05 14:14:14')
 ;
 -- --------------------------------------------------------
 

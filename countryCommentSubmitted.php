@@ -18,8 +18,8 @@
 	//$userID = mysqli_real_escape_string($db, trim($userIDSubmitted));
 	
 	$userID = $_COOKIE['user_id'];
-	$subject = mysqli_real_escape_string($db, trim($subjectSubmitted));
-	$comment = mysqli_real_escape_string($db, trim($commentSubmitted));
+	$subject = mysqli_real_escape_string($db, strip_tags(trim($subjectSubmitted)));
+	$comment = mysqli_real_escape_string($db, strip_tags(trim($commentSubmitted)));
 	
 
 	
