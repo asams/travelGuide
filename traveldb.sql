@@ -454,7 +454,8 @@ CREATE TABLE IF NOT EXISTS users (
 INSERT INTO `traveldb`.`users` (`first_name`, `last_name`, `username`, `password`, `email`, `origin`, `homeCity`) VALUES
  
 ('Kelsie', 'Snyder', 'kelsie', '6cf37614036ededd1018fc3db8e809c3c1932850', 'kelsie.snyder@gmail.com', 'United States of America', 'Springfield, VA'),
-('Rebecca', 'Zeitz', 'raz', SHA('raz'), 'rebecca.zeitz@gmail.com', 'United States of America', 'Fredericksburg, VA')
+('Rebecca', 'Zeitz', 'raz', SHA('raz'), 'rebecca.zeitz@gmail.com', 'United States of America', 'Fredericksburg, VA'),
+('Amy', 'Sams', 'asams', SHA('pass'), 'asams@mail.umw.edu', 'United States of America', 'Stafford, VA')
 ;
 
 
@@ -671,7 +672,15 @@ CREATE TABLE IF NOT EXISTS city_photos (
 INSERT INTO `traveldb`.`city_photos` (`city_id`, `user_id`, `subject`, `photo`, `photo_date_submitted`) VALUES
 
 (13, 2, 'DC Metro', 'uploads/dcmetro.jpg', '2011-03-29 11:11:11'),
-(13, 2, 'Spiral Staircase in U.S. Treasury Building', 'uploads/USTreasuryBuilding.jpg', '2011-04-04 15:48:08')
+(13, 2, 'Spiral Staircase in U.S. Treasury Building', 'uploads/USTreasuryBuilding.jpg', '2011-04-04 15:48:08'),
+(4, 3, 'Cool Cancun Map', 'uploads/cancun_map.jpg', '2011-04-04 23:08:08'),
+(4, 3, 'Cancun at Twilight', 'uploads/Cancun_At_Twilight.jpg', '2011-04-04 23:10:10'),
+(24, 3, 'Kyoto', 'uploads/Kyoto_Japan.jpg', '2011-04-04 23:24:25'),
+(24, 3, 'Kyoto', 'uploads/KibuneShrineKyotoJapan.jpg',  '2011-04-04 23:24:52'),
+(1, 3, 'Big Ben At Dusk', 'uploads/big_ben_at_dusk_london_england2.jpg', '2011-04-04 23:28:42'),
+(1, 3, 'Over Tower Bridge', 'uploads/crossing-over-tower-bridge_london_england.jpg', '2011-04-04 23:31:22'),
+(1, 3, 'Fireworks Over Tower Bridge', 'uploads/tower_bridge_fireworks.jpg', '2011-04-04 23:34:28'),
+(21, 3, 'Sydney Harbor',  'uploads/Australia_Sydney_Harbor.jpg', '2011-04-04 23:40:18')
 ;
 -- --------------------------------------------------------
 

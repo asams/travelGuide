@@ -24,7 +24,6 @@ Most of our data was collected through common knowledge, wikipedia.org, and misc
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
 
-
 <?php
    include('footer.php');
 ?>
