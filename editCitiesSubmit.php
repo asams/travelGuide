@@ -7,8 +7,8 @@
 		$userCitiesVisited = $_POST['visited'];
 	}
 
-   //redirect to register.php when cities have been added
- 	header('Location: register.php?error=' . $error);
+   //redirect to editAccount.php when cities have been added
+ 	header('Location: editAccount.php');
 
 	if(($error == "none")){
    include('header_side.php');
@@ -41,8 +41,8 @@
 
 
 <div class="content">
-<center><h1>Thanks for joining TravelGuide!</h1>
-<h2>Your account has been created!  Please, log in on the left. </h2></center>
+<center><h1>Thanks for adding your cities!</h1>
+<h2>Your cities have been added to your account. </h2></center>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 

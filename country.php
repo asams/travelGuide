@@ -76,24 +76,26 @@
 	
 	$comments_table = $comments_table . "</table>";
 
-	echo "<h1>" . $countryName . "</h1>";
-
-
+	echo "<table><tr><td colspan = 2><h1>";
+	echo ($flag != 'N/A' ? "<img src = \"" . $flag . "\" alt = \"flag\" width = 80 align = \"top\"/>" : "");
+	echo "   " . $countryName . "</h1></td></tr>";
+	echo "<tr><td width = \"50%\" valign = \"top\">";
 	
 	//display the flag
-	echo "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>";
+	//echo "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>";
 	
 	//display the information
-	echo "<p><H2>Info: </H2></p>";
-	echo "Capital City: " . $capital . "<br/><br/>";
-	echo "Cities Featured on TravelGuide: " . $featuredCityLinks . "<br/>";
-	echo "Form of Government: " . $government . "<br/><br/>";
-	echo "Currency: " . $currency . "<br/><br/>";
-	echo "Population: " . $population . " people <br/><br/>";
-	echo "Area: " . $area . " km<sup>2</sup>" . "<br/><br/>";
-	echo "Official or National Language(s): " . $language . "<br/><br/>";
-	echo "Official or Majority Religion(s): " . $religion . "<br/><br/>";
-	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/><br/>";
+	echo "<table cellpadding = 5 width = \"100%\"><tr><td colspan = 2><p><H2>Info: </H2></p></td></tr>";
+	echo "<tr><td>Capital City: </td><td>" . $capital . "</td></tr>";
+	echo "<tr><td>Cities Featured on TravelGuide: </td><td>" . $featuredCityLinks . "</td></tr>";
+	echo "<tr><td>Form of Government: </td><td>" . $government . "</td></tr>";
+	echo "<tr><td>Currency: </td><td>" . $currency . "</td></tr>";
+	echo "<tr><td>Population: </td><td>" . $population . " people </td></tr>";
+	echo "<tr><td>Area: </td><td>" . $area . " km<sup>2</sup>" . "</td></tr>";
+	echo "<tr><td>Official or National Language(s): </td><td>" . $language . "</td></tr>";
+	echo "<tr><td>Official or Majority Religion(s): </td><td>" . $religion . "</td></tr>";
+	echo "<tr><td>Website: </td><td>" . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "</td></tr></table>";
+	echo "</td><td><img src = \"" . $map . "\" alt = \"map\" width = \"100%\" align = \"right\"/></td></tr></table>";
 	
 
 	//if a user is logged in, then display the "add to favorites" and rating portion
@@ -135,8 +137,8 @@
 	}
 
 	//echo "<center>Map:<br/>";
-	echo "<center>";
-	echo "<img src = \"" . $map . "\" alt = \"map\" width = \"55%\" align = \"center\" /><br/><br/></center>";
+	//echo "<center>";
+	//echo "<img src = \"" . $map . "\" alt = \"map\" width = \"55%\" align = \"center\" /><br/><br/></center>";
 	
 
 	//display the comments

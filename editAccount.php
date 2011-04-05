@@ -92,7 +92,7 @@
 <?php
 	//button to edit which cities you have visited
 ?>
-</tr><tr><td> <a href = "registerCities.php"> What cities have you visited? </a></td><td>
+</tr><tr><td> <a href = "editCitiesVisited.php"> What cities have you visited? </a></td><td>
 
 </td></tr>
 

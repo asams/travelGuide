@@ -66,16 +66,19 @@
 	echo "<table width=\"100%\" ><tr>". $backLink . "<td align=\"center\" width=\"70%\" ><h1>" . $name . 
 		"</td>" . $nextLink . "</h1></tr></table>";
 	
-	echo "<img src = \"" . $picture . "\" alt = \"flag\" width = \"50%\"  align = \"right\"/>";
-	echo "<p><H2>Info: </H2></p>";
-	echo "City: " . "<a href = \"city.php?id=" . $city_id . "\"> $city_name </a>" . "<br/><br/>";
-	echo "Attraction Type: " . $attraction_type . "<br/><br/>";
-	echo "Description: " . $description . "<br/></br>";
-	echo "Address: " . $address . "<br/><br/>";
-	echo "Hours of Operation: " . $hours_of_operation . "<br/><br/>";
-	echo "Entrance Price: " . ($entrance_price == 'Y' ? 'Yes' : 'No') . "<br/><br/>";
-	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/><br/><br/>";
-
+	echo "<table width = \"100%\" >";
+	echo "<tr><td width = \"50%\" valign = \"top\"><table width = \"100%\" cellpadding = 5>";
+	echo "<tr><td colspan = 2><p><H2>Info: </H2></p></td></tr>";
+	echo "<tr><td>City: </td><td>" . "<a href = \"city.php?id=" . $city_id . "\"> $city_name </a>" . "</td></tr>";
+	echo "<tr><td>Attraction Type: </td><td>" . $attraction_type . "</td></tr>";
+	echo "<tr><td>Description: </td><td>" . $description . "</td></tr>";
+	echo "<tr><td>Address: </td><td>" . $address . "</td></tr>";
+	echo "<tr><td>Hours of Operation: </td><td>" . $hours_of_operation . "</td></tr>";
+	echo "<tr><td>Entrance Price: </td><td>" . ($entrance_price == 'Y' ? 'Yes' : 'No') . "</td></tr>";
+	echo "<tr><td>Website: </td><td>" . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "</td></tr>";
+	echo "</table></td><td>";
+	echo "<img src = \"" . $picture . "\" alt = \"flag\" width = \"100%\"  align = \"right\"/>";
+	echo "</td></tr></table>";
 
 	//if a user is logged in, then display the "add to favorites" portion
 	if (isset($_SESSION['user_id'])) {

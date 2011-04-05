@@ -24,6 +24,7 @@
 		$region = $row['city_region'];
 		$population = $row['city_population'];
 		$cityMap = $row['city_map'];
+		$cityPic = $row['city_pic'];
 		$flag = $row['city_flag'];
 		$coatOfArms = $row['city_coat_of_arms'];
 		$website = $row['city_website'];
@@ -57,14 +58,36 @@
 	
 
 	//display the city info
-	echo "<h1>" . $cityName . "</h1>";
-	echo ($flag != 'N/A' ? "<img src = \"" . $flag . "\" alt = \"flag\" width = \"50%\" align = \"right\"/>" : "");
-	echo "<p><H2>Info: </H2></p>";
-	echo "Country: " . "<a href = \"country.php?id=" . $countryID . "\"> $country_name </a>" . "<br/><br/>";
-	echo "Region: " . $region . "<br/><br/>";
-	echo "Attractions Featured on TravelGuide: " . $attractionLinks . "<br/>";
-	echo "Population: " . $population . " people <br/><br/>";
-	echo "Website: " . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "<br/>";
+	echo "<table><tr><td><h1>";
+	echo ($flag != 'N/A' ? "<img src = \"" . $flag . "\" alt = \"flag\" width = 80 align = \"top\"/>" : "");
+	echo "   " . $cityName . "</td><td align = \"right\">";
+	
+	//if a user is logged in, then display the "add to favorites" option
+	//if (isset($_SESSION['user_id'])) {
+//		$_SESSION['city_id'] = $cityID;
+		//
+		//$query = "SELECT * FROM favoriteCities WHERE user_id = " . $user_id . " AND city_id = " . $cityID;
+		//$result = mysqli_query($db, $query) or die ("Error Querying Database - 3");
+//		
+	//	if($row = mysqli_fetch_array($result)){
+		//	echo " ";
+		//}
+		//else{
+//			echo "<a href=addFavCity.php?id=" . $cityID . "><img style = \"border:0px\"  src = \"addToFavStar.jpg\" alt = \"star\" width = \"50px\" /></a>";
+		//}
+	//}
+	
+	
+	echo "</td></tr>";
+	echo "<tr><td width = \"50%\" valign = \"top\"><table width = \"100%\" cellpadding = 5><tr><td colspan = 2><p><H2>Info: </H2></p></td></tr>";
+	echo "<tr><td>Country: </td><td>" . "<a href = \"country.php?id=" . $countryID . "\"> $country_name </a>" . "</td></tr>";
+	echo "<tr><td>Region: </td><td>" . $region . "</td></tr>";
+	echo "<tr><td>Attractions Featured on TravelGuide: </td><td>" . $attractionLinks . "</td></tr>";
+	echo "<tr><td>Population: </td><td>" . $population . " people </td></tr>";
+	echo "<tr><td>Website: </td><td>" . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "</td></tr>";
+	echo "</table></td><td>";
+	echo "<img src = \"" . $cityPic . "\" alt = \"pic\" width = \"100%\" align = \"right\"/></td></tr></table>";
+	
 
 
 	//if a user is logged in, then display the "add to favorites" and rating portion

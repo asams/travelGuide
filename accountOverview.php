@@ -76,7 +76,7 @@
 	$travelHistory = $travelHistory . "</table>";
 	
 	//get city travel information
-	$query = "SELECT ci.city_id, ci.city_name, ci.city_pic FROM userCities uc NATURAL JOIN cities ci NATURAL JOIN countries co WHERE uc.user_id = '$usersProfile' ORDER BY co.country_name, ci.city_name";
+	$query = "SELECT ci.city_id, ci.city_name, ci.city_pic FROM userCities uc NATURAL JOIN cities ci NATURAL JOIN countries co WHERE uc.user_id = '$usersProfile' ORDER BY ci.city_name";
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 	$travelCities = "<table width = \"90%\" cellpadding = 15>";
 	$count = 0;

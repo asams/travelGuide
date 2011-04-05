@@ -90,7 +90,7 @@ INSERT INTO `traveldb`.`cities` (`city_name`, `country_id`, `city_region`, `city
 ('Berlin', 3, 'Berlin', 3440441, 'germanyImages/berlin_map.jpg', 'germanyImages/berlin_flag.jpg', 'germanyImages/berlin_coa.jpg', 'germanyImages/berlin_pic.jpg', 'http://www.visitberlin.de/en'),
 ('Munich', 3, 'Bavaria', 1330440, 'germanyImages/munich_map.gif', 'germanyImages/munich_flag.jpg', 'germanyImages/munich_coa.jpg', 'germanyImages/munich_pic.jpg', 'http://www.muenchen.de/home/60093/Homepage.html'),
 
-('Beijing', 4, 'northern china', 22000000, 'chinaImages/beijing_map.jpg',	'N/A',	'N/A', 'chinaImages/beijing_pic.jpg', 'http://www.beijing.gov.cn'),
+('Beijing', 4, 'northern China', 22000000, 'chinaImages/beijing_map.jpg',	'N/A',	'N/A', 'chinaImages/beijing_pic.jpg', 'http://www.beijing.gov.cn'),
 ('Shanghai', 4, 'eastern China', 19210000, 'chinaImages/shanghai_map.png', 'N/A',	'N/A', 'chinaImages/shanghai_pic.jpg', 'http://www.shanghai.gov.cn'),
 
 ('Madrid', 5, 'Community of Madrid', 3255950, 'spainImages/madrid_map.jpg', 'spainImages/madrid_flag.jpg', 'spainImages/madrid_coa.jpg', 'spainImages/madrid_pic.jpg', 'http://www.aboutmadrid.com/'),
