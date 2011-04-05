@@ -114,10 +114,18 @@
 <?php
 	//button to edit which cities you have visited
 ?>
-</tr><tr><td> <a href = "editCitiesVisited.php"> What cities have you visited? </a></td><td>
+</tr>
 
-</td></tr>
 
+<?php 
+
+   if($i != 0) {
+?>
+<tr><td> <a href = "editCitiesVisited.php"> What cities have you visited? </a></td><td></td></tr>
+
+<?php
+   }
+?>
 </table>
 <table>
 <?php

@@ -177,6 +177,89 @@
 	$favAttractions = $favAttractions . "</table>";
 	
 
+	//get user rating information for attractions
+	$query = "SELECT ar.attraction_id, ar.rating, a.attraction_type, a.attraction_name, ci.city_id, co.country_id FROM countries co NATURAL JOIN cities ci NATURAL JOIN attractions a NATURAL JOIN attractionRatings ar NATURAL JOIN users WHERE ar.user_id = '$usersProfile' ORDER BY a.attraction_name";
+	//echo $query;
+	$result = mysqli_query($db, $query) or die ("Error Querying Database - 5");
+	$ratedAttractions = "<ul>";
+	$numOfRatings = 0;
+	$addToQuery = "( ";
+	$addToQuery3 = "( ";
+	$addToQuery4 = "( ";
+	
+	$rating =0;
+	while($row = mysqli_fetch_array($result)){
+		$rating++;
+		$attractionCity = $row['city_id'];
+		$attractionID = $row['attraction_id'];
+		$attractionType = $row['attraction_type'];
+		$attractionName = $row['attraction_name'];
+		$attractionRating = $row['rating'];
+		$attractionCountry = $row['country_id'];
+		
+		//$addToQuery2 = "( ";
+		
+		//echo $attractionRating;
+		if ($attractionRating >= 3) {
+			$attractionTypes[numOfRatings] = $attractionType;
+			$addToQuery = $addToQuery . " attraction_type='" . $attractionType . "' OR ";
+			//echo $addToQuery;
+			$attractionCities[numOfRatings] = $attractionCity;
+			//echo $attractionCities[numOfRatings];
+			$addToQuery2 = $addToQuery2 . " a.city_id=" . $attractionCity . " OR ";
+			//echo $attractionIDs[numOfRatings];
+			
+			$addToQuery3 = $addToQuery3 . " co.country_id=" . $attractionCountry . " OR ";
+			
+			$addToQuery4 = $addToQuery4 . " a.attraction_id!='" . $attractionID . "' AND ";
+		}
+		
+		$ratedAttractions = $ratedAttractions . "<li><a href=attraction.php?id=" . $attractionID . ">" . $attractionName . "</a> (" . $attractionRating . ") </li><br/>";
+	    $numOfRatings ++;
+	}
+	$addToQuery = substr($addToQuery,0,-3);
+	$addToQuery = $addToQuery . ") AND (";
+	
+	$addToQuery2 = substr($addToQuery2,0,-3);
+	$addToQuery2 = $addToQuery2 . " ) AND ";
+	
+	$addToQuery3 = substr($addToQuery3,0,-3);
+	$addToQuery3 = $addToQuery3 . " ) AND ";
+	
+	$addToQuery4 = substr($addToQuery4,0,-4);
+	$addToQuery4 = $addToQuery4 . " ) ";
+	
+	$ratedAttractions = $ratedAttractions . "</ul>";
+	
+
+	$recommendedAttractions = "<ul>";
+	
+	if($rating != 0) {
+	//for ( $j=0; $j<sizeof($attractionTypes); $j++) {
+	
+		//for ( $k=0; $k<sizeof($attractionCities); $k++) {
+			//echo $attractionTypes[$k];
+			$query = "SELECT a.attraction_id, a.attraction_type, a.attraction_name FROM attractions a NATURAL JOIN cities ci NATURAL JOIN countries co WHERE " . $addToQuery . $addToQuery2 . $addToQuery3 . $addToQuery4 . ""; 
+			//echo $query;
+			$result = mysqli_query($db, $query) or die ("Error Querying Database - 6");
+			
+			while($row = mysqli_fetch_array($result)) {
+				$attractionID = $row['attraction_id'];
+				//$attractionType = $row['attraction_type'];
+				$attractionName = $row['attraction_name'];
+				$attractionRating = $row['rating'];
+		
+				$recommendedAttractions = $recommendedAttractions . "<li><a href=attraction.php?id=" . $attractionID . ">" . $attractionName . "</a></li><br/>";
+	
+			}
+		//}
+	
+	//}
+	}
+	$recommendedAttractions = $recommendedAttractions . "</ul>";
+	
+	
+	
 	
 	//display everything:
 	echo "<h1>" . $username . "</h1>";
@@ -206,6 +289,13 @@
 	//then display the edit button
 	if ($usersProfile == $user_id) {
 	
+		if($rating != 0) {
+			echo "<H2>Recommendations:</h2>"; 
+			echo "<H3>Attractions You've Rated: </H3>";
+			echo $ratedAttractions;
+			echo "<H3>Attractions We Recommend: </H3>";
+			echo $recommendedAttractions;
+		}
 	
 ?>
 	<br/><br/>
