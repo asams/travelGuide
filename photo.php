@@ -13,38 +13,84 @@
 
 <?php
 
-//get city ID from URL
-$photoID = $_GET['id'];
+	//get photo ID from URL
+	$photoID = $_GET['id'];
 
-$query = "SELECT * FROM city_photos WHERE photo_id = '$photoID'"; 
-$result = mysqli_query($db, $query)or die("Error Querying Database");
+	$query = "SELECT * FROM city_photos WHERE photo_id = '$photoID'"; 
+	$result = mysqli_query($db, $query)or die("Error Querying Database");
 
-$count = 0;
-echo "<center><table width = \"90%\" cellpadding = 15>";
-while($row = mysqli_fetch_array($result)) {
-	$count ++;
-	$subject = $row['subject'];
-	$photo = $row['photo'];
-	$date_submitted = $row['photo_date_submitted'];
-	$photoID = $row['photo_id'];
-						
-	if($count % 5 == 1){
-		echo "<tr valign = top>";
-	}
+	$count = 0;
+	echo "<center><table width = \"90%\" cellpadding = 15>";
 	
-?>
-	<H1><?php echo $subject ?></H1>
-<?php
-	//What to echo in each cell
-	echo "<td width = \"20%\" align = center><img src = \"" . $photo . "\" alt = \"flag\" width = \"500\" />   ";
-	if ($count % 5 == 0){
-		echo "</tr>";
-	}
+
+	if($row = mysqli_fetch_array($result)) {
+		$count ++;
+		$subject = $row['subject'];
+		$photo = $row['photo'];
+		$date_submitted = $row['photo_date_submitted'];
+		$photoID = $row['photo_id'];
+		$cityID = $row['city_id'];
+						
+		//if($count % 5 == 1){
+		//	echo "<tr valign = top>";
+		//}
+	
+
+	
+	//if ($count % 5 == 0){
+	//	echo "</tr>";
+	//}
 }
 
-//get the city photo comments
-	$query = "SELECT cip.*, cp.photo_id, u.user_id, u.first_name, u.last_name FROM city_photos cp NATURAL JOIN city_photo_comments cip NATURAL JOIN users u WHERE cp.photo_id = $photoID ORDER BY cip.comment_date_submitted DESC";
+
+	
+//used for the next/back buttons
+	$nextLink = "<td align=\"right\" width=\"10%\" >  </td>";
+	$backLink = "<td align=\"left\" width=\"10%\" >  </td>";
+
+
+	//get photo information for the next photo
+	$tryThis = $photoID + 1; 
+	$query = "SELECT * FROM city_photos WHERE photo_id = '$tryThis' AND city_id='$cityID'";
+	//echo $query;
+	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
+
+ 
+	$row=mysqli_fetch_array($result);
+	$nextPhotoID = $row['photo_id'];
+
+	//if a next photo exists, then store it in the next link
+	if (!empty($nextPhotoID)) {
+		$nextLink = "<td align=\"right\" width=\"10%\" valign=\"top\" ><a href=\"photo.php?id=" .  $nextPhotoID . "\"><h3><img src=\"next.png\" style=\"border:0px\"></h3></a></td>"; 
+	}
+	
+
+	//get photo information for the previous photo
+	$tryThis = $photoID - 1; //echo $tryThis;
+	$query = "SELECT * FROM city_photos WHERE photo_id='$tryThis' AND city_id='$cityID'";
+	//echo $query;
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
+
+
+	$row=mysqli_fetch_array($result);
+	$previousPhotoID = $row['photo_id'];
+
+	//if a previous photo exists, then store it in the back link
+	if (!empty($previousPhotoID)) {
+		$backLink = "<td align=\"left\" width=\"10%\" valign=\"top\" ><a href=\"photo.php?id=" .  $previousPhotoID . "\"><h3><img src=\"back.png\" style=\"border:0px\"></h3></a></td>"; 
+	}
+
+
+	echo "<table ><tr>". $backLink . "<td align=\"center\" width=\"80%\" ><H1>" . $subject . "</H1></td>" . $nextLink . "</tr>";
+
+	//What to echo in each cell
+	echo "</table><table><tr><td width = \"20%\" align = center><img src = \"" . $photo . "\" alt = \"flag\" width = \"500\" />  </tr></table><br><br> ";
+	
+//get the city photo comments
+	//$query = "SELECT cip.*, cp.photo_id, u.user_id, u.first_name, u.last_name FROM city_photos cp NATURAL JOIN city_photo_comments cip NATURAL JOIN users u WHERE cp.photo_id = $photoID ORDER BY cip.comment_date_submitted DESC";
+	$query = "SELECT cip.*, u.user_id, u.first_name, u.last_name FROM city_photo_comments cip NATURAL JOIN users u WHERE cip.photo_id = $photoID ORDER BY cip.comment_date_submitted DESC";
+
+	$result = mysqli_query($db, $query) or die ("Error Querying Database - 3");
 
 	$comments_table = "<table rules = rows width = \"90%\">";
 	while($row = mysqli_fetch_array($result)){
@@ -60,11 +106,11 @@ while($row = mysqli_fetch_array($result)) {
 	$comments_table = $comments_table . "</table>";
 	
 	if ($comments_table <> "<table rules = rows width = \"90%\"></table>"){
-		echo "<H2></br></br></br>Comments from users:</H2>";
-		echo $comments_table;
+		echo "<tr><H2></br></br></br><hr>Comments from users:</H2></tr>";
+		echo $comments_table . "<hr>";
 	}
 ?>
-</br></br></br>
+</br><br><br><br>
 <H2>Share your thoughts about <?php echo $subject ?>:</H2>
 <form action="cityPhotoCommentSubmitted.php" method="post" class="form">
 <center>

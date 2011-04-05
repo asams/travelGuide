@@ -1,29 +1,13 @@
 <?php
+
+//if sourceDB.php file exists, then include sourceDB.php
+//this is for our auto-install process
 if(is_file("sourceDB.php")) {
 	include("sourceDB.php");
 	exit;
 }
-
-//	session_start();
-//	$user_id = $_SESSION['user_id'];
- 
-//if( isset($_COOKIE['user_id'])){
-//	$user_id = $_COOKIE['user_id'];
-//}
-//else{
-//	setcookie('user_id', $_SESSION['user_id'], time()+60*60*24);
-//}
 	include('header_side.php');
 	include('db_connect.php');
-?>
-
-
-<?php
-//   include('db_connect.php');
-?>
-
-<?php
-//   include('header_side.php');
 ?>
 
 <html>
@@ -35,17 +19,20 @@ if(is_file("sourceDB.php")) {
 
 <?php
 
-$int = 0;
-$query = "SELECT city_name FROM cities ORDER BY RAND() LIMIT 1";
-$result = mysqli_query($db, $query)or die("Error Querying Database");
-$row = mysqli_fetch_array($result);
-$featured = $row['city_name'];
+	$int = 0;
+
+	//select a random city name from the cities table
+	//this city will be the site's featured city
+	$query = "SELECT city_name FROM cities ORDER BY RAND() LIMIT 1";
+	$result = mysqli_query($db, $query)or die("Error Querying Database");
+	$row = mysqli_fetch_array($result);
+	$featured = $row['city_name'];
 
 
 ?>
 
 <?php
-	
+	//get the random city name's information
 	$query = "SELECT * FROM cities WHERE city_name = '$featured'";
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
 	
@@ -61,12 +48,14 @@ $featured = $row['city_name'];
 		$cityPicture = $row['city_pic'];
 		$website = $row['city_website'];
 	}
-	
+	//get the random city name's country
 	$query = "SELECT country_name FROM countries WHERE country_id=$countryId";
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 	$row = mysqli_fetch_array($result);
 	$countryName = $row['country_name'];
 	
+
+	//get the random city name's attractions
 	$query = "SELECT attraction_name, attraction_id FROM attractions WHERE city_id = $cityId ORDER BY attraction_name";
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 3");
 	$attractionLinks = "<ul>";
@@ -83,7 +72,7 @@ $featured = $row['city_name'];
 ?>
 
 <?php
-	
+	//display all of the city's information
 	echo "<center><h1>Featured City: " . $cityName . ', ' . $countryName . "</h1></center>";
 	echo "<table cellpadding = 15 valign = top><tr><td width = \"50%\">";
 	echo ($cityPicture != 'N/A' ? "<img src = \"" . $cityPicture . "\" alt = \"flag\" width = \"100%\"  border=\"2\" />" : "");
