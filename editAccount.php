@@ -9,7 +9,7 @@
 
 <?php   
 	//get user info, and country info for the countries the user has travelled to
-   $query = "SELECT u.*, uc.*, co.country_name, co.country_flag FROM users u NATURAL JOIN userCountries uc NATURAL JOIN countries co WHERE user_id = '$user_id' ORDER BY co.country_name";
+   $query = "SELECT u.*, uc.*, co.country_name, co.country_flag FROM users u NATURAL JOIN userCountries uc NATURAL JOIN countries co WHERE u.user_id = '$user_id' ORDER BY co.country_name";
    $result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
    $count = 0;
    while($row = mysqli_fetch_array($result)){
@@ -21,6 +21,20 @@
 		$origin = $row['origin'];
 		$homeCity = $row['homeCity'];
 	}
+
+   $query = "SELECT * FROM users WHERE user_id = '$user_id'";
+   $result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
+   $count = 0;
+   while($row = mysqli_fetch_array($result)){
+		$count ++;
+        	$username = $row['username'];
+		$firstName = $row['first_name'];
+		$lastName = $row['last_name'];
+		$email = $row['email'];
+		$origin = $row['origin'];
+		$homeCity = $row['homeCity'];
+   }
+   
 ?>
 <table width=55% >
 <?php
@@ -77,15 +91,23 @@
 		$array[$i] = $countryID;
 		$i = $i + 1;
 	}
+
+	
 	while($row = mysqli_fetch_array($result)) {
 		$countryName = $row['country_name'];
 		$countryID = $row['country_id'];
-		if(in_array($countryID, $array)) {
-			echo '<input type="checkbox" name="visited[]" value='. $countryID . ' checked disabled> ' . $countryName . '<br>';
+
+		if(!empty($array)) {
+			if(in_array($countryID, $array)) {
+				echo '<input type="checkbox" name="visited[]" value='. $countryID . ' checked disabled> ' . $countryName . '<br>';
+			} else {
+				echo '<input type="checkbox" name="visited[]" value='. $countryID . ' > ' . $countryName . '<br>';
+			}
 		} else {
 			echo '<input type="checkbox" name="visited[]" value='. $countryID . ' > ' . $countryName . '<br>';
 		}
 	}
+	
 ?>
 </br>
 
