@@ -86,15 +86,15 @@
 	
 	//display the information
 	echo "<table cellpadding = 5 width = \"100%\"><tr><td colspan = 2><p><H2>Info: </H2></p></td></tr>";
-	echo "<tr><td>Capital City: </td><td>" . $capital . "</td></tr>";
-	echo "<tr><td>Cities Featured on TravelGuide: </td><td>" . $featuredCityLinks . "</td></tr>";
-	echo "<tr><td>Form of Government: </td><td>" . $government . "</td></tr>";
-	echo "<tr><td>Currency: </td><td>" . $currency . "</td></tr>";
-	echo "<tr><td>Population: </td><td>" . $population . " people </td></tr>";
-	echo "<tr><td>Area: </td><td>" . $area . " km<sup>2</sup>" . "</td></tr>";
-	echo "<tr><td>Official or National Language(s): </td><td>" . $language . "</td></tr>";
-	echo "<tr><td>Official or Majority Religion(s): </td><td>" . $religion . "</td></tr>";
-	echo "<tr><td>Website: </td><td>" . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "</td></tr></table>";
+	echo "<tr><td><b>Capital City: </b></td><td>" . $capital . "</td></tr>";
+	echo "<tr><td><b>Cities Featured <br/>on TravelGuide: </b></td><td>" . $featuredCityLinks . "</td></tr>";
+	echo "<tr><td><b>Form of Government: </b></td><td>" . $government . "</td></tr>";
+	echo "<tr><td><b>Currency: </b></td><td>" . $currency . "</td></tr>";
+	echo "<tr><td><b>Population: </b></td><td>" . $population . " people </td></tr>";
+	echo "<tr><td><b>Area: </b></td><td>" . $area . " km<sup>2</sup>" . "</td></tr>";
+	echo "<tr><td><b>Official or National <br/>Language(s): </b></td><td>" . $language . "</td></tr>";
+	echo "<tr><td><b>Official or Majority <br/>Religion(s): </b></td><td>" . $religion . "</td></tr>";
+	echo "<tr><td><b>Website: </b></td><td>" . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "</td></tr></table>";
 	echo "</td><td><img src = \"" . $map . "\" alt = \"map\" width = \"100%\" align = \"right\"/></td></tr></table>";
 	
 
@@ -111,7 +111,7 @@
 		}
 		
 		else{
-			echo "Add to favorites: <a href=addFavCountry.php?id=" . $countryID . "><img style = \"border:0px\"  src = \"addToFavStar.jpg\" alt = \"star\" width = \"50px\" /></a>";
+			echo "<b>Add to favorites: </b><a href=addFavCountry.php?id=" . $countryID . "><img style = \"border:0px\"  src = \"addToFavStar.jpg\" alt = \"star\" width = \"50px\" /></a>";
 		}
 		
 		echo "<br><br>";
@@ -132,7 +132,7 @@
 		}
 
 		echo "<br/><br>";
-		echo "<b><i>Average User Rating: $rating </b></i><br/><br/><br/><br/>";
+		echo "<b><i>Average User Rating: </b> $rating </i><br/><br/><br/><br/>";
 
 	}
 

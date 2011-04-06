@@ -69,13 +69,13 @@
 	echo "<table width = \"100%\" >";
 	echo "<tr><td width = \"50%\" valign = \"top\"><table width = \"100%\" cellpadding = 5>";
 	echo "<tr><td colspan = 2><p><H2>Info: </H2></p></td></tr>";
-	echo "<tr><td>City: </td><td>" . "<a href = \"city.php?id=" . $city_id . "\"> $city_name </a>" . "</td></tr>";
-	echo "<tr><td>Attraction Type: </td><td>" . $attraction_type . "</td></tr>";
-	echo "<tr><td>Description: </td><td>" . $description . "</td></tr>";
-	echo "<tr><td>Address: </td><td>" . $address . "</td></tr>";
-	echo "<tr><td>Hours of Operation: </td><td>" . $hours_of_operation . "</td></tr>";
-	echo "<tr><td>Entrance Price: </td><td>" . ($entrance_price == 'Y' ? 'Yes' : 'No') . "</td></tr>";
-	echo "<tr><td>Website: </td><td>" . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "</td></tr>";
+	echo "<tr><td><b>City: </b></td><td>" . "<a href = \"city.php?id=" . $city_id . "\"> $city_name </a>" . "</td></tr>";
+	echo "<tr><td><b>Attraction Type: </b></td><td>" . $attraction_type . "</td></tr>";
+	echo "<tr><td><b>Description: </b></td><td>" . $description . "</td></tr>";
+	echo "<tr><td><b>Address: </b></td><td>" . $address . "</td></tr>";
+	echo "<tr><td><b>Hours of Operation: </b></td><td>" . $hours_of_operation . "</td></tr>";
+	echo "<tr><td><b>Entrance Price: </b></td><td>" . ($entrance_price == 'Y' ? 'Yes' : 'No') . "</td></tr>";
+	echo "<tr><td><b>Website: </b></td><td>" . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "</td></tr>";
 	echo "</table></td><td>";
 	echo "<img src = \"" . $picture . "\" alt = \"flag\" width = \"100%\"  align = \"right\"/>";
 	echo "</td></tr></table>";
@@ -94,7 +94,7 @@
 		}
 		
 		else{
-			echo "Add to favorites: <a href=addFavAttraction.php?id=" . $attractionID . "><img style = \"border:0px\"  src = \"addToFavStar.jpg\" alt = \"star\" width = \"50px\" /></a>";
+			echo "<b>Add to favorites: </b><a href=addFavAttraction.php?id=" . $attractionID . "><img style = \"border:0px\"  src = \"addToFavStar.jpg\" alt = \"star\" width = \"50px\" /></a>";
 		}
 		
 
@@ -114,7 +114,7 @@
 		}
 
 		echo "<br/><br>";
-		echo "<b><i>Average User Rating: $rating </b></i><br/><br/>";
+		echo "<b><i>Average User Rating:</b> $rating </i><br/><br/>";
 
 	}
 

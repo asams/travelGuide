@@ -80,11 +80,11 @@
 	
 	echo "</td></tr>";
 	echo "<tr><td width = \"50%\" valign = \"top\"><table width = \"100%\" cellpadding = 5><tr><td colspan = 2><p><H2>Info: </H2></p></td></tr>";
-	echo "<tr><td>Country: </td><td>" . "<a href = \"country.php?id=" . $countryID . "\"> $country_name </a>" . "</td></tr>";
-	echo "<tr><td>Region: </td><td>" . $region . "</td></tr>";
-	echo "<tr><td>Attractions Featured on TravelGuide: </td><td>" . $attractionLinks . "</td></tr>";
-	echo "<tr><td>Population: </td><td>" . $population . " people </td></tr>";
-	echo "<tr><td>Website: </td><td>" . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "</td></tr>";
+	echo "<tr><td><b>Country: </b></td><td>" . "<a href = \"country.php?id=" . $countryID . "\"> $country_name </a>" . "</td></tr>";
+	echo "<tr><td><b>Region: </b></td><td>" . $region . "</td></tr>";
+	echo "<tr><td><b>Attractions Featured <br/>on TravelGuide: </b></td><td>" . $attractionLinks . "</td></tr>";
+	echo "<tr><td><b>Population: </b></td><td>" . $population . " people </td></tr>";
+	echo "<tr><td><b>Website: </b></td><td>" . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "</td></tr>";
 	echo "</table></td><td>";
 	echo "<img src = \"" . $cityPic . "\" alt = \"pic\" width = \"100%\" align = \"right\"/></td></tr></table>";
 	
@@ -103,7 +103,7 @@
 		}
 		
 		else{
-			echo "Add to favorites: <a href=addFavCity.php?id=" . $cityID . "><img style = \"border:0px\"  src = \"addToFavStar.jpg\" alt = \"star\" width = \"50px\" /></a>";
+			echo "<b>Add to favorites: </b><a href=addFavCity.php?id=" . $cityID . "><img style = \"border:0px\"  src = \"addToFavStar.jpg\" alt = \"star\" width = \"50px\" /></a>";
 		}
 		
 	//otherwise, display the average user rating for this attraction
@@ -122,7 +122,7 @@
 		}
 
 		echo "<br/><br>";
-		echo "<b><i>Average User Rating: $rating </b></i><br/><br/><br/><br/>";
+		echo "<b><i>Average User Rating: </b>$rating </i><br/><br/><br/><br/>";
 
 	}
 
