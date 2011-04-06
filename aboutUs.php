@@ -30,6 +30,10 @@ it to be added to our database, and then I'm sure granted no unforeseen circumst
 	what is in store for her future, but hopes that whatever job she gets is one that she loves (but more importantly...hopes
 	that she actually gets one).  She's never traveled outside of VA, unless W. VA counts....which it really doesn't.  On a side
 	note, she absolutely hates Kelsey (yes, it's spelled wrong but she doesn't care)...this project was torture for her*!</p></td></tr>
+<tr><td></td><td><h2>Erin</h2><p>Erin Wuepper is a Computer Science major set to graduate in the fall. Her father is in the military, so Erin
+	has had a lot of experience with travel. She lived in Germany for three years when she was in middle school and she went to high
+	school in Naples, Italy. She doesn't speak any foreign languages however, because she is a lazy bum. She would like to move to
+	somewhere tropical for once, but right now she is just trying to get through university.</p></td></tr>
 <tr><td width = "30%"><img src="AboutUsImages/kelsie.jpg" width = "100%" /></td><td><h2>Kelsie</h2><p>Kelsie is currently a senior at the
 	University of Mary Washington, double majoring in Math and German, and minoring in Computer Science.  Kelsie loves to travel,
 	and spent a semester studying in Munich, Germany.  She was able to finish her German major while there, but more importantly,
