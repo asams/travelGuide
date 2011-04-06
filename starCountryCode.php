@@ -60,7 +60,7 @@ if($sss >= 1)
    <tr align=left>
       <td>
         <form name=rate method=post action="starCountryRating.php?country_id=<?php echo($country_id); ?>">
-             <b>This city is currently rated as: </b>
+             <b>This country is currently rated as: </b>
              <?php for($i=1;$i<=5;$i++)
                      {
                    	if($rating>=1)
@@ -122,7 +122,7 @@ $checkexist = mysql_result(mysql_query("Select count(*) from countryRatings wher
 
 if ($checkexist == 0) {
 
-            echo("<b>Rate this attraction:</b> 
+            echo("<b>Rate this country:</b> 
             <img name=i1 class=star onmouseover=\"selstar(1)\" onmouseout=\"remstar(1)\" onclick=\"setrate(1)\" style=\"border:0px\" src=\"star1.gif\">
             <img name=i2 class=star onmouseover=\"selstar(2)\" onmouseout=\"remstar(2)\" onclick=\"setrate(2)\" style=\"border:0px\" src=\"star1.gif\">
             <img name=i3 class=star onmouseover=\"selstar(3)\" onmouseout=\"remstar(3)\" onclick=\"setrate(3)\" style=\"border:0px\" src=\"star1.gif\">
@@ -131,7 +131,7 @@ if ($checkexist == 0) {
             <input type=hidden name=\"rating\">");
 
 } else {
-            echo("<b>You already rated this attraction.</b>");
+            echo("<b>You already rated this country.</b>");
 }
 
 ?>

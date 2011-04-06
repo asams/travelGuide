@@ -86,7 +86,33 @@ if($sss >= 1)
            ?>
      </td>
    </tr>
-     
+     <style>
+       .star{cursor:pointer; }
+
+     </style>
+     <Script language=javascript>
+      function selstar(val)
+      {
+	for(var x=1;x<=val;x++)
+	{
+		document['i'+x].src="star2.gif";
+	}
+	
+      }
+      function remstar(val)
+      {
+	for(var x=1;x<=val;x++)
+	{
+		document['i'+x].src="star1.gif";
+	}
+      }
+
+      function setrate(val)
+      {
+	document.rate.rating.value=val;
+	document.rate.submit();
+      }
+     </script>
 
    <tr>
       <td align=left>
@@ -96,7 +122,7 @@ $checkexist = mysql_result(mysql_query("Select count(*) from cityRatings where u
 
 if ($checkexist == 0) {
 
-            echo("<b>Rate this attraction:</b> 
+            echo("<b>Rate this city:</b> 
             <img name=i1 class=star onmouseover=\"selstar(1)\" onmouseout=\"remstar(1)\" onclick=\"setrate(1)\" style=\"border:0px\" src=\"star1.gif\">
             <img name=i2 class=star onmouseover=\"selstar(2)\" onmouseout=\"remstar(2)\" onclick=\"setrate(2)\" style=\"border:0px\" src=\"star1.gif\">
             <img name=i3 class=star onmouseover=\"selstar(3)\" onmouseout=\"remstar(3)\" onclick=\"setrate(3)\" style=\"border:0px\" src=\"star1.gif\">
@@ -105,7 +131,7 @@ if ($checkexist == 0) {
             <input type=hidden name=\"rating\">");
 
 } else {
-            echo("<b>You already rated this attraction.</b>");
+            echo("<b>You already rated this city.</b>");
 }
 
 ?>
