@@ -121,7 +121,10 @@
 
    if($i != 0) {
 ?>
-<tr><td> <a href = "editCitiesVisited.php"> What cities have you visited? </a></td><td></td></tr>
+<tr><td>
+
+
+</td><td></td></tr>
 
 <?php
    }
@@ -138,8 +141,13 @@
 
 
 </table>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-</div>
+
+<center><form action=editCitiesVisited.php method="POST" >
+<center><input type="submit" value="Edit the cities you've visited!*" class="formbutton"/></center>
+	</form>
+<br/>
+<small>*You must have visited a country before you can visit a city!  Make sure you submit your changes before editing your cities.</small></center>
+<br/><br/><br/><br/><br/><br/><br/>
 
 
 <?php
