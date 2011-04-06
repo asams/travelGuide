@@ -25,11 +25,15 @@ it to be added to our database, and then I'm sure granted no unforeseen circumst
 <!--About the team-->
 <h1>The Team:</h1>
 <table cellpadding = 15>
-<tr><td width = "30%"><img src="AboutUsImages/amy.png" width = "100%" /></td><td><h2>Amy</h2><p>Amy is currently a senior at Mary Wash.
+<tr><td width = "30%"><img src="AboutUsImages/amy.jpg" width = "100%" /></td><td><h2>Amy</h2><p>Amy is currently a senior at Mary Wash.
 	She is double majoring in Business Administration and Computer Science  (Computer Information Systems).  She doesn't know
 	what is in store for her future, but hopes that whatever job she gets is one that she loves (but more importantly...hopes
 	that she actually gets one).  She's never traveled outside of VA, unless W. VA counts....which it really doesn't.  On a side
 	note, she absolutely hates Kelsey (yes, it's spelled wrong but she doesn't care)...this project was torture for her*!</p></td></tr>
+<tr><td width = "30%"><img src="AboutUsImages/erin.jpg" width = "100%" /></td><td><h2>Erin</h2><p>Erin Wuepper is a Computer Science major set to graduate in the fall. Her father is in the military, so Erin
+	has had a lot of experience with travel. She lived in Germany for three years when she was in middle school and she went to high
+	school in Naples, Italy. She doesn't speak any foreign languages however, because she is a lazy bum. She would like to move to
+	somewhere tropical for once, but right now she is just trying to get through university.</p></td></tr>
 <tr><td width = "30%"><img src="AboutUsImages/kelsie.jpg" width = "100%" /></td><td><h2>Kelsie</h2><p>Kelsie is currently a senior at the
 	University of Mary Washington, double majoring in Math and German, and minoring in Computer Science.  Kelsie loves to travel,
 	and spent a semester studying in Munich, Germany.  She was able to finish her German major while there, but more importantly,
@@ -41,7 +45,7 @@ it to be added to our database, and then I'm sure granted no unforeseen circumst
 	So, I love having trees around and that's what I marvel at when I travel.  For instance, my family went to Newport, Rhode Island
 	once a few summers ago to tour the mansions, which were gorgeous, but the best part for me was seeing all the trees, like the
 	Weeping European Beech.  They were amazing.  As a side note, or rather end note, I would advise you to disregard any previous
-	statements of hatred towards team members.  </p></td></tr>
+	statements of hatred towards team members.</p></td></tr>
 </table>
 
 <!--echo "</td><td><img src = \"" . $map . "\" alt = \"map\" width = \"100%\" align = \"right\"/></td></tr></table>";
