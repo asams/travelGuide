@@ -181,6 +181,17 @@ input.formbutton {
 	font-family:"times", verdana, arial, sans-serif, engravers mt bold;
 } 
 
+textarea
+{
+	background:#000066 repeat-x scroll bottom left;
+	border:1.5px solid #33CCFF;
+	padding:3px;
+	color:#33CCFF;
+	font-family:"times", verdana, arial, sans-serif, engravers mt bold;
+	font-size:1.0em;
+	width:404px;
+	font-weight:bold, italics;
+}
 
 a:hover {
 color : #6ca2be; 
