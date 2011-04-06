@@ -262,19 +262,28 @@
 	
 	
 	//display everything:
-	echo "<h1>" . $username . "</h1>";
-
+	echo "<center><h1>" . $firstName . " " . $lastName . "</h1>";
+	echo "<img src=" . $photo .  " align=center width=20% ></center><br/><br/>";
+	
 	echo "<H2>Info: </H2>";
 	
-	echo "<table cellpadding = 8 ><tr><td width = \"40%\">";
-	echo "<img src=" . $photo .  " align=left width=100% >";
-	echo "</td><td><b>Name: </b>" . $firstName . " " . $lastName . "<br/><br/>";
+//	echo "<table cellpadding = 8 ><tr><td width = \"20%\">";
+//	echo "<img src=" . $photo .  " align=left width=100% >";
+	//echo "</td><td><b>Name: </b>" . $firstName . " " . $lastName . "<br/><br/>";
+//	echo "</td><td><b>Email: </b>" . $email . "<br/><br/>";
+//	echo "<b>Origin: </b>" . $origin . "<br/><br/>";
+//	echo "<b>Home City: </b>" . $homeCity . "";
+	
 	echo "<b>Email: </b>" . $email . "<br/><br/>";
 	echo "<b>Origin: </b>" . $origin . "<br/><br/>";
 	echo "<b>Home City: </b>" . $homeCity . "";
 	
-	echo "</td></table><br/><br/><br/>";
+//	echo "</td></table><br/><br/><br/>";
 
+	echo "<form action=myComments.php method=\"POST\" >";
+	echo "<input type=\"hidden\" name=\"usersProfile\" value=" . $usersProfile . ">";
+	echo "<center><input type=\"submit\" value=\"See my comments!\" class=\"formbutton\"/>";
+	echo "</center></form>";
 
 	echo "<br/><H2>Travel History: </H2><b>Countries: </b>" . $travelHistory;
 	echo "<b>Cities: </b>" . $travelCities;
