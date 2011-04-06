@@ -73,10 +73,10 @@ if(is_file("sourceDB.php")) {
 
 <?php
 	//display all of the city's information
-	echo "<center><h1>Featured City: " . $cityName . ', ' . $countryName . "</h1></center>";
-	echo "<table cellpadding = 15 valign = top><tr><td width = \"50%\">";
-	echo ($cityPicture != 'N/A' ? "<img src = \"" . $cityPicture . "\" alt = \"flag\" width = \"100%\"  border=\"2\" />" : "");
-	echo "</td><td><p><H2>Info: </H2></p>";
+	echo "<center><h2>Featured City: " . $cityName . ', ' . $countryName . "</h2></center>";
+	echo "<table cellpadding = 15 valign = top><tr><td width = \"50%\" valign = top>";
+	echo ($cityPicture != 'N/A' ? "<br/><img src = \"" . $cityPicture . "\" alt = \"flag\" width = \"100%\"  border=\"2\" />" : "");
+	echo "</td><td valign = top><p><H2>Info: </H2></p>";
 	echo "Name: " . $cityName . "<br/><br/><br/>";
 	echo "Region: " . $region . "<br/><br/><br/>";
 	echo "Attractions Featured on TravelGuide: " . $attractionLinks . "<br/><br/>";

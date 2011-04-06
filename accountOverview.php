@@ -268,21 +268,21 @@
 	
 	echo "<table cellpadding = 8 ><tr><td width = \"40%\">";
 	echo "<img src=" . $photo .  " align=left width=100% >";
-	echo "</td><td>Name: " . $firstName . " " . $lastName . "<br/><br/>";
-	echo "Email: " . $email . "<br/><br/>";
-	echo "Origin: " . $origin . "<br/><br/>";
-	echo "Home City: " . $homeCity . "";
+	echo "</td><td><b>Name: </b>" . $firstName . " " . $lastName . "<br/><br/>";
+	echo "<b>Email: </b>" . $email . "<br/><br/>";
+	echo "<b>Origin: </b>" . $origin . "<br/><br/>";
+	echo "<b>Home City: </b>" . $homeCity . "";
 	
 	echo "</td></table><br/><br/><br/>";
 
 
-	echo "<br/><H2>Travel History: </H2>Countries:" . $travelHistory;
-	echo "Cities: " . $travelCities;
+	echo "<br/><H2>Travel History: </H2><b>Countries: </b>" . $travelHistory;
+	echo "<b>Cities: </b>" . $travelCities;
 
 	echo "<H2>Favorites: </H2>";
-	echo "Countries: " . $favCountries;
-	echo "Cities: " . $favCities;
-	echo "Attractions: " . $favAttractions;
+	echo "<b>Countries: </b>" . $favCountries;
+	echo "<b>Cities: </b>" . $favCities;
+	echo "<b>Attractions: </b>" . $favAttractions;
 
 
 	//if the user viewing the profile is the owner of the profile,
@@ -293,7 +293,7 @@
 			echo "<H2>Recommendations:</h2>"; 
 			echo "<H3>Attractions You've Rated: </H3>";
 			echo $ratedAttractions;
-			echo "<H3>Attractions We Recommend: </H3>";
+			echo "<H3>Attractions We Recommend Based on Your Ratings: </H3>";
 			echo $recommendedAttractions;
 		}
 	
