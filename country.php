@@ -43,12 +43,15 @@
 		$flag = $row['country_flag'];
 		$coat_of_arms = $row['country_coat_of_arms'];
 		$website = $row['country_website'];
+		$anthem = $row['country_anthem'];
+		
 		
 		$cityName = $row['city_name'];
 		$cityID = $row['city_id'];
 		
 		$featuredCityLinks = $featuredCityLinks . "<li><a href = \"city.php?id=" . $cityID . "\">" . $cityName . "</a></li>";
 	}
+
 	
 	$featuredCityLinks = $featuredCityLinks . "</ul>";
 	
@@ -94,7 +97,11 @@
 	echo "<tr><td><b>Area: </b></td><td>" . $area . " km<sup>2</sup>" . "</td></tr>";
 	echo "<tr><td><b>Official or National <br/>Language(s): </b></td><td>" . $language . "</td></tr>";
 	echo "<tr><td><b>Official or Majority <br/>Religion(s): </b></td><td>" . $religion . "</td></tr>";
-	echo "<tr><td><b>Website: </b></td><td>" . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "</td></tr></table>";
+	echo "<tr><td><b>Website: </b></td><td>" . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "</td></tr>";
+	
+	echo "<tr><td><b>Anthem: </b></td><td><embed src=" . $anthem .  " width=300 height=60 autostart=true></embed></td></tr>";
+	echo "<tr><td><b><small></b></small></td><td><small><b>Please Note:</b> The mp3 player only works in Chrome and Internet Explorer. Sorry Firefox users!</td></tr>";
+	echo "</table>";
 	echo "</td><td><img src = \"" . $map . "\" alt = \"map\" width = \"100%\" align = \"right\"/></td></tr></table>";
 	
 

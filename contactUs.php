@@ -7,7 +7,7 @@
 <html>
 
 
-<embed src="usa.mp3" width="145" height="60" autostart="true"></embed>
+<embed src="usa.mp3" width="150" height="60" autostart="true"></embed>
 
 
 <body>

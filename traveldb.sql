@@ -25,6 +25,8 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`countries` (
   `country_flag` varchar(50) NOT NULL default 'default_flag.jpg',
   `country_coat_of_arms` varchar(50) NOT NULL default 'default_coa.jpg',
   `country_website` varchar(100) NOT NULL default '',
+  `country_anthem` varchar(100) NOT NULL default '',
+
   INDEX( `country_name`)
 );
 
@@ -32,22 +34,22 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`countries` (
 -- Dumping data for table `countries`
 --
 
-INSERT INTO `traveldb`.`countries` (`country_name`, `country_capital`, `country_government`, `country_currency`,  `country_population`, `country_area`, `country_official_language`, `country_religion`, `country_map`, `country_flag`, `country_coat_of_arms`, `country_website`) VALUES
-('England', 'London', 'constitutional monarchy', 'pound sterling',  51446000, 130395, 'English', 'Christianity', 'englandImages/england_map.jpg', 'englandImages/england_flag.gif', 'englandImages/england_coa.bmp', 'http://enjoyengland.com/'),
-('Mexico', 'Mexico City', 'federal presidential constitutional republic', 'peso',  112322757, 1972550, 'Spanish', 'Roman Catholicism', 'mexicoImages/mexico_map.bmp', 'mexicoImages/mexico_flag.bmp', 'mexicoImages/mexico_coa.bmp', 'http://www.visitmexico.com/'),
-('Germany', 'Berlin', 'Federal Parliamentary Republic', 'euro', 81757600, 357021, 'German', 'Christianity', 'germanyImages/germany_map.jpg', 'germanyImages/germany_flag.jpg', 'germanyImages/germany_coa.jpg', 'http://www.germany-tourism.de/'),
-('People''s Republic of China',	'Beijing', 'single party-led state', 'Chinese yuan', 1338612968, 9640821, 'Putonghua', 'Buddhism, Taoism', 'chinaImages/china_map.png', 'chinaImages/china_flag.png', 'chinaImages/china_emblem.png', 'N/A'),
-('Spain', 'Madrid', 'Parliamentary democracy and Constitutional monarchy', 'euro', 46030109, 504030, 'Spanish', 'Catholicism', 'spainImages/spain_map.jpg', 'spainImages/spain_flag.jpg', 'spainImages/spain_coa.jpg', 'http://www.spain.info/'),
-('Turkey', 'Ankara', 'Parliamentary Republic', 'Turkish lira', 73722988, 783562, 'Turkish', 'Islam', 'turkeyImages/turkey_map.jpg', 'turkeyImages/turkey_flag.jpg', 'N/A', 'http://www.tourismturkey.org/'),
-('United States of America', 'Washington, D.C.', 'federal presidential constitutional republic', 'United States dollar', 308745538, 9826675, 'English',	'Christianity', 'usaImages/usa_map.png', 'usaImages/usa_flag.jpg', 'usaImages/usa_seal.png', 'N/A'),
-('France', 'Paris', 'Unitary Semi-Presidential Republic', 'Euro', 65821885, 674843, 'French', 'Secular', 'franceImages/france_map.gif', 'franceImages/france_flag.jpg', 'franceImages/france_coa.png', 'http://us.franceguide.com/'),
-('Italy', 'Rome', 'Unitary Parliamentary Republic', 'Euro', 60418711, 301338, 'Italian', 'Catholic', 'italyImages/italy_map.jpg', 'italyImages/italy_flag.gif', 'italyImages/italy_coa.jpg', 'http://www.italia.it/en/home.html'),
-('Malaysia', 'Kuala Lumpur', 'Federal Constitutional Elective Monarchy and Federal Parliamentary Democracy', 'Ringgit', 27565821, 329847, 'Bahasa Malaysia', 'Islam', 'malaysiaImages/malaysia_map.jpg', 'malaysiaImages/malaysia_flag.png', 'malaysiaImages/malaysia_coa.jpg', 'http://www.tourism.gov.my/corporate/'),
-('Australia', 'Canberra', 'Federal parliamentary democracy and constitutional monarchy', 'Australian dollar', 22572995, 7617930, 'none', 'Christianity', 'australiaImages/australia_map.jpg', 'australiaImages/australia_flag.png', 'australiaImages/australia_coa.png', 'http://www.australia.com'),
-('Japan', 'Tokyo', 'Unitary parliamentary democracy and constitutional monarchy', 'Yen', 127360000, 377944, 'Japanese', 'Buddhism, Shintoism', 'japanImages/japan_map.gif', 'japanImages/japan_flag.gif', 'japanImages/japan_coa.jpg', 'http://www.jnto.go.jp/eng/'),
-('Scotland', 'Edinburgh', 'Devolved Government within a Constitutional monarchy', 'Pound sterling', 5194000, 78772, 'English', 'Christianity', 'scotlandImages/scotland_map.jpg', 'scotlandImages/scotland_flag.jpg', 'scotlandImages/scotland_coa.jpg', 'http://www.visitscotland.com/'),
-('New Zealand', 'Wellington', 'Parliamentary democracy and Constitutional monarchy', 'New Zealand dollar (NZD)', 4393500, 268021, 'English', 'Christianity', 'newZealandImages/new_zealand_map.jpg', 'newZealandImages/new_zealand_flag.png', 'newZealandImages/new_zealand_coat_of_arms.png',	'http://newzealand.govt.nz/'),
-('Austria', 'Vienna', 'Federal Parliamentary Republic', 'Euro', 8356707, 83855, 'German', 'Roman Catholic', 'austriaImages/austria_map.jpg', 'austriaImages/austria_flag.jpg', 'austriaImages/austria_coa.jpg', 'http://www.austria.info/us')
+INSERT INTO `traveldb`.`countries` (`country_name`, `country_capital`, `country_government`, `country_currency`,  `country_population`, `country_area`, `country_official_language`, `country_religion`, `country_map`, `country_flag`, `country_coat_of_arms`, `country_website`, `country_anthem`) VALUES
+('England', 'London', 'constitutional monarchy', 'pound sterling',  51446000, 130395, 'English', 'Christianity', 'englandImages/england_map.jpg', 'englandImages/england_flag.gif', 'englandImages/england_coa.bmp', 'http://enjoyengland.com/', 'anthems/england.mp3'),
+('Mexico', 'Mexico City', 'federal presidential constitutional republic', 'peso',  112322757, 1972550, 'Spanish', 'Roman Catholicism', 'mexicoImages/mexico_map.bmp', 'mexicoImages/mexico_flag.bmp', 'mexicoImages/mexico_coa.bmp', 'http://www.visitmexico.com/', 'anthems/mexico.mp3'),
+('Germany', 'Berlin', 'Federal Parliamentary Republic', 'euro', 81757600, 357021, 'German', 'Christianity', 'germanyImages/germany_map.jpg', 'germanyImages/germany_flag.jpg', 'germanyImages/germany_coa.jpg', 'http://www.germany-tourism.de/', 'anthems/germany.mp3'),
+('People''s Republic of China',	'Beijing', 'single party-led state', 'Chinese yuan', 1338612968, 9640821, 'Putonghua', 'Buddhism, Taoism', 'chinaImages/china_map.png', 'chinaImages/china_flag.png', 'chinaImages/china_emblem.png', 'N/A', 'anthems/china.mp3'),
+('Spain', 'Madrid', 'Parliamentary democracy and Constitutional monarchy', 'euro', 46030109, 504030, 'Spanish', 'Catholicism', 'spainImages/spain_map.jpg', 'spainImages/spain_flag.jpg', 'spainImages/spain_coa.jpg', 'http://www.spain.info/', 'anthems/spain.mp3'),
+('Turkey', 'Ankara', 'Parliamentary Republic', 'Turkish lira', 73722988, 783562, 'Turkish', 'Islam', 'turkeyImages/turkey_map.jpg', 'turkeyImages/turkey_flag.jpg', 'N/A', 'http://www.tourismturkey.org/', 'anthems/turkey.mp3'),
+('United States of America', 'Washington, D.C.', 'federal presidential constitutional republic', 'United States dollar', 308745538, 9826675, 'English',	'Christianity', 'usaImages/usa_map.png', 'usaImages/usa_flag.jpg', 'usaImages/usa_seal.png', 'N/A', 'anthems/usa.mp3'),
+('France', 'Paris', 'Unitary Semi-Presidential Republic', 'Euro', 65821885, 674843, 'French', 'Secular', 'franceImages/france_map.gif', 'franceImages/france_flag.jpg', 'franceImages/france_coa.png', 'http://us.franceguide.com/', 'anthems/france.mp3'),
+('Italy', 'Rome', 'Unitary Parliamentary Republic', 'Euro', 60418711, 301338, 'Italian', 'Catholic', 'italyImages/italy_map.jpg', 'italyImages/italy_flag.gif', 'italyImages/italy_coa.jpg', 'http://www.italia.it/en/home.html', 'anthems/italy.mp3'),
+('Malaysia', 'Kuala Lumpur', 'Federal Constitutional Elective Monarchy and Federal Parliamentary Democracy', 'Ringgit', 27565821, 329847, 'Bahasa Malaysia', 'Islam', 'malaysiaImages/malaysia_map.jpg', 'malaysiaImages/malaysia_flag.png', 'malaysiaImages/malaysia_coa.jpg', 'http://www.tourism.gov.my/corporate/', 'anthems/malaysia.mp3'),
+('Australia', 'Canberra', 'Federal parliamentary democracy and constitutional monarchy', 'Australian dollar', 22572995, 7617930, 'none', 'Christianity', 'australiaImages/australia_map.jpg', 'australiaImages/australia_flag.png', 'australiaImages/australia_coa.png', 'http://www.australia.com', 'anthems/australia.mp3'),
+('Japan', 'Tokyo', 'Unitary parliamentary democracy and constitutional monarchy', 'Yen', 127360000, 377944, 'Japanese', 'Buddhism, Shintoism', 'japanImages/japan_map.gif', 'japanImages/japan_flag.gif', 'japanImages/japan_coa.jpg', 'http://www.jnto.go.jp/eng/', 'anthems/japan.mp3'),
+('Scotland', 'Edinburgh', 'Devolved Government within a Constitutional monarchy', 'Pound sterling', 5194000, 78772, 'English', 'Christianity', 'scotlandImages/scotland_map.jpg', 'scotlandImages/scotland_flag.jpg', 'scotlandImages/scotland_coa.jpg', 'http://www.visitscotland.com/', 'anthems/scotland.mp3'),
+('New Zealand', 'Wellington', 'Parliamentary democracy and Constitutional monarchy', 'New Zealand dollar (NZD)', 4393500, 268021, 'English', 'Christianity', 'newZealandImages/new_zealand_map.jpg', 'newZealandImages/new_zealand_flag.png', 'newZealandImages/new_zealand_coat_of_arms.png',	'http://newzealand.govt.nz/', 'anthems/newZealand.mp3'),
+('Austria', 'Vienna', 'Federal Parliamentary Republic', 'Euro', 8356707, 83855, 'German', 'Roman Catholic', 'austriaImages/austria_map.jpg', 'austriaImages/austria_flag.jpg', 'austriaImages/austria_coa.jpg', 'http://www.austria.info/us', 'anthems/austria.mp3')
 ;
 
 

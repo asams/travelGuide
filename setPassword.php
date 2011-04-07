@@ -1,8 +1,13 @@
 <?php
-   include('header_side.php');
-   include('db_connect.php');
+   //$userID = $_GET['id'];
    
-   $userID = $_GET['id'];
+   session_start();
+	$user_id = $_SESSION['user_id']; 
+	
+	if (!empty($user_id)) {
+	
+		include('header_side.php');
+		include('db_connect.php');
 ?>
 
 
@@ -54,6 +59,10 @@
 
 <?php
    include('footer.php');
+   
+   } else {
+		header('Location:index.php');
+   }
 ?>
 
 </body>
