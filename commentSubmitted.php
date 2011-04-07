@@ -18,7 +18,7 @@
 
 	
 	//get the submitted values				
-	$name = mysqli_real_escape_string($db, trim($nameSubmitted));
+	$name = mysqli_real_escape_string($db, strip_tags(trim($nameSubmitted)));
 	$subject = mysqli_real_escape_string($db, strip_tags(trim($subjectSubmitted)));
 	$comment = mysqli_real_escape_string($db, strip_tags(trim($commentSubmitted)));
 	
