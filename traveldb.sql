@@ -429,7 +429,8 @@ INSERT INTO `traveldb`.`comments` (`comment_name`, `comment_subject`, `comment_b
  ('Kelsie', 'We need a better name!', 'Hey guys, so I was thinking...we need a new  name for our site!  I mean, TravelGuide is cool and all...but not very exciting.  So, what if we did something with out initials?  Or if we want to do something in a foreign language, we could use Los Geht''s, which means Let''s Go in German, so we could use that and other similar phrases from other languages.  Or, we could just wait and see if anybody else has any ideas...', '2011-02-22 10:45:00'),
  ('Amy', 'Name Suggestion', 'Hey there!! I agree with Kelsie. The name ''TravelGuide'' is pretty boring.  We could say ''Travel with K.A.R.E.'' or something like ''on the go''.  hmmm....I''m out of ideas at the moment.  I''ll try to think of more :) ', '2011-02-22 12:35:08'),
  ('Rebecca', 'Where''s a muse when you need one?', 'Okay, let''s see if a muse hits me on the head: ZABLE''S Home Travel Browser', '2011-02-22 23:06:06 '),
- ('Erin', 'Name stuff', 'I don''t really see what''s wrong with TravelGuide, but I guess I am kind of a boring person. How about something like "Travellog 350" for our course name or "CompuTour" :P', '2011-02-23 21:22:04')
+ ('Erin', 'Name stuff', 'I don''t really see what''s wrong with TravelGuide, but I guess I am kind of a boring person. How about something like "Travellog 350" for our course name or "CompuTour" :P', '2011-02-23 21:22:04'),
+ ('Kelsie', 'TravelGuide it is!', 'So...I guess we''re sticking with TravelGuide!', '2011-06-22 23:45:36')
 ;
 
 
@@ -478,13 +479,13 @@ CREATE TABLE IF NOT EXISTS userCountries (
 ); 
 
 INSERT INTO `traveldb`.`userCountries` (`user_id`, `country_id`) VALUES
- 
+
+(1, 1), 
 (1, 3),
 (1, 5),
-(1, 1),
 (1, 7),
-(1, 8),
-(1, 10),
+(1, 9),
+(1, 15),
 (2, 7)
 ;
 -- --------------------------------------------------------
@@ -505,8 +506,14 @@ CREATE TABLE IF NOT EXISTS userCities (
 
 INSERT INTO `traveldb`.`userCities` (`user_id`, `city_id`) VALUES
  
+(1, 1),
 (1, 5),
-(1, 6)
+(1, 6),
+(1, 9),
+(1, 13),
+(1, 14),
+(1, 29),
+(1, 30)
 ;
 -- --------------------------------------------------------
 
@@ -548,8 +555,12 @@ CREATE TABLE IF NOT EXISTS favoriteCities (
 
 INSERT INTO `traveldb`.`favoriteCities` (`user_id`, `city_id`) VALUES
  
+(1, 1),
 (1, 5),
-(1, 6)
+(1, 6),
+(1, 13),
+(1, 14),
+(1, 29)
 ;
 -- --------------------------------------------------------
 
@@ -636,7 +647,7 @@ INSERT INTO `traveldb`.`city_comments` (`city_id`, `user_id`, `comment_subject`,
 
 
 --
--- Table structure for table `country_comments`
+-- Table structure for table `attraction_comments`
 --
 
 CREATE TABLE IF NOT EXISTS attraction_comments (
@@ -755,7 +766,8 @@ CREATE TABLE IF NOT EXISTS `traveldb`.`profilePictures` (
 INSERT INTO `traveldb`.`profilePictures` (`user_id`, `photo`) VALUES
 
 (1, 'profilePictures/defaultProfilePicture.jpg'),
-(2, 'profilePictures/defaultProfilePicture.jpg')
+(2, 'profilePictures/defaultProfilePicture.jpg'),
+(3, 'profilePictures/defaultProfilePicture.jpg')
 
 ;
 -- --------------------------------------------------------
