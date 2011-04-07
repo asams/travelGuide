@@ -10,6 +10,10 @@ $oldPwd = $_POST['oldPassword'];
 $newPwd = $_POST['newPassword'];
 $newPwd2 = $_POST['newPasswordAgain'];
 
+$oldPwd = mysqli_real_escape_string($db, strip_tags(trim($oldPwd)));
+$newPwd = mysqli_real_escape_string($db, strip_tags(trim($newPwd)));
+$newPwd2 = mysqli_real_escape_string($db, strip_tags(trim($newPwd2)));
+
 if (!empty($oldPwd) && !empty($newPwd) && !empty($newPwd2)) {
 	
 	$query = "SELECT password FROM users WHERE user_id = '$userID' and password=SHA('$oldPwd')";

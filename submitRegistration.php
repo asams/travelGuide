@@ -65,6 +65,9 @@
       
       
       
+	$query = "START TRANSACTION";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database");  
+	  
      //if there are no errors, add user to db
    $query = "INSERT INTO users (first_name, last_name, username, password, email, origin, homeCity) VALUES ('$userFirstName', '$userLastName', '$userUserName', SHA('$userPassword'), '$userEmail', '$userOrigin', '$userHomeCity')";
    
@@ -96,6 +99,9 @@
 	  $result = mysqli_query($db, $query) or die ("Error Querying Database");
       }
    } 
+   
+   $query = "COMMIT";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database");
   
 		//set session to user's user_id to log them in
   		$_SESSION['user_id'] = $id;

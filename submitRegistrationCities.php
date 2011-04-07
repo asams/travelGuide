@@ -15,6 +15,10 @@
 
 	//add user's selected cities to the db
    if (!empty($_POST['visited'])){ 
+   
+   $query = "START TRANSACTION";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database");
+
 
       $listvals=$_POST['visited'];
       $n=count($listvals);
@@ -26,7 +30,11 @@
 
           echo $query; 
 	  $result = mysqli_query($db, $query) or die ("Error Querying Database");
+	  
       }
+	  
+	  $query = "COMMIT";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database");
    } 
   
 //  		$_SESSION['user_id'] = $id;
