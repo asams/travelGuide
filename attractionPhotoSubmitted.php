@@ -1,6 +1,6 @@
 <?php
-	header('Location: city.php?id=' . $_POST['city_id']);
-	//echo $_POST['city_id'];
+	header('Location: attraction.php?id=' . $_POST['attraction_id']);
+	//echo $_POST['attraction_id'];
 	include('header_side.php');
 	include('db_connect.php');
 	//session_start();
@@ -14,7 +14,7 @@
 	$subjectSubmitted = mysqli_real_escape_string($db, strip_tags(trim($_POST['subject'])));
 	$photoSubmitted = mysqli_real_escape_string($db, trim($_POST['photo']));
 	$date = getdate();
-	$photoCity = $_POST['city_id'];
+	$photoAttraction = $_POST['attraction_id'];
 	$timestamp = $date[year] . "-" . $date[mon] . "-" . $date[mday]
 			. " " . $date[hours] . ":" . $date[minutes] . ":" . $date[seconds];
 
@@ -23,11 +23,12 @@
 	$subject = $subjectSubmitted;
 	$photo = $photoSubmitted;
 
+	
 	//if (($userID != "") AND ($subject != "") AND ($photo != "")){
 	if((!empty($subjectSubmitted)) AND (!empty($userID)) AND (!empty($_FILES['photo']['name']))){
-	$query = "INSERT INTO city_photos (`city_id`, `user_id`, `subject`, `photo`, `photo_date_submitted`)
-	VALUES ('$photoCity', '$userID', '$subject', '$target_path', '$timestamp')";
-
+	$query = "INSERT INTO attraction_photos (`attraction_id`, `user_id`, `subject`, `photo`, `photo_date_submitted`)
+	VALUES ('$photoAttraction', '$userID', '$subject', '$target_path', '$timestamp')";
+	echo $query;
 	$result = mysqli_query($db, $query) or die ("Error Querying Database");
 	mysqli_close($db);
 	}
@@ -46,9 +47,9 @@
 
 	} else{
 	echo "There was an error uploading the file, please try again!";
-	echo "Please revisit" ?> <a href="city.php?id=<?php echo $cityID ?>">this page</a>. <br>
+	echo "Please revisit" ?> <a href="attraction.php?id=<?php echo $attractionID ?>">this page</a>. <br>
 <?php
-	//echo "Want to see what other people have uploaded? View all the photos we've received" ?><a href = "cityPhoto.php">here</a>.
+	//echo "Want to see what other people have uploaded? View all the photos we've received" ?><a href = "attractionPhoto.php">here</a>.
 <?php
 	}
 ?>
