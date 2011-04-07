@@ -723,6 +723,12 @@ CREATE TABLE IF NOT EXISTS attraction_photos (
   FOREIGN KEY(user_id) REFERENCES users(user_id)
 ); 
 
+INSERT INTO `traveldb`.`attraction_photos` (`attraction_id`, `user_id`, `subject`, `photo`, `photo_date_submitted`) VALUES
+
+(137, 3, 'Silly Lion', 'uploads/auckland-zoo.jpg', '2011-04-07 01:13:13')
+;
+
+
 -- --------------------------------------------------------
 
 
