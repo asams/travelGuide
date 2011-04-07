@@ -90,7 +90,7 @@
 		
 		//if the user has already favorited the attraction, then display a message, otherwise, display a link for the user to click
 		if($row = mysqli_fetch_array($result)){
-			echo "You've already added " . $name . " to your favorites!";
+			echo "<b>You've already added " . $name . " to your favorites!</b><br/><br/>";
 		}
 		
 		else{

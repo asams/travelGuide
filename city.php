@@ -99,7 +99,7 @@
 		$result = mysqli_query($db, $query) or die ("Error Querying Database - 3");
 		
 		if($row = mysqli_fetch_array($result)){
-			echo "You've already added " . $cityName . " to your favorites!";
+			echo "<b>You've already added " . $cityName . " to your favorites!</b><br/><br/>";
 		}
 		
 		else{
