@@ -16,7 +16,7 @@
 	//get photo ID from URL
 	$photoID = $_GET['id'];
 
-	$query = "SELECT * FROM city_photos WHERE photo_id = '$photoID'"; 
+	$query = "SELECT city_photos.*, users.first_name, users.last_name FROM users NATURAL JOIN city_photos WHERE photo_id = '$photoID'"; 
 	$result = mysqli_query($db, $query)or die("Error Querying Database");
 
 	$count = 0;
@@ -30,6 +30,8 @@
 		$date_submitted = $row['photo_date_submitted'];
 		$photoID = $row['photo_id'];
 		$userID = $row['user_id'];
+		$first_name = $row['first_name'];
+		$last_name = $row['last_name'];
 		$cityID = $row['city_id'];
 						
 		//if($count % 5 == 1){
@@ -42,12 +44,12 @@
 	//	echo "</tr>";
 	//}
 }
-	//get username that submitted the comment
-	$query = "SELECT * FROM users NATURAL JOIN city_photos"; 
-	$result = mysqli_query($db, $query)or die("Error Querying Database");
-	if($row = mysqli_fetch_array($result)) {
-		$username = $row['username'];
-	}
+	//get user name that submitted the photo
+	//$query = "SELECT * FROM users NATURAL JOIN city_photos"; 
+	//$result = mysqli_query($db, $query)or die("Error Querying Database");
+	//if($row = mysqli_fetch_array($result)) {
+//		$username = $row['username'];
+	//}
 	
 //used for the next/back buttons
 	$nextLink = "<td align=\"right\" width=\"10%\" >  </td>";
@@ -89,7 +91,7 @@
 	echo "<table ><tr>". $backLink . "<td align=\"center\" width=\"80%\" ><H1>" . $subject . "</H1></td>" . $nextLink . "</tr>";
 	//What to echo in each cell
 	echo "</table><table><tr><td width = \"20%\" align = center><img src = \"" . $photo . "\" alt = \"flag\" width = \"500\" />  </tr></table><br><br> ";
-	echo "<H2>Shared by: $username </H2>";
+	echo "<H2>Shared by: <a href = \"accountOverview.php?id=" . $userID . "\">" . $first_name . " " . $last_name . "</a></H2>";
 	
 //get the city photo comments
 	//$query = "SELECT cip.*, cp.photo_id, u.user_id, u.first_name, u.last_name FROM city_photos cp NATURAL JOIN city_photo_comments cip NATURAL JOIN users u WHERE cp.photo_id = $photoID ORDER BY cip.comment_date_submitted DESC";

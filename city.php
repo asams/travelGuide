@@ -206,7 +206,6 @@ while($row = mysqli_fetch_array($result)) {
 }
 echo "</table></center>";		
 
-
 //otherwise, direct them to log in
 } else {
 ?>

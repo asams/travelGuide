@@ -34,6 +34,8 @@ if(is_file("sourceDB.php")) {
 <?php
 	//get the random city name's information
 	$query = "SELECT * FROM cities WHERE city_name = '$featured'";
+	//$query = "SELECT * FROM cities WHERE city_name = (SELECT city_name FROM cities ORDER BY RAND() LIMIT 1)";
+	//echo $query . "<br/>";
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 1");
 	
 	while($row = mysqli_fetch_array($result)){
@@ -50,6 +52,7 @@ if(is_file("sourceDB.php")) {
 	}
 	//get the random city name's country
 	$query = "SELECT country_name FROM countries WHERE country_id=$countryId";
+	//echo $query;
 	$result = mysqli_query($db, $query) or die ("Error Querying Database - 2");
 	$row = mysqli_fetch_array($result);
 	$countryName = $row['country_name'];
@@ -77,7 +80,7 @@ if(is_file("sourceDB.php")) {
 	echo "<table cellpadding = 15 valign = top><tr><td width = \"50%\" valign = top>";
 	echo ($cityPicture != 'N/A' ? "<br/><img src = \"" . $cityPicture . "\" alt = \"flag\" width = \"100%\"  border=\"2\" />" : "");
 	echo "</td><td valign = top><p><H2>Info: </H2></p>";
-	echo "Name: " . $cityName . "<br/><br/><br/>";
+	echo "Name: <a href = \"city.php?id=" . $cityId . "\">" . $cityName . "</a><br/><br/><br/>";
 	echo "Region: " . $region . "<br/><br/><br/>";
 	echo "Attractions Featured on TravelGuide: " . $attractionLinks . "<br/><br/>";
 	echo "Population: " . $population . " people <br/><br/><br/>";

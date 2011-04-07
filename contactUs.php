@@ -5,14 +5,19 @@
 ?>
 
 <html>
+
+
+<embed src="usa.mp3" width="150" height="60" autostart="true"></embed>
+
+
 <body>
 
 <div class="content">
 <h1>Submit Suggestions: </h1>
 
-<h2>We'd love to know what you think!<br/><br/>
+<h2>We'd love to know what you think!</h2><br/>
 
-Do you have a suggestion for a name for the site?  
+<big>Do you have a suggestion for a name for the site?  
 A country, city, or attraction that you think should be added to our collection?  A comment just for the sake of commenting? <br/><br/>
 
 Just let us know!
@@ -22,9 +27,9 @@ Just let us know!
 <center>
 <table>
 
-<tr><th>Name:</th><td><input type="text" id="name" name="name" size = 75 /></td></tr>
-<tr><th>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
-<tr><th>Comment:</th><td><textarea name="comment" id="comment" rows = "4" cols = "72"></textarea></td></tr>
+<tr><th><big>Name:</th><td><input type="text" id="name" name="name" size =75 /></td></tr>
+<tr><th><big>Subject:</th><td><input type="text" id="subject" name="subject" size =75px /></td></tr>
+<tr><th><big>Comment:</th><td><textarea name="comment" id="comment" rows = "4" ></textarea></td></tr>
 
 <tr><td colspan = 2><center><input type="submit" class="formbutton" value="Submit" /></center></td></tr>
 
@@ -34,9 +39,10 @@ Just let us know!
 
 <br/><br/>Want to see what other people have said?  View the comments we've received <a href = "comments.php">here</a>.
 
-</h2>
+</big>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
+
 
 <?php
    include('footer.php');

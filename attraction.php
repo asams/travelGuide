@@ -121,10 +121,10 @@
 
 	//google maps
         $URLaddress = urlencode($address);
-	echo '<br><br><br><center><iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=' . $URLaddress . '&amp;aq=&amp;sspn=0.002535,0.010568&amp;ie=UTF8&amp;hq=&amp;hnear=' . $URLaddress . '&amp;spn=0.001267,0.005284&amp;t=h&amp;z=14&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=' . $URLaddress . ';aq=&amp;sspn=0.002535,0.010568&amp;ie=UTF8&amp;hq=&amp;hnear=' . $URLaddress . '&amp;spn=0.001267,0.005284&amp;t=h&amp;z=14" style="color:#0000FF;text-align:left">View Larger Map</a></small>' ;
-	echo '</center>';
+	//echo '<br><br><br><center><iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=' . $URLaddress . '&amp;aq=&amp;sspn=0.002535,0.010568&amp;ie=UTF8&amp;hq=&amp;hnear=' . $URLaddress . '&amp;spn=0.001267,0.005284&amp;t=h&amp;z=14&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=' . $URLaddress . ';aq=&amp;sspn=0.002535,0.010568&amp;ie=UTF8&amp;hq=&amp;hnear=' . $URLaddress . '&amp;spn=0.001267,0.005284&amp;t=h&amp;z=14" style="color:#0000FF;text-align:left">View Larger Map</a></small>' ;
+	//echo '</center>';
 
-	echo '<center><table cellspacing="0" cellpadding="0" border="0"><tr><td><iframe src="http://www.map-generator.net/extmap.php?name=Spot&amp;address=' . $URLaddress . '&amp;width=500&amp;height=400&amp;maptype=map&amp;zoom=14&amp;hl=en&amp;t=1302040588" width="500" height="400" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe></td></tr><tr><td align="right"><a style="font:8px Arial;text-decoration:none;cursor:default;color:#5C5C5C;" href="http://www.map-generator.net">map-generator.net</a></td></tr></table></center>';
+	echo '<center><table cellspacing="0" cellpadding="0" border="0"><tr><td><iframe src="http://www.map-generator.net/extmap.php?name=Attraction&amp;address=' . $URLaddress . '&amp;width=500&amp;height=400&amp;maptype=hybrid&amp;zoom=14&amp;hl=en&amp;t=1302040588" width="500" height="400" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe></td></tr><tr><td align="right"><a style="font:8px Arial;text-decoration:none;cursor:default;color:#5C5C5C;" href="http://www.map-generator.net">map-generator.net</a></td></tr></table></center>';
 
 	
 
