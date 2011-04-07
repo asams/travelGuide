@@ -284,6 +284,12 @@
 	echo "<input type=\"hidden\" name=\"usersProfile\" value=" . $usersProfile . ">";
 	echo "<input type=\"hidden\" name=\"sortBy\" value=\"placeType\" />";
 	echo "<center><input type=\"submit\" value=\"See my comments!\" class=\"formbutton\"/>";
+	echo "</center></form><br/><br/>";
+	
+	echo "<form action=myPhotos.php method=\"POST\" >";
+	echo "<input type=\"hidden\" name=\"usersProfile\" value=" . $usersProfile . ">";
+	echo "<input type=\"hidden\" name=\"sortBy\" value=\"placeType\" />";
+	echo "<center><input type=\"submit\" value=\"See my photos!\" class=\"formbutton\"/>";
 	echo "</center></form>";
 
 	echo "<br/><H2>Travel History: </H2><b>Countries: </b>" . $travelHistory;
