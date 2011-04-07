@@ -69,6 +69,11 @@
 </form>
 <br/><br/>
 
+<form action=setPassword.php method="POST" >
+   <center><input type="submit" value="Change Password!" class="formbutton"/></center>
+</form>
+<br/><br/>
+
 <form action=editAccountSubmit.php method="POST" >
 <tr><td>First Name:</td><td><input type="text" name="firstName" value="<?php echo $firstName;?>"/>*</td></tr>
 <tr><td>Last Name:</td><td><input type="text" name="lastName" value="<?php echo $lastName;?>"/>*</td></tr>
