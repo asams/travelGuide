@@ -6,10 +6,6 @@
 
 <html>
 
-
-<embed src="usa.mp3" width="150" height="60" autostart="true"></embed>
-
-
 <body>
 
 <div class="content">

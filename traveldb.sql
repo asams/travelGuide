@@ -669,6 +669,13 @@ INSERT INTO `traveldb`.`attraction_comments` (`attraction_id`, `user_id`, `comme
 (6, 1, 'Jane Austen', 'Love the novels!  I want to go there sometime.', '2011-03-21 16:28:13')
 ;
 
+-- --------------------------------------------------------
+
+
+--
+-- Table structure for table `city_photos`
+--
+
 CREATE TABLE IF NOT EXISTS city_photos (
   `photo_id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `city_id` int(6) NOT NULL default '0',
@@ -696,6 +703,32 @@ INSERT INTO `traveldb`.`city_photos` (`city_id`, `user_id`, `subject`, `photo`, 
 (21, 3, 'Sydney Harbor',  'uploads/Australia_Sydney_Harbor.jpg', '2011-04-04 23:40:18'),
 (15, 3, 'Fireworks Over the Eiffel Tower',  'uploads/eiffel-tower.jpg', '2011-04-05 14:14:14')
 ;
+
+-- --------------------------------------------------------
+
+
+--
+-- Table structure for table `attraction_photos`
+--
+CREATE TABLE IF NOT EXISTS attraction_photos (
+  `photo_id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `attraction_id` int(6) NOT NULL default '0',
+  `user_id` int(6) NOT NULL default '0',
+  `subject` varchar(50) NOT NULL default '',
+  `photo` blob NOT NULL default '',
+  `photo_date_submitted` timestamp NOT NULL default '2011-01-01 00:00:00',
+  CONSTRAINT attraction_photos_attraction_id_fk
+  FOREIGN KEY(attraction_id) REFERENCES attractions(attraction_id),
+  CONSTRAINT attraction_photos_user_id_fk
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+); 
+
+INSERT INTO `traveldb`.`attraction_photos` (`attraction_id`, `user_id`, `subject`, `photo`, `photo_date_submitted`) VALUES
+
+(137, 3, 'Silly Lion', 'uploads/auckland-zoo.jpg', '2011-04-07 01:13:13')
+;
+
+
 -- --------------------------------------------------------
 
 
@@ -720,6 +753,26 @@ INSERT INTO `traveldb`.`city_photo_comments` (`photo_id`, `user_id`, `comment_su
 
 (2, 2, 'That''s a lot of stairs', 'I would love to climb all of these!', '2011-04-04 16:55:01')
 ;
+
+-- --------------------------------------------------------
+
+
+--
+-- Table structure for table `attraction_photo_comments`
+--
+
+CREATE TABLE IF NOT EXISTS attraction_photo_comments (
+  `comment_id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `photo_id` int(6) NOT NULL default '0',
+  `user_id` int(6) NOT NULL default '0',
+  `comment_subject` varchar(50) NOT NULL default '',
+  `comment_body` blob NOT NULL default '',
+  `comment_date_submitted` timestamp NOT NULL default '2011-01-01 00:00:00',
+  CONSTRAINT attraction_photo_comments_photo_id_fk
+  FOREIGN KEY(photo_id) REFERENCES attraction_photos(photo_id),
+  CONSTRAINT attraction_photo_comments_user_id_fk
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+); 
 
 --
 -- Table structure for table `attractionRatings`

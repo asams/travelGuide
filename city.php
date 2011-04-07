@@ -197,32 +197,14 @@ while($row = mysqli_fetch_array($result)) {
 		echo "<tr valign = top>";
 	}
 	//What to echo in each cell
-	echo "<td width = \"20%\" align = center><a href=photo.php?id=" . $photoID . ">"  . "<img src = \"" . $photo . "\" alt = \"flag\" width = \"200\" />   ";
-	echo "<br/><a href=photo.php?id=" . $photoID . ">" . $subject . "</a><br/><br/></td>";
+	echo "<td width = \"20%\" align = center><a href=cityPhoto.php?id=" . $photoID . ">"  . "<img src = \"" . $photo . "\" alt = \"flag\" width = \"200\" />   ";
+	echo "<br/><a href=cityPhoto.php?id=" . $photoID . ">" . $subject . "</a><br/><br/></td>";
 	if ($count % 5 == 0){
 		echo "</tr>";
 	}
 
 }
 echo "</table></center>";		
-
-//		$count = 0;
-		//echo "<center><table width = \"90%\" cellpadding = 15>";
-	
-//		while($row = mysqli_fetch_array($result)) {
-
-						
-//			if($count % 5 == 1){
-				//echo "<tr valign = top>";
-			//}
-			//What to echo in each cell
-			//echo "<td width = \"20%\" align = center><a href=country.php?id=" . $countryID . "><img src = \"" . $countryFlag . "\" alt = \"flag\" width = \"100%\" /></a>   ";
-			//echo "<br/><a href=country.php?id=" . $countryID . ">" . $countryName . "</a><br/><br/></td>";
-			//if ($count % 5 == 0){
-//				echo "</tr>";
-			//}
-
-//		}
 
 //otherwise, direct them to log in
 } else {
