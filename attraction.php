@@ -163,20 +163,74 @@
 	if( isset($_COOKIE['user_id'])){
 ?>
 
-		<H2>Share your thoughts about <?php echo $name ?>:</H2>
-		<form action="attractionCommentSubmitted.php" method="post" class="form">
-		<center>
-		<table>
+<H2>Share your thoughts about <?php echo $name ?>:</H2>
+<form action="attractionCommentSubmitted.php" method="post" class="form">
+<center>
+<table>
 
-		<tr><th>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
-		<tr><th>Comment:</th><td><textarea name="comment" id="comment" rows = "4" cols = "60"></textarea>
-		<input type="hidden" name="attraction_id" value=<?php echo $attractionID ?>></td></tr>
+<tr><th>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
+<tr><th>Comment:</th><td><textarea name="comment" id="comment" rows = "4" cols = "60"></textarea>
+<input type="hidden" name="attraction_id" value=<?php echo $attractionID ?>></td></tr>
 	
-		<tr><td colspan = 2><center><input type="submit" class="formbutton" value="Submit" /></center></td></tr>
+<tr><td colspan = 2><center><input type="submit" class="formbutton" value="Submit" /></center></td></tr>
+</table>
 
-		</table>
+</center>
+</form>
+</br></br>
+<H2>Share your pictures of <?php echo $name ?>: </H2>
+<center>
+<table>
+<form enctype="multipart/form-data" action="attractionPhotoSubmitted.php" method="POST">
+<tr><th align=left>Subject:</th><td><input type="text" id="subject" name="subject" size = 75 /></td></tr>
+<input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
+<input type="hidden" name="attraction_id" value=<?php echo $attractionID ?> >
+<tr><th>Choose a file to upload: </th><td><input name="photo" type="file" /><br/></td></tr>
+<tr><th align=center colspan = 2><input type="submit" value="Upload File" /></th></tr>
+</form> 
+</table>
+
+</center>
+<br/><br/></br></br>
+
+<!--<H2>Photographs we've received from our viewers:</H2> -->
 
 <?php
+//table of uploaded photos
+
+$query = "SELECT ap.* FROM attraction_photos ap NATURAL JOIN attractions a WHERE ap.attraction_id = '$attractionID' ORDER BY ap.photo_date_submitted"; 
+$result = mysqli_query($db, $query)or die("Error Querying Database");
+
+$count = 0;
+
+while($row = mysqli_fetch_array($result)) {
+	if($count == 0){
+	?>
+	<H2>Photographs we've received from our viewers:</H2>
+	<?php
+	echo "<center><table width = \"90%\" cellpadding = 15>";
+	}
+
+	$count ++;
+	$subject = $row['subject'];
+	$photo = $row['photo'];
+	$date_submitted = $row['photo_date_submitted'];
+	$photoID = $row['photo_id'];
+						
+	if($count % 5 == 1){
+		echo "<tr valign = top>";
+	}
+	//What to echo in each cell
+	echo "<td width = \"20%\" align = center><a href=attractionPhoto.php?id=" . $photoID . ">"  . "<img src = \"" . $photo . "\" alt = \"flag\" width = \"200\" />   ";
+	echo "<br/><a href=attractionPhoto.php?id=" . $photoID . ">" . $subject . "</a><br/><br/></td>";
+	if ($count % 5 == 0){
+		echo "</tr>";
+	}
+		
+
+}
+echo "</table></center>";
+
 	//otherwise, direct them to log in
 	} else {
 ?>
@@ -192,7 +246,6 @@
 	}
 ?>
 
-	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	</div>
 
 <?php
