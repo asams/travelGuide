@@ -2,8 +2,8 @@
 
 //if sourceDB.php file exists, then include sourceDB.php
 //this is for our auto-install process
-if(is_file("sourceDB.php")) {
-	include("sourceDB.php");
+if(is_file("sourceTravelGuideDB.php")) {
+	include("sourceTravelGuideDB.php");
 	exit;
 }
 	include('header_side.php');

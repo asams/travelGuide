@@ -100,7 +100,7 @@
 	echo "<tr><td><b>Website: </b></td><td>" . ($website != 'N/A' ? "<a href = \" $website \"> $website </a>" : $website) . "</td></tr>";
 	
 	echo "<tr><td><b>Anthem: </b></td><td><embed src=" . $anthem .  " width=300 height=60 autostart=true></embed></td></tr>";
-	echo "<tr><td><b><small></b></small></td><td><small><b>Please Note:</b> The mp3 player only works in Chrome and Internet Explorer. Sorry Firefox users!</td></tr>";
+	echo "<tr><td><b><small></b></small></td><td><small><b>Please Note:</b> The mp3 player only works in Chrome, the new Firefox, and Internet Explorer. Sorry old Firefox users!</td></tr>";
 	echo "</table>";
 	echo "</td><td><img src = \"" . $map . "\" alt = \"map\" width = \"100%\" align = \"right\"/></td></tr></table>";
 	
