@@ -282,6 +282,7 @@
 
 	echo "<form action=myComments.php method=\"POST\" >";
 	echo "<input type=\"hidden\" name=\"usersProfile\" value=" . $usersProfile . ">";
+	echo "<input type=\"hidden\" name=\"sortBy\" value=\"placeType\" />";
 	echo "<center><input type=\"submit\" value=\"See my comments!\" class=\"formbutton\"/>";
 	echo "</center></form>";
 

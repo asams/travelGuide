@@ -43,7 +43,11 @@
       $userHomeCity = "N/A";
    }
        
-	//edit user info in db
+
+	$query = "START TRANSACTION";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database");
+
+	   //edit user info in db
    $query = "UPDATE users SET first_name = '$userFirstName', last_name = '$userLastName', email = '$userEmail', origin = '$userOrigin', homeCity = '$userHomeCity' WHERE user_id = '$user_id'";
    echo $query;    
 
@@ -63,6 +67,8 @@
       }
    } 
   
+	$query = "COMMIT";
+	$result = mysqli_query($db, $query) or die ("Error Querying Database");
   		$_SESSION['user_id'] = $id;
 
  

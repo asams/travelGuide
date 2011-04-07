@@ -1,8 +1,15 @@
 <?php
+	session_start();
+	$user_id = $_SESSION['user_id'];
+	if(!isset($user_id)){
+		header('Location: needAnAccount.php');
+	}
+
    include('header_side.php');
    include('db_connect.php');
    
    $usersProfile = $_POST['usersProfile'];
+   $sortBy = $_POST['sortBy'];
 ?>
 
 
@@ -41,6 +48,47 @@
 	echo "<img src=" . $photo .  " align=center width=20% ></center><br/><br/>";
 	
 
+	
+if($sortBy == "commentDate"){
+	//get comments by user on all place types
+	$query = "SELECT cc.*, co.country_name place_name FROM countries co NATURAL JOIN country_comments cc WHERE cc.user_id = $usersProfile ";
+	$query = $query . "UNION SELECT cic.*, ci.city_name place_name FROM cities ci NATURAL JOIN city_comments cic WHERE cic.user_id = $usersProfile ";
+	$query = $query . "UNION SELECT ac.*, a.attraction_name place_name FROM attractions a NATURAL JOIN attraction_comments ac WHERE ac.user_id = $usersProfile ORDER BY comment_date_submitted DESC";
+	
+	//echo $query;
+	
+	$result = mysqli_query($db, $query) or die ("Error Querying Database - union");
+
+	$comments_table = "<table rules = rows width = \"100%\">";
+	$comments_table = $comments_table . "<tr><td>   </td></tr><tr><th>Comments submitted</th></tr>";
+	$count = 0;
+	while($row = mysqli_fetch_array($result)){
+		$count++;
+		$placeName = $row['place_name'];
+		$comment_subject = $row['comment_subject'];
+		$comment_body = $row['comment_body'];
+		$comment_date = $row['comment_date_submitted'];
+		
+		$comments_table = $comments_table . "<tr><td><br/>Place: " . $placeName . "<br/><br/>Subject: " . $comment_subject . "<br/><br/>Comment: " . $comment_body . "<br/><br/>Date: " . $comment_date . "<br/><br/></td></tr>";
+	}
+	
+	if($count == 0){
+		$comments_table = $comments_table . "<tr><td><br/>No comments submitted<br/><br/></td></tr>";
+	}
+	
+	
+	echo "<form action=myComments.php method=\"POST\" >";
+	echo "<input type=\"hidden\" name=\"usersProfile\" value=" . $usersProfile . ">";
+	echo "<input type=\"hidden\" name=\"sortBy\" value=\"placeType\" />";
+	echo "<center><input type=\"submit\" value=\"Sort Comments by Place Type\" class=\"formbutton\"/>";
+	echo "</center></form><br/><br/>";
+	
+	echo $comments_table;
+	
+	
+}
+else{
+	
 	//get comments by user on countries
 	$query = "SELECT cc.*, co.country_name, u.user_id, u.first_name, u.last_name FROM countries co NATURAL JOIN country_comments cc NATURAL JOIN users u WHERE cc.user_id = $usersProfile ORDER BY cc.comment_date_submitted DESC";
 		
@@ -125,7 +173,16 @@
 	$comments_table = $comments_table . "</table>";
 	
 	
+	
+	echo "<form action=myComments.php method=\"POST\" >";
+	echo "<input type=\"hidden\" name=\"usersProfile\" value=" . $usersProfile . ">";
+	echo "<input type=\"hidden\" name=\"sortBy\" value=\"commentDate\" />";
+	echo "<center><input type=\"submit\" value=\"Sort Comments by Date\" class=\"formbutton\"/>";
+	echo "</center></form><br/><br/>";
+	
 	echo $comments_table;
+	
+}
 ?>
 
 </table>

@@ -206,23 +206,23 @@ while($row = mysqli_fetch_array($result)) {
 }
 echo "</table></center>";		
 
-		$count = 0;
-		echo "<center><table width = \"90%\" cellpadding = 15>";
+//		$count = 0;
+		//echo "<center><table width = \"90%\" cellpadding = 15>";
 	
-		while($row = mysqli_fetch_array($result)) {
+//		while($row = mysqli_fetch_array($result)) {
 
 						
-			if($count % 5 == 1){
-				echo "<tr valign = top>";
-			}
+//			if($count % 5 == 1){
+				//echo "<tr valign = top>";
+			//}
 			//What to echo in each cell
-			echo "<td width = \"20%\" align = center><a href=country.php?id=" . $countryID . "><img src = \"" . $countryFlag . "\" alt = \"flag\" width = \"100%\" /></a>   ";
-			echo "<br/><a href=country.php?id=" . $countryID . ">" . $countryName . "</a><br/><br/></td>";
-			if ($count % 5 == 0){
-				echo "</tr>";
-			}
+			//echo "<td width = \"20%\" align = center><a href=country.php?id=" . $countryID . "><img src = \"" . $countryFlag . "\" alt = \"flag\" width = \"100%\" /></a>   ";
+			//echo "<br/><a href=country.php?id=" . $countryID . ">" . $countryName . "</a><br/><br/></td>";
+			//if ($count % 5 == 0){
+//				echo "</tr>";
+			//}
 
-		}
+//		}
 
 //otherwise, direct them to log in
 } else {

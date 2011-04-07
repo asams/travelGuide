@@ -38,27 +38,28 @@
 ?>
 <table width=55% >
 <?php
+	//edit account form:
+?>
+<h2><center>Edit Account Information</center></h2>
+
+
+<?php
 	//display errors or confirmation messages for when the user edits their info
    $error=$_GET['error'];
    if($error == "none"){
-		echo 'Account information has been updated!';
+		echo '<center><b><h3><medium><font color="#FF0000">Account information has been updated!</font></medium></h3></b>';
 
    } else if ($error=="empty") {
 ?>
-<left><b><h3><medium><font color="#FF0000">All required fields <u>MUST</u> be completed!</font></medium></h3></b></left>
+<center><b><h3><medium><font color="#FF0000">All required fields <u>MUST</u> be completed!</font></medium></h3></b></center>
 <?php
    } else if ($error=="email") {
 ?>
-       <left><b><h3><medium><font color="#FF0000">You must enter an accurate email address!</font></medium></h3></b></left>
+<center><b><h3><medium><font color="#FF0000">You <u>MUST</u> enter an accurate email address!</font></medium></h3></b></center>
 <?php
    }
 ?>
 
-
-<?php
-	//edit account form:
-?>
-<h2><center>Edit Account Information</center></h2>
 <br/>
 
 <?php
@@ -142,7 +143,7 @@
 <tr><td><small>*These fields are <b><u>required</b></u>!</small></td></tr>
 <tr><td><br></td></tr>
 <tr><td><input type="submit" value="Submit" class="formbutton"></td></tr>
-
+</form>
 
 
 </table>
