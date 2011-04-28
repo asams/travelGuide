@@ -4,6 +4,6 @@ To automatically, just visit: http://localhost/travelGuide/index.php
 and enter your mysql root username and password.
 
 If this does not work correctly, then source traveldb.sql in your mysql
-shell, and delete sourceDB.php.
+shell, and delete sourceTravelGuideDB.php.
 
 We hope you enjoy our TravelGuide!

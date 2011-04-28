@@ -16,10 +16,12 @@ $userID = $_COOKIE['user_id'];
 
 //if (($userID != "") AND ($subject != "") AND ($photo != "")){
 
+if((!empty($userID)) AND (!empty($_FILES['photo']['name']))){
 $query = "UPDATE profilePictures SET photo = '$target_path' WHERE user_id = '$userID'";
 
 $result = mysqli_query($db, $query) or die ("Error Querying Database");
 mysqli_close($db);
+}
 //}
 ?>
 
